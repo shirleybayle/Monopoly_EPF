@@ -10,7 +10,7 @@ package monopoly_epf;
 public class Des {
     int valeur;
     
-    int lirevaleur() {
+    public int lirevaleur() {
         return(valeur);
     }
 }

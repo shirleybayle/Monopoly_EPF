@@ -11,11 +11,11 @@ public class Pion {
     String modele;
     Case caseassociee;
     
-    void avancer(int nbcases) {
+    public void avancer(int nbcases) {
         
     }
     
-    void teleportation(Carte cartetiree) {
+    public void téléportation(Carte cartetirée) {
         
     }
 }

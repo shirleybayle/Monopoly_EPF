@@ -10,7 +10,7 @@ package monopoly_epf;
 public class Plateau {
     Case [] tab = new Case [40];
     
-    Case PrésencePion(Pion) {
+    public Case PrésencePion(Pion) {
         
     }
 }
