@@ -8,14 +8,14 @@ package monopoly_epf;
  * @author titou
  */
 public class Pion {
-    String modèle;
-    Case case associée;
+    String modele;
+    Case caseassociee;
     
     void avancer(int nbcases) {
         
     }
     
-    void téléportation(Carte cartetirée) {
+    void teleportation(Carte cartetiree) {
         
     }
 }
