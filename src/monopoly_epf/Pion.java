@@ -10,6 +10,8 @@ package monopoly_epf;
 public class Pion {
     String modele;
     Case caseassociee;
+    int coordX;
+    int coordY;
     
     public void avancer(int nbcases) {
         
