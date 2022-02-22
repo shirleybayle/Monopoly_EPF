@@ -15,7 +15,7 @@ public class Joueur {
     ArrayList sallesPossedees = new ArrayList();
     Carte [] tabCartes = new Carte [2];
     String nom;
-    
+    boolean prison;
 
     
     public boolean construire(Case casemaison, int nbmaisons) {
@@ -29,11 +29,24 @@ public class Joueur {
         }
     }
     
-    public boolean jouerlacarte(Carte cartejoueur) {
-        
+    public boolean jouerlacarte() {
+        for (int i=1; i>0; i--) {
+            if(tabCartes[i] != null) {
+                tabCartes[i] = null;
+                prison = false;
+                return true;
+            }
+        }
+        return false;
     }
     
     public void recuperercarte(Carte cartearecuperer) {
-        
+        if (cartearecuperer.texte == ""){ //carte sortir de prison
+            for (int i=0; i<2; i++) {
+                if (tabCartes[i] == null){
+                    tabCartes[i] = cartearecuperer;
+                }
+            }
+        }
     }
 }
