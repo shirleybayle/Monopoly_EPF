@@ -22,7 +22,16 @@ public class Partie {
     }
     
     public void changerJoueur() { //penser à réinitialiser le compteur double
-        
+        if(joueurCourant==tabJoueurs[3]) {
+            joueurCourant=tabJoueurs[0];
+        }
+        else{
+            for(int i=0; i<3; i++){
+                if(joueurCourant==tabJoueurs[i]) {
+                    joueurCourant=tabJoueurs[i+1];
+                }
+            }
+        }
     }
     
     public int lancerDes() { //lire double et initialiser compteur
