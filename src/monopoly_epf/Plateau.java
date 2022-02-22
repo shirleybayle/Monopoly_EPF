@@ -8,9 +8,9 @@ package monopoly_epf;
  * @author titou
  */
 public class Plateau {
-    Case [] tab = new Case [40];
+    Case [] plateaudejeu = new Case [40];
     
-    public Case PrésencePion(Pion) {
-        
+    public Case PresencePion(Pion piondelacellule) {
+        return(piondelacellule.caseassociee);
     }
 }
