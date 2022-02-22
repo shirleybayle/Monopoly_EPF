@@ -18,7 +18,7 @@ public class Partie {
     Des de2;
     int compteurDouble;
     
-    public void tourJoueur() {
+    public void tourJoueur() { //check credit à la fin du tour (positif ou pas)
         
     }
     
@@ -63,12 +63,24 @@ public class Partie {
         
     }
     
-    public void eliminationJoueur() {
+    public void eliminationJoueur() { //réinitialiser toutes ses cases
         
     }
     
     public void finDePartie() {
         
+    }
+    
+    public boolean acheter(Case caseassociee){
+        if (caseassociee.proprietaire == null) {
+            caseassociee.proprietaire = joueurCourant;
+            joueurCourant.credits = joueurCourant.credits-caseassociee.prixTerrain;
+            joueurCourant.sallesPossedees.add(caseassociee);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
 }
