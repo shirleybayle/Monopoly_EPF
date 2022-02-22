@@ -3,6 +3,8 @@
  */
 package monopoly_epf;
 
+import java.util.Random;
+
 /**
  *
  * @author shirl
@@ -18,7 +20,12 @@ public class Partie {
     int compteurDouble;
     
     public void tourJoueur() { //check credit à la fin du tour (positif ou pas)
+        lancerDes();
         
+        
+        if(joueurCourant.credits<0) {
+            eliminationJoueur();
+        }
     }
     
     public void changerJoueur() { //penser à réinitialiser le compteur double
@@ -35,7 +42,13 @@ public class Partie {
     }
     
     public int lancerDes() { //lire double et initialiser compteur
-        
+        Random lancerdes = new Random();
+        de1.valeur = lancerdes.nextInt();
+        de2.valeur = lancerdes.nextInt();
+        if(lireDouble()==true) {
+            compteurDouble++;
+        }
+        return(de1.valeur+de2.valeur);
     }
     
     public boolean lireDouble() {
@@ -48,7 +61,11 @@ public class Partie {
     }
     
     public void deplacerPion(Pion pionAssocie, int nbcases, Case caseInitiale) {
-        
+        for(int i=0; i<plateau.plateaudejeu.length; i++) {
+            if(caseInitiale==plateau.plateaudejeu[i]) {
+                pionAssocie.caseassociee=plateau.plateaudejeu[i+nbcases];
+            }
+        }
     }
     
     public boolean faireAction(){
@@ -72,7 +89,8 @@ public class Partie {
     }
     
     public void eliminationJoueur() { //réinitialiser toutes ses cases
-        
+        joueurCourant.sallesPossedees=null;
+        joueurCourant.tabCartes=null;
     }
     
     public void finDePartie() {
