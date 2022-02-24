@@ -10,11 +10,11 @@ import java.util.Random;
  * @author titou
  */
 public class Paquet {
-    Carte [] paquet = new Carte [20];
-    Boolean [] tabstatuts = new Boolean [20];
+    Carte [] paquet = new Carte [16];
+    Boolean [] tabstatuts = new Boolean [16];
     
     public void melanger() {
-        Carte [] tabtemp = new Carte [20]; //création d'un paquet temporaire identique au paquet à mélanger
+        Carte [] tabtemp = new Carte [16]; //création d'un paquet temporaire identique au paquet à mélanger
         for(int i=0; i<tabtemp.length; i++) {
             tabtemp[i]=paquet[i];
         }

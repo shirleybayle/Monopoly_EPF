@@ -18,13 +18,21 @@ public class Partie {
     Des de1;
     Des de2;
     int compteurDouble;
+    int argentParcGratuit;
     
-    public void tourJoueur() { //check credit à la fin du tour (positif ou pas)
+    public void tourJoueur() { 
         lancerDes();
+        if (paquetChance.paquetVide() == true) { //au début du tour on vérifie qu'il reste des carte dans les paquets et si non on les réinitialise
+            paquetChance.melanger();
+            paquetChance.MAJtab();
+        }
+        if (paquetCommunaute.paquetVide() == true) {
+            paquetCommunaute.melanger();
+            paquetCommunaute.MAJtab();
+        }
         
-        
-        if(joueurCourant.credits<0) {
-            eliminationJoueur();
+        if(joueurCourant.credits<0) { // à la fin du tour on regarde si le joueur a toujours des credits, si non il est éliminé
+            eliminationJoueur(); 
         }
     }
     
@@ -105,8 +113,29 @@ public class Partie {
         }
     }
     
-    public boolean faireAction(){
-        
+    public boolean faireActionCase(){ // A COMPLETER
+        Case caseDuJoueur = joueurCourant.pion.caseassociee;
+        if (caseDuJoueur == plateau.plateaudejeu[2] || caseDuJoueur == plateau.plateaudejeu[17] || caseDuJoueur == plateau.plateaudejeu[33]) { //s'il est sur une case caisse de communauté
+            Carte carteTiree = tirerCarte(paquetCommunaute);
+            faireActionCarte(carteTiree);
+            return true;
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[7] || caseDuJoueur == plateau.plateaudejeu[22] || caseDuJoueur == plateau.plateaudejeu[36]) { //s'il est sur une case chance
+            Carte carteTiree = tirerCarte(paquetChance);
+            faireActionCarte(carteTiree);
+            return true;
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[4]) { //s'il est sur la premiere taxe
+            joueurCourant.credits = joueurCourant.credits-200;
+            argentParcGratuit = argentParcGratuit + 200;
+            return true;
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[38]) {
+            joueurCourant.credits = joueurCourant.credits-100;
+            argentParcGratuit = argentParcGratuit + 100;
+            return true;
+        }
+        return false;
     }
     
     public boolean acheter(){
@@ -117,8 +146,14 @@ public class Partie {
         
     }
     
-    public Carte tirerCarte() {
-        
+    public Carte tirerCarte(Paquet paquet) {
+        for (int i=0; i<16; i++) {
+            if(paquet.tabstatuts[i] == true) {
+                paquet.tabstatuts[i] = false;
+                return paquet.paquet[i];
+            }
+        }
+        return null;
     }
     
     public void faireActionCarte(Carte carteTiree) {
