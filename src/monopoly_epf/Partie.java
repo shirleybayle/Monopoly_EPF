@@ -36,18 +36,6 @@ public class Partie {
         }
     }
     
-   /* public void changerJoueur() { //penser à réinitialiser le compteur double
-        if(joueurCourant==tabJoueurs[3]) {
-            joueurCourant=tabJoueurs[0];
-        }
-        else{
-            for(int i=0; i<3; i++){
-                if(joueurCourant==tabJoueurs[i]) {
-                    
-                }
-            }
-        }
-    }*/
     
     public void changerJoueur() { // j'ai gardé ta fonction en commentaire et j'en ai écrite une autre parce que j'ai modifié elimination joueur en supprimant les joueurs du tableau
         int temp = 0;
@@ -77,8 +65,8 @@ public class Partie {
     
     public int lancerDes() { //lire double et initialiser compteur
         Random lancerdes = new Random();
-        de1.valeur = lancerdes.nextInt(); //ça va a 6 ça ?
-        de2.valeur = lancerdes.nextInt();
+        de1.valeur = lancerdes.nextInt(6); 
+        de2.valeur = lancerdes.nextInt(6);
         if(lireDouble()==true) {
             compteurDouble++;
         }
