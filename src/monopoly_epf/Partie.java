@@ -31,6 +31,10 @@ public class Partie {
             paquetCommunaute.MAJtab();
         }
         
+        if (joueurCourant.prison == true) {
+            //LE JOUEUR EST EN PRISON --> double ?
+        }
+        
         if(joueurCourant.credits<0) { // à la fin du tour on regarde si le joueur a toujours des credits, si non il est éliminé
             eliminationJoueur(); 
         }
