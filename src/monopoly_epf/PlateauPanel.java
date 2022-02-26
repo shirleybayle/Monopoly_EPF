@@ -21,18 +21,10 @@ import javax.swing.JPanel;
  */
 public class PlateauPanel extends JPanel { //trouver l'info des pions associés et associer des pions aux coordonnees
     Plateau plateauAssocie;
-    //private Image plateau;
-    private BufferedImage plateau;
     
     @Override 
     public void paintComponent(Graphics g) {
-        /*super.paintComponent(g);
-        //plateau = Toolkit.getDefaultToolkit().getImage("/image/plateaujeu.png");
         //super.paintComponent(g);
-        this.setPreferredSize(new Dimension(plateau.getWidth(this), plateau.getHeight(this)));
-        System.out.println(plateau);
-        g.drawImage(plateau, 0,0,null);
-        //g.fillOval(0,0,700,700);*/
         try{
              
             Image img = ImageIO.read(new File("plateaujeu.png"));
@@ -40,7 +32,10 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
         } catch(IOException e){
             e.printStackTrace();
         }
+        
+        //g.fillOval(0,0,700,700); dessine un oval sur le plateau
              }
+    
     }
     
 
