@@ -23,7 +23,7 @@ public class Case {
         return prixTerrain;
     }
     
-    public int lireLoyer() {
+    public int lireLoyer() { // GERER LES COMPAGNIES !!!!!!!
         return loyer;
     }
     

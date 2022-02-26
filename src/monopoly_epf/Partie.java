@@ -101,7 +101,7 @@ public class Partie {
         }
     }
     
-    public boolean faireActionCase(){ // A COMPLETER
+    public boolean faireActionCase(){ // A COMPLETER - il manque les gares
         Case caseDuJoueur = joueurCourant.pion.caseassociee;
         if (caseDuJoueur == plateau.plateaudejeu[2] || caseDuJoueur == plateau.plateaudejeu[17] || caseDuJoueur == plateau.plateaudejeu[33]) { //s'il est sur une case caisse de communauté
             Carte carteTiree = tirerCarte(paquetCommunaute);
@@ -118,9 +118,47 @@ public class Partie {
             argentParcGratuit = argentParcGratuit + 200;
             return true;
         }
-        else if (caseDuJoueur == plateau.plateaudejeu[38]) {
+        else if (caseDuJoueur == plateau.plateaudejeu[38]) { //deuxième taxe
             joueurCourant.credits = joueurCourant.credits-100;
             argentParcGratuit = argentParcGratuit + 100;
+            return true;
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[20]) { //parc gratuit
+            joueurCourant.credits= joueurCourant.credits + argentParcGratuit;
+            argentParcGratuit = 0;
+            return true;
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[30]) { //prison
+            joueurCourant.prison = true;
+            return true;
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[12] && caseDuJoueur.proprietaire != null) { //premiere compagnie déjà achetée
+            if (caseDuJoueur.proprietaire == plateau.plateaudejeu[28].proprietaire) {
+                joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
+                caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
+                return true;
+            }
+            else {
+                joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
+                caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
+                return true;
+            }
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[28] && caseDuJoueur.proprietaire != null) { //deuxième compagnie déjà achetée
+            if (caseDuJoueur.proprietaire == plateau.plateaudejeu[12].proprietaire) {
+                joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
+                caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
+                return true;
+            }
+            else {
+                joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
+                caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
+                return true;
+            }
+        }
+        else if (caseDuJoueur.proprietaire != null) { //autre cases déjà achetées
+            joueurCourant.credits = joueurCourant.credits - caseDuJoueur.loyer;
+            caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + caseDuJoueur.loyer;
             return true;
         }
         return false;
