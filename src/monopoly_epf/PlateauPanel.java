@@ -7,8 +7,12 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -17,15 +21,26 @@ import javax.swing.JPanel;
  */
 public class PlateauPanel extends JPanel { //trouver l'info des pions associés et associer des pions aux coordonnees
     Plateau plateauAssocie;
-    private Image plateau;
+    //private Image plateau;
+    private BufferedImage plateau;
     
     @Override 
     public void paintComponent(Graphics g) {
-        plateau = Toolkit.getDefaultToolkit().getImage("/image/plateaujeu.png");
+        /*super.paintComponent(g);
+        //plateau = Toolkit.getDefaultToolkit().getImage("/image/plateaujeu.png");
+        //super.paintComponent(g);
         this.setPreferredSize(new Dimension(plateau.getWidth(this), plateau.getHeight(this)));
         System.out.println(plateau);
         g.drawImage(plateau, 0,0,null);
-        //g.fillOval(0,0,1000,1000);
+        //g.fillOval(0,0,700,700);*/
+        try{
+             
+            Image img = ImageIO.read(new File("plateaujeu.png"));
+            g.drawImage(img, 0, 0, this);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+             }
     }
     
-}
+

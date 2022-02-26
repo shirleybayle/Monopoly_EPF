@@ -37,9 +37,9 @@ public class Monopoly_EPF extends JFrame {
         this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
         plateauJeu = new PlateauPanel();
-        add(plateauJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20,50,-1,-1));
+        add(plateauJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
         plateauJeu.setSize(1500,1498);
-        plateauJeu.setBackground(Color.red);
+        //plateauJeu.setBackground(Color.red);
         plateauJeu.setPreferredSize(new Dimension(1500,1498));
         setVisible(true);
     }

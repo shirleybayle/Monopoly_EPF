@@ -33,8 +33,8 @@ public class Partie {
         
         if (joueurCourant.prison == true) {
             //LE JOUEUR EST EN PRISON --> double ?
+            boolean testDouble = lireDouble();
         }
-        
         if(joueurCourant.credits<0) { // à la fin du tour on regarde si le joueur a toujours des credits, si non il est éliminé
             eliminationJoueur(); 
         }
