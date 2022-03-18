@@ -21,7 +21,7 @@ public class Partie {
     int argentParcGratuit;
     
     public void tourJoueur() { 
-        lancerDes();
+        lancerDes();  //prévoir le fait qu'on puisse acheter des maisons au début du tour
         if (paquetChance.paquetVide() == true) { //au début du tour on vérifie qu'il reste des carte dans les paquets et si non on les réinitialise
             paquetChance.melanger();
             paquetChance.MAJtab();
@@ -35,10 +35,46 @@ public class Partie {
             //LE JOUEUR EST EN PRISON --> double ?
             boolean testDouble = lireDouble();
             if (testDouble == true) {
+                joueurCourant.prison = false;
                 lancerDes();
-                // LE FAIRE AVANCER
+                for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                    if(joueurCourant.pion.caseassociee == plateau.plateaudejeu[i]) {
+                        if(i+(de1.valeur+de2.valeur)>39) {
+                            int caseoualler = ((i+(de1.valeur+de2.valeur))-39)-1; //i c'est la position actuelle à laqelle on ajoute la somme des dés et si c'est > à 39 on lui enlève 39 pour revenir au début du plateau et -1 pour le 0 (ex: on est à 38 on fait 7, 38+7=45, 45-39=6, -1 pour être à la case[5] qui est la 6ème du plateau
+                            joueurCourant.pion.caseassociee = plateau.plateaudejeu[caseoualler];
+                            faireActionCase();
+                        }
+                        else {
+                            joueurCourant.pion.caseassociee = plateau.plateaudejeu[i+(de1.valeur+de2.valeur)];
+                            faireActionCase();
+                        }
+                    }
+                }
+                
             }
-            //SINON ...
+            else {
+                joueurCourant.compteurTourPrison++;
+                if(joueurCourant.compteurTourPrison == 3) {
+                    joueurCourant.credits = joueurCourant.credits-50;
+                    joueurCourant.prison = false;
+                    joueurCourant.compteurTourPrison = 0;
+                }
+            }
+        }
+        else {
+            for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                    if(joueurCourant.pion.caseassociee == plateau.plateaudejeu[i]) {
+                        if(i+(de1.valeur+de2.valeur)>39) {
+                            int caseoualler = ((i+(de1.valeur+de2.valeur))-39)-1; //i c'est la position actuelle à laqelle on ajoute la somme des dés et si c'est > à 39 on lui enlève 39 pour revenir au début du plateau et -1 pour le 0 (ex: on est à 38 on fait 7, 38+7=45, 45-39=6, -1 pour être à la case[5] qui est la 6ème du plateau
+                            joueurCourant.pion.caseassociee = plateau.plateaudejeu[caseoualler];
+                            faireActionCase();
+                        }
+                        else {
+                            joueurCourant.pion.caseassociee = plateau.plateaudejeu[i+(de1.valeur+de2.valeur)];
+                            faireActionCase();
+                        }
+                    }
+            }
         }
         if(joueurCourant.credits<0) { // à la fin du tour on regarde si le joueur a toujours des credits, si non il est éliminé
             eliminationJoueur(); 
@@ -172,14 +208,13 @@ public class Partie {
         }
         return false;
     }
+   
     
-    public boolean acheter(){
-        
+    public void payerloyer(Case caseassociee) {
+        joueurCourant.credits = joueurCourant.credits-caseassociee.loyer;
+        caseassociee.proprietaire.credits = caseassociee.proprietaire.credits+caseassociee.loyer;
     }
     
-    public boolean payer() {
-        
-    }
     
     public Carte tirerCarte(Paquet paquet) {
         for (int i=0; i<16; i++) {
