@@ -227,7 +227,52 @@ public class Partie {
     }
     
     public void faireActionCarte(Carte carteTiree) {
-         //a revoir
+        boolean com = carteTiree.communaute;
+        int id = carteTiree.idCarte;
+        if (com == true){
+            if (id==0) {
+                joueurCourant.credits = joueurCourant.credits-20;
+                argentParcGratuit = argentParcGratuit + 20;
+            }
+            else if (id==1) {
+                joueurCourant.credits = joueurCourant.credits-50;
+                argentParcGratuit = argentParcGratuit + 50;
+            }
+            else if (id==2) {
+                joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
+                joueurCourant.prison = true;
+            }
+            else if (id==3) joueurCourant.recuperercarte(carteTiree);
+            else if (id==4) {
+                //perdez 10 credits ou tirez une carte chance
+            }
+            else if (id==5) joueurCourant.credits = joueurCourant.credits+25;
+            else if (id==6) joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
+            else if (id==7) { // a verifier
+                int nbJoueursRestants=0;
+                for (int i=0; i<4; i++){ //calcul du nombre de joueurs restants
+                    if (tabJoueurs[i] != null) nbJoueursRestants = nbJoueursRestants+1;
+                }
+                joueurCourant.credits = joueurCourant.credits-15*nbJoueursRestants; //cagnotte du joueur courant qui s'actualise
+                for (int i=0; i<4; i++){
+                    if (tabJoueurs[i] != null && tabJoueurs[i] != joueurCourant) {
+                        tabJoueurs[i].credits = tabJoueurs[i].credits+15; //credits des autres joueurs qui d'actualisent
+                    }
+                }
+            }
+            else if (id==8) joueurCourant.pion.avancer(8);
+            else if (id==9) {
+                //vous dormez en amphi, loupez un tour 
+            }
+            else if (id==10) joueurCourant.credits = joueurCourant.credits + 150;
+            else if (id==11) joueurCourant.credits = joueurCourant.credits + 100;
+            else if (id==12) joueurCourant.pion.téléportation(carteTiree);  //indice 32 du plateau
+            else if (id==13) { 
+                //avancez jusqu'à la case 35 --> le bureau des ours
+            }
+            else if (id==14) joueurCourant.credits = joueurCourant.credits + 100;
+            else if (id==15) joueurCourant.credits = joueurCourant.credits + 10;
+        }
     }
     
     public void eliminationJoueur() { //réinitialiser toutes ses cases

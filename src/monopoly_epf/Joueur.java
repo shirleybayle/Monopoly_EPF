@@ -17,10 +17,17 @@ public class Joueur {
     String nom;
     boolean prison;
     int compteurTourPrison;
+    int nbMaisonJoueur=0;
+    int nbHotelJoueur=0;
 
     
     public boolean construire(Case casemaison, int nbmaisons) {
-        if (casemaison.maison+nbmaisons<5) {
+        if (casemaison.maison+nbmaisons<=5) {
+            if(casemaison.maison+nbmaisons == 5) {
+                nbHotelJoueur = nbHotelJoueur + 1;
+                nbMaisonJoueur = nbMaisonJoueur +nbmaisons-1;
+            }
+            else nbMaisonJoueur = nbMaisonJoueur+nbmaisons;
             casemaison.maison = casemaison.maison+nbmaisons;
             credits = credits-casemaison.prixMaison*nbmaisons;
             return true; 
