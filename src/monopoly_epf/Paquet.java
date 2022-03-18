@@ -12,6 +12,21 @@ import java.util.Random;
 public class Paquet {
     Carte [] paquet = new Carte [16];
     Boolean [] tabstatuts = new Boolean [16];
+    boolean communaute;
+    boolean chance;
+    
+    public Paquet(boolean com) {
+        if (com == true) {
+            for (int i=0; i<16; i++) {
+                paquet[i] = new Carte(i, true);
+            }            
+        }
+        else {
+            for (int i=0; i<16; i++) {
+                paquet[i] = new Carte(i,false);
+            }
+        }
+    }
     
     public void melanger() {
         Carte [] tabtemp = new Carte [16]; //création d'un paquet temporaire identique au paquet à mélanger
