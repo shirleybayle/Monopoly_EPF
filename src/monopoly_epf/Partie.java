@@ -33,7 +33,7 @@ public class Partie {
         
         if (joueurCourant.prison == true) {
             //LE JOUEUR EST EN PRISON --> double ?
-            boolean testDouble = lireDouble();
+            boolean testDouble = lireDouble(); //gérer la carte sortie de prison
             if (testDouble == true) {
                 joueurCourant.prison = false;
                 lancerDes();
