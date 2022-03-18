@@ -227,7 +227,7 @@ public class Partie {
     }
     
     public void faireActionCarte(Carte carteTiree) {
-        
+         //a revoir
     }
     
     public void eliminationJoueur() { //réinitialiser toutes ses cases
