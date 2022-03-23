@@ -243,9 +243,6 @@ public class Partie {
                 joueurCourant.prison = true;
             }
             else if (id==3) joueurCourant.recuperercarte(carteTiree);
-            else if (id==4) {
-                //perdez 10 credits ou tirez une carte chance
-            }
             else if (id==5) joueurCourant.credits = joueurCourant.credits+25;
             else if (id==6) joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
             else if (id==7) { // a verifier
@@ -306,7 +303,17 @@ public class Partie {
                 // la bourse n'est pas doublée
             }
             else if (id==4) {
-             //avancer jusqu'en K03
+                int indicecase = 0;
+                int indicek3 = 31;
+                for (int i=0; i<40; i++) {
+                      if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
+                }
+                if (indicecase-indicek3>=0) {
+                      joueurCourant.pion.avancer(indicecase-indicek3);
+                }
+                else { //indice case est entre 31 et 39
+                  joueurCourant.pion.avancer(32+39-indicecase); //36 = départ jusqu'à k3 ; 39-indicecase = nb cases jusqu'à case départ
+                }
             }
             else if (id==5) joueurCourant.credits = joueurCourant.credits+100;
             else if (id==6) joueurCourant.credits = joueurCourant.credits+50;
@@ -317,7 +324,17 @@ public class Partie {
             }
             else if (id==9) joueurCourant.credits = joueurCourant.credits+25;
             else if (id==10) {
-                // rendez vous en amphi
+                int indicecase = 0;
+                int indicek2 = 15;
+                for (int i=0; i<40; i++) {
+                      if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
+                }
+                if (indicecase-indicek2>=0) {
+                      joueurCourant.pion.avancer(indicecase-indicek2);
+                }
+                else { //indice case est entre 15 et 39
+                  joueurCourant.pion.avancer(15+39-indicecase); //15 = départ jusqu'à k2 ; 39-indicecase = nb cases jusqu'à case départ
+                }
             }
             else if (id==11) joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
             else if (id==12) {
@@ -332,9 +349,6 @@ public class Partie {
             else if (id==14) {
                 joueurCourant.credits = joueurCourant.credits-75;
                 argentParcGratuit = argentParcGratuit+75;
-            }
-            else if (id==15) {
-                //choisir une salle ou on peut mettre une maison
             }
         }
     }
