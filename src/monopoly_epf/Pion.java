@@ -17,7 +17,11 @@ public class Pion {
         
     }
     
-    public void téléportation(Carte cartetirée) {
+    public void reculer(int nbcases) {
+        
+    }
+    
+    public void téléportation(int indicecase) {
         
     }
 }

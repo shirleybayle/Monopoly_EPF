@@ -16,6 +16,7 @@ public class Joueur {
     Carte [] tabCartes = new Carte [2];
     String nom;
     boolean prison;
+    boolean droitdejouer = true;
     int compteurTourPrison;
     int nbMaisonJoueur=0;
     int nbHotelJoueur=0;

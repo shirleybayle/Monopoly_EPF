@@ -262,16 +262,80 @@ public class Partie {
             }
             else if (id==8) joueurCourant.pion.avancer(8);
             else if (id==9) {
-                //vous dormez en amphi, loupez un tour 
+                joueurCourant.droitdejouer = false;
             }
             else if (id==10) joueurCourant.credits = joueurCourant.credits + 150;
             else if (id==11) joueurCourant.credits = joueurCourant.credits + 100;
-            else if (id==12) joueurCourant.pion.téléportation(carteTiree);  //indice 32 du plateau
+            else if (id==12) joueurCourant.pion.téléportation(32);  //indice 32 du plateau
             else if (id==13) { 
-                //avancez jusqu'à la case 35 --> le bureau des ours
+               int indicecase = 0;
+               int indicebdo = 35;
+               for (int i=0; i<40; i++) {
+                   if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
+               }
+               if (indicecase-indicebdo>=0) {
+                   joueurCourant.pion.avancer(indicecase-indicebdo);
+               }
+               else { //indice case est entre 35 et 39
+                   joueurCourant.pion.avancer(36+39-indicecase); //36 = départ jusqu'à bdo ; 39-indicecase = nb cases jusqu'à case départ
+               }
             }
             else if (id==14) joueurCourant.credits = joueurCourant.credits + 100;
             else if (id==15) joueurCourant.credits = joueurCourant.credits + 10;
+        }
+        else {
+            if (id==0) {
+                int nbJoueursRestants=0;
+                for (int i=0; i<4; i++){ //calcul du nombre de joueurs restants
+                    if (tabJoueurs[i] != null) nbJoueursRestants = nbJoueursRestants+1;
+                }
+                joueurCourant.credits = joueurCourant.credits-10*nbJoueursRestants; //cagnotte du joueur courant qui s'actualise
+                for (int i=0; i<4; i++){
+                    if (tabJoueurs[i] != null && tabJoueurs[i] != joueurCourant) {
+                        tabJoueurs[i].credits = tabJoueurs[i].credits+10; //credits des autres joueurs qui d'actualisent
+                    }
+                }
+            }
+            else if (id==1) joueurCourant.pion.reculer(3);
+            else if (id==2) {
+                joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
+                joueurCourant.prison = true;
+            }
+            else if (id==3) {
+                joueurCourant.pion.téléportation(0);
+                // la bourse n'est pas doublée
+            }
+            else if (id==4) {
+             //avancer jusqu'en K03
+            }
+            else if (id==5) joueurCourant.credits = joueurCourant.credits+100;
+            else if (id==6) joueurCourant.credits = joueurCourant.credits+50;
+            else if (id==7) joueurCourant.recuperercarte(carteTiree);
+            else if (id==8) {
+                joueurCourant.credits = joueurCourant.credits-20;
+                argentParcGratuit = argentParcGratuit+20;
+            }
+            else if (id==9) joueurCourant.credits = joueurCourant.credits+25;
+            else if (id==10) {
+                // rendez vous en amphi
+            }
+            else if (id==11) joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
+            else if (id==12) {
+                joueurCourant.credits = joueurCourant.credits-40;
+                argentParcGratuit = argentParcGratuit+40;
+            }
+            else if (id==13) { //téléporter tous les joueurs à la case départ
+                for (int i=0; i<4; i++){ 
+                    if (tabJoueurs[i] != null) tabJoueurs[i].pion.téléportation(0);
+                }
+            }
+            else if (id==14) {
+                joueurCourant.credits = joueurCourant.credits-75;
+                argentParcGratuit = argentParcGratuit+75;
+            }
+            else if (id==15) {
+                //choisir une salle ou on peut mettre une maison
+            }
         }
     }
     
