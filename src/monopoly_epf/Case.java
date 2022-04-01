@@ -17,13 +17,18 @@ public class Case {
     int loyer;
     String action;
     int prixMaison;
+    int idCase;
+    
+    public Case(int id) {
+        
+    }
     
     
     public int lirePrixTerrain(){
         return prixTerrain;
     }
     
-    public int lireLoyer() { // GERER LES COMPAGNIES !!!!!!!
+    public int lireLoyer() {
         return loyer;
     }
     
