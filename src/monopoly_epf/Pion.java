@@ -17,7 +17,7 @@ public class Pion {
         
     }
     
-    public void reculer(int nbcases) {
+    public void reculer(int nbcases) {      //regarder déplacement dans partie
         
     }
     
