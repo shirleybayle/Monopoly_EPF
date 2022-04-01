@@ -211,6 +211,84 @@ public class Partie {
                 joueurCourant.credits = joueurCourant.credits - 200;
             }
         }
+        else if (caseDuJoueur == plateau.plateaudejeu[15] && caseDuJoueur.proprietaire != null) {
+            int nbgares = 0;
+            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) {
+                if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[5] ) {
+                    nbgares++;
+                }
+                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[25] ) {
+                    nbgares++;
+                }
+                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[35] ) {
+                    nbgares++;
+                }
+            }
+            if(nbgares == 0) {
+                joueurCourant.credits = joueurCourant.credits - 25;
+            }
+            else if(nbgares == 1) {
+                joueurCourant.credits = joueurCourant.credits - 50;
+            }
+            else if(nbgares == 2) {
+                joueurCourant.credits = joueurCourant.credits - 100;
+            }
+            else if(nbgares == 3) {
+                joueurCourant.credits = joueurCourant.credits - 200;
+            }
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[25] && caseDuJoueur.proprietaire != null) {
+            int nbgares = 0;
+            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) {
+                if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[5] ) {
+                    nbgares++;
+                }
+                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[15] ) {
+                    nbgares++;
+                }
+                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[35] ) {
+                    nbgares++;
+                }
+            }
+            if(nbgares == 0) {
+                joueurCourant.credits = joueurCourant.credits - 25;
+            }
+            else if(nbgares == 1) {
+                joueurCourant.credits = joueurCourant.credits - 50;
+            }
+            else if(nbgares == 2) {
+                joueurCourant.credits = joueurCourant.credits - 100;
+            }
+            else if(nbgares == 3) {
+                joueurCourant.credits = joueurCourant.credits - 200;
+            }
+        }
+        else if (caseDuJoueur == plateau.plateaudejeu[35] && caseDuJoueur.proprietaire != null) {
+            int nbgares = 0;
+            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) {
+                if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[5] ) {
+                    nbgares++;
+                }
+                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[15] ) {
+                    nbgares++;
+                }
+                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[25] ) {
+                    nbgares++;
+                }
+            }
+            if(nbgares == 0) {
+                joueurCourant.credits = joueurCourant.credits - 25;
+            }
+            else if(nbgares == 1) {
+                joueurCourant.credits = joueurCourant.credits - 50;
+            }
+            else if(nbgares == 2) {
+                joueurCourant.credits = joueurCourant.credits - 100;
+            }
+            else if(nbgares == 3) {
+                joueurCourant.credits = joueurCourant.credits - 200;
+            }
+        }
         
         else if (caseDuJoueur.proprietaire != null) { //autre cases déjà achetées
             payerloyer(caseDuJoueur);
