@@ -236,6 +236,28 @@ public class Partie {
         return null;
     }
     
+    public Carte faireActionCarteSimple(int choix) { // A VERIFIER
+        if (choix == 0) { //choix=0 --> perdre des crédits
+            joueurCourant.credits = joueurCourant.credits - 10;
+            return null;
+        }
+        else { //choix=1 tirer une carte chance
+            Carte laCarte = tirerCarte(paquetChance);
+            return laCarte;
+        }
+    }
+    
+    public boolean faireActionChoix(Case caseChoisie, Carte carteTiree) { // A VERIFIER
+        if (caseChoisie == null) {
+            return false;
+        }
+        else {
+            caseChoisie.maison = caseChoisie.maison+1; //loyer à changer
+            return true;
+        }
+        
+    }
+    
     public void faireActionCarte(Carte carteTiree) {
         boolean com = carteTiree.communaute;
         int id = carteTiree.idCarte;
