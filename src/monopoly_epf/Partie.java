@@ -130,16 +130,26 @@ public class Partie {
         pionAssocie.caseassociee=caseOuAller;
     }
     
-    public boolean faireActionCase(){ // A COMPLETER - il manque les gares
+    public boolean faireActionCase(){ // A VERIFIER 
         Case caseDuJoueur = joueurCourant.pion.caseassociee;
         if (caseDuJoueur == plateau.plateaudejeu[2] || caseDuJoueur == plateau.plateaudejeu[17] || caseDuJoueur == plateau.plateaudejeu[33]) { //s'il est sur une case caisse de communauté
             Carte carteTiree = tirerCarte(paquetCommunaute);
-            faireActionCarte(carteTiree);
+            if (carteTiree.idCarte != 4) {
+                faireActionCarte(carteTiree);
+            }
+            else {
+                //faire action carte choix simple --> récupérer le choix
+            }
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[7] || caseDuJoueur == plateau.plateaudejeu[22] || caseDuJoueur == plateau.plateaudejeu[36]) { //s'il est sur une case chance
             Carte carteTiree = tirerCarte(paquetChance);
-            faireActionCarte(carteTiree);
+            if (carteTiree.idCarte != 15) {
+                faireActionCarte(carteTiree);
+            }
+            else {
+                //faire action carte choix --> récupérer le choix
+            }
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[4]) { //s'il est sur la premiere taxe
@@ -239,7 +249,7 @@ public class Partie {
         }
         else if (caseDuJoueur == plateau.plateaudejeu[25] && caseDuJoueur.proprietaire != null) {
             int nbgares = 0;
-            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) {
+            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) { 
                 if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[5] ) {
                     nbgares++;
                 }
@@ -325,7 +335,7 @@ public class Partie {
         }
     }
     
-    public boolean faireActionChoix(Case caseChoisie, Carte carteTiree) { // A VERIFIER
+    public boolean faireActionChoix(Case caseChoisie) { // A VERIFIER
         if (caseChoisie == null) {
             return false;
         }
