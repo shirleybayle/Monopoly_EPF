@@ -20,26 +20,24 @@ public class Partie {
     int compteurDouble;
     int argentParcGratuit;
     
-    public void tourJoueur() { 
-        //lancerDes();  //prévoir le fait qu'on puisse acheter des maisons au début du tour
+    public void tourJoueur() {
         if (paquetChance.paquetVide() == true) { //au début du tour on vérifie qu'il reste des carte dans les paquets et si non on les réinitialise
-            paquetChance.melanger();
             paquetChance.MAJtab();
         }
         if (paquetCommunaute.paquetVide() == true) {
-            paquetCommunaute.melanger();
             paquetCommunaute.MAJtab();
         }
-        
+        //prévoir le fait qu'on puisse acheter des maisons au début du tour
         if (joueurCourant.prison == true) {
             //LE JOUEUR EST EN PRISON --> double ?
+            lancerDes();
             boolean testDouble = lireDouble(); //gérer la carte sortie de prison
             if (testDouble == true) {
                 joueurCourant.prison = false;
+                joueurCourant.compteurTourPrison=0; //réinitialisation du nombre de tours en prison pour la prochaine fois
                 lancerDes();
                 deplacerPion(joueurCourant.pion, de1.valeur+de2.valeur, joueurCourant.pion.caseassociee);
-                faireActionCase();
-                
+                faireActionCase();  
             }
             else {
                 joueurCourant.compteurTourPrison++;
@@ -51,9 +49,26 @@ public class Partie {
             }
         }
         else {
-            lancerDes();
-            deplacerPion(joueurCourant.pion, de1.valeur+de2.valeur, joueurCourant.pion.caseassociee);
-            faireActionCase();
+            for(int i=0;i<3;i++) {
+                lancerDes();
+                boolean testDouble = lireDouble();
+                if(testDouble == true) {
+                    compteurDouble++;
+                    if(compteurDouble==3) {
+                        joueurCourant.prison = true;
+                        i=3;
+                    }
+                    else {
+                        deplacerPion(joueurCourant.pion, de1.valeur+de2.valeur, joueurCourant.pion.caseassociee);
+                        faireActionCase();
+                    }
+                }
+                else {
+                    deplacerPion(joueurCourant.pion, de1.valeur+de2.valeur, joueurCourant.pion.caseassociee);
+                    faireActionCase();
+                    i=3;
+                }
+            }
         }
         if(joueurCourant.credits<0) { // à la fin du tour on regarde si le joueur a toujours des credits, si non il est éliminé
             eliminationJoueur(); 

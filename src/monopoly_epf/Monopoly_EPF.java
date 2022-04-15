@@ -49,5 +49,8 @@ public class Monopoly_EPF extends JFrame {
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
     }
+
+    
+    //-----------------------------------
     
 }
