@@ -489,6 +489,11 @@ public class Partie {
     }
     
     public void eliminationJoueur() { //réinitialiser toutes ses cases
+        for (int i=0; i<joueurCourant.sallesPossedees.size(); i++) {
+            Case c = joueurCourant.sallesPossedees.get(i);
+            c.maison = 0;
+            c.proprietaire = null;
+        }
         joueurCourant.sallesPossedees=null;
         joueurCourant.tabCartes=null; 
         for (int i=0; i<4; i++) {

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Joueur {
     int credits;
     Pion pion;
-    ArrayList sallesPossedees = new ArrayList();
+    ArrayList<Case> sallesPossedees = new ArrayList<>();
     Carte [] tabCartes = new Carte [2];
     String nom;
     boolean prison;
@@ -35,6 +35,24 @@ public class Joueur {
         }
         else {
             return false;
+        }
+    }
+    
+    public void compterMemesSallesJoueur(String couleur) {
+        int compteur=0;
+        if (couleur != null) {
+            for (int i=0; i<sallesPossedees.size(); i++) {
+                Case c = sallesPossedees.get(i);
+                if (c.couleur == couleur) {
+                    compteur += 1;
+                }
+            }
+            for (int i=0; i<sallesPossedees.size(); i++) {
+                Case c = sallesPossedees.get(i);
+                if (c.couleur == couleur) {
+                    c.nbSallesMemeCouleur = compteur;
+                }
+            }
         }
     }
     
