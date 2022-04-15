@@ -50,4 +50,6 @@ public class Monopoly_EPF extends JFrame {
         JFrame frame = new Monopoly_EPF();
     }
     
+    
+   
 }

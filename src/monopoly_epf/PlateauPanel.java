@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author shirl
  */
-public class PlateauPanel extends JPanel { //trouver l'info des pions associés et associer des pions aux coordonnees
+public class PlateauPanel extends JPanel { //trouver l'info des pions associés et associer des pions aux coordonnees + trouver l'info des maisons
     Plateau plateauAssocie;
     
     @Override 
