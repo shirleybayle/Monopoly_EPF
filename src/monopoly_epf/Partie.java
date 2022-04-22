@@ -103,7 +103,7 @@ public class Partie {
     }
     
     
-    public int lancerDes() { //lire double et initialiser compteur
+    public int lancerDes() { //lire double et initialiser compteur-90
         Random lancerdes = new Random();
         de1.valeur = lancerdes.nextInt(6); 
         de2.valeur = lancerdes.nextInt(6);

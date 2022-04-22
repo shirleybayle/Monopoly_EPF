@@ -28,7 +28,7 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
         try{
              
             Image img = ImageIO.read(new File("plateaujeu.png"));
-            g.drawImage(img, 400, 17, this);
+            g.drawImage(img, 400, 0, this);
         } catch(IOException e){
             e.printStackTrace();
         }
