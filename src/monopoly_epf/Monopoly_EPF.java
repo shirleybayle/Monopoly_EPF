@@ -10,6 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Random;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -64,14 +65,29 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         infos_joueurs1 = new JPanel();
-        Dimension sizej1 = infos_joueurs1.setSize(300,500);
+        //Dimension sizej1 = infos_joueurs1.setSize(300,500);
         
-        add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,50));
+        //add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,50));
+        
+        Regles = new JButton();
+        Regles.setBounds(25, 60, 150, 50);
+        add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 60, 150, 75));
+        Regles.setBackground(Color.BLUE);
+        Regles.setText("Règles");
+        this.repaint();
+        
+        panel_boutons = new JPanel();
+        panel_boutons.setSize(370,150);
+        panel_boutons.setBackground(Color.LIGHT_GRAY);
+        add(panel_boutons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,58,370,150));
+        this.repaint();
     }
     
     PlateauPanel plateauJeu;
     private JLabel titre;
     private JPanel infos_joueurs1;
+    private JButton Regles;
+    private JPanel panel_boutons;
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
