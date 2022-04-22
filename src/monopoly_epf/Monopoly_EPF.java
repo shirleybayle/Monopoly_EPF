@@ -90,28 +90,71 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         panel_boutons = new JPanel();
-        panel_boutons.setSize(370,130);
+        panel_boutons.setSize(370,140);
         panel_boutons.setBackground(Color.LIGHT_GRAY);
-        add(panel_boutons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,58,370,130));
+        add(panel_boutons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,58,370,135));
+        panel_boutons.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         this.repaint();
         
         Regles = new JButton();
-        Regles.setBounds(15, 60, 175, 60);
-        panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 175, 60));
+        Regles.setBounds(5, 5, 175, 60);
+        panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 175, 60));
         Regles.setBackground(Color.BLUE);
         Regles.setText("Règles");
         this.repaint();
         
         Démarrer = new JButton();
-        Démarrer.setBounds(15, 130, 175, 60);
-        panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 125, 175, 60));
+        Démarrer.setBounds(5, 70, 175, 60);
+        panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 70, 175, 60));
         Démarrer.setBackground(Color.BLUE);
         Démarrer.setText("Démarrer la partie");
+        this.repaint();
+        
+        Lancer_des = new JButton();
+        Lancer_des.setBounds(190, 5, 175, 60);
+        panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 5, 175, 60));
+        Lancer_des.setBackground(Color.BLUE);
+        Lancer_des.setText("Lancer les dés");
+        this.repaint();
+        
+        Salles = new JButton();
+        Salles.setBounds(190, 70, 175, 60);
+        panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 175, 60));
+        Salles.setBackground(Color.BLUE);
+        Salles.setText("Salles");
+        this.repaint();
+        
+        Joueur1 = new JLabel("Joueur 1");
+        Dimension text_joueur1 = Joueur1.getPreferredSize();
+        Joueur1.setFont(new Font("Joueur 1", Font.BOLD, 25));
+        infos_joueurs1.add(Joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
+        this.repaint();
+        
+        Joueur2 = new JLabel("Joueur 2");
+        Dimension text_joueur2 = Joueur2.getPreferredSize();
+        Joueur2.setFont(new Font("Joueur 2", Font.BOLD, 25));
+        infos_joueurs2.add(Joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
+        this.repaint();
+        
+        Joueur3 = new JLabel("Joueur 3");
+        Dimension text_joueur3 = Joueur3.getPreferredSize();
+        Joueur3.setFont(new Font("Joueur 3", Font.BOLD, 25));
+        infos_joueurs3.add(Joueur3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
+        this.repaint();
+        
+        Joueur4 = new JLabel("Joueur 4");
+        Dimension text_joueur4 = Joueur4.getPreferredSize();
+        Joueur4.setFont(new Font("Joueur 4", Font.BOLD, 25));
+        infos_joueurs4.add(Joueur4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
         this.repaint();
     }
     
     PlateauPanel plateauJeu;
     private JLabel titre;
+    private JLabel Joueur1;
+    private JLabel Joueur2;
+    private JLabel Joueur3;
+    private JLabel Joueur4;
     private JPanel infos_joueurs1;
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
@@ -119,6 +162,8 @@ public class Monopoly_EPF extends JFrame {
     private JPanel panel_boutons;
     private JButton Regles;
     private JButton Démarrer;
+    private JButton Lancer_des;
+    private JButton Salles;
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
