@@ -60,18 +60,40 @@ public class Monopoly_EPF extends JFrame {
         titre = new JLabel("Monopoly EPF");
         Dimension sizet = titre.getPreferredSize();
         titre.setFont(new Font("Monopoly", Font.BOLD, 50));
-        add(titre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,10));
+        add(titre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
         this.repaint();
         
         infos_joueurs1 = new JPanel();
-        Dimension sizej1 = infos_joueurs1.setSize(300,500);
+        infos_joueurs1.setSize(300,500);
+        infos_joueurs1.setBackground(Color.red);
+        add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,200,370,200));
+        this.repaint();
         
-        add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,50));
+        infos_joueurs2 = new JPanel();
+        infos_joueurs2.setSize(300,500);
+        infos_joueurs2.setBackground(Color.red);
+        add(infos_joueurs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,460,370,200));
+        this.repaint();
+        
+        infos_joueurs3 = new JPanel();
+        infos_joueurs3.setSize(300,500);
+        infos_joueurs3.setBackground(Color.red);
+        add(infos_joueurs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,200,370,200));
+        this.repaint();
+        
+        infos_joueurs4 = new JPanel();
+        infos_joueurs4.setSize(300,500);
+        infos_joueurs4.setBackground(Color.red);
+        add(infos_joueurs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,460,370,200));
+        this.repaint();
     }
     
     PlateauPanel plateauJeu;
     private JLabel titre;
     private JPanel infos_joueurs1;
+    private JPanel infos_joueurs2;
+    private JPanel infos_joueurs3;
+    private JPanel infos_joueurs4;
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
