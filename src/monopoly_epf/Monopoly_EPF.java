@@ -90,16 +90,23 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         panel_boutons = new JPanel();
-        panel_boutons.setSize(370,150);
+        panel_boutons.setSize(370,130);
         panel_boutons.setBackground(Color.LIGHT_GRAY);
-        add(panel_boutons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,58,370,150));
+        add(panel_boutons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,58,370,130));
         this.repaint();
         
         Regles = new JButton();
-        Regles.setBounds(25, 60, 150, 50);
-        add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 60, 150, 75));
+        Regles.setBounds(15, 60, 175, 60);
+        panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 175, 60));
         Regles.setBackground(Color.BLUE);
         Regles.setText("Règles");
+        this.repaint();
+        
+        Démarrer = new JButton();
+        Démarrer.setBounds(15, 130, 175, 60);
+        panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 125, 175, 60));
+        Démarrer.setBackground(Color.BLUE);
+        Démarrer.setText("Démarrer la partie");
         this.repaint();
     }
     
@@ -109,8 +116,9 @@ public class Monopoly_EPF extends JFrame {
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
     private JPanel infos_joueurs4;
-    private JButton Regles;
     private JPanel panel_boutons;
+    private JButton Regles;
+    private JButton Démarrer;
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
