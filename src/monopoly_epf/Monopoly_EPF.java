@@ -5,10 +5,13 @@ package monopoly_epf;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -52,9 +55,22 @@ public class Monopoly_EPF extends JFrame {
         //plateauJeu.setBackground(Color.red);
         plateauJeu.setPreferredSize(new Dimension(1500,1498));
         setVisible(true);
+        
+        titre = new JLabel("Monopoly EPF");
+        Dimension sizet = titre.getPreferredSize();
+        titre.setFont(new Font("Monopoly", Font.BOLD, 50));
+        add(titre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,10));
+        this.repaint();
+        
+        infos_joueurs1 = new JPanel();
+        Dimension sizej1 = infos_joueurs1.setSize(300,500);
+        
+        add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,50));
     }
     
     PlateauPanel plateauJeu;
+    private JLabel titre;
+    private JPanel infos_joueurs1;
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
