@@ -10,6 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Random;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -50,10 +51,9 @@ public class Monopoly_EPF extends JFrame {
     
     public void initComponent() {
         this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        
         plateauJeu = new PlateauPanel();
         plateauJeu.setBackground(Color.red);
-        add(plateauJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(400,0,-1,-1));
+        add(plateauJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(367,0,-1,-1));
         plateauJeu.setSize(800,798);
         //plateauJeu.setBackground(Color.red);
         plateauJeu.setPreferredSize(new Dimension(800,798));
@@ -66,62 +66,86 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         infos_joueurs1 = new JPanel();
-        infos_joueurs1.setSize(300,500);
+        infos_joueurs1.setSize(355,200);
         infos_joueurs1.setBackground(Color.red);
-        add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,200,370,200));
+        infos_joueurs1.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,200,355,200));
         this.repaint();
         
         infos_joueurs2 = new JPanel();
-        infos_joueurs2.setSize(300,500);
+        infos_joueurs2.setSize(355,200);
         infos_joueurs2.setBackground(Color.red);
-        add(infos_joueurs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,460,370,200));
+        infos_joueurs2.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(infos_joueurs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,460,355,200));
         this.repaint();
         
         infos_joueurs3 = new JPanel();
         infos_joueurs3.setSize(300,500);
         infos_joueurs3.setBackground(Color.red);
+        infos_joueurs3.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,200,370,200));
         this.repaint();
         
         infos_joueurs4 = new JPanel();
         infos_joueurs4.setSize(300,500);
         infos_joueurs4.setBackground(Color.red);
+        infos_joueurs4.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,460,370,200));
         this.repaint();
         
         panel_boutons = new JPanel();
-        panel_boutons.setSize(370,140);
+        panel_boutons.setSize(355,140);
         panel_boutons.setBackground(Color.LIGHT_GRAY);
-        add(panel_boutons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,58,370,135));
+        panel_boutons.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(panel_boutons, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,58,355,135));
         panel_boutons.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         this.repaint();
         
+        infos_partie = new JPanel();
+        infos_partie.setSize(370,170);
+        infos_partie.setBackground(Color.WHITE);
+        infos_partie.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,8,370,170));
+        this.repaint();
+        
         Regles = new JButton();
-        Regles.setBounds(5, 5, 175, 60);
-        panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 175, 60));
+        Regles.setBounds(5, 5, 170, 60);
+        panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 170, 60));
         Regles.setBackground(Color.BLUE);
         Regles.setText("Règles");
+        Regles.setFont(new Font("Règles", Font.BOLD, 16));
         this.repaint();
         
         Démarrer = new JButton();
-        Démarrer.setBounds(5, 70, 175, 60);
-        panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 70, 175, 60));
+        Démarrer.setBounds(5, 70, 170, 60);
+        panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 70, 170, 60));
         Démarrer.setBackground(Color.BLUE);
         Démarrer.setText("Démarrer la partie");
+        Démarrer.setFont(new Font("Démarrer la partie", Font.BOLD, 16));
         this.repaint();
         
         Lancer_des = new JButton();
-        Lancer_des.setBounds(190, 5, 175, 60);
-        panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 5, 175, 60));
+        Lancer_des.setBounds(180, 5, 170, 60);
+        panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 5, 170, 60));
         Lancer_des.setBackground(Color.BLUE);
         Lancer_des.setText("Lancer les dés");
+        Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
         this.repaint();
         
         Salles = new JButton();
-        Salles.setBounds(190, 70, 175, 60);
-        panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 175, 60));
+        Salles.setBounds(180, 70, 170, 60);
+        panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 170, 60));
         Salles.setBackground(Color.BLUE);
         Salles.setText("Salles");
+        Salles.setFont(new Font("Salles", Font.BOLD, 16));
+        this.repaint();
+        
+        Payer_Jousset = new JButton();
+        Payer_Jousset.setBounds(5,650,355,150);
+        add(Payer_Jousset, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 650, 355, 150));
+        Payer_Jousset.setBackground(Color.BLUE);
+        Payer_Jousset.setText("Payer Jousset");
+        Payer_Jousset.setFont(new Font("Payer Jousset", Font.BOLD, 20));
         this.repaint();
         
         Joueur1 = new JLabel("Joueur 1");
@@ -147,6 +171,15 @@ public class Monopoly_EPF extends JFrame {
         Joueur4.setFont(new Font("Joueur 4", Font.BOLD, 25));
         infos_joueurs4.add(Joueur4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
         this.repaint();
+        
+        Infos_partie = new JLabel("Infos partie:");
+        Dimension text_infos_partie = Infos_partie.getPreferredSize();
+        Infos_partie.setFont(new Font("Infos partie;", Font.BOLD, 15));
+        infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
+        this.repaint();
+        
+        
+                
     }
     
     PlateauPanel plateauJeu;
@@ -155,15 +188,18 @@ public class Monopoly_EPF extends JFrame {
     private JLabel Joueur2;
     private JLabel Joueur3;
     private JLabel Joueur4;
+    private JLabel Infos_partie;
     private JPanel infos_joueurs1;
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
     private JPanel infos_joueurs4;
     private JPanel panel_boutons;
+    private JPanel infos_partie;
     private JButton Regles;
     private JButton Démarrer;
     private JButton Lancer_des;
     private JButton Salles;
+    private JButton Payer_Jousset;
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
@@ -628,7 +664,43 @@ public class Monopoly_EPF extends JFrame {
     public void payerloyer(Case caseassociee) {
         joueurCourant.credits = joueurCourant.credits-caseassociee.loyer;
         caseassociee.proprietaire.credits = caseassociee.proprietaire.credits+caseassociee.loyer;
-    } 
-     
-   
+    }
+    
+    public void téléporterPion(Pion pionAssocie, Case caseOuAller) {
+        pionAssocie.caseassociee=caseOuAller;
+    }
+    
+    public Carte faireActionCarteSimple(int choix) { // A VERIFIER
+        if (choix == 0) { //choix=0 --> perdre des crédits
+            joueurCourant.credits = joueurCourant.credits - 10;
+            return null;
+        }
+        else { //choix=1 tirer une carte chance
+            Carte laCarte = tirerCarte(paquetChance);
+            return laCarte;
+        }
+    }
+    
+    public boolean faireActionChoix(Case caseChoisie) { // A VERIFIER
+        if (caseChoisie == null) {
+            return false;
+        }
+        else {
+            caseChoisie.maison = caseChoisie.maison+1; //loyer à changer
+            return true;
+        }
+        
+    }
+    
+    public boolean acheter(Case caseassociee){
+        if (caseassociee.proprietaire == null) {
+            caseassociee.proprietaire = joueurCourant;
+            joueurCourant.credits = joueurCourant.credits-caseassociee.prixTerrain;
+            joueurCourant.sallesPossedees.add(caseassociee);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
