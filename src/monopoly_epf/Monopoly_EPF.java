@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Monopoly_EPF extends JFrame {
     Des de2;
     int compteurDouble;
     int argentParcGratuit;
+    int compteurpseudos;
     
     public Monopoly_EPF(){
         super("Monopoly EPF");
@@ -48,6 +50,8 @@ public class Monopoly_EPF extends JFrame {
         setSize(1920,1080);
         initComponent();
         this.setVisible(true);
+        
+        InitialiserPartie();
     }
     
     public void initComponent() {
@@ -71,6 +75,7 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs1.setBackground(Color.red);
         infos_joueurs1.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,200,355,200));
+        infos_joueurs1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         this.repaint();
         
         infos_joueurs2 = new JPanel();
@@ -78,6 +83,7 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs2.setBackground(Color.red);
         infos_joueurs2.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,460,355,200));
+        infos_joueurs2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         this.repaint();
         
         infos_joueurs3 = new JPanel();
@@ -85,6 +91,7 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs3.setBackground(Color.red);
         infos_joueurs3.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,200,355,200));
+        infos_joueurs3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         this.repaint();
         
         infos_joueurs4 = new JPanel();
@@ -92,6 +99,7 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs4.setBackground(Color.red);
         infos_joueurs4.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,460,355,200));
+        infos_joueurs4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         this.repaint();
         
         panel_boutons = new JPanel();
@@ -107,6 +115,7 @@ public class Monopoly_EPF extends JFrame {
         infos_partie.setBackground(Color.WHITE);
         infos_partie.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,8,355,185));
+        infos_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         this.repaint();
         
         Regles = new JButton();
@@ -136,7 +145,7 @@ public class Monopoly_EPF extends JFrame {
         Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
         /*Lancer_des.addActionListener(new java.awt.event.ActionListener() {
            public void actionPerformed(java.awt.event.ActionEvent evt) {
-               
+               lancerDes();
            } 
         });*/
         this.repaint();
@@ -168,28 +177,124 @@ public class Monopoly_EPF extends JFrame {
         Matieres_possedees.setFont(new Font("Matières possédées", Font.BOLD, 20));
         this.repaint();
         
+        JTextField nomJ1 = new JTextField();
+        nomJ1.setBounds(70, 30, 70, 20);
+        infos_joueurs1.add(nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
+        this.repaint();
+        
+        valider1 = new JButton();
+        valider1.setBounds(145,30,50,20);
+        valider1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs1.add(valider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
+        valider1.setBackground(Color.LIGHT_GRAY);
+        valider1.setText("Valider");
+        valider1.setFont(new Font("Valider", Font.BOLD, 12));
+        valider1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabJoueurs[0].nom = nomJ1.getText();
+                nomJ1.setVisible(false);
+                Joueur1.setText(tabJoueurs[0].nom);
+                valider1.setVisible(false);
+                pseudo1.setVisible(false);
+                compteurpseudos++;
+            } 
+        });
+        this.repaint();
+        
+        JTextField nomJ2 = new JTextField();
+        nomJ2.setBounds(70, 30, 70, 20);
+        infos_joueurs2.add(nomJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
+        this.repaint();
+        
+        valider2 = new JButton();
+        valider2.setBounds(145,30,50,20);
+        valider2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs2.add(valider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
+        valider2.setBackground(Color.LIGHT_GRAY);
+        valider2.setText("Valider");
+        valider2.setFont(new Font("Valider", Font.BOLD, 12));
+        valider2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabJoueurs[1].nom = nomJ2.getText();
+                nomJ2.setVisible(false);
+                Joueur2.setText(tabJoueurs[1].nom);
+                valider2.setVisible(false);
+                pseudo2.setVisible(false);
+                compteurpseudos++;
+            } 
+        });
+        this.repaint();
+        
+        JTextField nomJ3 = new JTextField();
+        nomJ3.setBounds(70, 30, 70, 20);
+        infos_joueurs3.add(nomJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
+        this.repaint();
+        
+        valider3 = new JButton();
+        valider3.setBounds(145,30,50,20);
+        valider3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs3.add(valider3, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
+        valider3.setBackground(Color.LIGHT_GRAY);
+        valider3.setText("Valider");
+        valider3.setFont(new Font("Valider", Font.BOLD, 12));
+        valider3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabJoueurs[2].nom = nomJ3.getText();
+                nomJ3.setVisible(false);
+                Joueur3.setText(tabJoueurs[2].nom);
+                valider3.setVisible(false);
+                pseudo3.setVisible(false);
+                compteurpseudos++;
+            } 
+        });
+        this.repaint();
+        
+        JTextField nomJ4 = new JTextField();
+        nomJ4.setBounds(70, 30, 70, 20);
+        infos_joueurs4.add(nomJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
+        this.repaint();
+        
+        valider4 = new JButton();
+        valider4.setBounds(145,30,50,20);
+        valider4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs4.add(valider4, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
+        valider4.setBackground(Color.LIGHT_GRAY);
+        valider4.setText("Valider");
+        valider4.setFont(new Font("Valider", Font.BOLD, 12));
+        valider4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabJoueurs[3].nom = nomJ4.getText();
+                nomJ4.setVisible(false);
+                Joueur4.setText(tabJoueurs[3].nom);
+                valider4.setVisible(false);
+                pseudo4.setVisible(false);
+                compteurpseudos++;
+            } 
+        });
+        this.repaint();
+        
         Joueur1 = new JLabel("Joueur 1");
         Dimension text_joueur1 = Joueur1.getPreferredSize();
         Joueur1.setFont(new Font("Joueur 1", Font.BOLD, 25));
-        infos_joueurs1.add(Joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
+        infos_joueurs1.add(Joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
         this.repaint();
         
         Joueur2 = new JLabel("Joueur 2");
         Dimension text_joueur2 = Joueur2.getPreferredSize();
         Joueur2.setFont(new Font("Joueur 2", Font.BOLD, 25));
-        infos_joueurs2.add(Joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
+        infos_joueurs2.add(Joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
         this.repaint();
         
         Joueur3 = new JLabel("Joueur 3");
         Dimension text_joueur3 = Joueur3.getPreferredSize();
         Joueur3.setFont(new Font("Joueur 3", Font.BOLD, 25));
-        infos_joueurs3.add(Joueur3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
+        infos_joueurs3.add(Joueur3, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
         this.repaint();
         
         Joueur4 = new JLabel("Joueur 4");
         Dimension text_joueur4 = Joueur4.getPreferredSize();
         Joueur4.setFont(new Font("Joueur 4", Font.BOLD, 25));
-        infos_joueurs4.add(Joueur4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30,8));
+        infos_joueurs4.add(Joueur4, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
         this.repaint();
         
         Infos_partie = new JLabel("Infos partie:");
@@ -198,32 +303,52 @@ public class Monopoly_EPF extends JFrame {
         infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
         this.repaint();
         
-        credits1 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS"); //en commentaire parce que erreur parce que tabJOueurs est vide
+        credits1 = new JLabel("Crédits:" /*+ tabJoueurs[0].credits*/ + "ECTS"); //en commentaire parce que erreur parce que tabJOueurs est vide
         Dimension text_credits1 = credits1.getPreferredSize();
-        credits1.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
-        infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150,60));
+        credits1.setFont(new Font("Crédits:" /*+tabJoueurs[0].credits*/ + "ECTS", Font.BOLD, 15));
+        infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
         
         credits2 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS");
         Dimension text_credits2 = credits2.getPreferredSize();
-        credits2.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
+        credits2.setFont(new Font("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
         infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
         this.repaint();
         
-        credits3 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS");
+        credits3 = new JLabel("Crédits:" /*+ tabJoueurs[2].credits*/ + "ECTS");
         Dimension text_credits3 = credits3.getPreferredSize();
-        credits3.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
+        credits3.setFont(new Font("Crédits:" /*+ tabJoueurs[2].credits*/ + "ECTS", Font.BOLD, 15));
         infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
         this.repaint();
         
-        credits4 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS");
+        credits4 = new JLabel("Crédits:" /*+ tabJoueurs[3].credits*/ + "ECTS");
         Dimension text_credits4 = credits4.getPreferredSize();
-        credits4.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
+        credits4.setFont(new Font("Crédits:" /*+ tabJoueurs[3].credits*/ + "ECTS", Font.BOLD, 15));
         infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
         this.repaint();
         
-        TextArea nomJ1 = new TextArea(1,20);
-        infos_joueurs1.add(nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1,15));
+        pseudo1 = new JLabel("Pseudo:");
+        Dimension pseudo1_size = pseudo1.getPreferredSize();
+        pseudo1.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs1.add(pseudo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        pseudo2 = new JLabel("Pseudo:");
+        Dimension pseudo2_size = pseudo2.getPreferredSize();
+        pseudo2.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs2.add(pseudo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        pseudo3 = new JLabel("Pseudo:");
+        Dimension pseudo3_size = pseudo3.getPreferredSize();
+        pseudo3.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs3.add(pseudo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        pseudo4 = new JLabel("Pseudo:");
+        Dimension pseudo4_size = pseudo4.getPreferredSize();
+        pseudo4.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs4.add(pseudo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
                 
     }
@@ -239,6 +364,10 @@ public class Monopoly_EPF extends JFrame {
     private JLabel credits2;
     private JLabel credits3;
     private JLabel credits4;
+    private JLabel pseudo1;
+    private JLabel pseudo2;
+    private JLabel pseudo3;
+    private JLabel pseudo4;
     private JPanel infos_joueurs1;
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
@@ -251,10 +380,15 @@ public class Monopoly_EPF extends JFrame {
     private JButton Salles;
     private JButton Payer_Jousset;
     private JButton Matieres_possedees;
+    private JButton valider1;
+    private JButton valider2;
+    private JButton valider3;
+    private JButton valider4;
+    
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
-    }
+        }
 
     
     //-----------------------------------
@@ -759,11 +893,22 @@ public class Monopoly_EPF extends JFrame {
     //-----------------------------------
     
     public void InitialiserPartie() {
+        tabJoueurs[0] = new Joueur();
+        tabJoueurs[1] = new Joueur();
+        tabJoueurs[2] = new Joueur();
+        tabJoueurs[3] = new Joueur();
         Payer_Jousset.setVisible(false);
         Matieres_possedees.setVisible(false);
+        Démarrer.setEnabled(false);
+        Lancer_des.setEnabled(false);
+        Salles.setEnabled(false);
         credits1.setVisible(false);
         credits2.setVisible(false);
         credits3.setVisible(false);
         credits4.setVisible(false);
+        while(compteurpseudos!=4) {
+            continue;
+        }
+        Démarrer.setEnabled(true);
     }
 }
