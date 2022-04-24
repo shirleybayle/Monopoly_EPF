@@ -6,6 +6,7 @@ package monopoly_epf;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.TextArea;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -80,17 +81,17 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         infos_joueurs3 = new JPanel();
-        infos_joueurs3.setSize(300,500);
+        infos_joueurs3.setSize(355,200);
         infos_joueurs3.setBackground(Color.red);
         infos_joueurs3.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
-        add(infos_joueurs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,200,370,200));
+        add(infos_joueurs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,200,355,200));
         this.repaint();
         
         infos_joueurs4 = new JPanel();
-        infos_joueurs4.setSize(300,500);
+        infos_joueurs4.setSize(355,200);
         infos_joueurs4.setBackground(Color.red);
         infos_joueurs4.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
-        add(infos_joueurs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,460,370,200));
+        add(infos_joueurs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,460,355,200));
         this.repaint();
         
         panel_boutons = new JPanel();
@@ -102,14 +103,15 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         infos_partie = new JPanel();
-        infos_partie.setSize(370,170);
+        infos_partie.setSize(355,185);
         infos_partie.setBackground(Color.WHITE);
         infos_partie.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
-        add(infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220,8,370,170));
+        add(infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,8,355,185));
         this.repaint();
         
         Regles = new JButton();
         Regles.setBounds(5, 5, 170, 60);
+        Regles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 170, 60));
         Regles.setBackground(Color.BLUE);
         Regles.setText("Règles");
@@ -118,6 +120,7 @@ public class Monopoly_EPF extends JFrame {
         
         Démarrer = new JButton();
         Démarrer.setBounds(5, 70, 170, 60);
+        Démarrer.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 70, 170, 60));
         Démarrer.setBackground(Color.BLUE);
         Démarrer.setText("Démarrer la partie");
@@ -126,14 +129,21 @@ public class Monopoly_EPF extends JFrame {
         
         Lancer_des = new JButton();
         Lancer_des.setBounds(180, 5, 170, 60);
+        Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 5, 170, 60));
         Lancer_des.setBackground(Color.BLUE);
         Lancer_des.setText("Lancer les dés");
         Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
+        /*Lancer_des.addActionListener(new java.awt.event.ActionListener() {
+           public void actionPerformed(java.awt.event.ActionEvent evt) {
+               
+           } 
+        });*/
         this.repaint();
         
         Salles = new JButton();
         Salles.setBounds(180, 70, 170, 60);
+        Salles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 170, 60));
         Salles.setBackground(Color.BLUE);
         Salles.setText("Salles");
@@ -141,11 +151,21 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         Payer_Jousset = new JButton();
-        Payer_Jousset.setBounds(5,650,355,150);
-        add(Payer_Jousset, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 650, 355, 150));
+        Payer_Jousset.setBounds(57,680,250,100);
+        Payer_Jousset.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(Payer_Jousset, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 680, 250, 100));
         Payer_Jousset.setBackground(Color.BLUE);
         Payer_Jousset.setText("Payer Jousset");
         Payer_Jousset.setFont(new Font("Payer Jousset", Font.BOLD, 20));
+        this.repaint();
+        
+        Matieres_possedees = new JButton();
+        Matieres_possedees.setBounds(1226,680,250,100);
+        Matieres_possedees.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(Matieres_possedees, new org.netbeans.lib.awtextra.AbsoluteConstraints(1226, 680, 250, 100));
+        Matieres_possedees.setBackground(Color.BLUE);
+        Matieres_possedees.setText("Matières possédées");
+        Matieres_possedees.setFont(new Font("Matières possédées", Font.BOLD, 20));
         this.repaint();
         
         Joueur1 = new JLabel("Joueur 1");
@@ -178,7 +198,33 @@ public class Monopoly_EPF extends JFrame {
         infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
         this.repaint();
         
+        credits1 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS"); //en commentaire parce que erreur parce que tabJOueurs est vide
+        Dimension text_credits1 = credits1.getPreferredSize();
+        credits1.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
+        infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150,60));
+        this.repaint();
         
+        credits2 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS");
+        Dimension text_credits2 = credits2.getPreferredSize();
+        credits2.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
+        infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
+        this.repaint();
+        
+        credits3 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS");
+        Dimension text_credits3 = credits3.getPreferredSize();
+        credits3.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
+        infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
+        this.repaint();
+        
+        credits4 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS");
+        Dimension text_credits4 = credits4.getPreferredSize();
+        credits4.setFont(new Font("Crédits:"/*+tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
+        infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
+        this.repaint();
+        
+        TextArea nomJ1 = new TextArea(1,20);
+        infos_joueurs1.add(nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1,15));
+        this.repaint();
                 
     }
     
@@ -189,6 +235,10 @@ public class Monopoly_EPF extends JFrame {
     private JLabel Joueur3;
     private JLabel Joueur4;
     private JLabel Infos_partie;
+    private JLabel credits1;
+    private JLabel credits2;
+    private JLabel credits3;
+    private JLabel credits4;
     private JPanel infos_joueurs1;
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
@@ -200,6 +250,7 @@ public class Monopoly_EPF extends JFrame {
     private JButton Lancer_des;
     private JButton Salles;
     private JButton Payer_Jousset;
+    private JButton Matieres_possedees;
     
     public static void main(String[] args) {
         JFrame frame = new Monopoly_EPF();
@@ -702,5 +753,17 @@ public class Monopoly_EPF extends JFrame {
         else {
             return false;
         }
+    }
+    
+    
+    //-----------------------------------
+    
+    public void InitialiserPartie() {
+        Payer_Jousset.setVisible(false);
+        Matieres_possedees.setVisible(false);
+        credits1.setVisible(false);
+        credits2.setVisible(false);
+        credits3.setVisible(false);
+        credits4.setVisible(false);
     }
 }
