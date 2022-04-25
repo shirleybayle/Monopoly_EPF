@@ -177,6 +177,12 @@ public class Monopoly_EPF extends JFrame {
         Matieres_possedees.setFont(new Font("Matières possédées", Font.BOLD, 20));
         this.repaint();
         
+        JTextField zone_texte_infos = new JTextField();
+        zone_texte_infos.setBounds(10, 25, 335, 155);
+        infos_partie.add(zone_texte_infos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,25,335,155));
+        zone_texte_infos.setEditable(false);
+        this.repaint();
+        
         JTextField nomJ1 = new JTextField();
         nomJ1.setBounds(70, 30, 70, 20);
         infos_joueurs1.add(nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
@@ -196,6 +202,7 @@ public class Monopoly_EPF extends JFrame {
                 Joueur1.setText(tabJoueurs[0].nom);
                 valider1.setVisible(false);
                 pseudo1.setVisible(false);
+                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + "!");
                 compteurpseudos++;
             } 
         });
@@ -220,6 +227,7 @@ public class Monopoly_EPF extends JFrame {
                 Joueur2.setText(tabJoueurs[1].nom);
                 valider2.setVisible(false);
                 pseudo2.setVisible(false);
+                zone_texte_infos.setText("Joueur 2, votre pseudo est " + tabJoueurs[1].nom + "!");
                 compteurpseudos++;
             } 
         });
@@ -244,6 +252,7 @@ public class Monopoly_EPF extends JFrame {
                 Joueur3.setText(tabJoueurs[2].nom);
                 valider3.setVisible(false);
                 pseudo3.setVisible(false);
+                zone_texte_infos.setText("Joueur 3, votre pseudo est " + tabJoueurs[2].nom + "!");
                 compteurpseudos++;
             } 
         });
@@ -268,6 +277,7 @@ public class Monopoly_EPF extends JFrame {
                 Joueur4.setText(tabJoueurs[3].nom);
                 valider4.setVisible(false);
                 pseudo4.setVisible(false);
+                zone_texte_infos.setText("Joueur 4, votre pseudo est " + tabJoueurs[3].nom + "!");
                 compteurpseudos++;
             } 
         });
@@ -907,6 +917,7 @@ public class Monopoly_EPF extends JFrame {
         credits3.setVisible(false);
         credits4.setVisible(false);
         while(compteurpseudos!=4) {
+            compteurpseudos=compteurpseudos;
             continue;
         }
         Démarrer.setEnabled(true);
