@@ -374,12 +374,13 @@ public class Case {
         return prixMaison;
     }
     
-    public boolean construireMaison(int nbMaison) {
-        if (maison+nbMaison > 5){
+    public boolean construireMaison() {
+        if (maison == 5){
             return false;
         }
         else {
-            maison = maison+nbMaison;
+            maison = maison++;
+            prixMaison = prixMaison + prixMaison;
             return true;
         }
     }

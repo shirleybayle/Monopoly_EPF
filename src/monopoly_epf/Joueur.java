@@ -22,7 +22,7 @@ public class Joueur {
     int nbHotelJoueur=0;
 
     
-    public boolean construire(Case casemaison, int nbmaisons) {
+    /*public boolean construire(Case casemaison, int nbmaisons) {
         if (casemaison.maison+nbmaisons<=5) {
             if(casemaison.maison+nbmaisons == 5) {
                 nbHotelJoueur = nbHotelJoueur + 1;
@@ -36,7 +36,7 @@ public class Joueur {
         else {
             return false;
         }
-    }
+    }*/ //une déjà dans case
     
     public void compterMemesSallesJoueur(String couleur) {
         int compteur=0;

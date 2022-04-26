@@ -3,6 +3,7 @@
  */
 package monopoly_epf;
 
+import java.util.Timer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,7 +12,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Random;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -59,6 +65,7 @@ public class Monopoly_EPF extends JFrame {
         plateauJeu = new PlateauPanel();
         plateauJeu.setBackground(Color.red);
         add(plateauJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(367,0,-1,-1));
+        plateauJeu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         plateauJeu.setSize(800,798);
         //plateauJeu.setBackground(Color.red);
         plateauJeu.setPreferredSize(new Dimension(800,798));
@@ -136,6 +143,93 @@ public class Monopoly_EPF extends JFrame {
         Démarrer.setFont(new Font("Démarrer la partie", Font.BOLD, 16));
         this.repaint();
         
+        JLabel dé1 = new JLabel(new ImageIcon("dé1.png"));
+        plateauJeu.add(dé1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 55, 55));
+        this.repaint();
+        dé1.setVisible(false);
+        JLabel dé1V2 = new JLabel(new ImageIcon("dé1.png"));
+        plateauJeu.add(dé1V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
+        this.repaint();
+        dé1V2.setVisible(false);
+        JLabel dé2 = new JLabel(new ImageIcon("dé2.png"));
+        plateauJeu.add(dé2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 55, 55));
+        this.repaint();
+        dé2.setVisible(false);
+        JLabel dé2V2 = new JLabel(new ImageIcon("dé2.png"));
+        plateauJeu.add(dé2V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
+        this.repaint();
+        dé2V2.setVisible(false);
+        JLabel dé3 = new JLabel(new ImageIcon("dé3.png"));
+        plateauJeu.add(dé3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 55, 55));
+        this.repaint();
+        dé3.setVisible(false);
+        JLabel dé3V2 = new JLabel(new ImageIcon("dé3.png"));
+        plateauJeu.add(dé3V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
+        this.repaint();
+        dé3V2.setVisible(false);
+        JLabel dé4 = new JLabel(new ImageIcon("dé4.png"));
+        plateauJeu.add(dé4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 55, 55));
+        this.repaint();
+        dé4.setVisible(false);
+        JLabel dé4V2 = new JLabel(new ImageIcon("dé4.png"));
+        plateauJeu.add(dé4V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
+        this.repaint();
+        dé4V2.setVisible(false);
+        JLabel dé5 = new JLabel(new ImageIcon("dé5.png"));
+        plateauJeu.add(dé5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 55, 55));
+        this.repaint();
+        dé5.setVisible(false);
+        JLabel dé5V2 = new JLabel(new ImageIcon("dé5.png"));
+        plateauJeu.add(dé5V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
+        this.repaint();
+        dé5V2.setVisible(false);
+        JLabel dé6 = new JLabel(new ImageIcon("dé6.png"));
+        plateauJeu.add(dé6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 55, 55));
+        this.repaint();
+        dé6.setVisible(false);
+        JLabel dé6V2 = new JLabel(new ImageIcon("dé6.png"));
+        plateauJeu.add(dé6V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
+        this.repaint();
+        dé6V2.setVisible(false);
+        
+        Timer timer = new Timer();
+        TimerTask task1 = new TimerTask() {
+            @Override
+            public void run() {
+                dé1.setVisible(false);
+            }
+        };
+        TimerTask task2 = new TimerTask() {
+            @Override
+            public void run() {
+                dé2.setVisible(false);
+            }
+        };
+        TimerTask task3 = new TimerTask() {
+            @Override
+            public void run() {
+                dé3.setVisible(false);
+            }
+        };
+        TimerTask task4 = new TimerTask() {
+            @Override
+            public void run() {
+                dé4.setVisible(false);
+            }
+        };
+        TimerTask task5 = new TimerTask() {
+            @Override
+            public void run() {
+                dé5.setVisible(false);
+            }
+        };
+        TimerTask task6 = new TimerTask() {
+            @Override
+            public void run() {
+                dé6.setVisible(false);
+            }
+        };
+        
         Lancer_des = new JButton();
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -143,11 +237,18 @@ public class Monopoly_EPF extends JFrame {
         Lancer_des.setBackground(Color.BLUE);
         Lancer_des.setText("Lancer les dés");
         Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
-        /*Lancer_des.addActionListener(new java.awt.event.ActionListener() {
-           public void actionPerformed(java.awt.event.ActionEvent evt) {
-               lancerDes();
-           } 
-        });*/
+        Lancer_des.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lancerDes();
+                dé1.setVisible(true);
+                timer.schedule(task1, 500);
+                dé2.setVisible(true);
+                timer.schedule(task2, 500);
+                dé3.setVisible(true);
+                
+                
+            } 
+        });
         this.repaint();
         
         Salles = new JButton();
@@ -394,6 +495,7 @@ public class Monopoly_EPF extends JFrame {
     private JButton valider2;
     private JButton valider3;
     private JButton valider4;
+    private Thread thread;
     
     
     public static void main(String[] args) {
@@ -907,10 +1009,12 @@ public class Monopoly_EPF extends JFrame {
         tabJoueurs[1] = new Joueur();
         tabJoueurs[2] = new Joueur();
         tabJoueurs[3] = new Joueur();
+        de1 = new Des();
+        de2 = new Des();
         Payer_Jousset.setVisible(false);
         Matieres_possedees.setVisible(false);
         Démarrer.setEnabled(false);
-        Lancer_des.setEnabled(false);
+        //Lancer_des.setEnabled(false);
         Salles.setEnabled(false);
         credits1.setVisible(false);
         credits2.setVisible(false);
