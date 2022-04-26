@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -16,7 +18,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
 /**
  *
@@ -177,10 +181,11 @@ public class Monopoly_EPF extends JFrame {
         Matieres_possedees.setFont(new Font("Matières possédées", Font.BOLD, 20));
         this.repaint();
         
-        JTextField zone_texte_infos = new JTextField();
+        JTextArea zone_texte_infos = new JTextArea();
         zone_texte_infos.setBounds(10, 25, 335, 155);
         infos_partie.add(zone_texte_infos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,25,335,155));
         zone_texte_infos.setEditable(false);
+        zone_texte_infos.setText("Veuillez rentrer les quatre pseudos puis cliquer sur le bouton\ndémarrer la partie !\nAttention, si vous ne rentrez rien, les joueurs\nn'auront pas de pseudo.");
         this.repaint();
         
         JTextField nomJ1 = new JTextField();
@@ -360,6 +365,7 @@ public class Monopoly_EPF extends JFrame {
         pseudo4.setFont(new Font("Pseudo:", Font.BOLD, 15));
         infos_joueurs4.add(pseudo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
+        
                 
     }
     
