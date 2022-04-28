@@ -134,6 +134,57 @@ public class Monopoly_EPF extends JFrame {
         Regles.setFont(new Font("Règles", Font.BOLD, 16));
         this.repaint();
         
+        pseudo1 = new JLabel("Pseudo:");
+        Dimension pseudo1_size = pseudo1.getPreferredSize();
+        pseudo1.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs1.add(pseudo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        pseudo2 = new JLabel("Pseudo:");
+        Dimension pseudo2_size = pseudo2.getPreferredSize();
+        pseudo2.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs2.add(pseudo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        pseudo3 = new JLabel("Pseudo:");
+        Dimension pseudo3_size = pseudo3.getPreferredSize();
+        pseudo3.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs3.add(pseudo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        pseudo4 = new JLabel("Pseudo:");
+        Dimension pseudo4_size = pseudo4.getPreferredSize();
+        pseudo4.setFont(new Font("Pseudo:", Font.BOLD, 15));
+        infos_joueurs4.add(pseudo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        JTextArea zone_texte_infos = new JTextArea();
+        zone_texte_infos.setBounds(10, 25, 335, 155);
+        infos_partie.add(zone_texte_infos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,25,335,155));
+        zone_texte_infos.setEditable(false);
+        zone_texte_infos.setText("Veuillez rentrer les quatre pseudos puis cliquer sur le bouton\ndémarrer la partie !\nAttention, si vous ne rentrez rien, les joueurs\nn'auront pas de pseudo.");
+        this.repaint();
+        
+        JTextField nomJ1 = new JTextField();
+        nomJ1.setBounds(70, 30, 110, 20);
+        infos_joueurs1.add(nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,110,20));
+        this.repaint();
+        
+        JTextField nomJ2 = new JTextField();
+        nomJ2.setBounds(70, 30, 110, 20);
+        infos_joueurs2.add(nomJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,110,20));
+        this.repaint();
+        
+        JTextField nomJ3 = new JTextField();
+        nomJ3.setBounds(70, 30, 110, 20);
+        infos_joueurs3.add(nomJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,110,20));
+        this.repaint();
+        
+        JTextField nomJ4 = new JTextField();
+        nomJ4.setBounds(70, 30, 110, 20);
+        infos_joueurs4.add(nomJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,110,20));
+        this.repaint();
+        
         Démarrer = new JButton();
         Démarrer.setBounds(5, 70, 170, 60);
         Démarrer.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -141,6 +192,27 @@ public class Monopoly_EPF extends JFrame {
         Démarrer.setBackground(Color.BLUE);
         Démarrer.setText("Démarrer la partie");
         Démarrer.setFont(new Font("Démarrer la partie", Font.BOLD, 16));
+        Démarrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabJoueurs[0].nom = nomJ1.getText();
+                nomJ1.setVisible(false);
+                Joueur1.setText(tabJoueurs[0].nom);
+                pseudo1.setVisible(false);
+                tabJoueurs[1].nom = nomJ2.getText();
+                nomJ2.setVisible(false);
+                Joueur2.setText(tabJoueurs[1].nom);
+                pseudo2.setVisible(false);
+                tabJoueurs[2].nom = nomJ3.getText();
+                nomJ3.setVisible(false);
+                Joueur3.setText(tabJoueurs[2].nom);
+                pseudo3.setVisible(false);
+                tabJoueurs[3].nom = nomJ4.getText();
+                nomJ4.setVisible(false);
+                Joueur4.setText(tabJoueurs[3].nom);
+                pseudo4.setVisible(false);
+                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + "!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "!");
+            }
+        });
         this.repaint();
         
         JLabel dé1 = new JLabel(new ImageIcon("dé1.png"));
@@ -206,8 +278,6 @@ public class Monopoly_EPF extends JFrame {
                 Thread thread = new Thread(){
                     public void run(){
                         lancerDes();
-                        //System.out.println(de1.valeur);
-                        //System.out.println(de2.valeur);
                         try {
                             for (int i = 0; i < 6; i++) {
                                 dé1.setVisible(true);
@@ -322,113 +392,6 @@ public class Monopoly_EPF extends JFrame {
         Matieres_possedees.setFont(new Font("Matières possédées", Font.BOLD, 20));
         this.repaint();
         
-        JTextArea zone_texte_infos = new JTextArea();
-        zone_texte_infos.setBounds(10, 25, 335, 155);
-        infos_partie.add(zone_texte_infos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,25,335,155));
-        zone_texte_infos.setEditable(false);
-        zone_texte_infos.setText("Veuillez rentrer les quatre pseudos puis cliquer sur le bouton\ndémarrer la partie !\nAttention, si vous ne rentrez rien, les joueurs\nn'auront pas de pseudo.");
-        this.repaint();
-        
-        JTextField nomJ1 = new JTextField();
-        nomJ1.setBounds(70, 30, 70, 20);
-        infos_joueurs1.add(nomJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
-        this.repaint();
-        
-        valider1 = new JButton();
-        valider1.setBounds(145,30,50,20);
-        valider1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs1.add(valider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
-        valider1.setBackground(Color.LIGHT_GRAY);
-        valider1.setText("Valider");
-        valider1.setFont(new Font("Valider", Font.BOLD, 12));
-        valider1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tabJoueurs[0].nom = nomJ1.getText();
-                nomJ1.setVisible(false);
-                Joueur1.setText(tabJoueurs[0].nom);
-                valider1.setVisible(false);
-                pseudo1.setVisible(false);
-                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + "!");
-                compteurpseudos++;
-            } 
-        });
-        this.repaint();
-        
-        JTextField nomJ2 = new JTextField();
-        nomJ2.setBounds(70, 30, 70, 20);
-        infos_joueurs2.add(nomJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
-        this.repaint();
-        
-        valider2 = new JButton();
-        valider2.setBounds(145,30,50,20);
-        valider2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs2.add(valider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
-        valider2.setBackground(Color.LIGHT_GRAY);
-        valider2.setText("Valider");
-        valider2.setFont(new Font("Valider", Font.BOLD, 12));
-        valider2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tabJoueurs[1].nom = nomJ2.getText();
-                nomJ2.setVisible(false);
-                Joueur2.setText(tabJoueurs[1].nom);
-                valider2.setVisible(false);
-                pseudo2.setVisible(false);
-                zone_texte_infos.setText("Joueur 2, votre pseudo est " + tabJoueurs[1].nom + "!");
-                compteurpseudos++;
-            } 
-        });
-        this.repaint();
-        
-        JTextField nomJ3 = new JTextField();
-        nomJ3.setBounds(70, 30, 70, 20);
-        infos_joueurs3.add(nomJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
-        this.repaint();
-        
-        valider3 = new JButton();
-        valider3.setBounds(145,30,50,20);
-        valider3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs3.add(valider3, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
-        valider3.setBackground(Color.LIGHT_GRAY);
-        valider3.setText("Valider");
-        valider3.setFont(new Font("Valider", Font.BOLD, 12));
-        valider3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tabJoueurs[2].nom = nomJ3.getText();
-                nomJ3.setVisible(false);
-                Joueur3.setText(tabJoueurs[2].nom);
-                valider3.setVisible(false);
-                pseudo3.setVisible(false);
-                zone_texte_infos.setText("Joueur 3, votre pseudo est " + tabJoueurs[2].nom + "!");
-                compteurpseudos++;
-            } 
-        });
-        this.repaint();
-        
-        JTextField nomJ4 = new JTextField();
-        nomJ4.setBounds(70, 30, 70, 20);
-        infos_joueurs4.add(nomJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70,30,70,20));
-        this.repaint();
-        
-        valider4 = new JButton();
-        valider4.setBounds(145,30,50,20);
-        valider4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs4.add(valider4, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 30, 50, 20));
-        valider4.setBackground(Color.LIGHT_GRAY);
-        valider4.setText("Valider");
-        valider4.setFont(new Font("Valider", Font.BOLD, 12));
-        valider4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tabJoueurs[3].nom = nomJ4.getText();
-                nomJ4.setVisible(false);
-                Joueur4.setText(tabJoueurs[3].nom);
-                valider4.setVisible(false);
-                pseudo4.setVisible(false);
-                zone_texte_infos.setText("Joueur 4, votre pseudo est " + tabJoueurs[3].nom + "!");
-                compteurpseudos++;
-            } 
-        });
-        this.repaint();
-        
         Joueur1 = new JLabel("Joueur 1");
         Dimension text_joueur1 = Joueur1.getPreferredSize();
         Joueur1.setFont(new Font("Joueur 1", Font.BOLD, 25));
@@ -482,31 +445,6 @@ public class Monopoly_EPF extends JFrame {
         credits4.setFont(new Font("Crédits:" /*+ tabJoueurs[3].credits*/ + "ECTS", Font.BOLD, 15));
         infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
         this.repaint();
-        
-        pseudo1 = new JLabel("Pseudo:");
-        Dimension pseudo1_size = pseudo1.getPreferredSize();
-        pseudo1.setFont(new Font("Pseudo:", Font.BOLD, 15));
-        infos_joueurs1.add(pseudo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
-        this.repaint();
-        
-        pseudo2 = new JLabel("Pseudo:");
-        Dimension pseudo2_size = pseudo2.getPreferredSize();
-        pseudo2.setFont(new Font("Pseudo:", Font.BOLD, 15));
-        infos_joueurs2.add(pseudo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
-        this.repaint();
-        
-        pseudo3 = new JLabel("Pseudo:");
-        Dimension pseudo3_size = pseudo3.getPreferredSize();
-        pseudo3.setFont(new Font("Pseudo:", Font.BOLD, 15));
-        infos_joueurs3.add(pseudo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
-        this.repaint();
-        
-        pseudo4 = new JLabel("Pseudo:");
-        Dimension pseudo4_size = pseudo4.getPreferredSize();
-        pseudo4.setFont(new Font("Pseudo:", Font.BOLD, 15));
-        infos_joueurs4.add(pseudo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
-        this.repaint();
-        
                 
     }
     
@@ -1059,7 +997,7 @@ public class Monopoly_EPF extends JFrame {
         de2 = new Des();
         Payer_Jousset.setVisible(false);
         Matieres_possedees.setVisible(false);
-        Démarrer.setEnabled(false);
+        //Démarrer.setEnabled(false);
         //Lancer_des.setEnabled(false);
         Salles.setEnabled(false);
         credits1.setVisible(false);
