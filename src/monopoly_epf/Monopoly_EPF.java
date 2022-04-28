@@ -26,7 +26,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.Timer;
 
 /**
  *
@@ -197,43 +196,59 @@ public class Monopoly_EPF extends JFrame {
         dé6V2.setVisible(false);
         
         Timer timer = new Timer();
+        Timer timer2 = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                dé6.setVisible(false);
+            }
+        };
         TimerTask task1 = new TimerTask() {
             @Override
             public void run() {
-                dé1.setVisible(false);
+                dé5.setVisible(false);
+                dé6.setVisible(true);
+                //timer.scheduleAtFixedRate(task, 200, 1400);
             }
         };
         TimerTask task2 = new TimerTask() {
             @Override
             public void run() {
-                dé2.setVisible(false);
+                dé4.setVisible(false);
+                dé5.setVisible(true);
+                //timer.scheduleAtFixedRate(task1, 200, 1400);
             }
         };
         TimerTask task3 = new TimerTask() {
             @Override
             public void run() {
                 dé3.setVisible(false);
+                dé4.setVisible(true);
+                //timer.scheduleAtFixedRate(task2, 200, 1400);
             }
         };
         TimerTask task4 = new TimerTask() {
             @Override
             public void run() {
-                dé4.setVisible(false);
+                dé2.setVisible(false);
+                dé3.setVisible(true);
+                //timer.scheduleAtFixedRate(task3, 200, 1400);
             }
         };
         TimerTask task5 = new TimerTask() {
             @Override
             public void run() {
-                dé5.setVisible(false);
+                dé1.setVisible(true);
+                //dé2.setVisible(true);
+                //timer.scheduleAtFixedRate(task4, 200, 1400);
             }
         };
         TimerTask task6 = new TimerTask() {
             @Override
             public void run() {
-                dé6.setVisible(false);
+                dé1.setVisible(false);
             }
         };
-        
         Lancer_des = new JButton();
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -243,14 +258,96 @@ public class Monopoly_EPF extends JFrame {
         Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
         Lancer_des.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lancerDes();
-                dé1.setVisible(true);
-                timer.schedule(task1, 500);
-                dé2.setVisible(true);
-                timer.schedule(task2, 500);
-                dé3.setVisible(true);
-                
-                
+                Lancer_des.setEnabled(false);
+
+                Thread thread = new Thread(){
+                    public void run(){
+                        lancerDes();
+                        //System.out.println(de1.valeur);
+                        //System.out.println(de2.valeur);
+                        try {
+                            for (int i = 0; i < 6; i++) {
+                                dé1.setVisible(true);
+                                dé6V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé1.setVisible(false);
+                                dé6V2.setVisible(false);
+                                dé2.setVisible(true);
+                                dé5V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé2.setVisible(false);
+                                dé5V2.setVisible(false);
+                                dé3.setVisible(true);
+                                dé4V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé3.setVisible(false);
+                                dé4V2.setVisible(false);
+                                dé4.setVisible(true);
+                                dé3V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé4.setVisible(false);
+                                dé3V2.setVisible(false);
+                                dé5.setVisible(true);
+                                dé2V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé5.setVisible(false);
+                                dé2V2.setVisible(false);
+                                dé6.setVisible(true);
+                                dé1V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé6.setVisible(false);
+                                dé1V2.setVisible(false);
+                            }
+                        dé1.setVisible(false);
+                        dé2.setVisible(false);
+                        dé3.setVisible(false);
+                        dé4.setVisible(false);
+                        dé5.setVisible(false);
+                        dé6.setVisible(false);
+                        if(de1.valeur==1) {
+                            dé1.setVisible(true);
+                        }
+                        else if(de1.valeur==2) {
+                            dé2.setVisible(true);
+                        }
+                        else if(de1.valeur==3) {
+                            dé3.setVisible(true);
+                        }
+                        if(de1.valeur==4) {
+                            dé4.setVisible(true);
+                        }
+                        if(de1.valeur==5) {
+                            dé5.setVisible(true);
+                        }
+                        else {
+                            dé6.setVisible(true);
+                        }
+                        if(de2.valeur==1) {
+                            dé1V2.setVisible(true);
+                        }
+                        else if(de2.valeur==2) {
+                            dé2V2.setVisible(true);
+                        }
+                        else if(de2.valeur==3) {
+                            dé3V2.setVisible(true);
+                        }
+                        if(de2.valeur==4) {
+                            dé4V2.setVisible(true);
+                        }
+                        if(de2.valeur==5) {
+                            dé5V2.setVisible(true);
+                        }
+                        else {
+                            dé6V2.setVisible(true);
+                        }
+                        Lancer_des.setEnabled(true);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+        thread.start();
             } 
         });
         this.repaint();
@@ -569,8 +666,8 @@ public class Monopoly_EPF extends JFrame {
      
      public int lancerDes() { //lire double et initialiser compteur
         Random lancerdes = new Random();
-        de1.valeur = lancerdes.nextInt(6); 
-        de2.valeur = lancerdes.nextInt(6);
+        de1.valeur = lancerdes.nextInt(6)+1; 
+        de2.valeur = lancerdes.nextInt(6)+1;
         if(lireDouble()==true) {
             compteurDouble++;
         }
