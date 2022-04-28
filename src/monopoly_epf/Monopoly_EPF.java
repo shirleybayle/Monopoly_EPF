@@ -43,7 +43,6 @@ public class Monopoly_EPF extends JFrame {
     Des de2;
     int compteurDouble;
     int argentParcGratuit;
-    int compteurpseudos;
     
     public Monopoly_EPF(){
         super("Monopoly EPF");
@@ -194,6 +193,7 @@ public class Monopoly_EPF extends JFrame {
         Démarrer.setFont(new Font("Démarrer la partie", Font.BOLD, 16));
         Démarrer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Démarrer.setEnabled(false);
                 tabJoueurs[0].nom = nomJ1.getText();
                 nomJ1.setVisible(false);
                 Joueur1.setText(tabJoueurs[0].nom);
@@ -210,7 +210,11 @@ public class Monopoly_EPF extends JFrame {
                 nomJ4.setVisible(false);
                 Joueur4.setText(tabJoueurs[3].nom);
                 pseudo4.setVisible(false);
-                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + "!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "!");
+                zone_texte_infos.setText("\nJoueur 1, votre pseudo est " + tabJoueurs[0].nom + "!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "!");
+                credits1.setVisible(true);
+                credits2.setVisible(true);
+                credits3.setVisible(true);
+                credits4.setVisible(true);
             }
         });
         this.repaint();
@@ -422,28 +426,84 @@ public class Monopoly_EPF extends JFrame {
         infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
         this.repaint();
         
-        credits1 = new JLabel("Crédits:" /*+ tabJoueurs[0].credits*/ + "ECTS"); //en commentaire parce que erreur parce que tabJOueurs est vide
+        credits1 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits1 = credits1.getPreferredSize();
-        credits1.setFont(new Font("Crédits:" /*+tabJoueurs[0].credits*/ + "ECTS", Font.BOLD, 15));
+        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
         infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
         
-        credits2 = new JLabel("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS");
+        credits2 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits2 = credits2.getPreferredSize();
-        credits2.setFont(new Font("Crédits:" /*+ tabJoueurs[1].credits*/ + "ECTS", Font.BOLD, 15));
-        infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
+        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
+        infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
         
-        credits3 = new JLabel("Crédits:" /*+ tabJoueurs[2].credits*/ + "ECTS");
+        credits3 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits3 = credits3.getPreferredSize();
-        credits3.setFont(new Font("Crédits:" /*+ tabJoueurs[2].credits*/ + "ECTS", Font.BOLD, 15));
-        infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
+        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
+        infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
         
-        credits4 = new JLabel("Crédits:" /*+ tabJoueurs[3].credits*/ + "ECTS");
+        credits4 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits4 = credits4.getPreferredSize();
-        credits4.setFont(new Font("Crédits:" /*+ tabJoueurs[3].credits*/ + "ECTS", Font.BOLD, 15));
-        infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,15));
+        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
+        infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        this.repaint();
+        
+        Libération1 = new JButton();
+        Libération1.setBounds(225, 120, 50, 20);
+        Libération1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs1.add(Libération1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        Libération1.setBackground(Color.LIGHT_GRAY);
+        Libération1.setText("Carte libération de rattrapages");
+        Libération1.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //l'idée ça serait d'afficher la carte à jouer avec un bouton "utiliser" sauf que pour l'instant la fonction utiliser carte (joueur) elle tire n'importe quelle carte (chance ou caisse) donc faut voir
+            }
+        });
+        this.repaint();
+        
+        Libération2 = new JButton();
+        Libération2.setBounds(225, 120, 50, 20);
+        Libération2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs2.add(Libération2, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        Libération2.setBackground(Color.LIGHT_GRAY);
+        Libération2.setText("Carte libération de rattrapages");
+        Libération2.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        Libération3 = new JButton();
+        Libération3.setBounds(225, 120, 50, 20);
+        Libération3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs3.add(Libération3, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        Libération3.setBackground(Color.LIGHT_GRAY);
+        Libération3.setText("Carte libération de rattrapages");
+        Libération3.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        Libération4 = new JButton();
+        Libération4.setBounds(225, 120, 50, 20);
+        Libération4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs4.add(Libération4, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        Libération4.setBackground(Color.LIGHT_GRAY);
+        Libération4.setText("Carte libération de rattrapages");
+        Libération4.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
         this.repaint();
                 
     }
@@ -475,10 +535,10 @@ public class Monopoly_EPF extends JFrame {
     private JButton Salles;
     private JButton Payer_Jousset;
     private JButton Matieres_possedees;
-    private JButton valider1;
-    private JButton valider2;
-    private JButton valider3;
-    private JButton valider4;
+    private JButton Libération1;
+    private JButton Libération2;
+    private JButton Libération3;
+    private JButton Libération4;
     private Thread thread;
     
     
@@ -497,6 +557,20 @@ public class Monopoly_EPF extends JFrame {
         }
         //prévoir le fait qu'on puisse acheter des maisons au début du tour
         if (joueurCourant.prison == true) {
+            if(joueurCourant.tabCartes[0]!=null || joueurCourant.tabCartes[1]!=null) {
+                if(joueurCourant==tabJoueurs[0]) {
+                    Libération1.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    Libération2.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    Libération3.setVisible(true);
+                }
+                else {
+                    Libération4.setVisible(true);
+                }
+            }
             //LE JOUEUR EST EN PRISON --> double ?
             lancerDes();
             boolean testDouble = lireDouble(); //gérer la carte sortie de prison
@@ -514,6 +588,18 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison = false;
                     joueurCourant.compteurTourPrison = 0;
                 }
+            }
+            if(joueurCourant==tabJoueurs[0]) {
+                Libération1.setVisible(false);
+            }
+            else if(joueurCourant==tabJoueurs[1]) {
+                Libération2.setVisible(false);
+            }
+            if(joueurCourant==tabJoueurs[2]) {
+                Libération3.setVisible(false);
+            }
+            else {
+                Libération4.setVisible(false);
             }
         }
         else {
@@ -997,17 +1083,23 @@ public class Monopoly_EPF extends JFrame {
         de2 = new Des();
         Payer_Jousset.setVisible(false);
         Matieres_possedees.setVisible(false);
-        //Démarrer.setEnabled(false);
-        //Lancer_des.setEnabled(false);
+        Lancer_des.setEnabled(false);
         Salles.setEnabled(false);
         credits1.setVisible(false);
         credits2.setVisible(false);
         credits3.setVisible(false);
         credits4.setVisible(false);
-        while(compteurpseudos!=4) {
-            compteurpseudos=compteurpseudos;
-            continue;
-        }
-        Démarrer.setEnabled(true);
+        tabJoueurs[0].credits = 1500;
+        tabJoueurs[1].credits = 1500;
+        tabJoueurs[2].credits = 1500;
+        tabJoueurs[3].credits = 1500;
+        credits1.setText("Crédits:" + tabJoueurs[0].credits + " ECTS");
+        credits2.setText("Crédits:" + tabJoueurs[1].credits + " ECTS");
+        credits3.setText("Crédits:" + tabJoueurs[2].credits + " ECTS");
+        credits4.setText("Crédits:" + tabJoueurs[3].credits + " ECTS");
+        Libération1.setVisible(false);
+        Libération2.setVisible(false);
+        Libération3.setVisible(false);
+        Libération4.setVisible(false);
     }
 }
