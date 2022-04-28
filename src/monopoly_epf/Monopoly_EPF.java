@@ -450,6 +450,30 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
         
+        nbCartes1 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes1 = nbCartes1.getPreferredSize();
+        nbCartes1.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
+        infos_joueurs1.add(nbCartes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        this.repaint();
+        
+        nbCartes2 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes2 = nbCartes2.getPreferredSize();
+        nbCartes2.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
+        infos_joueurs2.add(nbCartes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        this.repaint();
+        
+        nbCartes3 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes3 = nbCartes3.getPreferredSize();
+        nbCartes3.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
+        infos_joueurs3.add(nbCartes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        this.repaint();
+        
+        nbCartes4 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes14 = nbCartes4.getPreferredSize();
+        nbCartes4.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
+        infos_joueurs4.add(nbCartes4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        this.repaint();
+        
         Libération1 = new JButton();
         Libération1.setBounds(225, 120, 50, 20);
         Libération1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -523,6 +547,10 @@ public class Monopoly_EPF extends JFrame {
     private JLabel pseudo2;
     private JLabel pseudo3;
     private JLabel pseudo4;
+    private JLabel nbCartes1;
+    private JLabel nbCartes2;
+    private JLabel nbCartes3;
+    private JLabel nbCartes4;
     private JPanel infos_joueurs1;
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
@@ -540,6 +568,7 @@ public class Monopoly_EPF extends JFrame {
     private JButton Libération3;
     private JButton Libération4;
     private Thread thread;
+    private JTextArea zone_texte_infos;
     
     
     public static void main(String[] args) {
@@ -559,15 +588,19 @@ public class Monopoly_EPF extends JFrame {
         if (joueurCourant.prison == true) {
             if(joueurCourant.tabCartes[0]!=null || joueurCourant.tabCartes[1]!=null) {
                 if(joueurCourant==tabJoueurs[0]) {
+                    nbCartes1.setVisible(false);
                     Libération1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1]) {
+                    nbCartes2.setVisible(false);
                     Libération2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2]) {
+                    nbCartes3.setVisible(false);
                     Libération3.setVisible(true);
                 }
                 else {
+                    nbCartes4.setVisible(false);
                     Libération4.setVisible(true);
                 }
             }
@@ -591,15 +624,19 @@ public class Monopoly_EPF extends JFrame {
             }
             if(joueurCourant==tabJoueurs[0]) {
                 Libération1.setVisible(false);
+                nbCartes1.setVisible(true);
             }
             else if(joueurCourant==tabJoueurs[1]) {
                 Libération2.setVisible(false);
+                nbCartes2.setVisible(true);
             }
             if(joueurCourant==tabJoueurs[2]) {
                 Libération3.setVisible(false);
+                nbCartes3.setVisible(true);
             }
             else {
                 Libération4.setVisible(false);
+                nbCartes4.setVisible(true);
             }
         }
         else {
@@ -917,7 +954,22 @@ public class Monopoly_EPF extends JFrame {
                 joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
                 joueurCourant.prison = true;
             }
-            else if (id==3) joueurCourant.recuperercarte(carteTiree);
+            else if (id==3) {
+                joueurCourant.recuperercarte(carteTiree);
+                if(joueurCourant==tabJoueurs[0]) {
+                    nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
+                }
+                if(joueurCourant==tabJoueurs[1]) {
+                    nbCartes2.setText("Cartes libération de rattrapages : " + tabJoueurs[1].nbCartes);
+                }
+                if(joueurCourant==tabJoueurs[2]) {
+                    nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
+                }
+                if(joueurCourant==tabJoueurs[3]) {
+                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
+                }
+                zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Caisse de communauté vous libérant des rattrapages!");
+            }
             else if (id==5) joueurCourant.credits = joueurCourant.credits+25;
             else if (id==6) joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
             else if (id==7) { // a verifier
@@ -992,7 +1044,22 @@ public class Monopoly_EPF extends JFrame {
             }
             else if (id==5) joueurCourant.credits = joueurCourant.credits+100;
             else if (id==6) joueurCourant.credits = joueurCourant.credits+50;
-            else if (id==7) joueurCourant.recuperercarte(carteTiree);
+            else if (id==7) {
+                joueurCourant.recuperercarte(carteTiree);
+                if(joueurCourant==tabJoueurs[0]) {
+                    nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
+                }
+                if(joueurCourant==tabJoueurs[1]) {
+                    nbCartes2.setText("Cartes libération de rattrapages : " + tabJoueurs[1].nbCartes);
+                }
+                if(joueurCourant==tabJoueurs[2]) {
+                    nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
+                }
+                if(joueurCourant==tabJoueurs[3]) {
+                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
+                }
+                zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Chance vous libérant des rattrapages!");
+            }
             else if (id==8) {
                 joueurCourant.credits = joueurCourant.credits-20;
                 argentParcGratuit = argentParcGratuit+20;
@@ -1089,6 +1156,10 @@ public class Monopoly_EPF extends JFrame {
         credits2.setVisible(false);
         credits3.setVisible(false);
         credits4.setVisible(false);
+        nbCartes1.setVisible(false);
+        nbCartes2.setVisible(false);
+        nbCartes3.setVisible(false);
+        nbCartes4.setVisible(false);
         tabJoueurs[0].credits = 1500;
         tabJoueurs[1].credits = 1500;
         tabJoueurs[2].credits = 1500;
@@ -1097,6 +1168,10 @@ public class Monopoly_EPF extends JFrame {
         credits2.setText("Crédits:" + tabJoueurs[1].credits + " ECTS");
         credits3.setText("Crédits:" + tabJoueurs[2].credits + " ECTS");
         credits4.setText("Crédits:" + tabJoueurs[3].credits + " ECTS");
+        nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
+        nbCartes2.setText("Cartes libération de rattrapages : " + tabJoueurs[1].nbCartes);
+        nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
+        nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[3].nbCartes);
         Libération1.setVisible(false);
         Libération2.setVisible(false);
         Libération3.setVisible(false);

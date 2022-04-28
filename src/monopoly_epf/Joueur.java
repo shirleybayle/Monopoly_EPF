@@ -20,6 +20,7 @@ public class Joueur {
     int compteurTourPrison;
     int nbMaisonJoueur=0;
     int nbHotelJoueur=0;
+    int nbCartes; //nombre de cartes libération prison, plus simple d'avoir une variable qui compte pour la partie graphique
 
     
     /*public boolean construire(Case casemaison, int nbmaisons) {
@@ -61,6 +62,7 @@ public class Joueur {
             if(tabCartes[i] != null) {
                 tabCartes[i] = null;
                 prison = false;
+                nbCartes--;
                 return true;
             }
         }
@@ -72,6 +74,7 @@ public class Joueur {
             for (int i=0; i<2; i++) {
                 if (tabCartes[i] == null){
                     tabCartes[i] = cartearecuperer;
+                    nbCartes++;
                 }
             }
         }
