@@ -3,7 +3,6 @@
  */
 package monopoly_epf;
 
-import java.util.Timer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -14,8 +13,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Random;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -194,61 +191,7 @@ public class Monopoly_EPF extends JFrame {
         plateauJeu.add(dé6V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
         this.repaint();
         dé6V2.setVisible(false);
-        
-        Timer timer = new Timer();
-        Timer timer2 = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                dé6.setVisible(false);
-            }
-        };
-        TimerTask task1 = new TimerTask() {
-            @Override
-            public void run() {
-                dé5.setVisible(false);
-                dé6.setVisible(true);
-                //timer.scheduleAtFixedRate(task, 200, 1400);
-            }
-        };
-        TimerTask task2 = new TimerTask() {
-            @Override
-            public void run() {
-                dé4.setVisible(false);
-                dé5.setVisible(true);
-                //timer.scheduleAtFixedRate(task1, 200, 1400);
-            }
-        };
-        TimerTask task3 = new TimerTask() {
-            @Override
-            public void run() {
-                dé3.setVisible(false);
-                dé4.setVisible(true);
-                //timer.scheduleAtFixedRate(task2, 200, 1400);
-            }
-        };
-        TimerTask task4 = new TimerTask() {
-            @Override
-            public void run() {
-                dé2.setVisible(false);
-                dé3.setVisible(true);
-                //timer.scheduleAtFixedRate(task3, 200, 1400);
-            }
-        };
-        TimerTask task5 = new TimerTask() {
-            @Override
-            public void run() {
-                dé1.setVisible(true);
-                //dé2.setVisible(true);
-                //timer.scheduleAtFixedRate(task4, 200, 1400);
-            }
-        };
-        TimerTask task6 = new TimerTask() {
-            @Override
-            public void run() {
-                dé1.setVisible(false);
-            }
-        };
+       
         Lancer_des = new JButton();
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
