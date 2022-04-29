@@ -464,59 +464,59 @@ public class Monopoly_EPF extends JFrame {
         
         credits1 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits1 = credits1.getPreferredSize();
-        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
         infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         credits2 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits2 = credits2.getPreferredSize();
-        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
         infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         credits3 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits3 = credits3.getPreferredSize();
-        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
         infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         credits4 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits4 = credits4.getPreferredSize();
-        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
         infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         nbCartes1 = new JLabel("Cartes libération de rattrapages : ");
         Dimension text_nbCartes1 = nbCartes1.getPreferredSize();
-        nbCartes1.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
-        infos_joueurs1.add(nbCartes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        nbCartes1.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs1.add(nbCartes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,122));
         this.repaint();
         
         nbCartes2 = new JLabel("Cartes libération de rattrapages : ");
         Dimension text_nbCartes2 = nbCartes2.getPreferredSize();
-        nbCartes2.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
-        infos_joueurs2.add(nbCartes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        nbCartes2.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs2.add(nbCartes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
         this.repaint();
         
         nbCartes3 = new JLabel("Cartes libération de rattrapages : ");
         Dimension text_nbCartes3 = nbCartes3.getPreferredSize();
-        nbCartes3.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
-        infos_joueurs3.add(nbCartes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        nbCartes3.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs3.add(nbCartes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
         this.repaint();
         
         nbCartes4 = new JLabel("Cartes libération de rattrapages : ");
         Dimension text_nbCartes14 = nbCartes4.getPreferredSize();
-        nbCartes4.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 10));
-        infos_joueurs4.add(nbCartes4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170,120));
+        nbCartes4.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs4.add(nbCartes4, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
         this.repaint();
         
         Libération1 = new JButton();
-        Libération1.setBounds(225, 120, 50, 20);
+        Libération1.setBounds(180, 115, 170, 25);
         Libération1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs1.add(Libération1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        infos_joueurs1.add(Libération1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 115, 170, 25));
         Libération1.setBackground(Color.LIGHT_GRAY);
         Libération1.setText("Carte libération de rattrapages");
-        Libération1.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération1.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 //l'idée ça serait d'afficher la carte à jouer avec un bouton "utiliser" sauf que pour l'instant la fonction utiliser carte (joueur) elle tire n'importe quelle carte (chance ou caisse) donc faut voir
@@ -525,12 +525,12 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         Libération2 = new JButton();
-        Libération2.setBounds(225, 120, 50, 20);
+        Libération2.setBounds(180, 115, 170, 25);
         Libération2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs2.add(Libération2, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        infos_joueurs2.add(Libération2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 115, 170, 25));
         Libération2.setBackground(Color.LIGHT_GRAY);
         Libération2.setText("Carte libération de rattrapages");
-        Libération2.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération2.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 
@@ -539,12 +539,12 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         Libération3 = new JButton();
-        Libération3.setBounds(225, 120, 50, 20);
+        Libération3.setBounds(180, 115, 170, 25);
         Libération3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs3.add(Libération3, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        infos_joueurs3.add(Libération3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 115, 170, 25));
         Libération3.setBackground(Color.LIGHT_GRAY);
         Libération3.setText("Carte libération de rattrapages");
-        Libération3.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération3.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 
@@ -553,13 +553,181 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         Libération4 = new JButton();
-        Libération4.setBounds(225, 120, 50, 20);
+        Libération4.setBounds(180, 115, 170, 25);
         Libération4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        infos_joueurs4.add(Libération4, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 120, 125, 20));
+        infos_joueurs4.add(Libération4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 115, 170, 25));
         Libération4.setBackground(Color.LIGHT_GRAY);
         Libération4.setText("Carte libération de rattrapages");
-        Libération4.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 8));
+        Libération4.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        PayerPrison1 = new JButton();
+        PayerPrison1.setBounds(5, 115, 170, 25);
+        PayerPrison1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs1.add(PayerPrison1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 115, 170, 25));
+        PayerPrison1.setBackground(Color.LIGHT_GRAY);
+        PayerPrison1.setText("Payer 50 ECTS");
+        PayerPrison1.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
+        PayerPrison1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        PayerPrison2 = new JButton();
+        PayerPrison2.setBounds(5, 115, 170, 25);
+        PayerPrison2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs2.add(PayerPrison2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 115, 170, 25));
+        PayerPrison2.setBackground(Color.LIGHT_GRAY);
+        PayerPrison2.setText("Payer 50 ECTS");
+        PayerPrison2.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
+        PayerPrison2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        PayerPrison3 = new JButton();
+        PayerPrison3.setBounds(5, 115, 170, 25);
+        PayerPrison3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs3.add(PayerPrison3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 115, 170, 25));
+        PayerPrison3.setBackground(Color.LIGHT_GRAY);
+        PayerPrison3.setText("Payer 50 ECTS");
+        PayerPrison3.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
+        PayerPrison3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        PayerPrison4 = new JButton();
+        PayerPrison4.setBounds(5, 115, 170, 25);
+        PayerPrison4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs4.add(PayerPrison4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 115, 170, 25));
+        PayerPrison4.setBackground(Color.LIGHT_GRAY);
+        PayerPrison4.setText("Payer 50 ECTS");
+        PayerPrison4.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
+        PayerPrison4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        Acheter1 = new JButton();
+        Acheter1.setBounds(5, 60, 170, 50);
+        Acheter1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs1.add(Acheter1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 60, 170, 50));
+        Acheter1.setBackground(Color.LIGHT_GRAY);
+        Acheter1.setText("Acheter");
+        Acheter1.setFont(new Font("Acheter", Font.BOLD, 20));
+        Acheter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        Acheter2 = new JButton();
+        Acheter2.setBounds(5, 60, 170, 50);
+        Acheter2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs2.add(Acheter2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 60, 170, 50));
+        Acheter2.setBackground(Color.LIGHT_GRAY);
+        Acheter2.setText("Acheter");
+        Acheter2.setFont(new Font("Acheter", Font.BOLD, 20));
+        Acheter2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        Acheter3 = new JButton();
+        Acheter3.setBounds(5, 60, 170, 50);
+        Acheter3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs3.add(Acheter3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 60, 170, 50));
+        Acheter3.setBackground(Color.LIGHT_GRAY);
+        Acheter3.setText("Acheter");
+        Acheter3.setFont(new Font("Acheter", Font.BOLD, 20));
+        Acheter3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        Acheter4 = new JButton();
+        Acheter4.setBounds(5, 60, 170, 50);
+        Acheter4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs4.add(Acheter4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 60, 170, 50));
+        Acheter4.setBackground(Color.LIGHT_GRAY);
+        Acheter4.setText("Acheter");
+        Acheter4.setFont(new Font("Acheter", Font.BOLD, 20));
+        Acheter4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        ValiderMatiere1 = new JButton();
+        ValiderMatiere1.setBounds(180, 60, 170, 50);
+        ValiderMatiere1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs1.add(ValiderMatiere1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        ValiderMatiere1.setBackground(Color.LIGHT_GRAY);
+        ValiderMatiere1.setText("Valider");
+        ValiderMatiere1.setFont(new Font("Valider", Font.BOLD, 20));
+        ValiderMatiere1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        ValiderMatiere2 = new JButton();
+        ValiderMatiere2.setBounds(180, 60, 170, 50);
+        ValiderMatiere2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs2.add(ValiderMatiere2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        ValiderMatiere2.setBackground(Color.LIGHT_GRAY);
+        ValiderMatiere2.setText("Valider");
+        ValiderMatiere2.setFont(new Font("Valider", Font.BOLD, 20));
+        ValiderMatiere2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        ValiderMatiere3 = new JButton();
+        ValiderMatiere3.setBounds(180, 60, 170, 50);
+        ValiderMatiere3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs3.add(ValiderMatiere3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        ValiderMatiere3.setBackground(Color.LIGHT_GRAY);
+        ValiderMatiere3.setText("Valider");
+        ValiderMatiere3.setFont(new Font("Valider", Font.BOLD, 20));
+        ValiderMatiere3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        ValiderMatiere4 = new JButton();
+        ValiderMatiere4.setBounds(180, 60, 170, 50);
+        ValiderMatiere4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs4.add(ValiderMatiere4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        ValiderMatiere4.setBackground(Color.LIGHT_GRAY);
+        ValiderMatiere4.setText("Valider");
+        ValiderMatiere4.setFont(new Font("Valider", Font.BOLD, 20));
+        ValiderMatiere4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 
             }
@@ -919,6 +1087,18 @@ public class Monopoly_EPF extends JFrame {
     private JButton Libération2;
     private JButton Libération3;
     private JButton Libération4;
+    private JButton PayerPrison1;
+    private JButton PayerPrison2;
+    private JButton PayerPrison3;
+    private JButton PayerPrison4;
+    private JButton Acheter1;
+    private JButton Acheter2;
+    private JButton Acheter3;
+    private JButton Acheter4;
+    private JButton ValiderMatiere1;
+    private JButton ValiderMatiere2;
+    private JButton ValiderMatiere3;
+    private JButton ValiderMatiere4;
     private JButton marron1;
     private JButton bleuclair1;
     private JButton violet1;
@@ -1628,5 +1808,17 @@ public class Monopoly_EPF extends JFrame {
         Libération2.setVisible(false);
         Libération3.setVisible(false);
         Libération4.setVisible(false);
+        PayerPrison1.setVisible(false);
+        PayerPrison2.setVisible(false);
+        PayerPrison3.setVisible(false);
+        PayerPrison4.setVisible(false);
+        Acheter1.setVisible(false);
+        Acheter2.setVisible(false);
+        Acheter3.setVisible(false);
+        Acheter4.setVisible(false);
+        ValiderMatiere1.setVisible(false);
+        ValiderMatiere2.setVisible(false);
+        ValiderMatiere3.setVisible(false);
+        ValiderMatiere4.setVisible(false);
     }
 }
