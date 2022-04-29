@@ -215,6 +215,42 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setVisible(true);
                 credits3.setVisible(true);
                 credits4.setVisible(true);
+                marron1.setVisible(true);
+                bleuclair1.setVisible(true);
+                violet1.setVisible(true);
+                orange1.setVisible(true);
+                rouge1.setVisible(true);
+                jaune1.setVisible(true);
+                vert1.setVisible(true);
+                bleufonce1.setVisible(true);
+                marron2.setVisible(true);
+                bleuclair2.setVisible(true);
+                violet2.setVisible(true);
+                orange2.setVisible(true);
+                rouge2.setVisible(true);
+                jaune2.setVisible(true);
+                vert2.setVisible(true);
+                bleufonce2.setVisible(true);
+                marron3.setVisible(true);
+                bleuclair3.setVisible(true);
+                violet3.setVisible(true);
+                orange3.setVisible(true);
+                rouge3.setVisible(true);
+                jaune3.setVisible(true);
+                vert3.setVisible(true);
+                bleufonce3.setVisible(true);
+                marron4.setVisible(true);
+                bleuclair4.setVisible(true);
+                violet4.setVisible(true);
+                orange4.setVisible(true);
+                rouge4.setVisible(true);
+                jaune4.setVisible(true);
+                vert4.setVisible(true);
+                bleufonce4.setVisible(true);
+                SallesPossedees1.setVisible(true);
+                SallesPossedees2.setVisible(true);
+                SallesPossedees3.setVisible(true);
+                SallesPossedees4.setVisible(true);
             }
         });
         this.repaint();
@@ -428,26 +464,26 @@ public class Monopoly_EPF extends JFrame {
         
         credits1 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits1 = credits1.getPreferredSize();
-        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
-        infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         credits2 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits2 = credits2.getPreferredSize();
-        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
-        infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         credits3 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits3 = credits3.getPreferredSize();
-        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
-        infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         credits4 = new JLabel("Crédits:" + "ECTS");
         Dimension text_credits4 = credits4.getPreferredSize();
-        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 15));
-        infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
+        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 18));
+        infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
         nbCartes1 = new JLabel("Cartes libération de rattrapages : ");
@@ -529,7 +565,319 @@ public class Monopoly_EPF extends JFrame {
             }
         });
         this.repaint();
-                
+        
+        marron1 = new JButton();
+        marron1.setBounds(8, 157, 38, 38);
+        marron1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(marron1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 157, 38, 38));
+        marron1.setBackground(new Color(148, 74, 37));
+        marron1.setText("0");
+        marron1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleuclair1 = new JButton();
+        bleuclair1.setBounds(51, 157, 38, 38);
+        bleuclair1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(bleuclair1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuclair1.setBackground(new Color(189, 227, 246));
+        bleuclair1.setText("0");
+        bleuclair1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        violet1 = new JButton();
+        violet1.setBounds(94, 157, 38, 38);
+        violet1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(violet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 157, 38, 38));
+        violet1.setBackground(new Color(120, 39, 134));
+        violet1.setText("0");
+        violet1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        orange1 = new JButton();
+        orange1.setBounds(137, 157, 38, 38);
+        orange1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(orange1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 157, 38, 38));
+        orange1.setBackground(new Color(242, 148, 0));
+        orange1.setText("0");
+        orange1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        rouge1 = new JButton();
+        rouge1.setBounds(180, 157, 38, 38);
+        rouge1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(rouge1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 157, 38, 38));
+        rouge1.setBackground(new Color(227, 0, 27));
+        rouge1.setText("0");
+        rouge1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        jaune1 = new JButton();
+        jaune1.setBounds(223, 157, 38, 38);
+        jaune1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(jaune1, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 157, 38, 38));
+        jaune1.setBackground(new Color(255, 238, 2));
+        jaune1.setText("0");
+        jaune1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        vert1 = new JButton();
+        vert1.setBounds(266, 157, 38, 38);
+        vert1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(vert1, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 157, 38, 38));
+        vert1.setBackground(new Color(38, 163, 69));
+        vert1.setText("0");
+        vert1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleufonce1 = new JButton();
+        bleufonce1.setBounds(309, 157, 38, 38);
+        bleufonce1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(bleufonce1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufonce1.setBackground(new Color(28, 55, 126));
+        bleufonce1.setText("0");
+        bleufonce1.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        marron2 = new JButton();
+        marron2.setBounds(8, 157, 38, 38);
+        marron2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(marron2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 157, 38, 38));
+        marron2.setBackground(new Color(148, 74, 37));
+        marron2.setText("0");
+        marron2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleuclair2 = new JButton();
+        bleuclair2.setBounds(51, 157, 38, 38);
+        bleuclair2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(bleuclair2, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuclair2.setBackground(new Color(189, 227, 246));
+        bleuclair2.setText("0");
+        bleuclair2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        violet2 = new JButton();
+        violet2.setBounds(94, 157, 38, 38);
+        violet2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(violet2, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 157, 38, 38));
+        violet2.setBackground(new Color(120, 39, 134));
+        violet2.setText("0");
+        violet2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        orange2 = new JButton();
+        orange2.setBounds(137, 157, 38, 38);
+        orange2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(orange2, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 157, 38, 38));
+        orange2.setBackground(new Color(242, 148, 0));
+        orange2.setText("0");
+        orange2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        rouge2 = new JButton();
+        rouge2.setBounds(180, 157, 38, 38);
+        rouge2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(rouge2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 157, 38, 38));
+        rouge2.setBackground(new Color(227, 0, 27));
+        rouge2.setText("0");
+        rouge2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        jaune2 = new JButton();
+        jaune2.setBounds(223, 157, 38, 38);
+        jaune2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(jaune2, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 157, 38, 38));
+        jaune2.setBackground(new Color(255, 238, 2));
+        jaune2.setText("0");
+        jaune2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        vert2 = new JButton();
+        vert2.setBounds(266, 157, 38, 38);
+        vert2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(vert2, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 157, 38, 38));
+        vert2.setBackground(new Color(38, 163, 69));
+        vert2.setText("0");
+        vert2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleufonce2 = new JButton();
+        bleufonce2.setBounds(309, 157, 38, 38);
+        bleufonce2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(bleufonce2, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufonce2.setBackground(new Color(28, 55, 126));
+        bleufonce2.setText("0");
+        bleufonce2.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        marron3 = new JButton();
+        marron3.setBounds(8, 157, 38, 38);
+        marron3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(marron3, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 157, 38, 38));
+        marron3.setBackground(new Color(148, 74, 37));
+        marron3.setText("0");
+        marron3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleuclair3 = new JButton();
+        bleuclair3.setBounds(51, 157, 38, 38);
+        bleuclair3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(bleuclair3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuclair3.setBackground(new Color(189, 227, 246));
+        bleuclair3.setText("0");
+        bleuclair3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        violet3 = new JButton();
+        violet3.setBounds(94, 157, 38, 38);
+        violet3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(violet3, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 157, 38, 38));
+        violet3.setBackground(new Color(120, 39, 134));
+        violet3.setText("0");
+        violet3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        orange3 = new JButton();
+        orange3.setBounds(137, 157, 38, 38);
+        orange3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(orange3, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 157, 38, 38));
+        orange3.setBackground(new Color(242, 148, 0));
+        orange3.setText("0");
+        orange3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        rouge3 = new JButton();
+        rouge3.setBounds(180, 157, 38, 38);
+        rouge3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(rouge3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 157, 38, 38));
+        rouge3.setBackground(new Color(227, 0, 27));
+        rouge3.setText("0");
+        rouge3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        jaune3 = new JButton();
+        jaune3.setBounds(223, 157, 38, 38);
+        jaune3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(jaune3, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 157, 38, 38));
+        jaune3.setBackground(new Color(255, 238, 2));
+        jaune3.setText("0");
+        jaune3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        vert3 = new JButton();
+        vert3.setBounds(266, 157, 38, 38);
+        vert3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(vert3, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 157, 38, 38));
+        vert3.setBackground(new Color(38, 163, 69));
+        vert3.setText("0");
+        vert3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleufonce3 = new JButton();
+        bleufonce3.setBounds(309, 157, 38, 38);
+        bleufonce3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(bleufonce3, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufonce3.setBackground(new Color(28, 55, 126));
+        bleufonce3.setText("0");
+        bleufonce3.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        marron4 = new JButton();
+        marron4.setBounds(8, 157, 38, 38);
+        marron4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(marron4, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 157, 38, 38));
+        marron4.setBackground(new Color(148, 74, 37));
+        marron4.setText("0");
+        marron4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleuclair4 = new JButton();
+        bleuclair4.setBounds(51, 157, 38, 38);
+        bleuclair4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(bleuclair4, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuclair4.setBackground(new Color(189, 227, 246));
+        bleuclair4.setText("0");
+        bleuclair4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        violet4 = new JButton();
+        violet4.setBounds(94, 157, 38, 38);
+        violet4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(violet4, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 157, 38, 38));
+        violet4.setBackground(new Color(120, 39, 134));
+        violet4.setText("0");
+        violet4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        orange4 = new JButton();
+        orange4.setBounds(137, 157, 38, 38);
+        orange4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(orange4, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 157, 38, 38));
+        orange4.setBackground(new Color(242, 148, 0));
+        orange4.setText("0");
+        orange4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        rouge4 = new JButton();
+        rouge4.setBounds(180, 157, 38, 38);
+        rouge4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(rouge4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 157, 38, 38));
+        rouge4.setBackground(new Color(227, 0, 27));
+        rouge4.setText("0");
+        rouge4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        jaune4 = new JButton();
+        jaune4.setBounds(223, 157, 38, 38);
+        jaune4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(jaune4, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 157, 38, 38));
+        jaune4.setBackground(new Color(255, 238, 2));
+        jaune4.setText("0");
+        jaune4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        vert4 = new JButton();
+        vert4.setBounds(266, 157, 38, 38);
+        vert4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(vert4, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 157, 38, 38));
+        vert4.setBackground(new Color(38, 163, 69));
+        vert4.setText("0");
+        vert4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        bleufonce4 = new JButton();
+        bleufonce4.setBounds(309, 157, 38, 38);
+        bleufonce4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(bleufonce4, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufonce4.setBackground(new Color(28, 55, 126));
+        bleufonce4.setText("0");
+        bleufonce4.setFont(new Font("0", Font.BOLD, 10));
+        this.repaint();
+        
+        SallesPossedees1 = new JLabel("Salles Possédées :");
+        Dimension salles_possed1_size = SallesPossedees1.getPreferredSize();
+        SallesPossedees1.setFont(new Font("Salles Possédées :", Font.BOLD, 12));
+        infos_joueurs1.add(SallesPossedees1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8,140));
+        this.repaint();
+        
+        SallesPossedees2 = new JLabel("Salles Possédées :");
+        Dimension salles_possed2_size = SallesPossedees2.getPreferredSize();
+        SallesPossedees2.setFont(new Font("Salles Possédées :", Font.BOLD, 12));
+        infos_joueurs2.add(SallesPossedees2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8,140));
+        this.repaint();
+        
+        SallesPossedees3 = new JLabel("Salles Possédées :");
+        Dimension salles_possed3_size = SallesPossedees3.getPreferredSize();
+        SallesPossedees3.setFont(new Font("Salles Possédées :", Font.BOLD, 12));
+        infos_joueurs3.add(SallesPossedees3, new org.netbeans.lib.awtextra.AbsoluteConstraints(8,140));
+        this.repaint();
+        
+        SallesPossedees4 = new JLabel("Salles Possédées :");
+        Dimension salles_possed4_size = SallesPossedees4.getPreferredSize();
+        SallesPossedees4.setFont(new Font("Salles Possédées :", Font.BOLD, 12));
+        infos_joueurs4.add(SallesPossedees4, new org.netbeans.lib.awtextra.AbsoluteConstraints(8,140));
+        this.repaint();
+        
     }
     
     PlateauPanel plateauJeu;
@@ -551,6 +899,10 @@ public class Monopoly_EPF extends JFrame {
     private JLabel nbCartes2;
     private JLabel nbCartes3;
     private JLabel nbCartes4;
+    private JLabel SallesPossedees1;
+    private JLabel SallesPossedees2;
+    private JLabel SallesPossedees3;
+    private JLabel SallesPossedees4;
     private JPanel infos_joueurs1;
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
@@ -567,6 +919,38 @@ public class Monopoly_EPF extends JFrame {
     private JButton Libération2;
     private JButton Libération3;
     private JButton Libération4;
+    private JButton marron1;
+    private JButton bleuclair1;
+    private JButton violet1;
+    private JButton orange1;
+    private JButton rouge1;
+    private JButton jaune1;
+    private JButton vert1;
+    private JButton bleufonce1;
+    private JButton marron2;
+    private JButton bleuclair2;
+    private JButton violet2;
+    private JButton orange2;
+    private JButton rouge2;
+    private JButton jaune2;
+    private JButton vert2;
+    private JButton bleufonce2;
+    private JButton marron3;
+    private JButton bleuclair3;
+    private JButton violet3;
+    private JButton orange3;
+    private JButton rouge3;
+    private JButton jaune3;
+    private JButton vert3;
+    private JButton bleufonce3;
+    private JButton marron4;
+    private JButton bleuclair4;
+    private JButton violet4;
+    private JButton orange4;
+    private JButton rouge4;
+    private JButton jaune4;
+    private JButton vert4;
+    private JButton bleufonce4;
     private Thread thread;
     private JTextArea zone_texte_infos;
     
@@ -1151,6 +1535,74 @@ public class Monopoly_EPF extends JFrame {
         Payer_Jousset.setVisible(false);
         Matieres_possedees.setVisible(false);
         Lancer_des.setEnabled(false);
+        marron1.setEnabled(false);
+        marron1.setVisible(false);
+        bleuclair1.setEnabled(false);
+        bleuclair1.setVisible(false);
+        violet1.setEnabled(false);
+        violet1.setVisible(false);
+        orange1.setEnabled(false);
+        orange1.setVisible(false);
+        rouge1.setEnabled(false);
+        rouge1.setVisible(false);
+        jaune1.setEnabled(false);
+        jaune1.setVisible(false);
+        vert1.setEnabled(false);
+        vert1.setVisible(false);
+        bleufonce1.setEnabled(false);
+        bleufonce1.setVisible(false);
+        marron2.setEnabled(false);
+        marron2.setVisible(false);
+        bleuclair2.setEnabled(false);
+        bleuclair2.setVisible(false);
+        violet2.setEnabled(false);
+        violet2.setVisible(false);
+        orange2.setEnabled(false);
+        orange2.setVisible(false);
+        rouge2.setEnabled(false);
+        rouge2.setVisible(false);
+        jaune2.setEnabled(false);
+        jaune2.setVisible(false);
+        vert2.setEnabled(false);
+        vert2.setVisible(false);
+        bleufonce2.setEnabled(false);
+        bleufonce2.setVisible(false);
+        marron3.setEnabled(false);
+        marron3.setVisible(false);
+        bleuclair3.setEnabled(false);
+        bleuclair3.setVisible(false);
+        violet3.setEnabled(false);
+        violet3.setVisible(false);
+        orange3.setEnabled(false);
+        orange3.setVisible(false);
+        rouge3.setEnabled(false);
+        rouge3.setVisible(false);
+        jaune3.setEnabled(false);
+        jaune3.setVisible(false);
+        vert3.setEnabled(false);
+        vert3.setVisible(false);
+        bleufonce3.setEnabled(false);
+        bleufonce3.setVisible(false);
+        marron4.setEnabled(false);
+        marron4.setVisible(false);
+        bleuclair4.setEnabled(false);
+        bleuclair4.setVisible(false);
+        violet4.setEnabled(false);
+        violet4.setVisible(false);
+        orange4.setEnabled(false);
+        orange4.setVisible(false);
+        rouge4.setEnabled(false);
+        rouge4.setVisible(false);
+        jaune4.setEnabled(false);
+        jaune4.setVisible(false);
+        vert4.setEnabled(false);
+        vert4.setVisible(false);
+        bleufonce4.setEnabled(false);
+        bleufonce4.setVisible(false);
+        SallesPossedees1.setVisible(false);
+        SallesPossedees2.setVisible(false);
+        SallesPossedees3.setVisible(false);
+        SallesPossedees4.setVisible(false);
         Salles.setEnabled(false);
         credits1.setVisible(false);
         credits2.setVisible(false);
