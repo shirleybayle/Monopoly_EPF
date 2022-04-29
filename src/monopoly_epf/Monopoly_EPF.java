@@ -216,37 +216,37 @@ public class Monopoly_EPF extends JFrame {
                 credits3.setVisible(true);
                 credits4.setVisible(true);
                 marron1.setVisible(true);
-                bleuclair1.setVisible(true);
+                bleuciel1.setVisible(true);
                 violet1.setVisible(true);
                 orange1.setVisible(true);
                 rouge1.setVisible(true);
                 jaune1.setVisible(true);
                 vert1.setVisible(true);
-                bleufonce1.setVisible(true);
+                bleufoncé1.setVisible(true);
                 marron2.setVisible(true);
-                bleuclair2.setVisible(true);
+                bleuciel2.setVisible(true);
                 violet2.setVisible(true);
                 orange2.setVisible(true);
                 rouge2.setVisible(true);
                 jaune2.setVisible(true);
                 vert2.setVisible(true);
-                bleufonce2.setVisible(true);
+                bleufoncé2.setVisible(true);
                 marron3.setVisible(true);
-                bleuclair3.setVisible(true);
+                bleuciel3.setVisible(true);
                 violet3.setVisible(true);
                 orange3.setVisible(true);
                 rouge3.setVisible(true);
                 jaune3.setVisible(true);
                 vert3.setVisible(true);
-                bleufonce3.setVisible(true);
+                bleufoncé3.setVisible(true);
                 marron4.setVisible(true);
-                bleuclair4.setVisible(true);
+                bleuciel4.setVisible(true);
                 violet4.setVisible(true);
                 orange4.setVisible(true);
                 rouge4.setVisible(true);
                 jaune4.setVisible(true);
                 vert4.setVisible(true);
-                bleufonce4.setVisible(true);
+                bleufoncé4.setVisible(true);
                 SallesPossedees1.setVisible(true);
                 SallesPossedees2.setVisible(true);
                 SallesPossedees3.setVisible(true);
@@ -631,7 +631,7 @@ public class Monopoly_EPF extends JFrame {
         Acheter1.setFont(new Font("Acheter", Font.BOLD, 20));
         Acheter1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                acheter(joueurCourant.pion.caseassociee);
             }
         });
         this.repaint();
@@ -645,7 +645,7 @@ public class Monopoly_EPF extends JFrame {
         Acheter2.setFont(new Font("Acheter", Font.BOLD, 20));
         Acheter2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                acheter(joueurCourant.pion.caseassociee);
             }
         });
         this.repaint();
@@ -659,7 +659,7 @@ public class Monopoly_EPF extends JFrame {
         Acheter3.setFont(new Font("Acheter", Font.BOLD, 20));
         Acheter3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                acheter(joueurCourant.pion.caseassociee);
             }
         });
         this.repaint();
@@ -673,7 +673,7 @@ public class Monopoly_EPF extends JFrame {
         Acheter4.setFont(new Font("Acheter", Font.BOLD, 20));
         Acheter4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                acheter(joueurCourant.pion.caseassociee);
             }
         });
         this.repaint();
@@ -743,13 +743,13 @@ public class Monopoly_EPF extends JFrame {
         marron1.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleuclair1 = new JButton();
-        bleuclair1.setBounds(51, 157, 38, 38);
-        bleuclair1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs1.add(bleuclair1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
-        bleuclair1.setBackground(new Color(189, 227, 246));
-        bleuclair1.setText("0");
-        bleuclair1.setFont(new Font("0", Font.BOLD, 10));
+        bleuciel1 = new JButton();
+        bleuciel1.setBounds(51, 157, 38, 38);
+        bleuciel1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(bleuciel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuciel1.setBackground(new Color(189, 227, 246));
+        bleuciel1.setText("0");
+        bleuciel1.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         violet1 = new JButton();
@@ -797,13 +797,13 @@ public class Monopoly_EPF extends JFrame {
         vert1.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleufonce1 = new JButton();
-        bleufonce1.setBounds(309, 157, 38, 38);
-        bleufonce1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs1.add(bleufonce1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
-        bleufonce1.setBackground(new Color(28, 55, 126));
-        bleufonce1.setText("0");
-        bleufonce1.setFont(new Font("0", Font.BOLD, 10));
+        bleufoncé1 = new JButton();
+        bleufoncé1.setBounds(309, 157, 38, 38);
+        bleufoncé1.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs1.add(bleufoncé1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufoncé1.setBackground(new Color(28, 55, 126));
+        bleufoncé1.setText("0");
+        bleufoncé1.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         marron2 = new JButton();
@@ -815,13 +815,13 @@ public class Monopoly_EPF extends JFrame {
         marron2.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleuclair2 = new JButton();
-        bleuclair2.setBounds(51, 157, 38, 38);
-        bleuclair2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs2.add(bleuclair2, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
-        bleuclair2.setBackground(new Color(189, 227, 246));
-        bleuclair2.setText("0");
-        bleuclair2.setFont(new Font("0", Font.BOLD, 10));
+        bleuciel2 = new JButton();
+        bleuciel2.setBounds(51, 157, 38, 38);
+        bleuciel2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(bleuciel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuciel2.setBackground(new Color(189, 227, 246));
+        bleuciel2.setText("0");
+        bleuciel2.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         violet2 = new JButton();
@@ -869,13 +869,13 @@ public class Monopoly_EPF extends JFrame {
         vert2.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleufonce2 = new JButton();
-        bleufonce2.setBounds(309, 157, 38, 38);
-        bleufonce2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs2.add(bleufonce2, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
-        bleufonce2.setBackground(new Color(28, 55, 126));
-        bleufonce2.setText("0");
-        bleufonce2.setFont(new Font("0", Font.BOLD, 10));
+        bleufoncé2 = new JButton();
+        bleufoncé2.setBounds(309, 157, 38, 38);
+        bleufoncé2.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs2.add(bleufoncé2, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufoncé2.setBackground(new Color(28, 55, 126));
+        bleufoncé2.setText("0");
+        bleufoncé2.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         marron3 = new JButton();
@@ -887,13 +887,13 @@ public class Monopoly_EPF extends JFrame {
         marron3.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleuclair3 = new JButton();
-        bleuclair3.setBounds(51, 157, 38, 38);
-        bleuclair3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs3.add(bleuclair3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
-        bleuclair3.setBackground(new Color(189, 227, 246));
-        bleuclair3.setText("0");
-        bleuclair3.setFont(new Font("0", Font.BOLD, 10));
+        bleuciel3 = new JButton();
+        bleuciel3.setBounds(51, 157, 38, 38);
+        bleuciel3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(bleuciel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuciel3.setBackground(new Color(189, 227, 246));
+        bleuciel3.setText("0");
+        bleuciel3.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         violet3 = new JButton();
@@ -941,13 +941,13 @@ public class Monopoly_EPF extends JFrame {
         vert3.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleufonce3 = new JButton();
-        bleufonce3.setBounds(309, 157, 38, 38);
-        bleufonce3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs3.add(bleufonce3, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
-        bleufonce3.setBackground(new Color(28, 55, 126));
-        bleufonce3.setText("0");
-        bleufonce3.setFont(new Font("0", Font.BOLD, 10));
+        bleufoncé3 = new JButton();
+        bleufoncé3.setBounds(309, 157, 38, 38);
+        bleufoncé3.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs3.add(bleufoncé3, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufoncé3.setBackground(new Color(28, 55, 126));
+        bleufoncé3.setText("0");
+        bleufoncé3.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         marron4 = new JButton();
@@ -959,13 +959,13 @@ public class Monopoly_EPF extends JFrame {
         marron4.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleuclair4 = new JButton();
-        bleuclair4.setBounds(51, 157, 38, 38);
-        bleuclair4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs4.add(bleuclair4, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
-        bleuclair4.setBackground(new Color(189, 227, 246));
-        bleuclair4.setText("0");
-        bleuclair4.setFont(new Font("0", Font.BOLD, 10));
+        bleuciel4 = new JButton();
+        bleuciel4.setBounds(51, 157, 38, 38);
+        bleuciel4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(bleuciel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 157, 38, 38));
+        bleuciel4.setBackground(new Color(189, 227, 246));
+        bleuciel4.setText("0");
+        bleuciel4.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         violet4 = new JButton();
@@ -1013,13 +1013,13 @@ public class Monopoly_EPF extends JFrame {
         vert4.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
-        bleufonce4 = new JButton();
-        bleufonce4.setBounds(309, 157, 38, 38);
-        bleufonce4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
-        infos_joueurs4.add(bleufonce4, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
-        bleufonce4.setBackground(new Color(28, 55, 126));
-        bleufonce4.setText("0");
-        bleufonce4.setFont(new Font("0", Font.BOLD, 10));
+        bleufoncé4 = new JButton();
+        bleufoncé4.setBounds(309, 157, 38, 38);
+        bleufoncé4.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.BLACK));
+        infos_joueurs4.add(bleufoncé4, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 157, 38, 38));
+        bleufoncé4.setBackground(new Color(28, 55, 126));
+        bleufoncé4.setText("0");
+        bleufoncé4.setFont(new Font("0", Font.BOLD, 10));
         this.repaint();
         
         SallesPossedees1 = new JLabel("Salles Possédées :");
@@ -1100,37 +1100,37 @@ public class Monopoly_EPF extends JFrame {
     private JButton ValiderMatiere3;
     private JButton ValiderMatiere4;
     private JButton marron1;
-    private JButton bleuclair1;
+    private JButton bleuciel1;
     private JButton violet1;
     private JButton orange1;
     private JButton rouge1;
     private JButton jaune1;
     private JButton vert1;
-    private JButton bleufonce1;
+    private JButton bleufoncé1;
     private JButton marron2;
-    private JButton bleuclair2;
+    private JButton bleuciel2;
     private JButton violet2;
     private JButton orange2;
     private JButton rouge2;
     private JButton jaune2;
     private JButton vert2;
-    private JButton bleufonce2;
+    private JButton bleufoncé2;
     private JButton marron3;
-    private JButton bleuclair3;
+    private JButton bleuciel3;
     private JButton violet3;
     private JButton orange3;
     private JButton rouge3;
     private JButton jaune3;
     private JButton vert3;
-    private JButton bleufonce3;
+    private JButton bleufoncé3;
     private JButton marron4;
-    private JButton bleuclair4;
+    private JButton bleuciel4;
     private JButton violet4;
     private JButton orange4;
     private JButton rouge4;
     private JButton jaune4;
     private JButton vert4;
-    private JButton bleufonce4;
+    private JButton bleufoncé4;
     private Thread thread;
     private JTextArea zone_texte_infos;
     
@@ -1695,6 +1695,743 @@ public class Monopoly_EPF extends JFrame {
             caseassociee.proprietaire = joueurCourant;
             joueurCourant.credits = joueurCourant.credits-caseassociee.prixTerrain;
             joueurCourant.sallesPossedees.add(caseassociee);
+            zone_texte_infos.setText(joueurCourant.nom + ", vous achetez " + caseassociee.nom + " pour " + caseassociee.prixTerrain + "ECTS!");
+            if(caseassociee.couleur=="marron") {
+                joueurCourant.compterMemesSallesJoueur("marron");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        marron1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        marron2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        marron3.setText("1");
+                    }
+                    else {
+                        marron4.setText("1");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==0) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==1) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==0) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        marron1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        marron2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        marron3.setText("2");
+                    }
+                    else {
+                        marron4.setText("2");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="bleu ciel") {
+                joueurCourant.compterMemesSallesJoueur("bleu ciel");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        bleuciel1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        bleuciel2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        bleuciel3.setText("1");
+                    }
+                    else {
+                        bleuciel4.setText("1");
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==2 ){
+                    if(joueurCourant==tabJoueurs[0]) {
+                        bleuciel1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        bleuciel2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        bleuciel3.setText("2");
+                    }
+                    else {
+                        bleuciel4.setText("2");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==2) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==3) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==4) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==3) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==2) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==4) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==2) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==3) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        bleuciel1.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        bleuciel2.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        bleuciel3.setText("3");
+                    }
+                    else {
+                        bleuciel4.setText("3");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="violet") {
+                joueurCourant.compterMemesSallesJoueur("violet");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        violet1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        violet2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        violet3.setText("1");
+                    }
+                    else {
+                        violet4.setText("1");
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==2 ){
+                    if(joueurCourant==tabJoueurs[0]) {
+                        violet1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        violet2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        violet3.setText("2");
+                    }
+                    else {
+                        violet4.setText("2");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==5) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==6) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==7) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==6) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==5) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==7) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==5) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==6) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        violet1.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        violet2.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        violet3.setText("3");
+                    }
+                    else {
+                        violet4.setText("3");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="orange") {
+                joueurCourant.compterMemesSallesJoueur("orange");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        orange1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        orange2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        orange3.setText("1");
+                    }
+                    else {
+                        orange4.setText("1");
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==2 ){
+                    if(joueurCourant==tabJoueurs[0]) {
+                        orange1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        orange2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        orange3.setText("2");
+                    }
+                    else {
+                        orange4.setText("2");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==8) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==9) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==10) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==9) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==8) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==10) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==8) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==9) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        orange1.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        orange2.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        orange3.setText("3");
+                    }
+                    else {
+                        orange4.setText("3");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="rouge") {
+                joueurCourant.compterMemesSallesJoueur("rouge");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        rouge1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        rouge2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        rouge3.setText("1");
+                    }
+                    else {
+                        rouge4.setText("1");
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==2 ){
+                    if(joueurCourant==tabJoueurs[0]) {
+                        rouge1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        rouge2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        rouge3.setText("2");
+                    }
+                    else {
+                        rouge4.setText("2");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==11) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==12) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==12) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==12) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==11) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==13) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==11) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==12) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        rouge1.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        rouge2.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        rouge3.setText("3");
+                    }
+                    else {
+                        rouge4.setText("3");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="jaune") {
+                joueurCourant.compterMemesSallesJoueur("jaune");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        jaune1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        jaune2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        jaune3.setText("1");
+                    }
+                    else {
+                        jaune4.setText("1");
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==2 ){
+                    if(joueurCourant==tabJoueurs[0]) {
+                        jaune1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        jaune2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        jaune3.setText("2");
+                    }
+                    else {
+                        jaune4.setText("2");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==14) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==15) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==16) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==15) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==14) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==16) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==14) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==15) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        jaune1.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        jaune2.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        jaune3.setText("3");
+                    }
+                    else {
+                        jaune4.setText("3");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="vert") {
+                joueurCourant.compterMemesSallesJoueur("vert");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        vert1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        vert2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        vert3.setText("1");
+                    }
+                    else {
+                        vert4.setText("1");
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==2 ){
+                    if(joueurCourant==tabJoueurs[0]) {
+                        vert1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        vert2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        vert3.setText("2");
+                    }
+                    else {
+                        vert4.setText("2");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==17) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==18) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==19) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==18) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==17) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==19) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==17) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==18) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        vert1.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        vert2.setText("3");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        vert3.setText("3");
+                    }
+                    else {
+                        vert4.setText("3");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="bleu foncé") {
+                joueurCourant.compterMemesSallesJoueur("bleu foncé");
+                if(caseassociee.nbSallesMemeCouleur==1) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        bleufoncé1.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        bleufoncé2.setText("1");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        bleufoncé3.setText("1");
+                    }
+                    else {
+                        bleufoncé4.setText("1");
+                    }
+                }
+                else {
+                    caseassociee.changerLoyer();
+                    if(caseassociee.idCase==20) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==21) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==20) {
+                                joueurCourant.sallesPossedees.get(i).changerLoyer();
+                            }
+                        }
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        bleufoncé1.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[1]) {
+                        bleufoncé2.setText("2");
+                    }
+                    if(joueurCourant==tabJoueurs[2]) {
+                        bleufoncé3.setText("2");
+                    }
+                    else {
+                        bleufoncé4.setText("2");
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="gare") {
+                joueurCourant.compterMemesSallesJoueur("gare");
+                if(caseassociee.nbSallesMemeCouleur==2) {
+                    caseassociee.loyer=50;
+                    if(caseassociee.idCase==22) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==23) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==24) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=50;
+                            }
+                        }
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==3) {
+                    caseassociee.loyer=100;
+                    if(caseassociee.idCase==22) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==23) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==24) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=100;
+                            }
+                        }
+                    }
+                }
+                else if(caseassociee.nbSallesMemeCouleur==4) {
+                    caseassociee.loyer=200;
+                    if(caseassociee.idCase==22) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==23) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==24) {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==25) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                        }
+                    }
+                    else {
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==22) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==23) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                            else if(joueurCourant.sallesPossedees.get(i).idCase==24) {
+                                joueurCourant.sallesPossedees.get(i).loyer=200;
+                            }
+                        }
+                    }
+                }
+            }
+            else if(caseassociee.couleur=="Compagnie") {
+                joueurCourant.compterMemesSallesJoueur("Compagnie");
+                if(caseassociee.nbSallesMemeCouleur==2) {
+                    caseassociee.loyer=20;
+                    if(caseassociee.idCase==26){
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==27) {
+                                joueurCourant.sallesPossedees.get(i).loyer=20;
+                            }
+                        }
+                    }
+                    else if(caseassociee.idCase==27){
+                        for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
+                            if(joueurCourant.sallesPossedees.get(i).idCase==26) {
+                                joueurCourant.sallesPossedees.get(i).loyer=20;
+                            }
+                        }
+                    }
+                }
+            }
             return true;
         }
         else {
@@ -1717,8 +2454,8 @@ public class Monopoly_EPF extends JFrame {
         Lancer_des.setEnabled(false);
         marron1.setEnabled(false);
         marron1.setVisible(false);
-        bleuclair1.setEnabled(false);
-        bleuclair1.setVisible(false);
+        bleuciel1.setEnabled(false);
+        bleuciel1.setVisible(false);
         violet1.setEnabled(false);
         violet1.setVisible(false);
         orange1.setEnabled(false);
@@ -1729,12 +2466,12 @@ public class Monopoly_EPF extends JFrame {
         jaune1.setVisible(false);
         vert1.setEnabled(false);
         vert1.setVisible(false);
-        bleufonce1.setEnabled(false);
-        bleufonce1.setVisible(false);
+        bleufoncé1.setEnabled(false);
+        bleufoncé1.setVisible(false);
         marron2.setEnabled(false);
         marron2.setVisible(false);
-        bleuclair2.setEnabled(false);
-        bleuclair2.setVisible(false);
+        bleuciel2.setEnabled(false);
+        bleuciel2.setVisible(false);
         violet2.setEnabled(false);
         violet2.setVisible(false);
         orange2.setEnabled(false);
@@ -1745,12 +2482,12 @@ public class Monopoly_EPF extends JFrame {
         jaune2.setVisible(false);
         vert2.setEnabled(false);
         vert2.setVisible(false);
-        bleufonce2.setEnabled(false);
-        bleufonce2.setVisible(false);
+        bleufoncé2.setEnabled(false);
+        bleufoncé2.setVisible(false);
         marron3.setEnabled(false);
         marron3.setVisible(false);
-        bleuclair3.setEnabled(false);
-        bleuclair3.setVisible(false);
+        bleuciel3.setEnabled(false);
+        bleuciel3.setVisible(false);
         violet3.setEnabled(false);
         violet3.setVisible(false);
         orange3.setEnabled(false);
@@ -1761,12 +2498,12 @@ public class Monopoly_EPF extends JFrame {
         jaune3.setVisible(false);
         vert3.setEnabled(false);
         vert3.setVisible(false);
-        bleufonce3.setEnabled(false);
-        bleufonce3.setVisible(false);
+        bleufoncé3.setEnabled(false);
+        bleufoncé3.setVisible(false);
         marron4.setEnabled(false);
         marron4.setVisible(false);
-        bleuclair4.setEnabled(false);
-        bleuclair4.setVisible(false);
+        bleuciel4.setEnabled(false);
+        bleuciel4.setVisible(false);
         violet4.setEnabled(false);
         violet4.setVisible(false);
         orange4.setEnabled(false);
@@ -1777,8 +2514,8 @@ public class Monopoly_EPF extends JFrame {
         jaune4.setVisible(false);
         vert4.setEnabled(false);
         vert4.setVisible(false);
-        bleufonce4.setEnabled(false);
-        bleufonce4.setVisible(false);
+        bleufoncé4.setEnabled(false);
+        bleufoncé4.setVisible(false);
         SallesPossedees1.setVisible(false);
         SallesPossedees2.setVisible(false);
         SallesPossedees3.setVisible(false);

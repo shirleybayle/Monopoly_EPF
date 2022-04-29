@@ -200,7 +200,53 @@ public class Case {
                 prixMaison = 200;
                 idCase = 21;
                 break;
-                //Il manque les gares et les compagnies
+            case(22) : //Il manque les gares et les compagnies --> Gares et compagnie à la suite des autres
+                nom = "Cour de récréation";
+                prixTerrain = 200;
+                couleur = "gare";
+                loyerIn = 25;
+                prixMaison = 0; //à confirmer que c'est bien comme ça
+                idCase = 22;
+                break;
+            case(23) :
+                nom = "Amphithéâtre";
+                prixTerrain = 200;
+                couleur = "gare";
+                loyerIn = 25;
+                prixMaison = 0;
+                idCase = 23;
+                break;
+            case(24) :
+                nom = "Foyer";
+                prixTerrain = 200;
+                couleur = "Gare";
+                loyerIn = 25;
+                prixMaison = 0;
+                idCase = 24;
+                break;
+            case(25) :
+                nom = "Bureau des Ours";
+                prixTerrain = 200;
+                couleur = "gare";
+                loyerIn = 25;
+                prixMaison = 0;
+                idCase = 25;
+                break;
+            case(26) :
+                nom = "Maintenance des micro-ondes";
+                prixTerrain = 150;
+                couleur = "Compagnie";
+                loyerIn = 8; //c le plus petit qu'on puisse faire, pareil est-ce que c'est la bonne chose à mettre icià voir...
+                prixMaison = 0;
+                idCase = 26;
+                break;
+            case(27) :
+                nom = "Maintenance des chauffages";
+                prixTerrain = 150;
+                couleur = "Compagnie";
+                loyerIn = 8;
+                prixMaison = 0;
+                idCase = 27;
             
                 
         }
@@ -220,7 +266,6 @@ public class Case {
         if (proprietaire == null) {
             loyer = loyerIn;
         }
-        
         else if (maison==0) {
             int compteurCouleur =0;
             if (couleur == "marron" || couleur == "bleu foncé") {
