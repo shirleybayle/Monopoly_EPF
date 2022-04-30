@@ -412,7 +412,7 @@ public class Partie {
                    joueurCourant.pion.avancer(36+39-indicecase); //36 = départ jusqu'à bdo ; 39-indicecase = nb cases jusqu'à case départ
                }
             }
-            else if (id==14) joueurCourant.credits = joueurCourant.credits + 100;
+            else if (id==14) joueurCourant.credits = joueurCourant.credits + 100; //intervertie avec la 15 par rapport aux textes dans carte (modifié dans programme principal mais à confirmer)!
             else if (id==15) joueurCourant.credits = joueurCourant.credits + 10;
         }
         else {
@@ -422,7 +422,7 @@ public class Partie {
                     if (tabJoueurs[i] != null) nbJoueursRestants = nbJoueursRestants+1;
                 }
                 joueurCourant.credits = joueurCourant.credits-10*nbJoueursRestants; //cagnotte du joueur courant qui s'actualise
-                for (int i=0; i<4; i++){
+                for (int i=0; i<4; i++){ //pareil si je dis pas de bêtises c inversé le -10 et +10 donc j'ai changé dans le principal
                     if (tabJoueurs[i] != null && tabJoueurs[i] != joueurCourant) {
                         tabJoueurs[i].credits = tabJoueurs[i].credits+10; //credits des autres joueurs qui d'actualisent
                     }

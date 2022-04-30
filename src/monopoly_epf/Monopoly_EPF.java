@@ -1298,31 +1298,37 @@ public class Monopoly_EPF extends JFrame {
         else if (caseDuJoueur == plateau.plateaudejeu[4]) { //s'il est sur la premiere taxe
             joueurCourant.credits = joueurCourant.credits-200;
             argentParcGratuit = argentParcGratuit + 200;
+            zone_texte_infos.setText(joueurCourant.nom + ", vous avez triché!!! \nVous payez 200 ECTS et repassez le CC en tête à tête avec François Stephan!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[38]) { //deuxième taxe
             joueurCourant.credits = joueurCourant.credits-100;
             argentParcGratuit = argentParcGratuit + 100;
+            zone_texte_infos.setText(joueurCourant.nom + ", vous cumulez trop d'absences!\nPayez 100 ECTS et vennez en cours sans quoi une année de plus à suivre les CM's de Barandon vous attends!!!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[20]) { //parc gratuit
             joueurCourant.credits= joueurCourant.credits + argentParcGratuit;
             argentParcGratuit = 0;
+            zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!!\nVous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[30]) { //prison
             joueurCourant.prison = true;
+            zone_texte_infos.setText(joueurCourant.nom + ", vos notes sont trop faibles!\nAllez aux rattrapages et validez-les pour espérer passer l'année");
             return true;
         }
-        else if (caseDuJoueur == plateau.plateaudejeu[12] && caseDuJoueur.proprietaire != null) { //premiere compagnie déjà achetée
+        else if (caseDuJoueur == plateau.plateaudejeu[12] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) { //premiere compagnie déjà achetée
             if (caseDuJoueur.proprietaire == plateau.plateaudejeu[28].proprietaire) {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
                 return true;
             }
         }
@@ -1330,121 +1336,36 @@ public class Monopoly_EPF extends JFrame {
             if (caseDuJoueur.proprietaire == plateau.plateaudejeu[12].proprietaire) {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenace du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
         }
         else if (caseDuJoueur == plateau.plateaudejeu[5] && caseDuJoueur.proprietaire != null) {
-            int nbgares = 0;
-            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) {
-                if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[15] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[25] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[35] ) {
-                    nbgares++;
-                }
-            }
-            if(nbgares == 0) {
-                joueurCourant.credits = joueurCourant.credits - 25;
-            }
-            else if(nbgares == 1) {
-                joueurCourant.credits = joueurCourant.credits - 50;
-            }
-            else if(nbgares == 2) {
-                joueurCourant.credits = joueurCourant.credits - 100;
-            }
-            else if(nbgares == 3) {
-                joueurCourant.credits = joueurCourant.credits - 200;
-            }
+            payerloyer(caseDuJoueur);
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         else if (caseDuJoueur == plateau.plateaudejeu[15] && caseDuJoueur.proprietaire != null) {
-            int nbgares = 0;
-            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) {
-                if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[5] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[25] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[35] ) {
-                    nbgares++;
-                }
-            }
-            if(nbgares == 0) {
-                joueurCourant.credits = joueurCourant.credits - 25;
-            }
-            else if(nbgares == 1) {
-                joueurCourant.credits = joueurCourant.credits - 50;
-            }
-            else if(nbgares == 2) {
-                joueurCourant.credits = joueurCourant.credits - 100;
-            }
-            else if(nbgares == 3) {
-                joueurCourant.credits = joueurCourant.credits - 200;
-            }
+            payerloyer(caseDuJoueur);
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         else if (caseDuJoueur == plateau.plateaudejeu[25] && caseDuJoueur.proprietaire != null) {
-            int nbgares = 0;
-            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) { 
-                if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[5] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[15] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[35] ) {
-                    nbgares++;
-                }
-            }
-            if(nbgares == 0) {
-                joueurCourant.credits = joueurCourant.credits - 25;
-            }
-            else if(nbgares == 1) {
-                joueurCourant.credits = joueurCourant.credits - 50;
-            }
-            else if(nbgares == 2) {
-                joueurCourant.credits = joueurCourant.credits - 100;
-            }
-            else if(nbgares == 3) {
-                joueurCourant.credits = joueurCourant.credits - 200;
-            }
+            payerloyer(caseDuJoueur);
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         else if (caseDuJoueur == plateau.plateaudejeu[35] && caseDuJoueur.proprietaire != null) {
-            int nbgares = 0;
-            for(int i=0; i<caseDuJoueur.proprietaire.sallesPossedees.size(); i++) {
-                if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[5] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[15] ) {
-                    nbgares++;
-                }
-                else if(caseDuJoueur.proprietaire.sallesPossedees.get(i) == plateau.plateaudejeu[25] ) {
-                    nbgares++;
-                }
-            }
-            if(nbgares == 0) {
-                joueurCourant.credits = joueurCourant.credits - 25;
-            }
-            else if(nbgares == 1) {
-                joueurCourant.credits = joueurCourant.credits - 50;
-            }
-            else if(nbgares == 2) {
-                joueurCourant.credits = joueurCourant.credits - 100;
-            }
-            else if(nbgares == 3) {
-                joueurCourant.credits = joueurCourant.credits - 200;
-            }
+            payerloyer(caseDuJoueur);
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         
         else if (caseDuJoueur.proprietaire != null) { //autre cases déjà achetées
             payerloyer(caseDuJoueur);
+            zone_texte_infos.setText(joueurCourant.nom + ", vous entrez dans la salle où " + caseDuJoueur.proprietaire + " est en train de réviser!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
             return true;
         }
         return false;
@@ -1509,14 +1430,17 @@ public class Monopoly_EPF extends JFrame {
             if (id==0) {
                 joueurCourant.credits = joueurCourant.credits-20;
                 argentParcGratuit = argentParcGratuit + 20;
+                zone_texte_infos.setText(joueurCourant.nom + " payez 20 ECTS!");
             }
             else if (id==1) {
                 joueurCourant.credits = joueurCourant.credits-50;
                 argentParcGratuit = argentParcGratuit + 50;
+                zone_texte_infos.setText(joueurCourant.nom + " payez 50 ECTS!");
             }
             else if (id==2) {
                 joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
                 joueurCourant.prison = true;
+                zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages");
             }
             else if (id==3) {
                 joueurCourant.recuperercarte(carteTiree);
@@ -1534,42 +1458,69 @@ public class Monopoly_EPF extends JFrame {
                 }
                 zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Caisse de communauté vous libérant des rattrapages!");
             }
-            else if (id==5) joueurCourant.credits = joueurCourant.credits+25;
-            else if (id==6) joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
+            else if (id==5) {
+                joueurCourant.credits = joueurCourant.credits+25;
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 25 ECTS!");
+            }
+            else if (id==6) {
+                joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
+                zone_texte_infos.setText(joueurCourant.nom + " payez " + 25*joueurCourant.nbMaisonJoueur+100*joueurCourant.nbHotelJoueur + " ECTS!");
+            }
             else if (id==7) { // a verifier
                 int nbJoueursRestants=0;
                 for (int i=0; i<4; i++){ //calcul du nombre de joueurs restants
                     if (tabJoueurs[i] != null) nbJoueursRestants = nbJoueursRestants+1;
                 }
                 joueurCourant.credits = joueurCourant.credits-15*nbJoueursRestants; //cagnotte du joueur courant qui s'actualise
+                zone_texte_infos.setText(joueurCourant.nom + " payez " + 15*nbJoueursRestants + " ECTS!");
                 for (int i=0; i<4; i++){
                     if (tabJoueurs[i] != null && tabJoueurs[i] != joueurCourant) {
                         tabJoueurs[i].credits = tabJoueurs[i].credits+15; //credits des autres joueurs qui d'actualisent
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + tabJoueurs[i].nom + " recevez 15 ECTS de la part de " + joueurCourant.nom + "!");
                     }
                 }
             }
-            else if (id==8) joueurCourant.pion.avancer(8);
+            else if (id==8) {
+                joueurCourant.pion.avancer(8);
+                zone_texte_infos.setText(joueurCourant.nom + " avancez de 8 cases (ça souffle)!");
+            }
             else if (id==9) {
                 joueurCourant.droitdejouer = false;
+                zone_texte_infos.setText(joueurCourant.nom + ", vous restez-là (fallait écouter Winston)!");
             }
-            else if (id==10) joueurCourant.credits = joueurCourant.credits + 150;
-            else if (id==11) joueurCourant.credits = joueurCourant.credits + 100;
-            else if (id==12) joueurCourant.pion.téléportation(32);  //indice 32 du plateau
+            else if (id==10) {
+                joueurCourant.credits = joueurCourant.credits + 150;
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 150 ECTS!");
+            }
+            else if (id==11) {
+                joueurCourant.credits = joueurCourant.credits + 100;
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 100 ECTS!");
+            }
+            else if (id==12) {
+                joueurCourant.pion.téléportation(32);
+                zone_texte_infos.setText(joueurCourant.nom + " allez en K04 (vive la chimie)!");
+            }  //indice 32 du plateau
             else if (id==13) { 
-               int indicecase = 0;
-               int indicebdo = 35;
-               for (int i=0; i<40; i++) {
-                   if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
-               }
-               if (indicecase-indicebdo>=0) {
-                   joueurCourant.pion.avancer(indicecase-indicebdo);
-               }
-               else { //indice case est entre 35 et 39
-                   joueurCourant.pion.avancer(36+39-indicecase); //36 = départ jusqu'à bdo ; 39-indicecase = nb cases jusqu'à case départ
-               }
+                zone_texte_infos.setText(joueurCourant.nom + " allez au bureau des Ours");
+                int indicecase = 0;
+                int indicebdo = 35;
+                for (int i=0; i<40; i++) {
+                    if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
+                }
+                if (indicecase-indicebdo>=0) {
+                    joueurCourant.pion.avancer(indicecase-indicebdo);
+                }
+                else { //indice case est entre 35 et 39
+                    joueurCourant.pion.avancer(36+39-indicecase); //36 = départ jusqu'à bdo ; 39-indicecase = nb cases jusqu'à case départ
+                }
             }
-            else if (id==14) joueurCourant.credits = joueurCourant.credits + 100;
-            else if (id==15) joueurCourant.credits = joueurCourant.credits + 10;
+            else if (id==14) {
+                joueurCourant.credits = joueurCourant.credits + 10;
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 10 ECTS (et les applaudissements de Jousset)!");
+                
+            }
+            else if (id==15) joueurCourant.credits = joueurCourant.credits + 100;
+            zone_texte_infos.setText(joueurCourant.nom + " recevez 100 ECTS!");
         }
         else {
             if (id==0) {
@@ -1577,23 +1528,31 @@ public class Monopoly_EPF extends JFrame {
                 for (int i=0; i<4; i++){ //calcul du nombre de joueurs restants
                     if (tabJoueurs[i] != null) nbJoueursRestants = nbJoueursRestants+1;
                 }
-                joueurCourant.credits = joueurCourant.credits-10*nbJoueursRestants; //cagnotte du joueur courant qui s'actualise
+                joueurCourant.credits = joueurCourant.credits+10*nbJoueursRestants; //cagnotte du joueur courant qui s'actualise
+                zone_texte_infos.setText(joueurCourant.nom + " recevez " + 10*nbJoueursRestants+ " ECTS (bon anniv)!");
                 for (int i=0; i<4; i++){
                     if (tabJoueurs[i] != null && tabJoueurs[i] != joueurCourant) {
-                        tabJoueurs[i].credits = tabJoueurs[i].credits+10; //credits des autres joueurs qui d'actualisent
+                        tabJoueurs[i].credits = tabJoueurs[i].credits-10; //credits des autres joueurs qui d'actualisent
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + tabJoueurs[i].nom + ", vous payez 10 ECTS pour le cadeau de " + joueurCourant.nom + "!");
                     }
                 }
             }
-            else if (id==1) joueurCourant.pion.reculer(3);
+            else if (id==1) {
+                joueurCourant.pion.reculer(3);
+                zone_texte_infos.setText(joueurCourant.nom + " reculez de 3 cases!");
+            }
             else if (id==2) {
                 joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
                 joueurCourant.prison = true;
+                zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages!");
             }
             else if (id==3) {
                 joueurCourant.pion.téléportation(0);
+                zone_texte_infos.setText(joueurCourant.nom + " allez au début d'année!");
                 // la bourse n'est pas doublée
             }
             else if (id==4) {
+                zone_texte_infos.setText(joueurCourant.nom + " allez en K03 (bonne chance pour le partiel)!");
                 int indicecase = 0;
                 int indicek3 = 31;
                 for (int i=0; i<40; i++) {
@@ -1606,8 +1565,14 @@ public class Monopoly_EPF extends JFrame {
                   joueurCourant.pion.avancer(32+39-indicecase); //36 = départ jusqu'à k3 ; 39-indicecase = nb cases jusqu'à case départ
                 }
             }
-            else if (id==5) joueurCourant.credits = joueurCourant.credits+100;
-            else if (id==6) joueurCourant.credits = joueurCourant.credits+50;
+            else if (id==5) {
+                joueurCourant.credits = joueurCourant.credits+100;
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 100 ECTS!");
+            }
+            else if (id==6) {
+                joueurCourant.credits = joueurCourant.credits+50;
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 50 ECTS!");
+            }
             else if (id==7) {
                 joueurCourant.recuperercarte(carteTiree);
                 if(joueurCourant==tabJoueurs[0]) {
@@ -1627,9 +1592,14 @@ public class Monopoly_EPF extends JFrame {
             else if (id==8) {
                 joueurCourant.credits = joueurCourant.credits-20;
                 argentParcGratuit = argentParcGratuit+20;
+                zone_texte_infos.setText(joueurCourant.nom + " payez 20 ECTS (santé)!");
             }
-            else if (id==9) joueurCourant.credits = joueurCourant.credits+25;
+            else if (id==9) {
+                joueurCourant.credits = joueurCourant.credits+25;
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 25 ECTS!");
+            }
             else if (id==10) {
+                zone_texte_infos.setText(joueurCourant.nom + " avancez en amphi (vite c'est Mahou qui fait le CM, pas Jousset)!");
                 int indicecase = 0;
                 int indicek2 = 15;
                 for (int i=0; i<40; i++) {
@@ -1640,21 +1610,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else { //indice case est entre 15 et 39
                   joueurCourant.pion.avancer(15+39-indicecase); //15 = départ jusqu'à k2 ; 39-indicecase = nb cases jusqu'à case départ
+                  zone_texte_infos.setText(zone_texte_infos.getText() + "\nVous touchez 200 ECTS!");
                 }
             }
-            else if (id==11) joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
+            else if (id==11) {
+                joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
+                zone_texte_infos.setText(joueurCourant.nom + " payez " + 25*joueurCourant.nbMaisonJoueur+100*joueurCourant.nbHotelJoueur + " ECTS!");
+            }
             else if (id==12) {
                 joueurCourant.credits = joueurCourant.credits-40;
                 argentParcGratuit = argentParcGratuit+40;
+                zone_texte_infos.setText(joueurCourant.nom + " payez 40 ECTS!");
             }
             else if (id==13) { //téléporter tous les joueurs à la case départ
                 for (int i=0; i<4; i++){ 
-                    if (tabJoueurs[i] != null) tabJoueurs[i].pion.téléportation(0);
+                    if (tabJoueurs[i] != null) {
+                        tabJoueurs[i].pion.téléportation(0);
+                        zone_texte_infos.setText(tabJoueurs[i].nom + " allez au début d'année!");
+                    }
                 }
             }
             else if (id==14) {
                 joueurCourant.credits = joueurCourant.credits-75;
                 argentParcGratuit = argentParcGratuit+75;
+                zone_texte_infos.setText(joueurCourant.nom + " payez 75 ECTS (un brelan fait pas le poids fâce au full du Jouset national)!");
             }
         }
     }
@@ -1662,6 +1641,11 @@ public class Monopoly_EPF extends JFrame {
     public void payerloyer(Case caseassociee) {
         joueurCourant.credits = joueurCourant.credits-caseassociee.loyer;
         caseassociee.proprietaire.credits = caseassociee.proprietaire.credits+caseassociee.loyer;
+        credits1.setText("Crédits:" + tabJoueurs[0].credits + " ECTS"); //pour pas s'embêter on met tt à jour au moins c pas compliqué!
+        credits2.setText("Crédits:" + tabJoueurs[1].credits + " ECTS");
+        credits3.setText("Crédits:" + tabJoueurs[2].credits + " ECTS");
+        credits4.setText("Crédits:" + tabJoueurs[3].credits + " ECTS");
+        zone_texte_infos.setText(joueurCourant.nom + ", vous payez " + caseassociee.loyer + "ECTS  à " + caseassociee.proprietaire.nom + "!");
     }
     
     public void téléporterPion(Pion pionAssocie, Case caseOuAller) {
