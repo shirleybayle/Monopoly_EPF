@@ -425,7 +425,11 @@ public class Case {
         }
         else {
             maison = maison++;
-            prixMaison = prixMaison + prixMaison;
+            if(maison==5) {
+                proprietaire.nbHotelJoueur++;
+            }
+            prixMaison = prixMaison + prixMaison; //pas capté à quoi ça servait ça
+            proprietaire.credits = proprietaire.credits-prixMaison; //vérifier que c'est pas déjà fait qq part ça aussi
             return true;
         }
     }

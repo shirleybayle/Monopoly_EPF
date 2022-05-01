@@ -251,6 +251,14 @@ public class Monopoly_EPF extends JFrame {
                 SallesPossedees2.setVisible(true);
                 SallesPossedees3.setVisible(true);
                 SallesPossedees4.setVisible(true);
+                Compagnies1.setVisible(false);
+                Compagnies2.setVisible(false);
+                Compagnies3.setVisible(false);
+                Compagnies4.setVisible(false);
+                Gares1.setVisible(false);
+                Gares2.setVisible(false);
+                Gares3.setVisible(false);
+                Gares4.setVisible(false);
             }
         });
         this.repaint();
@@ -1046,6 +1054,54 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs4.add(SallesPossedees4, new org.netbeans.lib.awtextra.AbsoluteConstraints(8,140));
         this.repaint();
         
+        Compagnies1 = new JLabel("Maintenance(s):0");
+        Dimension compagnies1_size = Compagnies1.getPreferredSize();
+        Compagnies1.setFont(new Font("Maintenance(s):0", Font.BOLD, 10));
+        infos_joueurs1.add(Compagnies1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260,45));
+        this.repaint();
+        
+        Compagnies2 = new JLabel("Maintenance(s):0");
+        Dimension compagnies2_size = Compagnies2.getPreferredSize();
+        Compagnies2.setFont(new Font("Maintenance(s):0", Font.BOLD, 10));
+        infos_joueurs2.add(Compagnies2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260,45));
+        this.repaint();
+        
+        Compagnies3 = new JLabel("Maintenance(s):0");
+        Dimension compagnies3_size = Compagnies3.getPreferredSize();
+        Compagnies3.setFont(new Font("Maintenance(s):0", Font.BOLD, 10));
+        infos_joueurs3.add(Compagnies3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260,45));
+        this.repaint();
+        
+        Compagnies4 = new JLabel("Maintenance(s):0");
+        Dimension compagnies4_size = Compagnies4.getPreferredSize();
+        Compagnies4.setFont(new Font("Maintenance(s):0", Font.BOLD, 10));
+        infos_joueurs4.add(Compagnies4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260,45));
+        this.repaint();
+        
+        Gares1 = new JLabel("Lieu(x) iconique(s):0");
+        Dimension gares1_size = Gares1.getPreferredSize();
+        Gares1.setFont(new Font("Lieu(x) iconique(s):0", Font.BOLD, 10));
+        infos_joueurs1.add(Gares1, new org.netbeans.lib.awtextra.AbsoluteConstraints(185,45));
+        this.repaint();
+        
+        Gares2 = new JLabel("Lieu(x) iconique(s):0");
+        Dimension gares2_size = Gares2.getPreferredSize();
+        Gares2.setFont(new Font("Lieu(x) iconique(s):0", Font.BOLD, 10));
+        infos_joueurs2.add(Gares2, new org.netbeans.lib.awtextra.AbsoluteConstraints(185,45));
+        this.repaint();
+        
+        Gares3 = new JLabel("Lieu(x) iconique(s):0");
+        Dimension gares3_size = Gares3.getPreferredSize();
+        Gares3.setFont(new Font("Lieu(x) iconique(s):0", Font.BOLD, 10));
+        infos_joueurs3.add(Gares3, new org.netbeans.lib.awtextra.AbsoluteConstraints(185,45));
+        this.repaint();
+        
+        Gares4 = new JLabel("Lieu(x) iconique(s):0");
+        Dimension gares4_size = Gares4.getPreferredSize();
+        Gares4.setFont(new Font("Lieu(x) iconique(s):0", Font.BOLD, 10));
+        infos_joueurs4.add(Gares4, new org.netbeans.lib.awtextra.AbsoluteConstraints(185,45));
+        this.repaint();
+        
     }
     
     PlateauPanel plateauJeu;
@@ -1071,6 +1127,14 @@ public class Monopoly_EPF extends JFrame {
     private JLabel SallesPossedees2;
     private JLabel SallesPossedees3;
     private JLabel SallesPossedees4;
+    private JLabel Compagnies1;
+    private JLabel Compagnies2;
+    private JLabel Compagnies3;
+    private JLabel Compagnies4;
+    private JLabel Gares1;
+    private JLabel Gares2;
+    private JLabel Gares3;
+    private JLabel Gares4;
     private JPanel infos_joueurs1;
     private JPanel infos_joueurs2;
     private JPanel infos_joueurs3;
@@ -1655,10 +1719,12 @@ public class Monopoly_EPF extends JFrame {
     public Carte faireActionCarteSimple(int choix) { // A VERIFIER
         if (choix == 0) { //choix=0 --> perdre des crédits
             joueurCourant.credits = joueurCourant.credits - 10;
+            zone_texte_infos.setText(joueurCourant.nom + " payez 10 ECTS!");
             return null;
         }
         else { //choix=1 tirer une carte chance
             Carte laCarte = tirerCarte(paquetChance);
+            zone_texte_infos.setText(joueurCourant.nom + " tirez une carte chance!");
             return laCarte;
         }
     }
@@ -2399,6 +2465,18 @@ public class Monopoly_EPF extends JFrame {
             else if(caseassociee.couleur=="Compagnie") {
                 joueurCourant.compterMemesSallesJoueur("Compagnie");
                 if(caseassociee.nbSallesMemeCouleur==2) {
+                    if(joueurCourant==tabJoueurs[0]) {
+                        Compagnies1.setText("Maintenance(s):2");
+                    }
+                    else if(joueurCourant==tabJoueurs[1]) {
+                        Compagnies2.setText("Maintenance(s):2");
+                    }
+                    else if(joueurCourant==tabJoueurs[2]) {
+                        Compagnies3.setText("Maintenance(s):2");
+                    }
+                    else if(joueurCourant==tabJoueurs[3]) {
+                        Compagnies4.setText("Maintenance(s):2");
+                    }
                     caseassociee.loyer=20;
                     if(caseassociee.idCase==26){
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
@@ -2541,5 +2619,13 @@ public class Monopoly_EPF extends JFrame {
         ValiderMatiere2.setVisible(false);
         ValiderMatiere3.setVisible(false);
         ValiderMatiere4.setVisible(false);
+        Compagnies1.setVisible(false);
+        Compagnies2.setVisible(false);
+        Compagnies3.setVisible(false);
+        Compagnies4.setVisible(false);
+        Gares1.setVisible(false);
+        Gares2.setVisible(false);
+        Gares3.setVisible(false);
+        Gares4.setVisible(false);
     }
 }
