@@ -251,14 +251,14 @@ public class Monopoly_EPF extends JFrame {
                 SallesPossedees2.setVisible(true);
                 SallesPossedees3.setVisible(true);
                 SallesPossedees4.setVisible(true);
-                Compagnies1.setVisible(false);
-                Compagnies2.setVisible(false);
-                Compagnies3.setVisible(false);
-                Compagnies4.setVisible(false);
-                Gares1.setVisible(false);
-                Gares2.setVisible(false);
-                Gares3.setVisible(false);
-                Gares4.setVisible(false);
+                Compagnies1.setVisible(true);
+                Compagnies2.setVisible(true);
+                Compagnies3.setVisible(true);
+                Compagnies4.setVisible(true);
+                Gares1.setVisible(true);
+                Gares2.setVisible(true);
+                Gares3.setVisible(true);
+                Gares4.setVisible(true);
             }
         });
         this.repaint();
