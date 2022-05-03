@@ -255,6 +255,7 @@ public class Monopoly_EPF extends JFrame {
                 Autres2.setVisible(true);
                 Autres3.setVisible(true);
                 Autres4.setVisible(true);
+                Lancer_des.setEnabled(true);
             }
         });
         this.repaint();
@@ -404,7 +405,9 @@ public class Monopoly_EPF extends JFrame {
                     }
                 };
 
-        thread.start();
+                thread.start();
+                changerJoueur();
+                Lancer_des.setEnabled(true);
             } 
         });
         this.repaint();
