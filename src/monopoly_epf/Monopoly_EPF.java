@@ -308,214 +308,6 @@ public class Monopoly_EPF extends JFrame {
         plateauJeu.add(dé6V2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 120, 55, 55));
         this.repaint();
         dé6V2.setVisible(false);
-       
-        Lancer_des = new JButton();
-        Lancer_des.setBounds(180, 5, 170, 60);
-        Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 5, 170, 60));
-        Lancer_des.setBackground(Color.BLUE);
-        Lancer_des.setText("Lancer les dés");
-        Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
-        Lancer_des.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Lancer_des.setEnabled(false);
-
-                Thread thread = new Thread(){
-                    public void run(){
-                        lancerDes();
-                        try {
-                            for (int i = 0; i < 6; i++) {
-                                dé1.setVisible(true);
-                                dé6V2.setVisible(true);
-                                Thread.sleep(50);
-                                dé1.setVisible(false);
-                                dé6V2.setVisible(false);
-                                dé2.setVisible(true);
-                                dé5V2.setVisible(true);
-                                Thread.sleep(50);
-                                dé2.setVisible(false);
-                                dé5V2.setVisible(false);
-                                dé3.setVisible(true);
-                                dé4V2.setVisible(true);
-                                Thread.sleep(50);
-                                dé3.setVisible(false);
-                                dé4V2.setVisible(false);
-                                dé4.setVisible(true);
-                                dé3V2.setVisible(true);
-                                Thread.sleep(50);
-                                dé4.setVisible(false);
-                                dé3V2.setVisible(false);
-                                dé5.setVisible(true);
-                                dé2V2.setVisible(true);
-                                Thread.sleep(50);
-                                dé5.setVisible(false);
-                                dé2V2.setVisible(false);
-                                dé6.setVisible(true);
-                                dé1V2.setVisible(true);
-                                Thread.sleep(50);
-                                dé6.setVisible(false);
-                                dé1V2.setVisible(false);
-                            }
-                        dé1.setVisible(false);
-                        dé2.setVisible(false);
-                        dé3.setVisible(false);
-                        dé4.setVisible(false);
-                        dé5.setVisible(false);
-                        dé6.setVisible(false);
-                        if(de1.valeur==1) {
-                            dé1.setVisible(true);
-                        }
-                        else if(de1.valeur==2) {
-                            dé2.setVisible(true);
-                        }
-                        else if(de1.valeur==3) {
-                            dé3.setVisible(true);
-                        }
-                        if(de1.valeur==4) {
-                            dé4.setVisible(true);
-                        }
-                        if(de1.valeur==5) {
-                            dé5.setVisible(true);
-                        }
-                        else {
-                            dé6.setVisible(true);
-                        }
-                        if(de2.valeur==1) {
-                            dé1V2.setVisible(true);
-                        }
-                        else if(de2.valeur==2) {
-                            dé2V2.setVisible(true);
-                        }
-                        else if(de2.valeur==3) {
-                            dé3V2.setVisible(true);
-                        }
-                        if(de2.valeur==4) {
-                            dé4V2.setVisible(true);
-                        }
-                        if(de2.valeur==5) {
-                            dé5V2.setVisible(true);
-                        }
-                        else {
-                            dé6V2.setVisible(true);
-                        }
-                        Lancer_des.setEnabled(true);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
-
-                thread.start();
-                changerJoueur();
-                Lancer_des.setEnabled(true);
-            } 
-        });
-        this.repaint();
-        
-        Salles = new JButton();
-        Salles.setBounds(180, 70, 170, 60);
-        Salles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
-        panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 170, 60));
-        Salles.setBackground(Color.BLUE);
-        Salles.setText("Salles");
-        Salles.setFont(new Font("Salles", Font.BOLD, 16));
-        this.repaint();
-        
-        Payer_Jousset = new JButton();
-        Payer_Jousset.setBounds(57,680,250,100);
-        Payer_Jousset.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
-        add(Payer_Jousset, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 680, 250, 100));
-        Payer_Jousset.setBackground(Color.BLUE);
-        Payer_Jousset.setText("Payer Jousset");
-        Payer_Jousset.setFont(new Font("Payer Jousset", Font.BOLD, 20));
-        this.repaint();
-        
-        Matieres_possedees = new JButton();
-        Matieres_possedees.setBounds(1226,680,250,100);
-        Matieres_possedees.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
-        add(Matieres_possedees, new org.netbeans.lib.awtextra.AbsoluteConstraints(1226, 680, 250, 100));
-        Matieres_possedees.setBackground(Color.BLUE);
-        Matieres_possedees.setText("Matières possédées");
-        Matieres_possedees.setFont(new Font("Matières possédées", Font.BOLD, 20));
-        this.repaint();
-        
-        Joueur1 = new JLabel("Joueur 1");
-        Dimension text_joueur1 = Joueur1.getPreferredSize();
-        Joueur1.setFont(new Font("Joueur 1", Font.BOLD, 25));
-        infos_joueurs1.add(Joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
-        this.repaint();
-        
-        Joueur2 = new JLabel("Joueur 2");
-        Dimension text_joueur2 = Joueur2.getPreferredSize();
-        Joueur2.setFont(new Font("Joueur 2", Font.BOLD, 25));
-        infos_joueurs2.add(Joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
-        this.repaint();
-        
-        Joueur3 = new JLabel("Joueur 3");
-        Dimension text_joueur3 = Joueur3.getPreferredSize();
-        Joueur3.setFont(new Font("Joueur 3", Font.BOLD, 25));
-        infos_joueurs3.add(Joueur3, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
-        this.repaint();
-        
-        Joueur4 = new JLabel("Joueur 4");
-        Dimension text_joueur4 = Joueur4.getPreferredSize();
-        Joueur4.setFont(new Font("Joueur 4", Font.BOLD, 25));
-        infos_joueurs4.add(Joueur4, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
-        this.repaint();
-        
-        Infos_partie = new JLabel("Infos partie:");
-        Dimension text_infos_partie = Infos_partie.getPreferredSize();
-        Infos_partie.setFont(new Font("Infos partie;", Font.BOLD, 15));
-        infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
-        this.repaint();
-        
-        credits1 = new JLabel("Crédits:" + "ECTS");
-        Dimension text_credits1 = credits1.getPreferredSize();
-        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
-        infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
-        this.repaint();
-        
-        credits2 = new JLabel("Crédits:" + "ECTS");
-        Dimension text_credits2 = credits2.getPreferredSize();
-        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
-        infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
-        this.repaint();
-        
-        credits3 = new JLabel("Crédits:" + "ECTS");
-        Dimension text_credits3 = credits3.getPreferredSize();
-        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
-        infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
-        this.repaint();
-        
-        credits4 = new JLabel("Crédits:" + "ECTS");
-        Dimension text_credits4 = credits4.getPreferredSize();
-        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
-        infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
-        this.repaint();
-        
-        nbCartes1 = new JLabel("Cartes libération de rattrapages : ");
-        Dimension text_nbCartes1 = nbCartes1.getPreferredSize();
-        nbCartes1.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
-        infos_joueurs1.add(nbCartes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,122));
-        this.repaint();
-        
-        nbCartes2 = new JLabel("Cartes libération de rattrapages : ");
-        Dimension text_nbCartes2 = nbCartes2.getPreferredSize();
-        nbCartes2.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
-        infos_joueurs2.add(nbCartes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
-        this.repaint();
-        
-        nbCartes3 = new JLabel("Cartes libération de rattrapages : ");
-        Dimension text_nbCartes3 = nbCartes3.getPreferredSize();
-        nbCartes3.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
-        infos_joueurs3.add(nbCartes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
-        this.repaint();
-        
-        nbCartes4 = new JLabel("Cartes libération de rattrapages : ");
-        Dimension text_nbCartes14 = nbCartes4.getPreferredSize();
-        nbCartes4.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
-        infos_joueurs4.add(nbCartes4, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
-        this.repaint();
         
         Libération1 = new JButton();
         Libération1.setBounds(180, 115, 170, 25);
@@ -739,6 +531,281 @@ public class Monopoly_EPF extends JFrame {
                 
             }
         });
+        this.repaint();
+       
+        Lancer_des = new JButton();
+        Lancer_des.setBounds(180, 5, 170, 60);
+        Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 5, 170, 60));
+        Lancer_des.setBackground(Color.BLUE);
+        Lancer_des.setText("Lancer les dés");
+        Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
+        Lancer_des.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Lancer_des.setEnabled(false);
+                ValiderMatiere1.setVisible(false);
+                ValiderMatiere2.setVisible(false);
+                ValiderMatiere3.setVisible(true);
+                ValiderMatiere4.setVisible(true);
+                Libération1.setVisible(true);
+                PayerPrison1.setVisible(true);
+                Libération2.setVisible(true);
+                PayerPrison2.setVisible(true);
+                Libération3.setVisible(true);
+                PayerPrison3.setVisible(true);
+                Libération4.setVisible(true);
+                PayerPrison4.setVisible(true);
+                
+                Thread thread = new Thread(){
+                    public void run(){
+                        lancerDes();
+                        try {
+                            for (int i = 0; i < 6; i++) {
+                                dé1.setVisible(true);
+                                dé6V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé1.setVisible(false);
+                                dé6V2.setVisible(false);
+                                dé2.setVisible(true);
+                                dé5V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé2.setVisible(false);
+                                dé5V2.setVisible(false);
+                                dé3.setVisible(true);
+                                dé4V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé3.setVisible(false);
+                                dé4V2.setVisible(false);
+                                dé4.setVisible(true);
+                                dé3V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé4.setVisible(false);
+                                dé3V2.setVisible(false);
+                                dé5.setVisible(true);
+                                dé2V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé5.setVisible(false);
+                                dé2V2.setVisible(false);
+                                dé6.setVisible(true);
+                                dé1V2.setVisible(true);
+                                Thread.sleep(50);
+                                dé6.setVisible(false);
+                                dé1V2.setVisible(false);
+                            }
+                        dé1.setVisible(false);
+                        dé2.setVisible(false);
+                        dé3.setVisible(false);
+                        dé4.setVisible(false);
+                        dé5.setVisible(false);
+                        dé6.setVisible(false);
+                        if(de1.valeur==1) {
+                            dé1.setVisible(true);
+                        }
+                        else if(de1.valeur==2) {
+                            dé2.setVisible(true);
+                        }
+                        else if(de1.valeur==3) {
+                            dé3.setVisible(true);
+                        }
+                        if(de1.valeur==4) {
+                            dé4.setVisible(true);
+                        }
+                        if(de1.valeur==5) {
+                            dé5.setVisible(true);
+                        }
+                        else {
+                            dé6.setVisible(true);
+                        }
+                        if(de2.valeur==1) {
+                            dé1V2.setVisible(true);
+                        }
+                        else if(de2.valeur==2) {
+                            dé2V2.setVisible(true);
+                        }
+                        else if(de2.valeur==3) {
+                            dé3V2.setVisible(true);
+                        }
+                        if(de2.valeur==4) {
+                            dé4V2.setVisible(true);
+                        }
+                        if(de2.valeur==5) {
+                            dé5V2.setVisible(true);
+                        }
+                        else {
+                            dé6V2.setVisible(true);
+                        }
+                        Lancer_des.setEnabled(true);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                thread.start();
+                if(joueurCourant.prison==true) {
+                    joueurCourant.compteurTourPrison++;
+                    if(de1.valeur==de2.valeur) {
+                        joueurCourant.compteurTourPrison=0;
+                        joueurCourant.prison=false;
+                    }
+                }
+                if(de1.valeur==de2.valeur) {
+                    compteurDouble++;
+                }
+                if(compteurDouble==3) {
+                    joueurCourant.prison=true;
+                }
+                changerJoueur(); //voir si le joueur a fait des doubles!!!!!! (variable dans joueur pour prévour ça)
+                compteurDouble=0;
+                while(joueurCourant.droitdejouer==false) {
+                    joueurCourant.droitdejouer=true;
+                    changerJoueur();
+                }
+                if(joueurCourant.compteurTourPrison==3) {
+                    joueurCourant.compteurTourPrison=0;
+                    joueurCourant.prison=false;
+                    joueurCourant.credits=joueurCourant.credits-50;
+                }
+                if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true) {
+                    ValiderMatiere1.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true) {
+                    ValiderMatiere2.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true) {
+                    ValiderMatiere3.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true) {
+                    ValiderMatiere4.setVisible(true);
+                }
+                if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                    joueurCourant.compteurTourPrison++;
+                    Libération1.setVisible(true);
+                    PayerPrison1.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                    joueurCourant.compteurTourPrison++;
+                    Libération2.setVisible(true);
+                    PayerPrison2.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                    joueurCourant.compteurTourPrison++;
+                    Libération3.setVisible(true);
+                    PayerPrison3.setVisible(true);
+                }
+                else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                    joueurCourant.compteurTourPrison++;
+                    Libération4.setVisible(true);
+                    PayerPrison4.setVisible(true);
+                }
+                Lancer_des.setEnabled(true);
+            } 
+        });
+        this.repaint();
+        
+        Salles = new JButton();
+        Salles.setBounds(180, 70, 170, 60);
+        Salles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 170, 60));
+        Salles.setBackground(Color.BLUE);
+        Salles.setText("Salles");
+        Salles.setFont(new Font("Salles", Font.BOLD, 16));
+        this.repaint();
+        
+        Payer_Jousset = new JButton();
+        Payer_Jousset.setBounds(57,680,250,100);
+        Payer_Jousset.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(Payer_Jousset, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 680, 250, 100));
+        Payer_Jousset.setBackground(Color.BLUE);
+        Payer_Jousset.setText("Payer Jousset");
+        Payer_Jousset.setFont(new Font("Payer Jousset", Font.BOLD, 20));
+        this.repaint();
+        
+        Matieres_possedees = new JButton();
+        Matieres_possedees.setBounds(1226,680,250,100);
+        Matieres_possedees.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
+        add(Matieres_possedees, new org.netbeans.lib.awtextra.AbsoluteConstraints(1226, 680, 250, 100));
+        Matieres_possedees.setBackground(Color.BLUE);
+        Matieres_possedees.setText("Matières possédées");
+        Matieres_possedees.setFont(new Font("Matières possédées", Font.BOLD, 20));
+        this.repaint();
+        
+        Joueur1 = new JLabel("Joueur 1");
+        Dimension text_joueur1 = Joueur1.getPreferredSize();
+        Joueur1.setFont(new Font("Joueur 1", Font.BOLD, 25));
+        infos_joueurs1.add(Joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
+        this.repaint();
+        
+        Joueur2 = new JLabel("Joueur 2");
+        Dimension text_joueur2 = Joueur2.getPreferredSize();
+        Joueur2.setFont(new Font("Joueur 2", Font.BOLD, 25));
+        infos_joueurs2.add(Joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
+        this.repaint();
+        
+        Joueur3 = new JLabel("Joueur 3");
+        Dimension text_joueur3 = Joueur3.getPreferredSize();
+        Joueur3.setFont(new Font("Joueur 3", Font.BOLD, 25));
+        infos_joueurs3.add(Joueur3, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
+        this.repaint();
+        
+        Joueur4 = new JLabel("Joueur 4");
+        Dimension text_joueur4 = Joueur4.getPreferredSize();
+        Joueur4.setFont(new Font("Joueur 4", Font.BOLD, 25));
+        infos_joueurs4.add(Joueur4, new org.netbeans.lib.awtextra.AbsoluteConstraints(125,1));
+        this.repaint();
+        
+        Infos_partie = new JLabel("Infos partie:");
+        Dimension text_infos_partie = Infos_partie.getPreferredSize();
+        Infos_partie.setFont(new Font("Infos partie;", Font.BOLD, 15));
+        infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
+        this.repaint();
+        
+        credits1 = new JLabel("Crédits:" + "ECTS");
+        Dimension text_credits1 = credits1.getPreferredSize();
+        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
+        this.repaint();
+        
+        credits2 = new JLabel("Crédits:" + "ECTS");
+        Dimension text_credits2 = credits2.getPreferredSize();
+        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
+        this.repaint();
+        
+        credits3 = new JLabel("Crédits:" + "ECTS");
+        Dimension text_credits3 = credits3.getPreferredSize();
+        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
+        this.repaint();
+        
+        credits4 = new JLabel("Crédits:" + "ECTS");
+        Dimension text_credits4 = credits4.getPreferredSize();
+        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
+        this.repaint();
+        
+        nbCartes1 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes1 = nbCartes1.getPreferredSize();
+        nbCartes1.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs1.add(nbCartes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,122));
+        this.repaint();
+        
+        nbCartes2 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes2 = nbCartes2.getPreferredSize();
+        nbCartes2.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs2.add(nbCartes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
+        this.repaint();
+        
+        nbCartes3 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes3 = nbCartes3.getPreferredSize();
+        nbCartes3.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs3.add(nbCartes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
+        this.repaint();
+        
+        nbCartes4 = new JLabel("Cartes libération de rattrapages : ");
+        Dimension text_nbCartes14 = nbCartes4.getPreferredSize();
+        nbCartes4.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
+        infos_joueurs4.add(nbCartes4, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
         this.repaint();
         
         marron1 = new JButton();
@@ -1734,6 +1801,7 @@ public class Monopoly_EPF extends JFrame {
                     }
                 }
                 else {
+                    joueurCourant.PeutConstruire=true;
                     caseassociee.changerLoyer();
                     if(caseassociee.idCase==0) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
@@ -1795,6 +1863,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     caseassociee.changerLoyer();
+                    joueurCourant.PeutConstruire=true;
                     if(caseassociee.idCase==2) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
                             if(joueurCourant.sallesPossedees.get(i).idCase==3) {
@@ -1871,6 +1940,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     caseassociee.changerLoyer();
+                    joueurCourant.PeutConstruire=true;
                     if(caseassociee.idCase==5) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
                             if(joueurCourant.sallesPossedees.get(i).idCase==6) {
@@ -1947,6 +2017,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     caseassociee.changerLoyer();
+                    joueurCourant.PeutConstruire=true;
                     if(caseassociee.idCase==8) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
                             if(joueurCourant.sallesPossedees.get(i).idCase==9) {
@@ -2023,6 +2094,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     caseassociee.changerLoyer();
+                    joueurCourant.PeutConstruire=true;
                     if(caseassociee.idCase==11) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
                             if(joueurCourant.sallesPossedees.get(i).idCase==12) {
@@ -2099,6 +2171,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     caseassociee.changerLoyer();
+                    joueurCourant.PeutConstruire=true;
                     if(caseassociee.idCase==14) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
                             if(joueurCourant.sallesPossedees.get(i).idCase==15) {
@@ -2175,6 +2248,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     caseassociee.changerLoyer();
+                    joueurCourant.PeutConstruire=true;
                     if(caseassociee.idCase==17) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
                             if(joueurCourant.sallesPossedees.get(i).idCase==18) {
@@ -2237,6 +2311,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     caseassociee.changerLoyer();
+                    joueurCourant.PeutConstruire=true;
                     if(caseassociee.idCase==20) {
                         for(int i=0;i<joueurCourant.sallesPossedees.size();i++) {
                             if(joueurCourant.sallesPossedees.get(i).idCase==21) {

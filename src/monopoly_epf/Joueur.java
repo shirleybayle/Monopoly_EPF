@@ -22,6 +22,7 @@ public class Joueur {
     int nbHotelJoueur=0;
     int nbCartes; //nombre de cartes libération prison, plus simple d'avoir une variable qui compte pour la partie graphique
     int nbAutres; //nombre de lieu iconiques ET de maintenances du joueur
+    boolean PeutConstruire;
 
     
     /*public boolean construire(Case casemaison, int nbmaisons) {
