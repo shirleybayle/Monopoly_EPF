@@ -140,77 +140,80 @@ public class Monopoly_EPF extends JFrame {
                 FrameRegles.setVisible(true);
                 FrameRegles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
                 FrameRegles.add(Regles_pane,new org.netbeans.lib.awtextra.AbsoluteConstraints(0,30,-1,-1));
-                FrameRegles.add(Regles_LabelTitre,new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                FrameRegles.add(Regles_LabelTitre,new org.netbeans.lib.awtextra.AbsoluteConstraints(350,0,-1,-1));
                 
             }
         });
         
         
         Regles_LabelTitre = new JLabel("Regles du jeu");
-        Regles_LabelTitre.setFont(new Font("Monopoly", Font.PLAIN, 20));
+        Regles_LabelTitre.setFont(new Font("Monopoly", Font.BOLD, 30));
+        Regles_LabelTitre.setForeground(Color.red);
         
         
         Regles_Text = new JTextArea();
-        Regles_Text.setColumns(72);
+        Regles_Text.setColumns(67);
         Regles_Text.setRows(53);
+        Regles_Text.setWrapStyleWord(true);
+        Regles_Text.setLineWrap(true);
         Regles_Text.setText(
-"Nombre de joueurs : 4 Duree : 1h à 2h30\n" +
-"- Ce jeu consiste a ACHETER, a LOUER ou a VENDRE diverses salles de façon si profitable que l’on puisse devenir le plus riche des joueurs et éventuellement, le GAGNANT. Des qu’un joueur n’a plus de credit il est elimine du jeu et ses propriétés sont de nouveau disponible. Le gagnant est le dernier encore debout.\n" +
+"Nombre de joueurs : 4 Duree : 1h a 2h30\n\n" +
+"- Ce jeu consiste a ACHETER, a LOUER ou a VENDRE diverses salles de facon si profitable que l’on puisse devenir le plus riche des joueurs et eventuellement, le GAGNANT. Des qu’un joueur n’a plus de credit il est elimine du jeu et ses proprietes sont de nouveau disponible. Le gagnant est le dernier encore debout.\n" +
 "\n" +
-"- « Début d’année » est le point de départ, et l’on fait avancer les pions sur le plateau de jeu d’après le chiffre indiqué en lançant les dés.\n" +
+"- Debut d’annee est le point de depart, et l’on fait avancer les pions sur le plateau de jeu d’apres le chiffre indique en lancant les des.\n" +
 "\n" +
-"- Si le pion d’un joueur se place sur une case qui n’appartient encore à personne, le joueur pourra l’acheter.\n" +
+"- Si le pion d’un joueur se place sur une case qui n’appartient encore a personne, le joueur pourra l’acheter.\n" +
 "\n" +
-"- Devenir propriétaire a pour OBJECTIF la perception de loyers des adversaires logés sur la case qui représente la propriété. Ces loyers sont fortement augmentés par l’obtention de matières et de modules (voir emplacements pour les montants)\n" +
+"- Devenir proprietaire a pour OBJECTIF la perception de loyers des adversaires loges sur la case qui represente la propriete. Ces loyers sont fortement augmentes par l’obtention de matieres et de modules (voir emplacements pour les montants)\n" +
+"\n\n" +
+"Debut de partie :\n\n" +
 "\n" +
-"Début de partie :\n" +
+"- Chaque joueur recoit 1500 credits\n" +
 "\n" +
-"- Chaque joueur reçoit 1500 crédits\n" +
+"- Les joueurs jouent un par un dans le sens des aiguilles d’une montre en commencant par lancer le de\n" +
 "\n" +
-"- Les joueurs jouent un par un dans le sens des aiguilles d’une montre en commençant par lancer le dé\n" +
-"\n" +
-"- Le pion du joueur avance, dans le sens horaire, d’autant de cases que l’aura indiqué le nombre total des dés.\n" +
+"- Le pion du joueur avance, dans le sens horaire, d’autant de cases que l’aura indique le nombre total des des.\n" +
 "\n" +
 "- Les PIONS restent sur les cases qu’ils occupent et repartent au tour suivant.\n" +
 "\n" +
-"- Il peut y avoir, en même temps, plus d’un pion sur la même case.\n" +
+"- Il peut y avoir, en meme temps, plus d’un pion sur la meme case.\n" +
 "\n" +
-"- Si une case est atteinte par son pion, un joueur peut avoir le droit d’acheter la salle ou être forcé de payer un loyer (si la propriété appartient à un autre), de payer des taxes, de prendre une carte des paquets « Chance » ou « Caisse Commune, » d’aller aux rattrapages, etc.\n" +
+"- Si une case est atteinte par son pion, un joueur peut avoir le droit d’acheter la salle ou etre force de payer un loyer (si la propriete appartient à un autre), de payer des taxes, de prendre une carte des paquets Chance ou Caisse de Communaute d’aller aux rattrapages, etc.\n" +
 "\n" +
-"- Si un joueur obtient un doublet, il avance son pion, comme d’habitude, du total représenté par les deux dés, et bénéficie de tous les privilèges ou doit subir toutes les pénalités relatives à la case ainsi atteinte. Il bénéficie d’un second lancé, avance son pion comme précédemment et la case ainsi atteinte le soumet de nouveau à tous ses effets.\n" +
+"- Si un joueur obtient un doublet, il avance son pion, comme d’habitude, du total represente par les deux des, et beneficie de tous les privileges ou doit subir toutes les penalites relatives à la case ainsi atteinte. Il beneficie d’un second lance, avance son pion comme precedemment et la case ainsi atteinte le soumet de nouveau à tous ses effets.\n" +
 "\n" +
-"- Si, cependant, il obtient un doublet trois fois de suite, il devra immédiatement ALLER AUX RATTRAPAGES.\n" +
+"- Si, cependant, il obtient un doublet trois fois de suite, il devra immediatement ALLER AUX RATTRAPAGES.\n" +
 "\n" +
-"- Les joueurs, durant la partie, feront plusieurs fois le tour du plateau de jeu. Chaque fois que le pion s’arrête sur la case Début D’année il reçoit 400 crédits s’il la dépasse il recevra 200 crédits.\n" +
+"- Les joueurs, durant la partie, feront plusieurs fois le tour du plateau de jeu. Chaque fois que le pion s’arrete sur la case Debut D’annee il recoit 400 credits s’il la depasse il recevra 200 credits.\n" +
 "\n" +
-"- Il est avantageux de détenir des titres de propriété sur la TOTALITÉ d’un groupe complet de même couleur car le loyer s’en voit augmenté\n" +
+"- Il est avantageux de detenir des titres de propriete sur la TOTALITE d’un groupe complet de meme couleur car le loyer s’en voit augmente\n" +
 "\n" +
-"- Si le joueur tombe sur les cartes chances ou communautés, il applique ce qui est écrit sur la carte. Si c’est une carte libérée de Rattrapages, il garde la carte et pourra l’utiliser ou non s’il est envoyé en prison.\n" +
+"- Si le joueur tombe sur les cartes chances ou communautes, il applique ce qui est ecrit sur la carte. Si c’est une carte liberee de Rattrapages, il garde la carte et pourra l’utiliser ou non s’il est envoye en prison.\n" +
 "\n" +
-"- QUAND LE PION ATTEINT UNE CASE Taxe, il faut payer le montant indiqué\n" +
+"- QUAND LE PION ATTEINT UNE CASE Taxe, il faut payer le montant indique\n" +
+"\n\n" +
+"- RATTRAPAGES : Un Joueur y est envoye :\n" +
 "\n" +
-"- RATTRAPAGES : Un Joueur y Est Envoyé :\n" +
+"1) Si son pion atteint la case ALLEZ AUX RATTRAPAGES (Il ne touche pas la bourse de la case debut d’annee)\n" +
 "\n" +
-"1) Si son pion atteint la case « ALLEZ AUX RATTRAPAGES » (Il ne touche pas la bourse de la case début d’année)\n" +
-"\n" +
-"2) S’il tire une carte marquée « ALLEZ AUX RATTRAPAGES »\n" +
+"2) S’il tire une carte marquee ALLEZ AUX RATTRAPAGES\n" +
 "\n" +
 "3) S’il obtient trois doublets de suite.\n" +
+"\n\n" +
+"Il reste bloque 3 tours aux rattrapages. Il a 1 chance par tour de faire un double et de sortir et au 3eme tour il est oblige de payer 50 credits et de jouer\n" +
 "\n" +
-"Aux rattrapages, il y reste bloqué 3 tours. Il a 1 chance par tour de faire un double et de sortir et au 3ème tour il est obligé de payer 50 crédits et de jouer\n" +
+"- S’il tombe sur la carte Majoration il recupere les credits des taxes accumules\n" +
 "\n" +
-"- S’il tombe sur la carte Majoration il récupère les crédits des taxes accumulés\n" +
+"- Les Matieres ne peuvent etre obtenues et validees que sur des terrains d’un GROUPE COMPLET DE MEME COULEUR appartenant au joueur.\n" +
 "\n" +
-"- Les Matières ne peuvent être obtenues et validées que sur des terrains d’un GROUPE COMPLET DE MÊME COULEUR appartenant au joueur.\n" +
+"- Les Modules ne peuvent etre valides que si TOUTES LES MATIERES d’un emplacement ont ete validees\n" +
 "\n" +
-"- Les Modules ne peuvent être validés que si TOUTES LES MATIERES d’un emplacement ont été validées\n" +
+"- Pour plus de details sur les cartes, allez voir la rubrique emplacements ou decouvrez-les en partie.\n" +
 "\n" +
-"- Pour plus de détails sur les cartes, allez voir la rubrique emplacements ou découvrez-les en partie.\n" +
-"\n" +
-"- Si une règle du jeu vous semble floue ou si vous ne comprenez pas certains éléments, n’hésitez pas à demander de l’aide à des joueurs plus expérimentés.");
+"- Si une regle du jeu vous semble floue ou si vous ne comprenez pas certains elements, n’hesitez pas a demander de l’aide a des joueurs plus experimentes.");
         
         Regles_Text.setEditable(false);
-        Regles_Text.setFont(new Font("Monopoly", Font.PLAIN, 15));
+        Regles_Text.setFont(new Font("Monopoly", Font.PLAIN, 17));
         
         Regles_pane = new JScrollPane();
         Regles_pane.setViewportView(Regles_Text);
@@ -1460,12 +1463,88 @@ public class Monopoly_EPF extends JFrame {
     }
      
      
+     
+     
      public boolean faireActionCase(){ // A VERIFIER 
         Case caseDuJoueur = joueurCourant.pion.caseassociee;
         if (caseDuJoueur == plateau.plateaudejeu[2] || caseDuJoueur == plateau.plateaudejeu[17] || caseDuJoueur == plateau.plateaudejeu[33]) { //s'il est sur une case caisse de communauté
             Carte carteTiree = tirerCarte(paquetCommunaute);
             if (carteTiree.idCarte != 4) {
-                faireActionCarte(carteTiree);
+                JFrame FrameCarte = new JFrame();
+                FrameCarte.setVisible(true);
+                FrameCarte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                JLabel carteLabel;
+                switch (carteTiree.idCarte) {
+                    case 0 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 329);
+                        break;
+                    case 1 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 2 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 3 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 4 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 5 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 6 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 7 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 8 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 9 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 10 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 11 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 12 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 13 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;   
+                    case 14 : 
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 15 :
+                        carteLabel = new JLabel(new ImageIcon(""));
+                        FrameCarte.setBounds(325, 325, 600, 550);
+                        break;
+                    default :
+                        carteLabel = new JLabel("PAS DE CARTE");
+                }
+                FrameCarte.add(carteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0));
+                
+                //faireActionCarte(carteTiree);
             }
             else {
                 //faire action carte choix simple --> récupérer le choix
