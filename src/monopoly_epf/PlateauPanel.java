@@ -21,6 +21,11 @@ import javax.swing.JPanel;
  */
 public class PlateauPanel extends JPanel { //trouver l'info des pions associés et associer des pions aux coordonnees + trouver l'info des maisons
     Plateau plateauAssocie;
+    boolean afficherPions=false;
+    Pion P1;
+    Pion P2;
+    Pion P3;
+    Pion P4;
     
     @Override 
     public void paintComponent(Graphics g) {
@@ -29,6 +34,16 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
              //g.drawOval(1,1, 800, 600);
             Image img = ImageIO.read(new File("plateaujeu.png"));
             g.drawImage(img, 0,0,800, 798, this);
+            if(afficherPions==true) {
+                Image Calculette = ImageIO.read(new File("PionCalculatrice3.png"));
+                g.drawImage(Calculette, P1.coordX, P1.coordY, 45, 45, this);
+                Image Diode = ImageIO.read(new File("PionDiode3.png"));
+                g.drawImage(Diode, P2.coordX, P2.coordY, 45, 45, this);
+                Image Erlenmeyer = ImageIO.read(new File("PionErlenmeyer3.png"));
+                g.drawImage(Erlenmeyer, P3.coordX, P3.coordY, 45, 45, this);
+                Image Olga = ImageIO.read(new File("PionOlga3.png"));
+                g.drawImage(Olga, P4.coordX, P4.coordY, 45, 45, this);
+            }
           
         } catch(IOException e){
             e.printStackTrace();

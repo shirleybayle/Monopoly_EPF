@@ -247,6 +247,91 @@ public class Case {
                 loyerIn = 8;
                 prixMaison = 0;
                 idCase = 27;
+            case(28) :
+                nom = "Caisse de communauté";
+                prixTerrain = 0;
+                couleur = "CC";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 28;
+            case(29) :
+                nom = "Caisse de communauté";
+                prixTerrain = 0;
+                couleur = "CC";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 29;
+            case(30) :
+                nom = "Caisse de communauté";
+                prixTerrain = 0;
+                couleur = "CC";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 30;
+            case(31) :
+                nom = "Chance";
+                prixTerrain = 0;
+                couleur = "Chance";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 31;
+            case(32) :
+                nom = "Chance";
+                prixTerrain = 0;
+                couleur = "Chance";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 32;
+            case(33) :
+                nom = "Chance";
+                prixTerrain = 0;
+                couleur = "Chance";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 33;
+            case(34) :
+                nom = "Tricherie";
+                prixTerrain = 200;
+                couleur = "Triche";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 34;
+            case(35) :
+                nom = "Absent";
+                prixTerrain = 100;
+                couleur = "Absence";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 35;
+            case(36) :
+                nom = "Début d'année";
+                prixTerrain = 0;
+                couleur = "Début d'année";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 36;
+            case(37) :
+                nom = "Prison";
+                prixTerrain = 0;
+                couleur = "Prison";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 37;
+            case(38) :
+                nom = "Parc gratuit";
+                prixTerrain = 0;
+                couleur = "Parc gratuit";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 38;
+            case(39) :
+                nom = "Allez aux rattrapages";
+                prixTerrain = 0;
+                couleur = "Allez aux rattrapages";
+                loyerIn = 0;
+                prixMaison = 0;
+                idCase = 39;
+                
             
                 
         }

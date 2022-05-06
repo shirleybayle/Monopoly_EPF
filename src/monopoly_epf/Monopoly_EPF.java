@@ -13,6 +13,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Random;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -24,6 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
 /**
  *
@@ -44,6 +46,10 @@ public class Monopoly_EPF extends JFrame {
     Des de2;
     int compteurDouble;
     int argentParcGratuit;
+    int currentFrame = 0;
+    Timer monChrono = null;
+    int indiceouAller = 0;
+    int indiceouOnEst = 0;
     
     public Monopoly_EPF(){
         super("Monopoly EPF");
@@ -292,7 +298,7 @@ public class Monopoly_EPF extends JFrame {
                 nomJ4.setVisible(false);
                 Joueur4.setText(tabJoueurs[3].nom);
                 pseudo4.setVisible(false);
-                zone_texte_infos.setText("\nJoueur 1, votre pseudo est " + tabJoueurs[0].nom + "!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "!");
+                zone_texte_infos.setText("\nJoueur 1, votre pseudo est " + tabJoueurs[0].nom + "\net votre pion, la Calculatrice!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "\net votre pion, la Diode!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "\net votre pion, l'Erlenmeyer!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "\net votre pion, Olga!");
                 credits1.setVisible(true);
                 credits2.setVisible(true);
                 credits3.setVisible(true);
@@ -337,7 +343,10 @@ public class Monopoly_EPF extends JFrame {
                 Autres2.setVisible(true);
                 Autres3.setVisible(true);
                 Autres4.setVisible(true);
+                plateauJeu.afficherPions=true;
+                plateauJeu.repaint();
                 Lancer_des.setEnabled(true);
+                joueurCourant = tabJoueurs[0];
             }
         });
         this.repaint();
@@ -614,7 +623,7 @@ public class Monopoly_EPF extends JFrame {
             }
         });
         this.repaint();
-       
+        
         Lancer_des = new JButton();
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -716,14 +725,23 @@ public class Monopoly_EPF extends JFrame {
                         else {
                             dé6V2.setVisible(true);
                         }
+                        int caseActuelle = 0;
+                        for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                            if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
+                                caseActuelle = i;
+                            }
+                        }
+ 
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+12)%40], "");
                         Lancer_des.setEnabled(true);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-
                 thread.start();
+                
+                
                 if(joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
                     if(de1.valeur==de2.valeur) {
@@ -733,11 +751,14 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(de1.valeur==de2.valeur) {
                     compteurDouble++;
-                }
-                if(compteurDouble==3) {
+                    if(compteurDouble==3) {
                     joueurCourant.prison=true;
+                    }
                 }
-                changerJoueur(); //voir si le joueur a fait des doubles!!!!!! (variable dans joueur pour prévour ça)
+                else {
+                    changerJoueur();
+                    System.out.println(joueurCourant.nom);
+                }
                 compteurDouble=0;
                 while(joueurCourant.droitdejouer==false) {
                     joueurCourant.droitdejouer=true;
@@ -1576,27 +1597,15 @@ public class Monopoly_EPF extends JFrame {
      
      
      public void changerJoueur() { // j'ai gardé ta fonction en commentaire et j'en ai écrite une autre parce que j'ai modifié elimination joueur en supprimant les joueurs du tableau
-        int temp = 0;
-        boolean changementi = false;
-        for (int i=0; i<4; i++) { //i représente l'indice du joueur courant dans le tableau tabjoueurs
-            for (int j=1; j<4; j++) { //j représente le décalage du nouveau joueur courant dans le tableau tabjoueurs
-                
-                if (joueurCourant == tabJoueurs[i]) {
-                    if (i==3 || i+j>3) { //si on sort de l'intervalle des indices du tableau
-                        temp = i; //on garde en mémoire la position du joueur courant initial
-                        i = i-3;
-                        changementi = true; //on indique qu'on a changé la valeur de i
-                    }
-                    if (tabJoueurs[i+j] != null) { //si le joueur qu'on veut passer en joueur courant n'est pas éliminé
-                        joueurCourant = tabJoueurs[i+j]; //il devient joueur courant
-                    }
-                    else if (changementi == true) { // si i a été changé 
-                        i = temp; //sinon i reprend sa valeur initale
-                    }
-                }
-               
-            }
+        int i=0;
+        while(i<4 && joueurCourant!=tabJoueurs[i]) {
+            i++;
         }
+        i=(i+1)%4;
+        while(tabJoueurs[i]==null) {
+            i=(i+1)%4;
+        }
+        joueurCourant=tabJoueurs[i];
         compteurDouble = 0; //réinitialisation du compteur double à 0
     }
      
@@ -2650,12 +2659,74 @@ public class Monopoly_EPF extends JFrame {
     //-----------------------------------
     
     public void InitialiserPartie() {
+        plateau = new Plateau();
+        plateau.plateaudejeu[0] = new Case(0);
+        plateau.plateaudejeu[1] = new Case(28);
+        plateau.plateaudejeu[2] = new Case(1);
+        plateau.plateaudejeu[3] = new Case(34);
+        plateau.plateaudejeu[4] = new Case(22);
+        plateau.plateaudejeu[5] = new Case(2);
+        plateau.plateaudejeu[6] = new Case(31);
+        plateau.plateaudejeu[7] = new Case(3);
+        plateau.plateaudejeu[8] = new Case(4);
+        plateau.plateaudejeu[9] = new Case(37);
+        plateau.plateaudejeu[10] = new Case(5);
+        plateau.plateaudejeu[11] = new Case(26);
+        plateau.plateaudejeu[12] = new Case(6);
+        plateau.plateaudejeu[13] = new Case(7);
+        plateau.plateaudejeu[14] = new Case(23);
+        plateau.plateaudejeu[15] = new Case(8);
+        plateau.plateaudejeu[16] = new Case(29);
+        plateau.plateaudejeu[17] = new Case(9);
+        plateau.plateaudejeu[18] = new Case(10);
+        plateau.plateaudejeu[19] = new Case(38);
+        plateau.plateaudejeu[20] = new Case(11);
+        plateau.plateaudejeu[21] = new Case(32);
+        plateau.plateaudejeu[22] = new Case(12);
+        plateau.plateaudejeu[23] = new Case(13);
+        plateau.plateaudejeu[24] = new Case(24);
+        plateau.plateaudejeu[25] = new Case(14);
+        plateau.plateaudejeu[26] = new Case(15);
+        plateau.plateaudejeu[27] = new Case(27);
+        plateau.plateaudejeu[28] = new Case(16);
+        plateau.plateaudejeu[29] = new Case(39);
+        plateau.plateaudejeu[30] = new Case(17);
+        plateau.plateaudejeu[31] = new Case(18);
+        plateau.plateaudejeu[32] = new Case(30);
+        plateau.plateaudejeu[33] = new Case(19);
+        plateau.plateaudejeu[34] = new Case(25);
+        plateau.plateaudejeu[35] = new Case(33);
+        plateau.plateaudejeu[36] = new Case(20);
+        plateau.plateaudejeu[37] = new Case(35);
+        plateau.plateaudejeu[38] = new Case(21);
+        plateau.plateaudejeu[39] = new Case(36);
+        
         tabJoueurs[0] = new Joueur();
         tabJoueurs[1] = new Joueur();
         tabJoueurs[2] = new Joueur();
         tabJoueurs[3] = new Joueur();
         de1 = new Des();
         de2 = new Des();
+        tabJoueurs[0].pion = new Pion();
+        tabJoueurs[1].pion = new Pion();
+        tabJoueurs[2].pion = new Pion();
+        tabJoueurs[3].pion = new Pion();
+        tabJoueurs[0].pion.modele = "Calculette";
+        tabJoueurs[1].pion.modele = "Diode";
+        tabJoueurs[2].pion.modele = "Erlenmeyer";
+        tabJoueurs[3].pion.modele = "Olga";
+        tabJoueurs[0].pion.coordX = 0;
+        tabJoueurs[0].pion.coordY = 700;
+        tabJoueurs[1].pion.coordX = 50;
+        tabJoueurs[1].pion.coordY = 700;
+        tabJoueurs[2].pion.coordX = 0;
+        tabJoueurs[2].pion.coordY = 750;
+        tabJoueurs[3].pion.coordX = 50;
+        tabJoueurs[3].pion.coordY = 750;
+        /*tabJoueurs[0].pion.caseassociee.idCase = 0;
+        tabJoueurs[1].pion.caseassociee.idCase = 0;
+        tabJoueurs[2].pion.caseassociee.idCase = 0;
+        tabJoueurs[3].pion.caseassociee.idCase = 0;*/
         Payer_Jousset.setVisible(false);
         Matieres_possedees.setVisible(false);
         Lancer_des.setEnabled(false);
@@ -2737,5 +2808,47 @@ public class Monopoly_EPF extends JFrame {
         Autres2.setVisible(false);
         Autres3.setVisible(false);
         Autres4.setVisible(false);
+        plateauJeu.P1 = tabJoueurs[0].pion;
+        plateauJeu.P2 = tabJoueurs[1].pion;
+        plateauJeu.P3 = tabJoueurs[2].pion;
+        plateauJeu.P4 = tabJoueurs[3].pion;
+    }
+    
+    public void DeplacerPion(Pion pionCourant, Case caseouAller, String TypeDeplacement) {
+        for(int i=0;i<plateau.plateaudejeu.length;i++) {
+            if(caseouAller==plateau.plateaudejeu[i]) {
+                indiceouAller = i;
+            }
+        }
+        for(int i=0;i<plateau.plateaudejeu.length;i++) {
+            if(pionCourant.caseassociee==plateau.plateaudejeu[i]) {
+                indiceouOnEst = i;
+            }
+        } 
+        int inc = (indiceouAller-indiceouOnEst)*63;
+        int nbFrames = 20;
+        currentFrame = 0;
+        ActionListener tache_recurrente = new ActionListener() {
+
+            public void actionPerformed(ActionEvent e1) {
+                if (currentFrame < nbFrames) {
+                    if(indiceouOnEst>=0 && indiceouAller<=10) {
+                        pionCourant.coordY -= inc / nbFrames;
+                        plateauJeu.repaint();
+                        currentFrame++;
+                    }
+                    else if(indiceouOnEst<=0 && indiceouAller>10) {
+                        
+                    }
+                }
+                else {
+                    monChrono.stop();
+                }
+            }
+        ;
+        };
+        monChrono = new Timer(1000/nbFrames, (ActionListener) tache_recurrente);
+        monChrono.start();
+        plateauJeu.repaint();
     }
 }
