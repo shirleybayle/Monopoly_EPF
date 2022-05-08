@@ -50,6 +50,8 @@ public class Monopoly_EPF extends JFrame {
     Timer monChrono = null;
     int indiceouAller = 0;
     int indiceouOnEst = 0;
+    int inc = 0;
+    int nbFrames =0;
     
     public Monopoly_EPF(){
         super("Monopoly EPF");
@@ -639,16 +641,16 @@ public class Monopoly_EPF extends JFrame {
                 Lancer_des.setEnabled(false);
                 ValiderMatiere1.setVisible(false);
                 ValiderMatiere2.setVisible(false);
-                ValiderMatiere3.setVisible(true);
-                ValiderMatiere4.setVisible(true);
-                Libération1.setVisible(true);
-                PayerPrison1.setVisible(true);
-                Libération2.setVisible(true);
-                PayerPrison2.setVisible(true);
-                Libération3.setVisible(true);
-                PayerPrison3.setVisible(true);
-                Libération4.setVisible(true);
-                PayerPrison4.setVisible(true);
+                ValiderMatiere3.setVisible(false);
+                ValiderMatiere4.setVisible(false);
+                Libération1.setVisible(false);
+                PayerPrison1.setVisible(false);
+                Libération2.setVisible(false);
+                PayerPrison2.setVisible(false);
+                Libération3.setVisible(false);
+                PayerPrison3.setVisible(false);
+                Libération4.setVisible(false);
+                PayerPrison4.setVisible(false);
                 
                 Thread thread = new Thread(){
                     public void run(){
@@ -734,9 +736,10 @@ public class Monopoly_EPF extends JFrame {
                                 caseActuelle = i;
                             }
                         }
- 
-                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+12)%40], "");
-                        Lancer_des.setEnabled(true);
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                        deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                        /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+31)%40], "Téléportation");
+                        deplacerPion(joueurCourant.pion,31%40,plateau.plateaudejeu[caseActuelle]);*/
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -744,7 +747,7 @@ public class Monopoly_EPF extends JFrame {
                 };
                 thread.start();
                 
-                
+                joueurCourant.pion.caseassociee.occupant=true;
                 if(joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
                     if(de1.valeur==de2.valeur) {
@@ -760,9 +763,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 else {
                     changerJoueur();
-                    System.out.println(joueurCourant.nom);
                 }
-                compteurDouble=0;
                 while(joueurCourant.droitdejouer==false) {
                     joueurCourant.droitdejouer=true;
                     changerJoueur();
@@ -1465,6 +1466,26 @@ public class Monopoly_EPF extends JFrame {
      
      
      public void deplacerPion(Pion pionAssocie, int nbcases, Case caseInitiale) { //gérer si i+nbcases dépasse l'indice max du plateau
+        if(joueurCourant==tabJoueurs[0]) {
+            if(tabJoueurs[1].pion.caseassociee!=caseInitiale && tabJoueurs[2].pion.caseassociee!=caseInitiale && tabJoueurs[3].pion.caseassociee!=caseInitiale) {
+                caseInitiale.occupant=false;
+            }
+        }
+        else if(joueurCourant==tabJoueurs[1]) {
+            if(tabJoueurs[0].pion.caseassociee!=caseInitiale && tabJoueurs[2].pion.caseassociee!=caseInitiale && tabJoueurs[3].pion.caseassociee!=caseInitiale) {
+                caseInitiale.occupant=false;
+            }
+        }
+        else if(joueurCourant==tabJoueurs[2]) {
+            if(tabJoueurs[0].pion.caseassociee!=caseInitiale && tabJoueurs[1].pion.caseassociee!=caseInitiale && tabJoueurs[3].pion.caseassociee!=caseInitiale) {
+                caseInitiale.occupant=false;
+            }
+        }
+        else if(joueurCourant==tabJoueurs[3]) {
+            if(tabJoueurs[0].pion.caseassociee!=caseInitiale && tabJoueurs[1].pion.caseassociee!=caseInitiale && tabJoueurs[2].pion.caseassociee!=caseInitiale) {
+                caseInitiale.occupant=false;
+            }
+        }
         for(int i=0; i<plateau.plateaudejeu.length; i++) {
             if(caseInitiale==plateau.plateaudejeu[i]) {
                 if (i+nbcases <= 39) {
@@ -1474,9 +1495,23 @@ public class Monopoly_EPF extends JFrame {
                     pionAssocie.caseassociee=plateau.plateaudejeu[i+nbcases-39]; //tour de plateau
                     if (i+nbcases-39!=0) {
                         joueurCourant.credits = joueurCourant.credits + 200; //200crédits quand on a fait un tour de plateau
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " passez par le début d'année et touchez 200 ECTS!");   
                     }
                     else {
                         joueurCourant.credits = joueurCourant.credits + 400; //400crédits quand on tombe sur la case départ
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous vous arrêtez au début d'année et touchez 400 ECTS!");
+                    }
+                    if(joueurCourant==tabJoueurs[0]) {
+                        credits1.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
+                    }
+                    else if(joueurCourant==tabJoueurs[1]) {
+                        credits2.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
+                    }
+                    else if(joueurCourant==tabJoueurs[2]) {
+                        credits3.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
+                    }
+                    else if(joueurCourant==tabJoueurs[3]) {
+                        credits4.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
                     }
                 }
             }
@@ -2739,47 +2774,46 @@ public class Monopoly_EPF extends JFrame {
     
     public void InitialiserPartie() {
         plateau = new Plateau();
-        plateau.plateaudejeu[0] = new Case(0);
-        plateau.plateaudejeu[1] = new Case(28);
-        plateau.plateaudejeu[2] = new Case(1);
-        plateau.plateaudejeu[3] = new Case(34);
-        plateau.plateaudejeu[4] = new Case(22);
-        plateau.plateaudejeu[5] = new Case(2);
-        plateau.plateaudejeu[6] = new Case(31);
-        plateau.plateaudejeu[7] = new Case(3);
-        plateau.plateaudejeu[8] = new Case(4);
-        plateau.plateaudejeu[9] = new Case(37);
-        plateau.plateaudejeu[10] = new Case(5);
-        plateau.plateaudejeu[11] = new Case(26);
-        plateau.plateaudejeu[12] = new Case(6);
-        plateau.plateaudejeu[13] = new Case(7);
-        plateau.plateaudejeu[14] = new Case(23);
-        plateau.plateaudejeu[15] = new Case(8);
-        plateau.plateaudejeu[16] = new Case(29);
-        plateau.plateaudejeu[17] = new Case(9);
-        plateau.plateaudejeu[18] = new Case(10);
-        plateau.plateaudejeu[19] = new Case(38);
-        plateau.plateaudejeu[20] = new Case(11);
-        plateau.plateaudejeu[21] = new Case(32);
-        plateau.plateaudejeu[22] = new Case(12);
-        plateau.plateaudejeu[23] = new Case(13);
-        plateau.plateaudejeu[24] = new Case(24);
-        plateau.plateaudejeu[25] = new Case(14);
-        plateau.plateaudejeu[26] = new Case(15);
-        plateau.plateaudejeu[27] = new Case(27);
-        plateau.plateaudejeu[28] = new Case(16);
-        plateau.plateaudejeu[29] = new Case(39);
-        plateau.plateaudejeu[30] = new Case(17);
-        plateau.plateaudejeu[31] = new Case(18);
-        plateau.plateaudejeu[32] = new Case(30);
-        plateau.plateaudejeu[33] = new Case(19);
-        plateau.plateaudejeu[34] = new Case(25);
-        plateau.plateaudejeu[35] = new Case(33);
-        plateau.plateaudejeu[36] = new Case(20);
-        plateau.plateaudejeu[37] = new Case(35);
-        plateau.plateaudejeu[38] = new Case(21);
-        plateau.plateaudejeu[39] = new Case(36);
-        
+        plateau.plateaudejeu[0] = new Case(36);
+        plateau.plateaudejeu[1] = new Case(0);
+        plateau.plateaudejeu[2] = new Case(28);
+        plateau.plateaudejeu[3] = new Case(1);
+        plateau.plateaudejeu[4] = new Case(34);
+        plateau.plateaudejeu[5] = new Case(22);
+        plateau.plateaudejeu[6] = new Case(2);
+        plateau.plateaudejeu[7] = new Case(31);
+        plateau.plateaudejeu[8] = new Case(3);
+        plateau.plateaudejeu[9] = new Case(4);
+        plateau.plateaudejeu[10] = new Case(37);
+        plateau.plateaudejeu[11] = new Case(5);
+        plateau.plateaudejeu[12] = new Case(26);
+        plateau.plateaudejeu[13] = new Case(6);
+        plateau.plateaudejeu[14] = new Case(7);
+        plateau.plateaudejeu[15] = new Case(23);
+        plateau.plateaudejeu[16] = new Case(8);
+        plateau.plateaudejeu[17] = new Case(29);
+        plateau.plateaudejeu[18] = new Case(9);
+        plateau.plateaudejeu[19] = new Case(10);
+        plateau.plateaudejeu[20] = new Case(38);
+        plateau.plateaudejeu[21] = new Case(11);
+        plateau.plateaudejeu[22] = new Case(32);
+        plateau.plateaudejeu[23] = new Case(12);
+        plateau.plateaudejeu[24] = new Case(13);
+        plateau.plateaudejeu[25] = new Case(24);
+        plateau.plateaudejeu[26] = new Case(14);
+        plateau.plateaudejeu[27] = new Case(15);
+        plateau.plateaudejeu[28] = new Case(27);
+        plateau.plateaudejeu[29] = new Case(16);
+        plateau.plateaudejeu[30] = new Case(39);
+        plateau.plateaudejeu[31] = new Case(17);
+        plateau.plateaudejeu[32] = new Case(18);
+        plateau.plateaudejeu[33] = new Case(30);
+        plateau.plateaudejeu[34] = new Case(19);
+        plateau.plateaudejeu[35] = new Case(25);
+        plateau.plateaudejeu[36] = new Case(33);
+        plateau.plateaudejeu[37] = new Case(20);
+        plateau.plateaudejeu[38] = new Case(35);
+        plateau.plateaudejeu[39] = new Case(21);
         tabJoueurs[0] = new Joueur();
         tabJoueurs[1] = new Joueur();
         tabJoueurs[2] = new Joueur();
@@ -2802,10 +2836,14 @@ public class Monopoly_EPF extends JFrame {
         tabJoueurs[2].pion.coordY = 750;
         tabJoueurs[3].pion.coordX = 50;
         tabJoueurs[3].pion.coordY = 750;
-        /*tabJoueurs[0].pion.caseassociee.idCase = 0;
-        tabJoueurs[1].pion.caseassociee.idCase = 0;
-        tabJoueurs[2].pion.caseassociee.idCase = 0;
-        tabJoueurs[3].pion.caseassociee.idCase = 0;*/
+        tabJoueurs[0].pion.taille = 45;
+        tabJoueurs[1].pion.taille = 45;
+        tabJoueurs[2].pion.taille = 45;
+        tabJoueurs[3].pion.taille = 45;
+        tabJoueurs[0].pion.caseassociee = plateau.plateaudejeu[0];
+        tabJoueurs[1].pion.caseassociee = plateau.plateaudejeu[0];
+        tabJoueurs[2].pion.caseassociee = plateau.plateaudejeu[0];
+        tabJoueurs[3].pion.caseassociee = plateau.plateaudejeu[0];
         Payer_Jousset.setVisible(false);
         Matieres_possedees.setVisible(false);
         Lancer_des.setEnabled(false);
@@ -2893,7 +2931,10 @@ public class Monopoly_EPF extends JFrame {
         plateauJeu.P4 = tabJoueurs[3].pion;
     }
     
-    public void DeplacerPion(Pion pionCourant, Case caseouAller, String TypeDeplacement) {
+    public void DeplacerPion(Pion pionCourant, Case caseouAller, String typeDeplacement) {
+        pionCourant.taille = 45;
+        pionCourant.coordX = pionCourant.caseassociee.coordX;
+        pionCourant.coordY = pionCourant.caseassociee.coordY;
         for(int i=0;i<plateau.plateaudejeu.length;i++) {
             if(caseouAller==plateau.plateaudejeu[i]) {
                 indiceouAller = i;
@@ -2903,24 +2944,349 @@ public class Monopoly_EPF extends JFrame {
             if(pionCourant.caseassociee==plateau.plateaudejeu[i]) {
                 indiceouOnEst = i;
             }
-        } 
-        int inc = (indiceouAller-indiceouOnEst)*63;
-        int nbFrames = 20;
+        }
+        if(typeDeplacement=="Normal") {
+            inc = (de1.valeur+de2.valeur)*66;
+            nbFrames = (de1.valeur+de2.valeur)*3;
+        }
+        else if(typeDeplacement=="Téléportation") {
+            if(indiceouAller<indiceouOnEst) {
+                inc = ((39-indiceouOnEst)+indiceouAller+1)*66;
+                nbFrames = ((39-indiceouOnEst)+indiceouAller+1)*3;
+            }
+            else {
+                inc = (indiceouAller-indiceouOnEst)*66;
+                nbFrames = (indiceouAller-indiceouOnEst)*3;
+            }
+        }
         currentFrame = 0;
+        if(indiceouOnEst==0) {
+            pionCourant.coordX = 29;
+            pionCourant.coordY=724;
+            inc+=4;
+        }
+        else if(indiceouOnEst==10) {
+            pionCourant.coordX = 29;
+            pionCourant.coordY=29;
+            inc+=4;
+        }
+        else if(indiceouOnEst==20) {
+            pionCourant.coordX=726;
+            pionCourant.coordY=29;
+            inc+=4;
+        }
+        else if(indiceouOnEst==30) {
+            pionCourant.coordX=726;
+            pionCourant.coordY=724;
+            inc+=4;
+        }
+        
+        
+        if(indiceouAller==0) {
+            inc+=4;
+        }
+        else if(indiceouAller==10) {
+            inc+=4;
+        }
+        else if(indiceouAller==20) {
+            inc+=4;
+        }
+        else if(indiceouAller==30) {
+            inc+=4;
+        }
+        
+        
+        if(indiceouOnEst>=0 && indiceouAller>10 && indiceouAller<=20) {
+            inc+=8;
+        }
+        else if(indiceouOnEst>=0 && indiceouAller>20 && indiceouAller<=30) {
+            inc+=16;
+        }
+        else if(indiceouOnEst>=0 && indiceouAller>30 && indiceouAller<=39) {
+            inc+=24;
+        }
+        else if(indiceouOnEst>=0 && indiceouAller>0 && indiceouAller<=indiceouOnEst) {
+            inc+=32;
+        }
+        if(indiceouOnEst>=10 && indiceouAller>20 && indiceouAller<=30) {
+            inc+=8;
+        }
+        else if(indiceouOnEst>=10 && indiceouAller>30 && indiceouAller<=39) {
+            inc+=16;
+        }
+        else if(indiceouOnEst>=10 && indiceouAller>0 && indiceouAller<=10) {
+            inc+=24;
+        }
+        else if(indiceouOnEst>=10 && indiceouAller>10 && indiceouAller<=indiceouOnEst) {
+            inc+=32;
+        }
+        if(indiceouOnEst>=20 && indiceouAller>30 && indiceouAller<=39) {
+            inc+=8;
+        }
+        else if(indiceouOnEst>=20 && indiceouAller>0 && indiceouAller<=10) {
+            inc+=16;
+        }
+        else if(indiceouOnEst>=20 && indiceouAller>10 && indiceouAller<=20) {
+            inc+=24;
+        }
+        else if(indiceouOnEst>=20 && indiceouAller>20 && indiceouAller<=indiceouOnEst) {
+            inc+=32;
+        }
+        if(indiceouOnEst>=30 && indiceouAller>0 && indiceouAller<=10) {
+            inc+=8;
+        }
+        else if(indiceouOnEst>=30 && indiceouAller>10 && indiceouAller<=20) {
+            inc+=16;
+        }
+        else if(indiceouOnEst>=30 && indiceouAller>20 && indiceouAller<=30) {
+            inc+=24;
+        }
+        else if(indiceouOnEst>=30 && indiceouAller>30 && indiceouAller<=indiceouOnEst) {
+            inc+=32;
+        }
         ActionListener tache_recurrente = new ActionListener() {
 
-            public void actionPerformed(ActionEvent e1) {
+            public void actionPerformed(ActionEvent e1) { 
                 if (currentFrame < nbFrames) {
-                    if(indiceouOnEst>=0 && indiceouAller<=10) {
+                    if(pionCourant.coordY<=769 && pionCourant.coordY>=29 && pionCourant.coordX<=29) {
+                        if(joueurCourant==tabJoueurs[0]) {
+                            plateauJeu.orientation1 = plateauJeu.gauche1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]) {
+                            plateauJeu.orientation2 = plateauJeu.gauche2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]) {
+                            plateauJeu.orientation3 = plateauJeu.gauche3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]) {
+                            plateauJeu.orientation4 = plateauJeu.gauche4;
+                        }
                         pionCourant.coordY -= inc / nbFrames;
                         plateauJeu.repaint();
                         currentFrame++;
                     }
-                    else if(indiceouOnEst<=0 && indiceouAller>10) {
-                        
+                    else if(pionCourant.coordX>=17 && pionCourant.coordX<=726 && pionCourant.coordY<=29) {
+                        if(joueurCourant==tabJoueurs[0]) {
+                            plateauJeu.orientation1 = plateauJeu.haut1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]) {
+                            plateauJeu.orientation2 = plateauJeu.haut2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]) {
+                            plateauJeu.orientation3 = plateauJeu.haut3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]) {
+                            plateauJeu.orientation4 = plateauJeu.haut4;
+                        }
+                        pionCourant.coordX += inc / nbFrames;
+                        plateauJeu.repaint();
+                        currentFrame++;
+                    }
+                    else if(pionCourant.coordY>=11 && pionCourant.coordY<=724 && pionCourant.coordX>=726) {
+                        if(joueurCourant==tabJoueurs[0]) {
+                            plateauJeu.orientation1 = plateauJeu.droite1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]) {
+                            plateauJeu.orientation2 = plateauJeu.droite2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]) {
+                            plateauJeu.orientation3 = plateauJeu.droite3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]) {
+                            plateauJeu.orientation4 = plateauJeu.droite4;
+                        }
+                        pionCourant.coordY += inc / nbFrames;
+                        plateauJeu.repaint();
+                        currentFrame++;
+                    }
+                    else if(pionCourant.coordX>=29 && pionCourant.coordX<=780 && pionCourant.coordY>=726) {
+                        if(joueurCourant==tabJoueurs[0]) {
+                            plateauJeu.orientation1 = plateauJeu.bas1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]) {
+                            plateauJeu.orientation2 = plateauJeu.bas2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]) {
+                            plateauJeu.orientation3 = plateauJeu.bas3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]) {
+                            plateauJeu.orientation4 = plateauJeu.bas4;
+                        }
+                        pionCourant.coordX -= inc / nbFrames;
+                        plateauJeu.repaint();
+                        currentFrame++;
                     }
                 }
                 else {
+                    pionCourant.coordX=caseouAller.coordX;
+                    pionCourant.coordY=caseouAller.coordY;
+                    System.out.println(pionCourant.coordX);
+                    System.out.println(pionCourant.coordY);
+                    if(indiceouAller>0 && indiceouAller<10){
+                        if(joueurCourant==tabJoueurs[0]){
+                            plateauJeu.orientation1=plateauJeu.gauche1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]){
+                            plateauJeu.orientation2=plateauJeu.gauche2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]){
+                            plateauJeu.orientation3=plateauJeu.gauche3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]){
+                            plateauJeu.orientation4=plateauJeu.gauche4;
+                        }
+                    }
+                    else if(indiceouAller>10 && indiceouAller<20){
+                        if(joueurCourant==tabJoueurs[0]){
+                            plateauJeu.orientation1=plateauJeu.haut1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]){
+                            plateauJeu.orientation2=plateauJeu.haut2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]){
+                            plateauJeu.orientation3=plateauJeu.haut3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]){
+                            plateauJeu.orientation4=plateauJeu.haut4;
+                        }
+                    }
+                    else if(indiceouAller>20 && indiceouAller<30){
+                        if(joueurCourant==tabJoueurs[0]){
+                            plateauJeu.orientation1=plateauJeu.droite1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]){
+                            plateauJeu.orientation2=plateauJeu.droite2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]){
+                            plateauJeu.orientation3=plateauJeu.droite3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]){
+                            plateauJeu.orientation4=plateauJeu.droite4;
+                        }
+                    }
+                    else if(indiceouAller>30 && indiceouAller<=39){
+                        if(joueurCourant==tabJoueurs[0]){
+                            plateauJeu.orientation1=plateauJeu.bas1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]){
+                            plateauJeu.orientation2=plateauJeu.bas2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]){
+                            plateauJeu.orientation3=plateauJeu.bas3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]){
+                            plateauJeu.orientation4=plateauJeu.bas4;
+                        }
+                    }
+                    if(caseouAller.occupant==true) {
+                        if(caseouAller.idCase!=36 || caseouAller.idCase!=37 || caseouAller.idCase!=38 || caseouAller.idCase!=39) {
+                            if(indiceouAller>0 && indiceouAller<10){
+                                for(int i=0;i<tabJoueurs.length;i++) {
+                                    if(tabJoueurs[i].pion.caseassociee==caseouAller) {
+                                        if(i==0){
+                                            tabJoueurs[0].pion.coordX=caseouAller.coordX-3;
+                                            tabJoueurs[0].pion.coordY=caseouAller.coordY+1;
+                                            tabJoueurs[0].pion.taille=20;
+                                        }
+                                        else if(i==1) {
+                                            tabJoueurs[1].pion.coordX=caseouAller.coordX-3;
+                                            tabJoueurs[1].pion.coordY=caseouAller.coordY+31;
+                                            tabJoueurs[1].pion.taille=20;
+                                        }
+                                        else if(i==2) {
+                                            tabJoueurs[2].pion.coordX=caseouAller.coordX+22;
+                                            tabJoueurs[2].pion.coordY=caseouAller.coordY+1;
+                                            tabJoueurs[2].pion.taille=20;
+                                        }
+                                        else if(i==3) {
+                                            tabJoueurs[3].pion.coordX=caseouAller.coordX+22;
+                                            tabJoueurs[3].pion.coordY=caseouAller.coordY+31;
+                                            tabJoueurs[3].pion.taille=20;
+                                        }
+                                    }
+                                }
+                            }
+                            else if(indiceouAller>10 && indiceouAller<20){
+                                for(int i=0;i<tabJoueurs.length;i++) {
+                                    if(tabJoueurs[i].pion.caseassociee==caseouAller) {
+                                        if(i==0){
+                                            tabJoueurs[0].pion.coordX=caseouAller.coordX+25;
+                                            tabJoueurs[0].pion.coordY=caseouAller.coordY-3;
+                                            tabJoueurs[0].pion.taille=20;
+                                        }
+                                        else if(i==1) {
+                                            tabJoueurs[1].pion.coordX=caseouAller.coordX;
+                                            tabJoueurs[1].pion.coordY=caseouAller.coordY-3;
+                                            tabJoueurs[1].pion.taille=20;
+                                        }
+                                        else if(i==2) {
+                                            tabJoueurs[2].pion.coordX=caseouAller.coordX+25;
+                                            tabJoueurs[2].pion.coordY=caseouAller.coordY+20;
+                                            tabJoueurs[2].pion.taille=20;
+                                        }
+                                        else if(i==3) {
+                                            tabJoueurs[3].pion.coordX=caseouAller.coordX;
+                                            tabJoueurs[3].pion.coordY=caseouAller.coordY+20;
+                                            tabJoueurs[3].pion.taille=20;
+                                        }
+                                    }
+                                }
+                            }
+                            else if(indiceouAller>20 && indiceouAller<30){
+                                for(int i=0;i<tabJoueurs.length;i++) {
+                                    if(tabJoueurs[i].pion.caseassociee==caseouAller) {
+                                        if(i==0){
+                                            tabJoueurs[0].pion.coordX=caseouAller.coordX+27;
+                                            tabJoueurs[0].pion.coordY=caseouAller.coordY+31;
+                                            tabJoueurs[0].pion.taille=20;
+                                        }
+                                        else if(i==1) {
+                                            tabJoueurs[1].pion.coordX=caseouAller.coordX+27;
+                                            tabJoueurs[1].pion.coordY=caseouAller.coordY+1;
+                                            tabJoueurs[1].pion.taille=20;
+                                        }
+                                        else if(i==2) {
+                                            tabJoueurs[2].pion.coordX=caseouAller.coordX+5;
+                                            tabJoueurs[2].pion.coordY=caseouAller.coordY+31;
+                                            tabJoueurs[2].pion.taille=20;
+                                        }
+                                        else if(i==3) {
+                                            tabJoueurs[3].pion.coordX=caseouAller.coordX+5;
+                                            tabJoueurs[3].pion.coordY=caseouAller.coordY+1;
+                                            tabJoueurs[3].pion.taille=20;
+                                        }
+                                    }
+                                }
+                            }
+                            else if(indiceouAller>30 && indiceouAller<=39){
+                                for(int i=0;i<tabJoueurs.length;i++) {
+                                    if(tabJoueurs[i].pion.caseassociee==caseouAller) {
+                                        if(i==0){
+                                            tabJoueurs[0].pion.coordX=caseouAller.coordX;
+                                            tabJoueurs[0].pion.coordY=caseouAller.coordY+25;
+                                            tabJoueurs[0].pion.taille=20;
+                                        }
+                                        else if(i==1) {
+                                            tabJoueurs[1].pion.coordX=caseouAller.coordX+25;
+                                            tabJoueurs[1].pion.coordY=caseouAller.coordY+25;
+                                            tabJoueurs[1].pion.taille=20;
+                                        }
+                                        else if(i==2) {
+                                            tabJoueurs[2].pion.coordX=caseouAller.coordX;
+                                            tabJoueurs[2].pion.coordY=caseouAller.coordY+4;
+                                            tabJoueurs[2].pion.taille=20;
+                                        }
+                                        else if(i==3) {
+                                            tabJoueurs[3].pion.coordX=caseouAller.coordX+25;
+                                            tabJoueurs[3].pion.coordY=caseouAller.coordY+4;
+                                            tabJoueurs[3].pion.taille=20;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    plateauJeu.repaint();
                     monChrono.stop();
                 }
             }

@@ -13,13 +13,15 @@ public class Case {
     String couleur;
     int maison;
     Joueur proprietaire;
-    Pion occupant;
+    boolean occupant = false;
     int loyerIn;
     int loyer;
     String action;
     int prixMaison;
     int idCase;
     int nbSallesMemeCouleur;
+    int coordX;
+    int coordY;
     
     
     public Case(int id) {
@@ -31,6 +33,8 @@ public class Case {
                 loyerIn = 2; //changer loyer
                 prixMaison = 50;
                 idCase = 0;
+                coordX = 17;
+                coordY = 639;
                 break;
             case(1) : 
                 nom = "L102";
@@ -39,6 +43,8 @@ public class Case {
                 loyerIn = 4;
                 prixMaison = 50;
                 idCase = 1;
+                coordX = 17;
+                coordY = 508;
                 break;
             case(2) :
                 nom = "M01";
@@ -47,6 +53,8 @@ public class Case {
                 loyerIn = 6;
                 prixMaison = 50;
                 idCase = 2;
+                coordX = 17;
+                coordY = 310;
                 break;
             case(3) : 
                 nom = "M02";
@@ -55,6 +63,8 @@ public class Case {
                 loyerIn = 6;
                 prixMaison = 50;
                 idCase = 3;
+                coordX = 17;
+                coordY = 179;
                 break;
             case(4) :
                 nom = "M03";
@@ -63,30 +73,38 @@ public class Case {
                 loyerIn = 8;
                 prixMaison = 50;
                 idCase = 4;
+                coordX = 17;
+                coordY = 113;
                 break;
             case (5) :
-                nom = "JLAB4";
+                nom = "JLAB04";
                 prixTerrain = 140;
                 couleur = "violet";
                 loyerIn = 10;
                 prixMaison = 100;
                 idCase = 5;
+                coordX = 114;
+                coordY = 17;
                 break;
             case(6) :
-                nom = "JLAB5";
+                nom = "JLAB05";
                 prixTerrain = 140;
                 loyerIn = 10;
                 couleur = "violet";
                 prixMaison = 100;
                 idCase = 6;
+                coordX = 246;
+                coordY = 17;
                 break;
             case(7) : 
-                nom = "JLAB6";
+                nom = "JLAB06";
                 prixTerrain = 160;
                 couleur = "violet";
                 loyerIn = 12;
                 prixMaison = 100;
                 idCase = 7;
+                coordX = 312;
+                coordY = 17;
                 break;
             case(8) : 
                 nom = "M101";
@@ -95,6 +113,8 @@ public class Case {
                 loyerIn = 14;
                 prixMaison = 100;
                 idCase = 8;
+                coordX = 444;
+                coordY = 17;
                 break;
             case(9) :
                 nom = "M102";
@@ -103,6 +123,8 @@ public class Case {
                 loyerIn = 14;
                 prixMaison = 100;
                 idCase = 9;
+                coordX = 575;
+                coordY = 17;
                 break;
             case(10) :
                 nom = "M103";
@@ -111,6 +133,8 @@ public class Case {
                 loyerIn = 16;
                 prixMaison = 100;
                 idCase = 10;
+                coordX = 641;
+                coordY = 17;
                 break;
             case(11) :
                 nom = "bulle1";
@@ -119,6 +143,8 @@ public class Case {
                 loyerIn = 18;
                 prixMaison = 150;
                 idCase = 11;
+                coordX = 738;
+                coordY = 113;
                 break;
             case(12) :
                 nom = "bulle2";
@@ -127,6 +153,8 @@ public class Case {
                 loyerIn = 18;
                 prixMaison = 150;
                 idCase = 12;
+                coordX = 738;
+                coordY = 244;
                 break;
             case(13) :
                 nom = "bulle3";
@@ -135,6 +163,8 @@ public class Case {
                 loyerIn = 20;
                 prixMaison = 150;
                 idCase = 13;
+                coordX = 738;
+                coordY = 310;
                 break;
             case(14) :
                 nom = "H03";
@@ -143,6 +173,8 @@ public class Case {
                 loyerIn = 22;
                 prixMaison = 150;
                 idCase = 14;
+                coordX = 738;
+                coordY = 442;
                 break;
             case(15) :
                 nom = "H05";
@@ -151,6 +183,8 @@ public class Case {
                 loyerIn = 22;
                 prixMaison = 150;
                 idCase = 15;
+                coordX = 738;
+                coordY = 508;
                 break;
             case(16) :
                 nom = "H08";
@@ -159,6 +193,8 @@ public class Case {
                 loyerIn = 24;
                 prixMaison = 150;
                 idCase = 16;
+                coordX = 738;
+                coordY = 640;
                 break;
             case(17) : 
                 nom = "K03";
@@ -167,6 +203,8 @@ public class Case {
                 loyerIn = 26;
                 prixMaison = 200;
                 idCase = 17;
+                coordX = 641;
+                coordY = 738;
                 break;
             case(18) :
                 nom = "K04";
@@ -175,6 +213,8 @@ public class Case {
                 loyerIn = 26;
                 prixMaison = 200;
                 idCase = 18;
+                coordX = 575;
+                coordY = 738;
                 break;
             case(19) :
                 nom = "K05";
@@ -183,6 +223,8 @@ public class Case {
                 loyerIn = 28;
                 prixMaison = 200;
                 idCase = 19;
+                coordX = 444;
+                coordY = 738;
                 break;
             case(20) :
                 nom = "I01";
@@ -191,6 +233,8 @@ public class Case {
                 loyerIn = 35;
                 prixMaison = 200;
                 idCase = 20;
+                coordX = 246;
+                coordY = 738;
                 break;
             case(21) :
                 nom = "energy lab";
@@ -199,6 +243,8 @@ public class Case {
                 loyerIn = 50;
                 prixMaison = 200;
                 idCase = 21;
+                coordX = 114;
+                coordY = 738;
                 break;
             case(22) : //Il manque les gares et les compagnies --> Gares et compagnie à la suite des autres
                 nom = "Cour de récréation";
@@ -207,6 +253,8 @@ public class Case {
                 loyerIn = 25;
                 prixMaison = 0; //à confirmer que c'est bien comme ça
                 idCase = 22;
+                coordX = 17;
+                coordY = 376;
                 break;
             case(23) :
                 nom = "Amphithéâtre";
@@ -215,6 +263,8 @@ public class Case {
                 loyerIn = 25;
                 prixMaison = 0;
                 idCase = 23;
+                coordX = 378;
+                coordY = 17;
                 break;
             case(24) :
                 nom = "Foyer";
@@ -223,6 +273,8 @@ public class Case {
                 loyerIn = 25;
                 prixMaison = 0;
                 idCase = 24;
+                coordX = 738;
+                coordY = 376;
                 break;
             case(25) :
                 nom = "Bureau des Ours";
@@ -231,6 +283,8 @@ public class Case {
                 loyerIn = 25;
                 prixMaison = 0;
                 idCase = 25;
+                coordX = 378;
+                coordY = 738;
                 break;
             case(26) :
                 nom = "Maintenance des micro-ondes";
@@ -239,6 +293,8 @@ public class Case {
                 loyerIn = 8; //c le plus petit qu'on puisse faire, pareil est-ce que c'est la bonne chose à mettre icià voir...
                 prixMaison = 0;
                 idCase = 26;
+                coordX = 180;
+                coordY = 17;
                 break;
             case(27) :
                 nom = "Maintenance des chauffages";
@@ -247,6 +303,9 @@ public class Case {
                 loyerIn = 8;
                 prixMaison = 0;
                 idCase = 27;
+                coordX = 738;
+                coordY = 574;
+                break;
             case(28) :
                 nom = "Caisse de communauté";
                 prixTerrain = 0;
@@ -254,6 +313,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 28;
+                coordX = 17;
+                coordY = 574;
+                break;
             case(29) :
                 nom = "Caisse de communauté";
                 prixTerrain = 0;
@@ -261,6 +323,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 29;
+                coordX = 509;
+                coordY = 17;
+                break;
             case(30) :
                 nom = "Caisse de communauté";
                 prixTerrain = 0;
@@ -268,6 +333,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 30;
+                coordX = 509;
+                coordY = 738;
+                break;
             case(31) :
                 nom = "Chance";
                 prixTerrain = 0;
@@ -275,6 +343,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 31;
+                coordX = 17;
+                coordY = 244;
+                break;
             case(32) :
                 nom = "Chance";
                 prixTerrain = 0;
@@ -282,6 +353,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 32;
+                coordX = 738;
+                coordY = 178;
+                break;
             case(33) :
                 nom = "Chance";
                 prixTerrain = 0;
@@ -289,6 +363,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 33;
+                coordX = 312;
+                coordY = 738;
+                break;
             case(34) :
                 nom = "Tricherie";
                 prixTerrain = 200;
@@ -296,6 +373,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 34;
+                coordX = 17;
+                coordY = 442;
+                break;
             case(35) :
                 nom = "Absent";
                 prixTerrain = 100;
@@ -303,6 +383,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 35;
+                coordX = 180;
+                coordY = 738;
+                break;
             case(36) :
                 nom = "Début d'année";
                 prixTerrain = 0;
@@ -310,6 +393,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 36;
+                coordX = 29;
+                coordY = 769;
+                break;
             case(37) :
                 nom = "Prison";
                 prixTerrain = 0;
@@ -317,6 +403,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 37;
+                coordX = 29;
+                coordY = 29;
+                break;
             case(38) :
                 nom = "Parc gratuit";
                 prixTerrain = 0;
@@ -324,6 +413,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 38;
+                coordX = 726;
+                coordY = 29;
+                break;
             case(39) :
                 nom = "Allez aux rattrapages";
                 prixTerrain = 0;
@@ -331,8 +423,9 @@ public class Case {
                 loyerIn = 0;
                 prixMaison = 0;
                 idCase = 39;
-                
-            
+                coordX = 726;
+                coordY = 738;
+                break;
                 
         }
         loyer = loyerIn;

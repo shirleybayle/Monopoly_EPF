@@ -12,6 +12,7 @@ public class Pion {
     Case caseassociee;
     int coordX;
     int coordY;
+    int taille;
     
     public void avancer(int nbcases) {
         

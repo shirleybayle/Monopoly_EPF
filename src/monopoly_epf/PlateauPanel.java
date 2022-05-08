@@ -26,7 +26,27 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
     Pion P2;
     Pion P3;
     Pion P4;
-    
+    File gauche1 = new File("PionCalculatrice3_gauche.png");
+    File haut1 = new File("PionCalculatrice3_haut.png");
+    File droite1 = new File("PionCalculatrice3_droite.png");
+    File bas1 = new File("PionCalculatrice3_bas.png");
+    File orientation1 = new File("PionCalculatrice3_gauche.png");
+    File gauche2 = new File("PionDiode3_gauche.png");
+    File haut2 = new File("PionDiode3_haut.png");
+    File droite2 = new File("PionDiode3_droite.png");
+    File bas2 = new File("PionDiode3_bas.png");
+    File orientation2 = new File("PionDiode3_gauche.png");
+    File gauche3 = new File("PionErlenmeyer3_gauche.png");
+    File haut3 = new File("PionErlenmeyer3_haut.png");
+    File droite3 = new File("PionErlenmeyer3_droite.png");
+    File bas3 = new File("PionErlenmeyer3_bas.png");
+    File orientation3 = new File("PionErlenmeyer3_gauche.png");
+    File gauche4 = new File("PionOlga3_gauche.png");
+    File haut4 = new File("PionOlga3_haut.png");
+    File droite4 = new File("PionOlga3_droite.png");
+    File bas4 = new File("PionOlga3_bas.png");
+    File orientation4 = new File("PionOlga3_gauche.png");
+       
     @Override 
     public void paintComponent(Graphics g) {
         //super.paintComponent(g);
@@ -35,14 +55,14 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
             Image img = ImageIO.read(new File("plateaujeu.png"));
             g.drawImage(img, 0,0,800, 798, this);
             if(afficherPions==true) {
-                Image Calculette = ImageIO.read(new File("PionCalculatrice3.png"));
-                g.drawImage(Calculette, P1.coordX, P1.coordY, 45, 45, this);
-                Image Diode = ImageIO.read(new File("PionDiode3.png"));
-                g.drawImage(Diode, P2.coordX, P2.coordY, 45, 45, this);
-                Image Erlenmeyer = ImageIO.read(new File("PionErlenmeyer3.png"));
-                g.drawImage(Erlenmeyer, P3.coordX, P3.coordY, 45, 45, this);
-                Image Olga = ImageIO.read(new File("PionOlga3.png"));
-                g.drawImage(Olga, P4.coordX, P4.coordY, 45, 45, this);
+                Image Calculette = ImageIO.read(orientation1);
+                g.drawImage(Calculette, P1.coordX, P1.coordY, P1.taille, P1.taille, this);
+                Image Diode = ImageIO.read(orientation2);
+                g.drawImage(Diode, P2.coordX, P2.coordY, P2.taille, P2.taille, this);
+                Image Erlenmeyer = ImageIO.read(orientation3);
+                g.drawImage(Erlenmeyer, P3.coordX, P3.coordY, P3.taille, P3.taille, this);
+                Image Olga = ImageIO.read(orientation4);
+                g.drawImage(Olga, P4.coordX, P4.coordY, P4.taille, P4.taille, this);
             }
           
         } catch(IOException e){
