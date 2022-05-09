@@ -303,7 +303,7 @@ public class Monopoly_EPF extends JFrame {
                 nomJ4.setVisible(false);
                 Joueur4.setText(tabJoueurs[3].nom);
                 pseudo4.setVisible(false);
-                zone_texte_infos.setText("\nJoueur 1, votre pseudo est " + tabJoueurs[0].nom + "\net votre pion, la Calculatrice!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "\net votre pion, la Diode!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "\net votre pion, l'Erlenmeyer!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "\net votre pion, Olga!");
+                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + "\net votre pion est la Calculatrice!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "\net votre pion est la Diode!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "\net votre pion est l'Erlenmeyer!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "\net votre pion est Olga!\n" + tabJoueurs[0].nom + " vous commencez!");
                 credits1.setVisible(true);
                 credits2.setVisible(true);
                 credits3.setVisible(true);
@@ -527,6 +527,9 @@ public class Monopoly_EPF extends JFrame {
         Acheter1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acheter(joueurCourant.pion.caseassociee);
+                Acheter1.setVisible(false);
+                credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                zone_texte_infos.setText(joueurCourant.nom + " vous achetez " + joueurCourant.pion.caseassociee.nom + " pour " + joueurCourant.pion.caseassociee.prixTerrain + " ECTS!");
             }
         });
         this.repaint();
@@ -541,6 +544,9 @@ public class Monopoly_EPF extends JFrame {
         Acheter2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acheter(joueurCourant.pion.caseassociee);
+                Acheter2.setVisible(false);
+                credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                zone_texte_infos.setText(joueurCourant.nom + " vous achetez " + joueurCourant.pion.caseassociee.nom + " pour " + joueurCourant.pion.caseassociee.prixTerrain + " ECTS!");
             }
         });
         this.repaint();
@@ -555,6 +561,9 @@ public class Monopoly_EPF extends JFrame {
         Acheter3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acheter(joueurCourant.pion.caseassociee);
+                Acheter3.setVisible(false);
+                credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                zone_texte_infos.setText(joueurCourant.nom + " vous achetez " + joueurCourant.pion.caseassociee.nom + " pour " + joueurCourant.pion.caseassociee.prixTerrain + " ECTS!");
             }
         });
         this.repaint();
@@ -569,6 +578,9 @@ public class Monopoly_EPF extends JFrame {
         Acheter4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acheter(joueurCourant.pion.caseassociee);
+                Acheter4.setVisible(false);
+                credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                zone_texte_infos.setText(joueurCourant.nom + " vous achetez " + joueurCourant.pion.caseassociee.nom + " pour " + joueurCourant.pion.caseassociee.prixTerrain + " ECTS!");
             }
         });
         this.repaint();
@@ -651,6 +663,14 @@ public class Monopoly_EPF extends JFrame {
                 PayerPrison3.setVisible(false);
                 Libération4.setVisible(false);
                 PayerPrison4.setVisible(false);
+                Acheter1.setVisible(false);
+                Acheter2.setVisible(false);
+                Acheter3.setVisible(false);
+                Acheter4.setVisible(false);
+                nbCartes1.setVisible(true);
+                nbCartes2.setVisible(true);
+                nbCartes3.setVisible(true);
+                nbCartes4.setVisible(true);
                 
                 Thread thread = new Thread(){
                     public void run(){
@@ -730,16 +750,18 @@ public class Monopoly_EPF extends JFrame {
                         else {
                             dé6V2.setVisible(true);
                         }
+                        zone_texte_infos.setText(joueurCourant.nom + " vous avancez de " + (de1.valeur+de2.valeur) + " cases!");
                         int caseActuelle = 0;
                         for(int i=0;i<plateau.plateaudejeu.length;i++) {
                             if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
                                 caseActuelle = i;
                             }
                         }
-                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                        deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
-                        /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+31)%40], "Téléportation");
-                        deplacerPion(joueurCourant.pion,31%40,plateau.plateaudejeu[caseActuelle]);*/
+                        /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                        deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+20)%40], "Téléportation");
+                        deplacerPion(joueurCourant.pion,20%40,plateau.plateaudejeu[caseActuelle]);
+                        faireActionCase();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -772,6 +794,19 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.compteurTourPrison=0;
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
+                    if(joueurCourant==tabJoueurs[0]) {
+                        credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                    }
+                    else if(joueurCourant==tabJoueurs[1]) {
+                        credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                    }
+                    else if(joueurCourant==tabJoueurs[2]) {
+                        credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                    }
+                    else if(joueurCourant==tabJoueurs[3]) {
+                        credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                    }
+                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true) {
                     ValiderMatiere1.setVisible(true);
@@ -805,7 +840,6 @@ public class Monopoly_EPF extends JFrame {
                     Libération4.setVisible(true);
                     PayerPrison4.setVisible(true);
                 }
-                Lancer_des.setEnabled(true);
             } 
         });
         this.repaint();
@@ -1227,28 +1261,28 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs4.add(SallesPossedees4, new org.netbeans.lib.awtextra.AbsoluteConstraints(8,140));
         this.repaint();
                 
-        Autres1 = new JLabel("Autre(s):0");
+        Autres1 = new JLabel("Autre(s) : 0");
         Dimension autres1_size = Autres1.getPreferredSize();
-        Autres1.setFont(new Font("Autre(s):0", Font.BOLD, 10));
-        infos_joueurs1.add(Autres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(298,143));
+        Autres1.setFont(new Font("Autre(s) : 0", Font.BOLD, 10));
+        infos_joueurs1.add(Autres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(292,143));
         this.repaint();
         
-        Autres2 = new JLabel("Autre(s):0");
+        Autres2 = new JLabel("Autre(s) : 0");
         Dimension autres2_size = Autres2.getPreferredSize();
-        Autres2.setFont(new Font("Autre(s):0", Font.BOLD, 10));
-        infos_joueurs2.add(Autres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(298,143));
+        Autres2.setFont(new Font("Autre(s) : 0", Font.BOLD, 10));
+        infos_joueurs2.add(Autres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(292,143));
         this.repaint();
         
-        Autres3 = new JLabel("Autre(s):0");
+        Autres3 = new JLabel("Autre(s) : 0");
         Dimension autres3_size = Autres3.getPreferredSize();
-        Autres3.setFont(new Font("Autre(s):0", Font.BOLD, 10));
-        infos_joueurs3.add(Autres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(298,143));
+        Autres3.setFont(new Font("Autre(s) : 0", Font.BOLD, 10));
+        infos_joueurs3.add(Autres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(292,143));
         this.repaint();
         
-        Autres4 = new JLabel("Autre(s):0");
+        Autres4 = new JLabel("Autre(s) : 0");
         Dimension autres4_size = Autres4.getPreferredSize();
-        Autres4.setFont(new Font("Autre(s):0", Font.BOLD, 10));
-        infos_joueurs4.add(Autres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(298,143));
+        Autres4.setFont(new Font("Autre(s) : 0", Font.BOLD, 10));
+        infos_joueurs4.add(Autres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(292,143));
         this.repaint();
         
     }
@@ -1492,14 +1526,14 @@ public class Monopoly_EPF extends JFrame {
                     pionAssocie.caseassociee=plateau.plateaudejeu[i+nbcases];
                 }
                 else {
-                    pionAssocie.caseassociee=plateau.plateaudejeu[i+nbcases-39]; //tour de plateau
+                    pionAssocie.caseassociee=plateau.plateaudejeu[i+nbcases-39-1]; //tour de plateau
                     if (i+nbcases-39!=0) {
                         joueurCourant.credits = joueurCourant.credits + 200; //200crédits quand on a fait un tour de plateau
-                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " passez par le début d'année et touchez 200 ECTS!");   
+                        zone_texte_infos.setText(/*zone_texte_infos.getText() + */"\n" + joueurCourant.nom + " passez par le début d'année et touchez 200 ECTS!");   
                     }
                     else {
                         joueurCourant.credits = joueurCourant.credits + 400; //400crédits quand on tombe sur la case départ
-                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous vous arrêtez au début d'année et touchez 400 ECTS!");
+                        zone_texte_infos.setText(/*zone_texte_infos.getText() + */"\n" + joueurCourant.nom + " vous vous arrêtez au début d'année et touchez 400 ECTS!");
                     }
                     if(joueurCourant==tabJoueurs[0]) {
                         credits1.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
@@ -1619,18 +1653,54 @@ public class Monopoly_EPF extends JFrame {
         }
         else if (caseDuJoueur == plateau.plateaudejeu[4]) { //s'il est sur la premiere taxe
             joueurCourant.credits = joueurCourant.credits-200;
+            if(joueurCourant==tabJoueurs[0]) {
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[1]) {
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[2]) {
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[3]) {
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
             argentParcGratuit = argentParcGratuit + 200;
             zone_texte_infos.setText(joueurCourant.nom + ", vous avez triché!!! \nVous payez 200 ECTS et repassez le CC en tête à tête avec François Stephan!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[38]) { //deuxième taxe
             joueurCourant.credits = joueurCourant.credits-100;
+            if(joueurCourant==tabJoueurs[0]) {
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[1]) {
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[2]) {
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[3]) {
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
             argentParcGratuit = argentParcGratuit + 100;
             zone_texte_infos.setText(joueurCourant.nom + ", vous cumulez trop d'absences!\nPayez 100 ECTS et vennez en cours sans quoi une année de plus à suivre les CM's de Barandon vous attends!!!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[20]) { //parc gratuit
             joueurCourant.credits= joueurCourant.credits + argentParcGratuit;
+            if(joueurCourant==tabJoueurs[0]) {
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[1]) {
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[2]) {
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[3]) {
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
             argentParcGratuit = 0;
             zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!!\nVous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
             return true;
@@ -1644,12 +1714,20 @@ public class Monopoly_EPF extends JFrame {
             if (caseDuJoueur.proprietaire == plateau.plateaudejeu[28].proprietaire) {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
                 return true;
             }
@@ -1658,12 +1736,20 @@ public class Monopoly_EPF extends JFrame {
             if (caseDuJoueur.proprietaire == plateau.plateaudejeu[12].proprietaire) {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenace du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
@@ -2830,10 +2916,10 @@ public class Monopoly_EPF extends JFrame {
         tabJoueurs[3].pion.modele = "Olga";
         tabJoueurs[0].pion.coordX = 0;
         tabJoueurs[0].pion.coordY = 700;
-        tabJoueurs[1].pion.coordX = 50;
-        tabJoueurs[1].pion.coordY = 700;
-        tabJoueurs[2].pion.coordX = 0;
-        tabJoueurs[2].pion.coordY = 750;
+        tabJoueurs[1].pion.coordX = 0;
+        tabJoueurs[1].pion.coordY = 750;
+        tabJoueurs[2].pion.coordX = 50;
+        tabJoueurs[2].pion.coordY = 700;
         tabJoueurs[3].pion.coordX = 50;
         tabJoueurs[3].pion.coordY = 750;
         tabJoueurs[0].pion.taille = 45;
@@ -2929,6 +3015,7 @@ public class Monopoly_EPF extends JFrame {
         plateauJeu.P2 = tabJoueurs[1].pion;
         plateauJeu.P3 = tabJoueurs[2].pion;
         plateauJeu.P4 = tabJoueurs[3].pion;
+        zone_texte_infos = new JTextArea();
     }
     
     public void DeplacerPion(Pion pionCourant, Case caseouAller, String typeDeplacement) {
@@ -2963,86 +3050,86 @@ public class Monopoly_EPF extends JFrame {
         if(indiceouOnEst==0) {
             pionCourant.coordX = 29;
             pionCourant.coordY=724;
-            inc+=4;
+            inc+=5;
         }
         else if(indiceouOnEst==10) {
             pionCourant.coordX = 29;
             pionCourant.coordY=29;
-            inc+=4;
+            inc+=5;
         }
         else if(indiceouOnEst==20) {
             pionCourant.coordX=726;
             pionCourant.coordY=29;
-            inc+=4;
+            inc+=5;
         }
         else if(indiceouOnEst==30) {
             pionCourant.coordX=726;
             pionCourant.coordY=724;
-            inc+=4;
+            inc+=5;
         }
         
         
         if(indiceouAller==0) {
-            inc+=4;
+            inc+=5;
         }
         else if(indiceouAller==10) {
-            inc+=4;
+            inc+=5;
         }
         else if(indiceouAller==20) {
-            inc+=4;
+            inc+=5;
         }
         else if(indiceouAller==30) {
-            inc+=4;
+            inc+=5;
         }
         
         
         if(indiceouOnEst>=0 && indiceouAller>10 && indiceouAller<=20) {
-            inc+=8;
+            inc+=10;
         }
         else if(indiceouOnEst>=0 && indiceouAller>20 && indiceouAller<=30) {
-            inc+=16;
+            inc+=20;
         }
         else if(indiceouOnEst>=0 && indiceouAller>30 && indiceouAller<=39) {
-            inc+=24;
+            inc+=30;
         }
         else if(indiceouOnEst>=0 && indiceouAller>0 && indiceouAller<=indiceouOnEst) {
-            inc+=32;
+            inc+=40;
         }
         if(indiceouOnEst>=10 && indiceouAller>20 && indiceouAller<=30) {
-            inc+=8;
+            inc+=10;
         }
         else if(indiceouOnEst>=10 && indiceouAller>30 && indiceouAller<=39) {
-            inc+=16;
+            inc+=20;
         }
         else if(indiceouOnEst>=10 && indiceouAller>0 && indiceouAller<=10) {
-            inc+=24;
+            inc+=30;
         }
         else if(indiceouOnEst>=10 && indiceouAller>10 && indiceouAller<=indiceouOnEst) {
-            inc+=32;
+            inc+=40;
         }
         if(indiceouOnEst>=20 && indiceouAller>30 && indiceouAller<=39) {
-            inc+=8;
+            inc+=10;
         }
         else if(indiceouOnEst>=20 && indiceouAller>0 && indiceouAller<=10) {
-            inc+=16;
+            inc+=20;
         }
         else if(indiceouOnEst>=20 && indiceouAller>10 && indiceouAller<=20) {
-            inc+=24;
+            inc+=30;
         }
         else if(indiceouOnEst>=20 && indiceouAller>20 && indiceouAller<=indiceouOnEst) {
-            inc+=32;
+            inc+=40;
         }
         if(indiceouOnEst>=30 && indiceouAller>0 && indiceouAller<=10) {
-            inc+=8;
+            inc+=10;
         }
         else if(indiceouOnEst>=30 && indiceouAller>10 && indiceouAller<=20) {
-            inc+=16;
+            inc+=20;
         }
         else if(indiceouOnEst>=30 && indiceouAller>20 && indiceouAller<=30) {
-            inc+=24;
+            inc+=30;
         }
         else if(indiceouOnEst>=30 && indiceouAller>30 && indiceouAller<=indiceouOnEst) {
-            inc+=32;
+            inc+=40;
         }
         ActionListener tache_recurrente = new ActionListener() {
 
@@ -3178,8 +3265,64 @@ public class Monopoly_EPF extends JFrame {
                             plateauJeu.orientation4=plateauJeu.bas4;
                         }
                     }
+                    else if(indiceouAller==10) {
+                        if(joueurCourant.prison==false) {
+                            if(joueurCourant==tabJoueurs[0]) {
+                                pionCourant.coordX=61;
+                                pionCourant.coordY=2;
+                                pionCourant.taille=24;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                            }
+                            else if(joueurCourant==tabJoueurs[1]) {
+                                pionCourant.coordX=18;
+                                pionCourant.coordY=2;
+                                pionCourant.taille=24;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                            }
+                            else if(joueurCourant==tabJoueurs[2]) {
+                                pionCourant.coordX=2;
+                                pionCourant.coordY=20;
+                                pionCourant.taille=24;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                            }
+                            else if(joueurCourant==tabJoueurs[3]) {
+                                pionCourant.coordX=2;
+                                pionCourant.coordY=63;
+                                pionCourant.taille=24;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                            }
+                        }
+                    }
+                    else if(indiceouAller==0) {
+                        if(joueurCourant==tabJoueurs[0]) {
+                            plateauJeu.orientation1=plateauJeu.gauche1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]) {
+                            plateauJeu.orientation2=plateauJeu.gauche2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]) {
+                            plateauJeu.orientation3=plateauJeu.gauche3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]) {
+                            plateauJeu.orientation4=plateauJeu.gauche4;
+                        }
+                    }
+                    else if(indiceouAller==20) {
+                        if(joueurCourant==tabJoueurs[0]) {
+                            plateauJeu.orientation1=plateauJeu.droite1;
+                        }
+                        else if(joueurCourant==tabJoueurs[1]) {
+                            plateauJeu.orientation2=plateauJeu.droite2;
+                        }
+                        else if(joueurCourant==tabJoueurs[2]) {
+                            plateauJeu.orientation3=plateauJeu.droite3;
+                        }
+                        else if(joueurCourant==tabJoueurs[3]) {
+                            plateauJeu.orientation4=plateauJeu.droite4;
+                        }
+                    }
                     if(caseouAller.occupant==true) {
-                        if(caseouAller.idCase!=36 || caseouAller.idCase!=37 || caseouAller.idCase!=38 || caseouAller.idCase!=39) {
+                        if(caseouAller.idCase!=36 && caseouAller.idCase!=37 && caseouAller.idCase!=38 && caseouAller.idCase!=39) {
                             if(indiceouAller>0 && indiceouAller<10){
                                 for(int i=0;i<tabJoueurs.length;i++) {
                                     if(tabJoueurs[i].pion.caseassociee==caseouAller) {
@@ -3284,6 +3427,73 @@ public class Monopoly_EPF extends JFrame {
                                     }
                                 }
                             }
+                        }
+                        else if(caseouAller.idCase==36) {
+                            for(int i=0;i<tabJoueurs.length;i++) {
+                                    if(tabJoueurs[i].pion.caseassociee==caseouAller) {
+                                        if(i==0){
+                                            tabJoueurs[0].pion.coordX=0;
+                                            tabJoueurs[0].pion.coordY=700;
+                                            plateauJeu.orientation1=plateauJeu.gauche1;
+                                        }
+                                        else if(i==1) {
+                                            tabJoueurs[1].pion.coordX=0;
+                                            tabJoueurs[1].pion.coordY=750;
+                                            plateauJeu.orientation2=plateauJeu.gauche2;
+                                        }
+                                        else if(i==2) {
+                                            tabJoueurs[2].pion.coordX=50;
+                                            tabJoueurs[2].pion.coordY=700;
+                                            plateauJeu.orientation3=plateauJeu.gauche3;
+                                        }
+                                        else if(i==3) {
+                                            tabJoueurs[3].pion.coordX=50;
+                                            tabJoueurs[3].pion.coordY=750;
+                                            plateauJeu.orientation4=plateauJeu.gauche4;
+                                        }
+                                    }
+                                }
+                        }
+                        else if(caseouAller.idCase==38) {
+                            for(int i=0;i<tabJoueurs.length;i++) {
+                                    if(tabJoueurs[i].pion.caseassociee==caseouAller) {
+                                        if(i==0){
+                                            tabJoueurs[0].pion.coordX=755;
+                                            tabJoueurs[0].pion.coordY=55;
+                                            plateauJeu.orientation1=plateauJeu.droite1;
+                                        }
+                                        else if(i==1) {
+                                            tabJoueurs[1].pion.coordX=755;
+                                            tabJoueurs[1].pion.coordY=5;
+                                            plateauJeu.orientation2=plateauJeu.droite2;
+                                        }
+                                        else if(i==2) {
+                                            tabJoueurs[2].pion.coordX=705;
+                                            tabJoueurs[2].pion.coordY=55;
+                                            plateauJeu.orientation3=plateauJeu.droite3;
+                                        }
+                                        else if(i==3) {
+                                            tabJoueurs[3].pion.coordX=705;
+                                            tabJoueurs[3].pion.coordY=5;
+                                            plateauJeu.orientation4=plateauJeu.droite4;
+                                        }
+                                    }
+                                }
+                        }
+                    }
+                    Lancer_des.setEnabled(true);
+                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[0] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[2] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[4] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[7] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[10] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[17] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[20] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[22] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[33] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[36] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[38] && joueurCourant.pion.caseassociee.proprietaire==null) {
+                        if(joueurCourant==tabJoueurs[0]) {
+                            Acheter1.setVisible(true);
+                        }
+                        else if(joueurCourant==tabJoueurs[1]) {
+                            Acheter2.setVisible(true);
+                        }
+                        else if(joueurCourant==tabJoueurs[2]) {
+                            Acheter3.setVisible(true);
+                        }
+                        else if(joueurCourant==tabJoueurs[3]) {
+                            Acheter4.setVisible(true);
                         }
                     }
                     plateauJeu.repaint();

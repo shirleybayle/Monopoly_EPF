@@ -269,7 +269,7 @@ public class Case {
             case(24) :
                 nom = "Foyer";
                 prixTerrain = 200;
-                couleur = "Gare";
+                couleur = "gare";
                 loyerIn = 25;
                 prixMaison = 0;
                 idCase = 24;
@@ -394,7 +394,7 @@ public class Case {
                 prixMaison = 0;
                 idCase = 36;
                 coordX = 29;
-                coordY = 769;
+                coordY = 724;
                 break;
             case(37) :
                 nom = "Prison";
