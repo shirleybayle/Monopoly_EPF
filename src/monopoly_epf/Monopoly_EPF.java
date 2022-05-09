@@ -757,10 +757,10 @@ public class Monopoly_EPF extends JFrame {
                                 caseActuelle = i;
                             }
                         }
-                        /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                        deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+20)%40], "Téléportation");
-                        deplacerPion(joueurCourant.pion,20%40,plateau.plateaudejeu[caseActuelle]);
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                        deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                        //DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+20)%40], "Téléportation");
+                        //deplacerPion(joueurCourant.pion,20%40,plateau.plateaudejeu[caseActuelle]);
                         faireActionCase();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -1566,74 +1566,75 @@ public class Monopoly_EPF extends JFrame {
                 JLabel carteLabel;
                 switch (carteTiree.idCarte) {
                     case 0 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("0com.png"));
                         FrameCarte.setBounds(325, 325, 600, 329);
                         break;
                     case 1 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("1com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 2 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("2com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 3 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("3com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 4 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("4com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 5 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("5com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 6 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("6com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 7 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("7com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 8 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("8com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 9 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("9com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 10 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("10com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 11 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("11com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 12 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("12com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 13 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("13com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;   
                     case 14 : 
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("14com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 15 :
-                        carteLabel = new JLabel(new ImageIcon(""));
+                        carteLabel = new JLabel(new ImageIcon("15com.png"));
                         FrameCarte.setBounds(325, 325, 600, 550);
                         break;
                     default :
                         carteLabel = new JLabel("PAS DE CARTE");
                 }
                 FrameCarte.add(carteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0));
-                
+                carteLabel.setVisible(true);
+                FrameCarte.repaint();
                 //faireActionCarte(carteTiree);
             }
             else {
@@ -3016,6 +3017,10 @@ public class Monopoly_EPF extends JFrame {
         plateauJeu.P3 = tabJoueurs[2].pion;
         plateauJeu.P4 = tabJoueurs[3].pion;
         zone_texte_infos = new JTextArea();
+        paquetCommunaute = new Paquet(true);
+        paquetChance = new Paquet(false);
+        paquetCommunaute.MAJtab();
+        paquetChance.MAJtab();
     }
     
     public void DeplacerPion(Pion pionCourant, Case caseouAller, String typeDeplacement) {

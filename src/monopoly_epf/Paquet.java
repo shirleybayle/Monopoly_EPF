@@ -36,7 +36,7 @@ public class Paquet {
         for(int i=0; i<paquet.length; i++) {
             paquet[i]=null; //on vide le paquet
         }
-        for(int i=19; i>0; i--) {
+        for(int i=15; i>0; i--) {
             Random generateur = new Random();
             int nbaléat = generateur.nextInt(i);
             paquet[nbaléat] = tabtemp[nbaléat]; // on tire aléatoirement des cartes à mettre à une certaine position du paquet
