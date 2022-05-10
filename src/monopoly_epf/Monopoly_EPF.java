@@ -52,6 +52,8 @@ public class Monopoly_EPF extends JFrame {
     int indiceouOnEst = 0;
     int inc = 0;
     int nbFrames =0;
+    Case choixchance;
+    int choixcom;
     
     public Monopoly_EPF(){
         super("Monopoly EPF");
@@ -1620,7 +1622,6 @@ public class Monopoly_EPF extends JFrame {
         Case caseDuJoueur = joueurCourant.pion.caseassociee;
         if (caseDuJoueur == plateau.plateaudejeu[2] || caseDuJoueur == plateau.plateaudejeu[17] || caseDuJoueur == plateau.plateaudejeu[33]) { //s'il est sur une case caisse de communauté
             Carte carteTiree = tirerCarte(paquetCommunaute);
-            if (carteTiree.idCarte != 4) {
                 JFrame FrameCarte = new JFrame();
                 FrameCarte.setVisible(true);
                 FrameCarte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1628,67 +1629,67 @@ public class Monopoly_EPF extends JFrame {
                 switch (carteTiree.idCarte) {
                     case 0 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/0com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 329);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 1 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/1com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 2 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/2com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 3 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/3com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 4 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/4com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 100, 615, 630);
                         break;
                     case 5 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/5com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 6 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/6com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 7 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/7com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 8 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/8com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 9 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/9com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 10 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/10com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 11 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/11com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 12 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/12com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 13 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/13com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;   
                     case 14 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/14com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 15 :
                         carteLabel = new JLabel(new ImageIcon("src/cartes/15com.png"));
-                        FrameCarte.setBounds(325, 325, 600, 550);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     default :
                         carteLabel = new JLabel("PAS DE CARTE");
@@ -1696,7 +1697,8 @@ public class Monopoly_EPF extends JFrame {
                 FrameCarte.add(carteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0));
                 carteLabel.setVisible(true);
                 FrameCarte.repaint();
-                //faireActionCarte(carteTiree);
+            if (carteTiree.idCarte != 4) {
+                faireActionCarte(carteTiree);
             }
             else {
                 //faire action carte choix simple --> récupérer le choix
@@ -1705,7 +1707,6 @@ public class Monopoly_EPF extends JFrame {
         }
         else if (caseDuJoueur == plateau.plateaudejeu[7] || caseDuJoueur == plateau.plateaudejeu[22] || caseDuJoueur == plateau.plateaudejeu[36]) { //s'il est sur une case chance
             Carte carteTiree = tirerCarte(paquetChance);
-            if (carteTiree.idCarte != 15) {
                 JFrame FrameCarte = new JFrame();
                 FrameCarte.setVisible(true);
                 FrameCarte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1713,67 +1714,67 @@ public class Monopoly_EPF extends JFrame {
                 switch (carteTiree.idCarte) {
                     case 0 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/0cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 329);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 1 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/1cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 2 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/2cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 3 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/3cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 4 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/4cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 5 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/5cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 6 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/6cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 7 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/7cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 8 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/8cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 9 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/9cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 10 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/10cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 11 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/11cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 12 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/12cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 13 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/13cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;   
                     case 14 : 
                         carteLabel = new JLabel(new ImageIcon("src/cartes/14cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 389);
+                        FrameCarte.setBounds(450, 200, 615, 430);
                         break;
                     case 15 :
                         carteLabel = new JLabel(new ImageIcon("src/cartes/15cha.png"));
-                        FrameCarte.setBounds(325, 325, 600, 550);
+                        FrameCarte.setBounds(450, 10, 600, 700);
                         break;
                     default :
                         carteLabel = new JLabel("PAS DE CARTE");
@@ -1781,6 +1782,8 @@ public class Monopoly_EPF extends JFrame {
                 FrameCarte.add(carteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0));
                 carteLabel.setVisible(true);
                 FrameCarte.repaint();
+            if (carteTiree.idCarte != 15) {
+                faireActionCarte(carteTiree);
             }
             else {
                 //faire action carte choix --> récupérer le choix
@@ -2109,7 +2112,7 @@ public class Monopoly_EPF extends JFrame {
                 argentParcGratuit = argentParcGratuit + 50;
                 zone_texte_infos.setText(joueurCourant.nom + " payez 50 ECTS!");
             }
-            else if (id==2) {
+            else if (id==2) { //DEPLACER LE PION EN GRAPHIQUE
                 joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
                 joueurCourant.prison = true;
                 zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages");
@@ -2126,7 +2129,7 @@ public class Monopoly_EPF extends JFrame {
                     nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
                 }
                 if(joueurCourant==tabJoueurs[3]) {
-                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
+                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[3].nbCartes);
                 }
                 zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Caisse de communauté vous libérant des rattrapages!");
             }
@@ -2308,6 +2311,18 @@ public class Monopoly_EPF extends JFrame {
                 zone_texte_infos.setText(joueurCourant.nom + " payez 75 ECTS (un brelan fait pas le poids fâce au full du Jouset national)!");
             }
         }
+        if(joueurCourant==tabJoueurs[0]) {
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[1]) {
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[2]) {
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[3]) {
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
     }
      
     public void payerloyer(Case caseassociee) {
