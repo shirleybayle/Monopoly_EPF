@@ -1645,7 +1645,81 @@ public class Monopoly_EPF extends JFrame {
         else if (caseDuJoueur == plateau.plateaudejeu[7] || caseDuJoueur == plateau.plateaudejeu[22] || caseDuJoueur == plateau.plateaudejeu[36]) { //s'il est sur une case chance
             Carte carteTiree = tirerCarte(paquetChance);
             if (carteTiree.idCarte != 15) {
-                faireActionCarte(carteTiree);
+                JFrame FrameCarte = new JFrame();
+                FrameCarte.setVisible(true);
+                FrameCarte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                JLabel carteLabel;
+                switch (carteTiree.idCarte) {
+                    case 0 : 
+                        carteLabel = new JLabel(new ImageIcon("0cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 329);
+                        break;
+                    case 1 : 
+                        carteLabel = new JLabel(new ImageIcon("1cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 2 : 
+                        carteLabel = new JLabel(new ImageIcon("2cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 3 : 
+                        carteLabel = new JLabel(new ImageIcon("3cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 4 : 
+                        carteLabel = new JLabel(new ImageIcon("4cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 5 : 
+                        carteLabel = new JLabel(new ImageIcon("5cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 6 : 
+                        carteLabel = new JLabel(new ImageIcon("6cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 7 : 
+                        carteLabel = new JLabel(new ImageIcon("7cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 8 : 
+                        carteLabel = new JLabel(new ImageIcon("8cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 9 : 
+                        carteLabel = new JLabel(new ImageIcon("9cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 10 : 
+                        carteLabel = new JLabel(new ImageIcon("10cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 11 : 
+                        carteLabel = new JLabel(new ImageIcon("11cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 12 : 
+                        carteLabel = new JLabel(new ImageIcon("12cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 13 : 
+                        carteLabel = new JLabel(new ImageIcon("13cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;   
+                    case 14 : 
+                        carteLabel = new JLabel(new ImageIcon("14cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 389);
+                        break;
+                    case 15 :
+                        carteLabel = new JLabel(new ImageIcon("15cha.png"));
+                        FrameCarte.setBounds(325, 325, 600, 550);
+                        break;
+                    default :
+                        carteLabel = new JLabel("PAS DE CARTE");
+                }
+                FrameCarte.add(carteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0));
+                carteLabel.setVisible(true);
+                FrameCarte.repaint();
             }
             else {
                 //faire action carte choix --> récupérer le choix
