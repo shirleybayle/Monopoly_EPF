@@ -1970,7 +1970,7 @@ public class Monopoly_EPF extends JFrame {
                 argentParcGratuit = argentParcGratuit + 50;
                 zone_texte_infos.setText(joueurCourant.nom + " payez 50 ECTS!");
             }
-            else if (id==2) {
+            else if (id==2) { //DEPLACER LE PION EN GRAPHIQUE
                 joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
                 joueurCourant.prison = true;
                 zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages");
@@ -1987,7 +1987,7 @@ public class Monopoly_EPF extends JFrame {
                     nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
                 }
                 if(joueurCourant==tabJoueurs[3]) {
-                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
+                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[3].nbCartes);
                 }
                 zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Caisse de communauté vous libérant des rattrapages!");
             }
@@ -2169,6 +2169,18 @@ public class Monopoly_EPF extends JFrame {
                 zone_texte_infos.setText(joueurCourant.nom + " payez 75 ECTS (un brelan fait pas le poids fâce au full du Jouset national)!");
             }
         }
+        if(joueurCourant==tabJoueurs[0]) {
+                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[1]) {
+                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[2]) {
+                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
+            else if(joueurCourant==tabJoueurs[3]) {
+                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+            }
     }
      
     public void payerloyer(Case caseassociee) {
