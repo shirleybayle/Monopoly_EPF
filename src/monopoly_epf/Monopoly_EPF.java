@@ -816,10 +816,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            //DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
+                            //deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -1344,6 +1344,10 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs4.add(Autres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(292,143));
         this.repaint();
         
+        LabelParcGratuit = new JLabel("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
+        Dimension LabelParcGratuit_size = LabelParcGratuit.getPreferredSize();
+        LabelParcGratuit.setFont(new Font("Monopoly", Font.PLAIN, 16));
+        plateauJeu.add(LabelParcGratuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(605,120));
     }
     
     PlateauPanel plateauJeu;
@@ -1442,6 +1446,7 @@ public class Monopoly_EPF extends JFrame {
     private JTextArea Regles_Text;
     private JScrollPane Regles_pane;
     private JLabel Regles_LabelTitre;
+    private JLabel LabelParcGratuit;
     
     
     public static void main(String[] args) {
@@ -1701,7 +1706,10 @@ public class Monopoly_EPF extends JFrame {
                 faireActionCarte(carteTiree);
             }
             else {
-                //faire action carte choix simple --> récupérer le choix
+                JButton Cartechance = new JButton("Tirer une carte chance");
+                JButton credits10 = new JButton("Perdre 10 credits");
+                FrameCarte.add(Cartechance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20,550));
+                FrameCarte.add(credits10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220,550));
             }
             return true;
         }
@@ -1805,6 +1813,7 @@ public class Monopoly_EPF extends JFrame {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
             argentParcGratuit = argentParcGratuit + 200;
+            LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
             zone_texte_infos.setText(joueurCourant.nom + ", vous avez triché!!! \nVous payez 200 ECTS et repassez le CC en tête à tête avec François Stephan!");
             return true;
         }
@@ -1823,6 +1832,7 @@ public class Monopoly_EPF extends JFrame {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
             argentParcGratuit = argentParcGratuit + 100;
+            LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
             zone_texte_infos.setText(joueurCourant.nom + ", vous cumulez trop d'absences!\nPayez 100 ECTS et vennez en cours sans quoi une année de plus à suivre les CM's de Barandon vous attends!!!");
             return true;
         }
@@ -1841,6 +1851,7 @@ public class Monopoly_EPF extends JFrame {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
             argentParcGratuit = 0;
+            LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
             zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!!\nVous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
             return true;
         }
@@ -2323,6 +2334,7 @@ public class Monopoly_EPF extends JFrame {
             else if(joueurCourant==tabJoueurs[3]) {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
+        LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
     }
      
     public void payerloyer(Case caseassociee) {
