@@ -643,6 +643,62 @@ public class Monopoly_EPF extends JFrame {
         });
         this.repaint();
         
+        fin_de_tour1 = new JButton();
+        fin_de_tour1.setBounds(180, 60, 170, 50);
+        fin_de_tour1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs1.add(fin_de_tour1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        fin_de_tour1.setBackground(Color.LIGHT_GRAY);
+        fin_de_tour1.setText("Fin de tour");
+        fin_de_tour1.setFont(new Font("Fin de tour", Font.BOLD, 20));
+        fin_de_tour1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        fin_de_tour2 = new JButton();
+        fin_de_tour2.setBounds(180, 60, 170, 50);
+        fin_de_tour2.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs2.add(fin_de_tour2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        fin_de_tour2.setBackground(Color.LIGHT_GRAY);
+        fin_de_tour2.setText("Fin de tour");
+        fin_de_tour2.setFont(new Font("Fin de tour", Font.BOLD, 20));
+        fin_de_tour2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        fin_de_tour3 = new JButton();
+        fin_de_tour3.setBounds(180, 60, 170, 50);
+        fin_de_tour3.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs3.add(fin_de_tour3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        fin_de_tour3.setBackground(Color.LIGHT_GRAY);
+        fin_de_tour3.setText("Fin de tour");
+        fin_de_tour3.setFont(new Font("Fin de tour", Font.BOLD, 20));
+        fin_de_tour3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
+        fin_de_tour4 = new JButton();
+        fin_de_tour4.setBounds(180, 60, 170, 50);
+        fin_de_tour4.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        infos_joueurs4.add(fin_de_tour4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 170, 50));
+        fin_de_tour4.setBackground(Color.LIGHT_GRAY);
+        fin_de_tour4.setText("Fin de tour");
+        fin_de_tour4.setFont(new Font("Fin de tour", Font.BOLD, 20));
+        fin_de_tour4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        this.repaint();
+        
         Lancer_des = new JButton();
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -761,9 +817,8 @@ public class Monopoly_EPF extends JFrame {
                         }
                         DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
                         deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
-                        //DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+20)%40], "Téléportation");
-                        //deplacerPion(joueurCourant.pion,20%40,plateau.plateaudejeu[caseActuelle]);
-                        faireActionCase();
+                        /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+19)%40], "Téléportation");
+                        deplacerPion(joueurCourant.pion,19%40,plateau.plateaudejeu[caseActuelle]);*/
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -1344,6 +1399,10 @@ public class Monopoly_EPF extends JFrame {
     private JButton ValiderMatiere2;
     private JButton ValiderMatiere3;
     private JButton ValiderMatiere4;
+    private JButton fin_de_tour1;
+    private JButton fin_de_tour2;
+    private JButton fin_de_tour3;
+    private JButton fin_de_tour4;
     private JButton marron1;
     private JButton bleuciel1;
     private JButton violet1;
@@ -3085,6 +3144,10 @@ public class Monopoly_EPF extends JFrame {
         ValiderMatiere2.setVisible(false);
         ValiderMatiere3.setVisible(false);
         ValiderMatiere4.setVisible(false);
+        fin_de_tour1.setVisible(false);
+        fin_de_tour2.setVisible(false);
+        fin_de_tour3.setVisible(false);
+        fin_de_tour4.setVisible(false);
         Autres1.setVisible(false);
         Autres2.setVisible(false);
         Autres3.setVisible(false);
@@ -3217,7 +3280,7 @@ public class Monopoly_EPF extends JFrame {
 
             public void actionPerformed(ActionEvent e1) { 
                 if (currentFrame < nbFrames) {
-                    if(pionCourant.coordY<=769 && pionCourant.coordY>=29 && pionCourant.coordX<=29) {
+                    if(pionCourant.coordY<=798 && pionCourant.coordY>=29 && pionCourant.coordX<=29) {
                         if(joueurCourant==tabJoueurs[0]) {
                             plateauJeu.orientation1 = plateauJeu.gauche1;
                         }
@@ -3234,7 +3297,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         currentFrame++;
                     }
-                    else if(pionCourant.coordX>=17 && pionCourant.coordX<=726 && pionCourant.coordY<=29) {
+                    else if(pionCourant.coordX>=0 && pionCourant.coordX<=726 && pionCourant.coordY<=29) {
                         if(joueurCourant==tabJoueurs[0]) {
                             plateauJeu.orientation1 = plateauJeu.haut1;
                         }
@@ -3251,7 +3314,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         currentFrame++;
                     }
-                    else if(pionCourant.coordY>=11 && pionCourant.coordY<=724 && pionCourant.coordX>=726) {
+                    else if(pionCourant.coordY>=0 && pionCourant.coordY<=724 && pionCourant.coordX>=726) {
                         if(joueurCourant==tabJoueurs[0]) {
                             plateauJeu.orientation1 = plateauJeu.droite1;
                         }
@@ -3268,7 +3331,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         currentFrame++;
                     }
-                    else if(pionCourant.coordX>=29 && pionCourant.coordX<=780 && pionCourant.coordY>=726) {
+                    else if(pionCourant.coordX>=29 && pionCourant.coordX<=800 && pionCourant.coordY>=726) {
                         if(joueurCourant==tabJoueurs[0]) {
                             plateauJeu.orientation1 = plateauJeu.bas1;
                         }
@@ -3563,21 +3626,26 @@ public class Monopoly_EPF extends JFrame {
                                 }
                         }
                     }
-                    Lancer_des.setEnabled(true);
                     if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[0] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[2] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[4] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[7] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[10] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[17] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[20] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[22] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[33] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[36] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[38] && joueurCourant.pion.caseassociee.proprietaire==null) {
                         if(joueurCourant==tabJoueurs[0]) {
                             Acheter1.setVisible(true);
+                            fin_de_tour1.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[1]) {
                             Acheter2.setVisible(true);
+                            fin_de_tour2.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[2]) {
                             Acheter3.setVisible(true);
+                            fin_de_tour3.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[3]) {
                             Acheter4.setVisible(true);
+                            fin_de_tour4.setVisible(true);
                         }
                     }
+                    faireActionCase();
+                    Lancer_des.setEnabled(true);
                     plateauJeu.repaint();
                     monChrono.stop();
                 }
