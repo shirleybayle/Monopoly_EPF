@@ -1566,67 +1566,67 @@ public class Monopoly_EPF extends JFrame {
                 JLabel carteLabel;
                 switch (carteTiree.idCarte) {
                     case 0 : 
-                        carteLabel = new JLabel(new ImageIcon("0com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/0com.png"));
                         FrameCarte.setBounds(325, 325, 600, 329);
                         break;
                     case 1 : 
-                        carteLabel = new JLabel(new ImageIcon("1com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/1com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 2 : 
-                        carteLabel = new JLabel(new ImageIcon("2com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/2com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 3 : 
-                        carteLabel = new JLabel(new ImageIcon("3com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/3com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 4 : 
-                        carteLabel = new JLabel(new ImageIcon("4com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/4com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 5 : 
-                        carteLabel = new JLabel(new ImageIcon("5com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/5com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 6 : 
-                        carteLabel = new JLabel(new ImageIcon("6com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/6com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 7 : 
-                        carteLabel = new JLabel(new ImageIcon("7com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/7com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 8 : 
-                        carteLabel = new JLabel(new ImageIcon("8com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/8com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 9 : 
-                        carteLabel = new JLabel(new ImageIcon("9com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/9com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 10 : 
-                        carteLabel = new JLabel(new ImageIcon("10com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/10com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 11 : 
-                        carteLabel = new JLabel(new ImageIcon("11com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/11com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 12 : 
-                        carteLabel = new JLabel(new ImageIcon("12com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/12com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 13 : 
-                        carteLabel = new JLabel(new ImageIcon("13com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/13com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;   
                     case 14 : 
-                        carteLabel = new JLabel(new ImageIcon("14com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/14com.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 15 :
-                        carteLabel = new JLabel(new ImageIcon("15com.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/15com.png"));
                         FrameCarte.setBounds(325, 325, 600, 550);
                         break;
                     default :
@@ -1651,67 +1651,67 @@ public class Monopoly_EPF extends JFrame {
                 JLabel carteLabel;
                 switch (carteTiree.idCarte) {
                     case 0 : 
-                        carteLabel = new JLabel(new ImageIcon("0cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/0cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 329);
                         break;
                     case 1 : 
-                        carteLabel = new JLabel(new ImageIcon("1cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/1cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 2 : 
-                        carteLabel = new JLabel(new ImageIcon("2cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/2cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 3 : 
-                        carteLabel = new JLabel(new ImageIcon("3cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/3cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 4 : 
-                        carteLabel = new JLabel(new ImageIcon("4cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/4cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 5 : 
-                        carteLabel = new JLabel(new ImageIcon("5cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/5cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 6 : 
-                        carteLabel = new JLabel(new ImageIcon("6cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/6cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 7 : 
-                        carteLabel = new JLabel(new ImageIcon("7cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/7cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 8 : 
-                        carteLabel = new JLabel(new ImageIcon("8cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/8cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 9 : 
-                        carteLabel = new JLabel(new ImageIcon("9cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/9cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 10 : 
-                        carteLabel = new JLabel(new ImageIcon("10cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/10cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 11 : 
-                        carteLabel = new JLabel(new ImageIcon("11cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/11cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 12 : 
-                        carteLabel = new JLabel(new ImageIcon("12cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/12cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 13 : 
-                        carteLabel = new JLabel(new ImageIcon("13cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/13cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;   
                     case 14 : 
-                        carteLabel = new JLabel(new ImageIcon("14cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/14cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 389);
                         break;
                     case 15 :
-                        carteLabel = new JLabel(new ImageIcon("15cha.png"));
+                        carteLabel = new JLabel(new ImageIcon("src/cartes/15cha.png"));
                         FrameCarte.setBounds(325, 325, 600, 550);
                         break;
                     default :
