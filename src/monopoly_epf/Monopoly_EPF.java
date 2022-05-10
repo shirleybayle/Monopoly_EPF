@@ -813,10 +813,12 @@ public class Monopoly_EPF extends JFrame {
                                 caseActuelle = i;
                             }
                         }
-                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                        deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
-                        /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+19)%40], "Téléportation");
-                        deplacerPion(joueurCourant.pion,19%40,plateau.plateaudejeu[caseActuelle]);*/
+                        if(joueurCourant.prison!=true) {
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);
+                        }
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -1842,6 +1844,146 @@ public class Monopoly_EPF extends JFrame {
         else if (caseDuJoueur == plateau.plateaudejeu[30]) { //prison
             joueurCourant.prison = true;
             zone_texte_infos.setText(joueurCourant.nom + ", vos notes sont trop faibles!\nAllez aux rattrapages et validez-les pour espérer passer l'année");
+            if(joueurCourant==tabJoueurs[0]) {
+                Thread thread1 = new Thread(){
+                    public void run(){
+                        try {
+                            Thread.sleep(1000);
+                            for(int i=0;i<2;i++) {
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation1=plateauJeu.droite1;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation1=plateauJeu.bas1;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation1=plateauJeu.gauche1;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                            }
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        joueurCourant.pion.coordX=31;
+                        joueurCourant.pion.coordY=31;
+                        joueurCourant.pion.taille=35;
+                        plateauJeu.orientation1=plateauJeu.gauche1;
+                        plateauJeu.repaint();
+                    }
+                };
+                thread1.start();
+            }
+            else if(joueurCourant==tabJoueurs[1]) {
+                Thread thread2 = new Thread(){
+                    public void run(){
+                        try {
+                            Thread.sleep(1000);
+                            for(int i=0;i<2;i++) {
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation2=plateauJeu.droite2;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation2=plateauJeu.bas2;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation2=plateauJeu.gauche2;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                            }
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        joueurCourant.pion.coordX=31;
+                        joueurCourant.pion.coordY=68;
+                        joueurCourant.pion.taille=35;
+                        plateauJeu.orientation2=plateauJeu.gauche2;
+                        plateauJeu.repaint();
+                    }
+                };
+                thread2.start();
+            }
+            else if(joueurCourant==tabJoueurs[2]) {
+                Thread thread3 = new Thread(){
+                    public void run(){
+                        try {
+                            Thread.sleep(1000);
+                            for(int i=0;i<2;i++) {
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation3=plateauJeu.haut3;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation3=plateauJeu.droite3;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation3=plateauJeu.bas3;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                            }
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        joueurCourant.pion.coordX=68;
+                        joueurCourant.pion.coordY=31;
+                        joueurCourant.pion.taille=35;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
+                    }
+                };
+                thread3.start();
+            }
+            else if(joueurCourant==tabJoueurs[3]) {
+                Thread thread4 = new Thread(){
+                    public void run(){
+                        try {
+                            Thread.sleep(1000);
+                            for(int i=0;i<2;i++) {
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation4=plateauJeu.haut4;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation4=plateauJeu.droite4;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation4=plateauJeu.bas4;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                                joueurCourant.pion.taille-=5;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                                plateauJeu.repaint();
+                                Thread.sleep(100);
+                            }
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        joueurCourant.pion.coordX=68;
+                        joueurCourant.pion.coordY=68;
+                        joueurCourant.pion.taille=35;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
+                    }
+                };
+                thread4.start();
+            }
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[12] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) { //premiere compagnie déjà achetée
@@ -3623,6 +3765,7 @@ public class Monopoly_EPF extends JFrame {
                                 }
                         }
                     }
+                    faireActionCase();
                     if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[0] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[2] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[4] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[7] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[10] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[17] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[20] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[22] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[33] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[36] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[38] && joueurCourant.pion.caseassociee.proprietaire==null) {
                         if(joueurCourant==tabJoueurs[0]) {
                             Acheter1.setVisible(true);
@@ -3641,7 +3784,6 @@ public class Monopoly_EPF extends JFrame {
                             fin_de_tour4.setVisible(true);
                         }
                     }
-                    faireActionCase();
                     Lancer_des.setEnabled(true);
                     plateauJeu.repaint();
                     monChrono.stop();
