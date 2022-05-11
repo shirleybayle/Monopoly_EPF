@@ -1546,6 +1546,10 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs4.add(Autres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(292,143));
         this.repaint();
         
+        LabelParcGratuit = new JLabel("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
+        Dimension LabelParcGratuit_size = LabelParcGratuit.getPreferredSize();
+        LabelParcGratuit.setFont(new Font("Monopoly", Font.PLAIN, 16));
+        plateauJeu.add(LabelParcGratuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(605,120));
     }
     
     PlateauPanel plateauJeu;
@@ -1644,6 +1648,7 @@ public class Monopoly_EPF extends JFrame {
     private JTextArea Regles_Text;
     private JScrollPane Regles_pane;
     private JLabel Regles_LabelTitre;
+    private JLabel LabelParcGratuit;
     
     
     public static void main(String[] args) {
@@ -1817,7 +1822,29 @@ public class Monopoly_EPF extends JFrame {
         }
     }
      
-     
+     public Carte faireActionCarteSimple(int choix) { // A VERIFIER
+        if (choix == 0) { //choix=0 --> perdre des crédits
+            joueurCourant.credits = joueurCourant.credits - 10;
+            zone_texte_infos.setText(joueurCourant.nom + " payez 10 ECTS!");
+            return null;
+        }
+        else { //choix=1 tirer une carte chance
+            Carte laCarte = tirerCarte(paquetChance);
+            zone_texte_infos.setText(joueurCourant.nom + " tirez une carte chance!");
+            return laCarte;
+        }
+    }
+    
+    public boolean faireActionChoix(Case caseChoisie) { // A VERIFIER
+        if (caseChoisie == null) {
+            return false;
+        }
+        else {
+            caseChoisie.maison = caseChoisie.maison+1; //loyer à changer
+            return true;
+        }
+        
+    }
      
      
      public boolean faireActionCase(){ // A VERIFIER 
@@ -1903,7 +1930,38 @@ public class Monopoly_EPF extends JFrame {
                 faireActionCarte(carteTiree);
             }
             else {
-                //faire action carte choix simple --> récupérer le choix
+                JButton Cartechance = new JButton("Tirer une carte chance");
+                JButton credits10 = new JButton("Perdre 10 credits");
+                FrameCarte.add(Cartechance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20,550));
+                FrameCarte.add(credits10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220,550));
+                Cartechance.setFont(new Font("Monopoly", Font.PLAIN, 17));
+                credits10.setFont(new Font("Monopoly", Font.PLAIN, 17));
+                Cartechance.setBackground(Color.YELLOW);
+                credits10.setBackground(Color.YELLOW);
+                credits10.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        choixcom = 0;
+                    }
+                });
+                ValiderMatiere2.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        choixcom = 1;
+                    }
+                });
+                Carte laCarte = faireActionCarteSimple(choixcom);
+                if (laCarte != null && laCarte.idCarte != 15) {
+                    faireActionCarte(laCarte);
+                }
+                else if (laCarte.idCarte == 15) {
+                    //faire action carte choix case
+                }
+                else {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                
             }
             return true;
         }
@@ -2007,6 +2065,7 @@ public class Monopoly_EPF extends JFrame {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
             argentParcGratuit = argentParcGratuit + 200;
+            LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
             zone_texte_infos.setText(joueurCourant.nom + ", vous avez triché!!! \nVous payez 200 ECTS et repassez le CC en tête à tête avec François Stephan!");
             return true;
         }
@@ -2025,6 +2084,7 @@ public class Monopoly_EPF extends JFrame {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
             argentParcGratuit = argentParcGratuit + 100;
+            LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
             zone_texte_infos.setText(joueurCourant.nom + ", vous cumulez trop d'absences!\nPayez 100 ECTS et vennez en cours sans quoi une année de plus à suivre les CM's de Barandon vous attends!!!");
             return true;
         }
@@ -2043,6 +2103,7 @@ public class Monopoly_EPF extends JFrame {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
             argentParcGratuit = 0;
+            LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
             zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!!\nVous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
             return true;
         }
@@ -2513,18 +2574,11 @@ public class Monopoly_EPF extends JFrame {
                 zone_texte_infos.setText(joueurCourant.nom + " payez 75 ECTS (un brelan fait pas le poids fâce au full du Jouset national)!");
             }
         }
-        if(joueurCourant==tabJoueurs[0]) {
-                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
-            }
-            else if(joueurCourant==tabJoueurs[1]) {
-                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
-            }
-            else if(joueurCourant==tabJoueurs[2]) {
-                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
-            }
-            else if(joueurCourant==tabJoueurs[3]) {
-                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
-            }
+        credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+        credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+        credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+        credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+        LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
     }
      
     public void payerloyer(Case caseassociee) {
@@ -2541,29 +2595,7 @@ public class Monopoly_EPF extends JFrame {
         pionAssocie.caseassociee=caseOuAller;
     }
     
-    public Carte faireActionCarteSimple(int choix) { // A VERIFIER
-        if (choix == 0) { //choix=0 --> perdre des crédits
-            joueurCourant.credits = joueurCourant.credits - 10;
-            zone_texte_infos.setText(joueurCourant.nom + " payez 10 ECTS!");
-            return null;
-        }
-        else { //choix=1 tirer une carte chance
-            Carte laCarte = tirerCarte(paquetChance);
-            zone_texte_infos.setText(joueurCourant.nom + " tirez une carte chance!");
-            return laCarte;
-        }
-    }
-    
-    public boolean faireActionChoix(Case caseChoisie) { // A VERIFIER
-        if (caseChoisie == null) {
-            return false;
-        }
-        else {
-            caseChoisie.maison = caseChoisie.maison+1; //loyer à changer
-            return true;
-        }
-        
-    }
+   
     
     public boolean acheter(Case caseassociee){
         if (caseassociee.proprietaire == null) {
