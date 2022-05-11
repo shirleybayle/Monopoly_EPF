@@ -252,7 +252,7 @@ public class Monopoly_EPF extends JFrame {
         infos_joueurs4.add(pseudo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,30));
         this.repaint();
         
-        JTextArea zone_texte_infos = new JTextArea();
+        zone_texte_infos = new JTextArea();
         zone_texte_infos.setBounds(10, 25, 335, 155);
         infos_partie.add(zone_texte_infos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,25,335,155));
         zone_texte_infos.setEditable(false);
@@ -1344,10 +1344,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+5)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,5%40,plateau.plateaudejeu[caseActuelle]);*/
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+10)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,10%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -3808,7 +3808,6 @@ public class Monopoly_EPF extends JFrame {
         plateauJeu.P2 = tabJoueurs[1].pion;
         plateauJeu.P3 = tabJoueurs[2].pion;
         plateauJeu.P4 = tabJoueurs[3].pion;
-        zone_texte_infos = new JTextArea();
         paquetCommunaute = new Paquet(true);
         paquetChance = new Paquet(false);
         paquetCommunaute.MAJtab();
