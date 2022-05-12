@@ -1354,10 +1354,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);*/
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+2)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,2%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -2223,7 +2223,7 @@ public class Monopoly_EPF extends JFrame {
                         choixcom = 0;
                     }
                 });
-                ValiderMatiere2.addActionListener(new java.awt.event.ActionListener() {
+                Cartechance.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         choixcom = 1;
                     }
@@ -2737,21 +2737,60 @@ public class Monopoly_EPF extends JFrame {
         if (com == true){
             if (id==0) {
                 joueurCourant.credits = joueurCourant.credits-20;
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
                 argentParcGratuit = argentParcGratuit + 20;
+                LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + " payez 20 ECTS!");
             }
             else if (id==1) {
                 joueurCourant.credits = joueurCourant.credits-50;
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
                 argentParcGratuit = argentParcGratuit + 50;
+                LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + " payez 50 ECTS!");
             }
             else if (id==2) { //DEPLACER LE PION EN GRAPHIQUE
                 joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
-                joueurCourant.prison = true;
-                zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages");
+                joueurCourant.prison=true;
+                /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[10], "Téléportation");
+                int déplacement=0;
+                if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[2]) {
+                    déplacement=8;
+                }
+                else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[17]) {
+                    déplacement=33;
+                }
+                else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[23]) {
+                    déplacement=17;
+                }
+                deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);*/
+                zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages!");
             }
             else if (id==3) {
                 joueurCourant.recuperercarte(carteTiree);
+                joueurCourant.nbCartes++;
                 if(joueurCourant==tabJoueurs[0]) {
                     nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
                 }
@@ -2768,11 +2807,35 @@ public class Monopoly_EPF extends JFrame {
             }
             else if (id==5) {
                 joueurCourant.credits = joueurCourant.credits+25;
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
                 zone_texte_infos.setText(joueurCourant.nom + " recevez 25 ECTS!");
             }
             else if (id==6) {
                 joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
-                zone_texte_infos.setText(joueurCourant.nom + " payez " + 25*joueurCourant.nbMaisonJoueur+100*joueurCourant.nbHotelJoueur + " ECTS!");
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                zone_texte_infos.setText(joueurCourant.nom + " vous payez " + 25*joueurCourant.nbMaisonJoueur+100*joueurCourant.nbHotelJoueur + " ECTS!");
             }
             else if (id==7) { // a verifier
                 int nbJoueursRestants=0;
@@ -2786,6 +2849,18 @@ public class Monopoly_EPF extends JFrame {
                         tabJoueurs[i].credits = tabJoueurs[i].credits+15; //credits des autres joueurs qui d'actualisent
                         zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + tabJoueurs[i].nom + " recevez 15 ECTS de la part de " + joueurCourant.nom + "!");
                     }
+                }
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                 }
             }
             else if (id==8) {
@@ -2806,10 +2881,34 @@ public class Monopoly_EPF extends JFrame {
             }
             else if (id==10) {
                 joueurCourant.credits = joueurCourant.credits + 150;
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
                 zone_texte_infos.setText(joueurCourant.nom + " recevez 150 ECTS!");
             }
             else if (id==11) {
                 joueurCourant.credits = joueurCourant.credits + 100;
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
                 zone_texte_infos.setText(joueurCourant.nom + " recevez 100 ECTS!");
             }
             else if (id==12) {
@@ -2842,11 +2941,37 @@ public class Monopoly_EPF extends JFrame {
             }
             else if (id==14) {
                 joueurCourant.credits = joueurCourant.credits + 10;
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
                 zone_texte_infos.setText(joueurCourant.nom + " recevez 10 ECTS (et les applaudissements de Jousset)!");
                 
             }
-            else if (id==15) joueurCourant.credits = joueurCourant.credits + 100;
-            zone_texte_infos.setText(joueurCourant.nom + " recevez 100 ECTS!");
+            else if (id==15) {
+                joueurCourant.credits = joueurCourant.credits + 100;
+                if(joueurCourant==tabJoueurs[0]) {
+                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                }
+                zone_texte_infos.setText(joueurCourant.nom + " recevez 100 ECTS!");
+            }
         }
         else {
             if (id==0) {
