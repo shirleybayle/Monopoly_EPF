@@ -1268,7 +1268,6 @@ public class Monopoly_EPF extends JFrame {
                 nbCartes2.setVisible(true);
                 nbCartes3.setVisible(true);
                 nbCartes4.setVisible(true);
-                
                 Thread thread = new Thread(){
                     public void run(){
                         lancerDes();
@@ -2031,9 +2030,9 @@ public class Monopoly_EPF extends JFrame {
         Random lancerdes = new Random();
         de1.valeur = lancerdes.nextInt(6)+1; 
         de2.valeur = lancerdes.nextInt(6)+1;
-        if(lireDouble()==true) {
+        /*if(lireDouble()==true) {
             compteurDouble++;
-        }
+        }*/
         return(de1.valeur+de2.valeur);
     }
     
