@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class Paquet {
     Carte [] paquet = new Carte [16];
-    Boolean [] tabstatuts = new Boolean [16];
+    boolean [] tabstatuts = new boolean [16];
     boolean communaute;
     boolean chance;
     
@@ -28,7 +28,7 @@ public class Paquet {
         }
     }
     
-    public void melanger() {
+    /*public void melanger() {
         Carte [] tabtemp = new Carte [16]; //création d'un paquet temporaire identique au paquet à mélanger
         for(int i=0; i<tabtemp.length; i++) {
             tabtemp[i]=paquet[i];
@@ -43,6 +43,25 @@ public class Paquet {
             if(nbaléat!=i) {
                 tabtemp[nbaléat] = tabtemp[i]; // si on a pas tiré la dernière carte on la réinjecte dans la partie du tableau tirée au sort
             }
+        }
+    }*/
+    
+    public void melanger() {
+        Carte [] tabtemp = new Carte [16]; //création d'un paquet temporaire identique au paquet à mélanger
+        for (int i=0; i<tabtemp.length; i++) {
+            tabtemp[i] = paquet[i];
+        }
+        for (int i =0; i<paquet.length; i++) {
+            paquet[i] = null;
+        }
+        for (int i=15; i>=0; i--) {
+            int nbaleat;
+            do {
+                Random generateur = new Random(); //génère un nombre
+                nbaleat = generateur.nextInt(16); //entre 0 et 15 compris
+            } while (tabtemp[nbaleat] == null); //tant que la carte dans le tableau à l'indice du nombre est nulle
+            paquet[i] = tabtemp[nbaleat]; //place la carte dans le paquet
+            tabtemp[nbaleat] = null; //remplace la carte dans le tableau temporaire par null
         }
     }
     

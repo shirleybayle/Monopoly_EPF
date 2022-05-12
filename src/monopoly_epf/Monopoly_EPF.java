@@ -257,7 +257,9 @@ public class Monopoly_EPF extends JFrame {
         zone_texte_infos.setBounds(10, 25, 335, 155);
         infos_partie.add(zone_texte_infos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,25,335,155));
         zone_texte_infos.setEditable(false);
-        zone_texte_infos.setText("Veuillez rentrer les quatre pseudos puis cliquer sur le bouton\ndémarrer la partie !\nAttention, si vous ne rentrez rien, les joueurs\nn'auront pas de pseudo.");
+        zone_texte_infos.setWrapStyleWord(true);
+        zone_texte_infos.setLineWrap(true);
+        zone_texte_infos.setText("Veuillez rentrer les quatre pseudos puis cliquer sur le bouton démarrer la partie !\nAttention, si vous ne rentrez rien, les joueurs\nn'auront pas de pseudo.");
         this.repaint();
         
         JTextField nomJ1 = new JTextField();
@@ -306,7 +308,7 @@ public class Monopoly_EPF extends JFrame {
                 nomJ4.setVisible(false);
                 Joueur4.setText(tabJoueurs[3].nom);
                 pseudo4.setVisible(false);
-                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + "\net votre pion est la Calculatrice!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + "\net votre pion est la Diode!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + "\net votre pion est l'Erlenmeyer!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + "\net votre pion est Olga!\n" + tabJoueurs[0].nom + " vous commencez!");
+                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + " et votre pion est la Calculatrice!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + " et votre pion est la Diode!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + " et votre pion est l'Erlenmeyer!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + " et votre pion est Olga!\n" + tabJoueurs[0].nom + " vous commencez!");
                 credits1.setVisible(true);
                 credits2.setVisible(true);
                 credits3.setVisible(true);
@@ -2229,17 +2231,91 @@ public class Monopoly_EPF extends JFrame {
                 });
                 Carte laCarte = faireActionCarteSimple(choixcom);
                 if (laCarte != null && laCarte.idCarte != 15) {
-                    faireActionCarte(laCarte);
+                    JFrame FrameCarte2 = new JFrame();
+                FrameCarte2.setVisible(true);
+                FrameCarte2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                JLabel carteLabel2;
+                switch (laCarte.idCarte) {
+                    case 0 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/0cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 1 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/1cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 2 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/2cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 3 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/3cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 4 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/4cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 5 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/5cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 6 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/6cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 7 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/7cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 8 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/8cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 9 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/9cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 10 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/10cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 11 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/11cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 12 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/12cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 13 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/13cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;   
+                    case 14 : 
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/14cha.png"));
+                        FrameCarte.setBounds(450, 200, 615, 430);
+                        break;
+                    case 15 :
+                        carteLabel2 = new JLabel(new ImageIcon("src/cartes/15cha.png"));
+                        FrameCarte.setBounds(450, 10, 600, 700);
+                        break;
+                    default :
+                        carteLabel2 = new JLabel("PAS DE CARTE");
+                }
+                FrameCarte2.add(carteLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0));
+                carteLabel2.setVisible(true);
+                FrameCarte2.repaint();
+                faireActionCarte(laCarte);
                 }
                 else if (laCarte.idCarte == 15) {
                     //faire action carte choix case
                 }
-                else {
-                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                }
+                credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                
                 
             }
             return true;
@@ -2551,20 +2627,20 @@ public class Monopoly_EPF extends JFrame {
             if (caseDuJoueur.proprietaire == plateau.plateaudejeu[28].proprietaire) {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
-                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
-                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
                 return true;
             }
@@ -2573,20 +2649,20 @@ public class Monopoly_EPF extends JFrame {
             if (caseDuJoueur.proprietaire == plateau.plateaudejeu[12].proprietaire) {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
-                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenace du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*4;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*4;
-                credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
-                credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
                 zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
@@ -2714,8 +2790,16 @@ public class Monopoly_EPF extends JFrame {
                 }
             }
             else if (id==8) {
-                joueurCourant.pion.avancer(8);
+                //joueurCourant.pion.avancer(8);
                 zone_texte_infos.setText(joueurCourant.nom + " avancez de 8 cases (ça souffle)!");
+                int caseActuelle = 0;
+                for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                    if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
+                        caseActuelle = i;
+                    }
+               }
+                /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+8)%40], "Normal");
+                deplacerPion(joueurCourant.pion,8%40,plateau.plateaudejeu[caseActuelle]);*/
             }
             else if (id==9) {
                 joueurCourant.droitdejouer = false;
@@ -2730,9 +2814,19 @@ public class Monopoly_EPF extends JFrame {
                 zone_texte_infos.setText(joueurCourant.nom + " recevez 100 ECTS!");
             }
             else if (id==12) {
-                joueurCourant.pion.téléportation(32);
+                //joueurCourant.pion.téléportation(32);
                 zone_texte_infos.setText(joueurCourant.nom + " allez en K04 (vive la chimie)!");
-            }  //indice 32 du plateau
+                /*int caseActuelle = 0;
+                for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                    if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
+                        caseActuelle = i;
+                    }
+               }
+                if (caseActuelle<32) {
+                DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(32-caseActuelle)%40], "Teleportation");
+                deplacerPion(joueurCourant.pion,-32%40,plateau.plateaudejeu[caseActuelle]);
+                }*/
+            }  //indice 32 du plateau A VOIR COMMENT ALLER A LA CASE QU4ON VEUT
             else if (id==13) { 
                 zone_texte_infos.setText(joueurCourant.nom + " allez au bureau des Ours");
                 int indicecase = 0;
@@ -2773,6 +2867,14 @@ public class Monopoly_EPF extends JFrame {
             else if (id==1) {
                 joueurCourant.pion.reculer(3);
                 zone_texte_infos.setText(joueurCourant.nom + " reculez de 3 cases!");
+                int caseActuelle = 0;
+                for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                    if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
+                        caseActuelle = i;
+                    }
+               }
+                /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle-3)%40], "Normal");
+                deplacerPion(joueurCourant.pion,-3%40,plateau.plateaudejeu[caseActuelle]);*/
             }
             else if (id==2) {
                 joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
@@ -2869,10 +2971,10 @@ public class Monopoly_EPF extends JFrame {
                 zone_texte_infos.setText(joueurCourant.nom + " payez 75 ECTS (un brelan fait pas le poids fâce au full du Jouset national)!");
             }
         }
-        credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
-        credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
-        credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
-        credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
         LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
     }
      
