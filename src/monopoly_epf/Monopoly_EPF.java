@@ -1383,8 +1383,8 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.prison!=true) {
                             /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
                             deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+2)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,2%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+7)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,7%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -3121,17 +3121,6 @@ public class Monopoly_EPF extends JFrame {
             else if (id==13) {
                 carte="com13";
                 zone_texte_infos.setText(joueurCourant.nom + " allez au bureau des Ours");
-                /*int indicecase = 0;
-                int indicebdo = 35;
-                for (int i=0; i<40; i++) {
-                    if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
-                }
-                if (indicecase-indicebdo>=0) {
-                    joueurCourant.pion.avancer(indicecase-indicebdo);
-                }
-                else { //indice case est entre 35 et 39
-                    joueurCourant.pion.avancer(36+39-indicecase); //36 = départ jusqu'à bdo ; 39-indicecase = nb cases jusqu'à case départ
-                }*/
             }
             else if (id==14) {
                 joueurCourant.credits = joueurCourant.credits + 10;
@@ -3159,9 +3148,9 @@ public class Monopoly_EPF extends JFrame {
                 }
             }
             else if (id==1) {
-                joueurCourant.pion.reculer(3);
+                carte="chance1";
                 zone_texte_infos.setText(joueurCourant.nom + " reculez de 3 cases!");
-                int caseActuelle = 0;
+                /*int caseActuelle = 0;
                 for(int i=0;i<plateau.plateaudejeu.length;i++) {
                     if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
                         caseActuelle = i;
@@ -4243,7 +4232,7 @@ public class Monopoly_EPF extends JFrame {
     
     public void DeplacerPion(Pion pionCourant, Case caseouAller, String typeDeplacement) {
         negatif=false;
-        if(carte=="com12") {
+        if(carte=="com12" || carte=="chance1") {
             negatif=true;
         }
         pionCourant.taille = 45;
@@ -4287,6 +4276,11 @@ public class Monopoly_EPF extends JFrame {
                     inc = déplacement*66;
                     nbFrames = déplacement*3;
                 }
+            }
+            else if(negatif==true && carte=="chance1") {
+                int déplacement=3;
+                inc = déplacement*45;
+                nbFrames = déplacement*3;
             }
             else{
                 if(carte=="com13" && pionCourant.caseassociee==plateau.plateaudejeu[33]) {
@@ -5234,7 +5228,7 @@ public class Monopoly_EPF extends JFrame {
                         faireActionCase();
                     }
                     joueurCourant.pion.caseassociee.occupant=true;
-                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true && carte!="com8" && carte!="com12" && carte!="com13") {
+                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1") {
                         if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[0] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[2] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[4] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[7] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[10] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[17] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[20] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[22] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[33] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[36] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[38] && joueurCourant.pion.caseassociee.proprietaire==null) {
                             if(joueurCourant==tabJoueurs[0]) {
                                 Acheter1.setVisible(true);
@@ -5323,7 +5317,7 @@ public class Monopoly_EPF extends JFrame {
                     else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[30]) {
                         carte="Jousset";
                     }
-                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13") {
+                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1") {
                         System.out.println(carte);
                         changerJoueur();
                         compteurDouble=0;
@@ -5431,6 +5425,7 @@ public class Monopoly_EPF extends JFrame {
                         }
                         else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[33]) {
                             déplacement=39;
+                            joueurCourant.credits-=200;
                         }
                         deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
                         carte="";
@@ -5453,6 +5448,19 @@ public class Monopoly_EPF extends JFrame {
                         else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[33]) {
                             déplacement=2;
                         }
+                        deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
+                        carte="";
+                    }
+                    else if(carte=="chance1") {
+                        int ouonest=0;
+                        for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                            if(pionCourant.caseassociee==plateau.plateaudejeu[i]) {
+                                ouonest=i;
+                            }
+                        }
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[ouonest-3], "Téléportation");
+                        int déplacement=37;
+                        joueurCourant.credits-=200;
                         deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
                         carte="";
                     }
