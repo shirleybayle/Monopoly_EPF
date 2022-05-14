@@ -1380,10 +1380,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+33)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,33%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+33)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,33%40,plateau.plateaudejeu[caseActuelle]);*/
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -3230,7 +3230,7 @@ public class Monopoly_EPF extends JFrame {
                     nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
                 }
                 else if(joueurCourant==tabJoueurs[3]) {
-                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
+                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[3].nbCartes);
                 }
                 zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Chance vous libérant des rattrapages!");
             }
