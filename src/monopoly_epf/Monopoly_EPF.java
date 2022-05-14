@@ -586,22 +586,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération4.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 fin_de_tour1.setVisible(false);
@@ -673,22 +681,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 fin_de_tour2.setVisible(false);
@@ -760,22 +776,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération4.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 fin_de_tour3.setVisible(false);
@@ -847,22 +871,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération4.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 fin_de_tour4.setVisible(false);
@@ -986,22 +1018,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération4.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 Lancer_des.setEnabled(true);
@@ -1070,22 +1110,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération4.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 Lancer_des.setEnabled(true);
@@ -1154,22 +1202,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération4.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 Lancer_des.setEnabled(true);
@@ -1238,22 +1294,30 @@ public class Monopoly_EPF extends JFrame {
                 }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération1.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération1.setVisible(true);
+                    }
                     PayerPrison1.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération2.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération2.setVisible(true);
+                    }
                     PayerPrison2.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération3.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération3.setVisible(true);
+                    }
                     PayerPrison3.setVisible(true);
                 }
                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                     joueurCourant.compteurTourPrison++;
-                    Libération4.setVisible(true);
+                    if(joueurCourant.nbCartes!=0) {
+                        Libération4.setVisible(true);
+                    }
                     PayerPrison4.setVisible(true);
                 }
                 Lancer_des.setEnabled(true);
@@ -1434,22 +1498,30 @@ public class Monopoly_EPF extends JFrame {
                                 }
                                 if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                                     joueurCourant.compteurTourPrison++;
-                                    Libération1.setVisible(true);
+                                    if(joueurCourant.nbCartes!=0) {
+                                        Libération1.setVisible(true);
+                                    }
                                     PayerPrison1.setVisible(true);
                                 }
                                 else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                                     joueurCourant.compteurTourPrison++;
-                                    Libération2.setVisible(true);
+                                    if(joueurCourant.nbCartes!=0) {
+                                        Libération2.setVisible(true);
+                                    }
                                     PayerPrison2.setVisible(true);
                                 }
                                 else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                                     joueurCourant.compteurTourPrison++;
-                                    Libération3.setVisible(true);
+                                    if(joueurCourant.nbCartes!=0) {
+                                        Libération3.setVisible(true);
+                                    }
                                     PayerPrison3.setVisible(true);
                                 }
                                 else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                                     joueurCourant.compteurTourPrison++;
-                                    Libération4.setVisible(true);
+                                    if(joueurCourant.nbCartes!=0) {
+                                        Libération4.setVisible(true);
+                                    }
                                     PayerPrison4.setVisible(true);
                                 }
                                 Lancer_des.setEnabled(true);
@@ -2618,22 +2690,30 @@ public class Monopoly_EPF extends JFrame {
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération1.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération1.setVisible(true);
+                            }
                             PayerPrison1.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération2.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération2.setVisible(true);
+                            }
                             PayerPrison2.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération3.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération3.setVisible(true);
+                            }
                             PayerPrison3.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération4.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération4.setVisible(true);
+                            }
                             PayerPrison4.setVisible(true);
                         }
                         Lancer_des.setEnabled(true);
@@ -2713,22 +2793,30 @@ public class Monopoly_EPF extends JFrame {
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération1.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération1.setVisible(true);
+                            }
                             PayerPrison1.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération2.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération2.setVisible(true);
+                            }
                             PayerPrison2.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération3.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération3.setVisible(true);
+                            }
                             PayerPrison3.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération4.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération4.setVisible(true);
+                            }
                             PayerPrison4.setVisible(true);
                         }
                         Lancer_des.setEnabled(true);
@@ -2808,22 +2896,30 @@ public class Monopoly_EPF extends JFrame {
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération1.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération1.setVisible(true);
+                            }
                             PayerPrison1.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération2.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération2.setVisible(true);
+                            }
                             PayerPrison2.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération3.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération3.setVisible(true);
+                            }
                             PayerPrison3.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération4.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération4.setVisible(true);
+                            }
                             PayerPrison4.setVisible(true);
                         }
                         Lancer_des.setEnabled(true);
@@ -2903,22 +2999,30 @@ public class Monopoly_EPF extends JFrame {
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération1.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération1.setVisible(true);
+                            }
                             PayerPrison1.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération2.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération2.setVisible(true);
+                            }
                             PayerPrison2.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération3.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération3.setVisible(true);
+                            }
                             PayerPrison3.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération4.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération4.setVisible(true);
+                            }
                             PayerPrison4.setVisible(true);
                         }
                         Lancer_des.setEnabled(true);
@@ -3150,17 +3254,9 @@ public class Monopoly_EPF extends JFrame {
             else if (id==1) {
                 carte="chance1";
                 zone_texte_infos.setText(joueurCourant.nom + " reculez de 3 cases!");
-                /*int caseActuelle = 0;
-                for(int i=0;i<plateau.plateaudejeu.length;i++) {
-                    if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
-                        caseActuelle = i;
-                    }
-               }
-                /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle-3)%40], "Normal");
-                deplacerPion(joueurCourant.pion,-3%40,plateau.plateaudejeu[caseActuelle]);*/
             }
             else if (id==2) {
-                joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
+                carte="chance2";
                 joueurCourant.prison = true;
                 zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages!");
             }
@@ -4913,22 +5009,30 @@ public class Monopoly_EPF extends JFrame {
                                     }
                                     if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                                         joueurCourant.compteurTourPrison++;
-                                        Libération1.setVisible(true);
+                                        if(joueurCourant.nbCartes!=0) {
+                                            Libération1.setVisible(true);
+                                        }
                                         PayerPrison1.setVisible(true);
                                     }
                                     else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                                         joueurCourant.compteurTourPrison++;
-                                        Libération2.setVisible(true);
+                                        if(joueurCourant.nbCartes!=0) {
+                                            Libération2.setVisible(true);
+                                        }
                                         PayerPrison2.setVisible(true);
                                     }
                                     else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                                         joueurCourant.compteurTourPrison++;
-                                        Libération3.setVisible(true);
+                                        if(joueurCourant.nbCartes!=0) {
+                                            Libération3.setVisible(true);
+                                        }
                                         PayerPrison3.setVisible(true);
                                     }
                                     else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                                         joueurCourant.compteurTourPrison++;
-                                        Libération4.setVisible(true);
+                                        if(joueurCourant.nbCartes!=0) {
+                                            Libération4.setVisible(true);
+                                        }
                                         PayerPrison4.setVisible(true);
                                     }
                                     Lancer_des.setEnabled(true);
@@ -5008,22 +5112,30 @@ public class Monopoly_EPF extends JFrame {
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération1.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
                                 PayerPrison1.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération2.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
                                 PayerPrison2.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération3.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
                                 PayerPrison3.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération4.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
@@ -5103,22 +5215,30 @@ public class Monopoly_EPF extends JFrame {
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération1.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
                                 PayerPrison1.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération2.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
                                 PayerPrison2.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération3.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
                                 PayerPrison3.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération4.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
@@ -5198,22 +5318,30 @@ public class Monopoly_EPF extends JFrame {
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération1.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
                                 PayerPrison1.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération2.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
                                 PayerPrison2.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération3.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
                                 PayerPrison3.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération4.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
@@ -5292,22 +5420,30 @@ public class Monopoly_EPF extends JFrame {
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération1.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
                                 PayerPrison1.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération2.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
                                 PayerPrison2.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération3.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
                                 PayerPrison3.setVisible(true);
                             }
                             else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                                 joueurCourant.compteurTourPrison++;
-                                Libération4.setVisible(true);
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
@@ -5317,7 +5453,7 @@ public class Monopoly_EPF extends JFrame {
                     else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[30]) {
                         carte="Jousset";
                     }
-                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1") {
+                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance2") {
                         System.out.println(carte);
                         changerJoueur();
                         compteurDouble=0;
@@ -5358,22 +5494,30 @@ public class Monopoly_EPF extends JFrame {
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération1.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération1.setVisible(true);
+                            }
                             PayerPrison1.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération2.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération2.setVisible(true);
+                            }
                             PayerPrison2.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération3.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération3.setVisible(true);
+                            }
                             PayerPrison3.setVisible(true);
                         }
                         else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
                             joueurCourant.compteurTourPrison++;
-                            Libération4.setVisible(true);
+                            if(joueurCourant.nbCartes!=0) {
+                                Libération4.setVisible(true);
+                            }
                             PayerPrison4.setVisible(true);
                         }
                         Lancer_des.setEnabled(true);
@@ -5461,6 +5605,21 @@ public class Monopoly_EPF extends JFrame {
                         DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[ouonest-3], "Téléportation");
                         int déplacement=37;
                         joueurCourant.credits-=200;
+                        deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
+                        carte="";
+                    }
+                    else if(carte=="chance2") {
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[10], "Téléportation");
+                        int déplacement=0;
+                        if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[7]) {
+                            déplacement=3;
+                        }
+                        else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[22]) {
+                            déplacement=28;
+                        }
+                        else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[36]) {
+                            déplacement=14;
+                        }
                         deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
                         carte="";
                     }
