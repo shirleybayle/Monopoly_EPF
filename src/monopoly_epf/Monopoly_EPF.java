@@ -1382,8 +1382,8 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.prison!=true) {
                             /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
                             deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+2)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,2%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+33)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,33%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -2168,16 +2168,16 @@ public class Monopoly_EPF extends JFrame {
                         zone_texte_infos.setText(joueurCourant.nom + " vous vous arrêtez au début d'année et touchez 400 ECTS!");
                     }
                     if(joueurCourant==tabJoueurs[0]) {
-                        credits1.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
+                        credits1.setText("Crédits : "+ joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
-                        credits2.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
+                        credits2.setText("Crédits : "+ joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
-                        credits3.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
+                        credits3.setText("Crédits : "+ joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
-                        credits4.setText("Crédits : "+ String.valueOf(joueurCourant.credits) + " ECTS");
+                        credits4.setText("Crédits : "+ joueurCourant.credits + " ECTS");
                     }
                 }
             }
@@ -3054,16 +3054,25 @@ public class Monopoly_EPF extends JFrame {
                 zone_texte_infos.setText(joueurCourant.nom + " payez 50 ECTS!");
             }
             else if (id==2) { //DEPLACER LE PION EN GRAPHIQUE
-                //joueurCourant.pion.caseassociee = plateau.plateaudejeu[10];
                 carte="com2";
                 joueurCourant.prison=true;
-                //DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[10], "Téléportation");
-                //deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
                 zone_texte_infos.setText(joueurCourant.nom + " allez aux rattrapages!");
             }
             else if (id==3) {
                 joueurCourant.recuperercarte(carteTiree);
                 joueurCourant.nbCartes++;
+                if(joueurCourant==tabJoueurs[0]) {
+                    nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
+                }
+                else if(joueurCourant==tabJoueurs[1]) {
+                    nbCartes2.setText("Cartes libération de rattrapages : " + tabJoueurs[1].nbCartes);
+                }
+                else if(joueurCourant==tabJoueurs[2]) {
+                    nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
+                }
+                else if(joueurCourant==tabJoueurs[3]) {
+                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
+                }
                 zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Caisse de communauté vous libérant des rattrapages!");
             }
             else if (id==5) {
@@ -3089,15 +3098,15 @@ public class Monopoly_EPF extends JFrame {
                 }
             }
             else if (id==8) {
-                //joueurCourant.pion.avancer(8);
-                zone_texte_infos.setText(joueurCourant.nom + " avancez de 8 cases (ça souffle)!");
-                int caseActuelle = 0;
+                carte="com8";
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " avancez de 8 cases (ça souffle)!");
+                /*int caseActuelle = 0;
                 for(int i=0;i<plateau.plateaudejeu.length;i++) {
                     if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
                         caseActuelle = i;
                     }
-               }
-                /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+8)%40], "Normal");
+                }
+                DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+8)%40], "Normal");
                 deplacerPion(joueurCourant.pion,8%40,plateau.plateaudejeu[caseActuelle]);*/
             }
             else if (id==9) {
@@ -3214,13 +3223,13 @@ public class Monopoly_EPF extends JFrame {
                 if(joueurCourant==tabJoueurs[0]) {
                     nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
                 }
-                if(joueurCourant==tabJoueurs[1]) {
+                else if(joueurCourant==tabJoueurs[1]) {
                     nbCartes2.setText("Cartes libération de rattrapages : " + tabJoueurs[1].nbCartes);
                 }
-                if(joueurCourant==tabJoueurs[2]) {
+                else if(joueurCourant==tabJoueurs[2]) {
                     nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
                 }
-                if(joueurCourant==tabJoueurs[3]) {
+                else if(joueurCourant==tabJoueurs[3]) {
                     nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
                 }
                 zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Chance vous libérant des rattrapages!");
@@ -5139,7 +5148,7 @@ public class Monopoly_EPF extends JFrame {
                         faireActionCase();
                     }
                     joueurCourant.pion.caseassociee.occupant=true;
-                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true) {
+                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true && carte!="com8") {
                         if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[0] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[2] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[4] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[7] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[10] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[17] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[20] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[22] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[33] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[36] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[38] && joueurCourant.pion.caseassociee.proprietaire==null) {
                             if(joueurCourant==tabJoueurs[0]) {
                                 Acheter1.setVisible(true);
@@ -5228,7 +5237,7 @@ public class Monopoly_EPF extends JFrame {
                     else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[30]) {
                         carte="Jousset";
                     }
-                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset") {
+                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8") {
                         System.out.println(carte);
                         changerJoueur();
                         compteurDouble=0;
@@ -5302,10 +5311,21 @@ public class Monopoly_EPF extends JFrame {
                         else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[17]) {
                             déplacement=33;
                         }
-                        else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[23]) {
+                        else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[33]) {
                             déplacement=17;
                         }
                         deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
+                        carte="";
+                    }
+                    else if(carte=="com8") {
+                        int ouonest=0;
+                        for(int i=0;i<plateau.plateaudejeu.length;i++) {
+                            if(pionCourant.caseassociee==plateau.plateaudejeu[i]) {
+                                ouonest=i;
+                            }
+                        }
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(ouonest+8)%40], "Téléportation");
+                        deplacerPion(joueurCourant.pion,8,joueurCourant.pion.caseassociee);
                         carte="";
                     }
                 }
