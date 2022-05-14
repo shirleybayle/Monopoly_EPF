@@ -3224,7 +3224,7 @@ public class Monopoly_EPF extends JFrame {
                     nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
                 }
                 else if(joueurCourant==tabJoueurs[3]) {
-                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[4].nbCartes);
+                    nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[3].nbCartes);
                 }
                 zone_texte_infos.setText(joueurCourant.nom + " vous récupérez une carte Chance vous libérant des rattrapages!");
             }
