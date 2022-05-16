@@ -1597,27 +1597,27 @@ public class Monopoly_EPF extends JFrame {
         infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
         this.repaint();
         
-        credits1 = new JLabel("Crédits:" + "ECTS");
+        credits1 = new JLabel("Crédits : " + "ECTS");
         Dimension text_credits1 = credits1.getPreferredSize();
-        credits1.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        credits1.setFont(new Font("Crédits : " + "ECTS", Font.BOLD, 19));
         infos_joueurs1.add(credits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
-        credits2 = new JLabel("Crédits:" + "ECTS");
+        credits2 = new JLabel("Crédits : " + "ECTS");
         Dimension text_credits2 = credits2.getPreferredSize();
-        credits2.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        credits2.setFont(new Font("Crédits : " + "ECTS", Font.BOLD, 19));
         infos_joueurs2.add(credits2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
-        credits3 = new JLabel("Crédits:" + "ECTS");
+        credits3 = new JLabel("Crédits : " + "ECTS");
         Dimension text_credits3 = credits3.getPreferredSize();
-        credits3.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        credits3.setFont(new Font("Crédits : " + "ECTS", Font.BOLD, 19));
         infos_joueurs3.add(credits3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
-        credits4 = new JLabel("Crédits:" + "ECTS");
+        credits4 = new JLabel("Crédits : " + "ECTS");
         Dimension text_credits4 = credits4.getPreferredSize();
-        credits4.setFont(new Font("Crédits:" + "ECTS", Font.BOLD, 19));
+        credits4.setFont(new Font("Crédits : " + "ECTS", Font.BOLD, 19));
         infos_joueurs4.add(credits4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,35));
         this.repaint();
         
@@ -3295,17 +3295,6 @@ public class Monopoly_EPF extends JFrame {
             else if (id==4) {
                 carte="chance4";
                 zone_texte_infos.setText(joueurCourant.nom + " allez en K03 (bonne chance pour le partiel)!");
-                /*int indicecase = 0;
-                int indicek3 = 31;
-                for (int i=0; i<40; i++) {
-                      if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
-                }
-                if (indicecase-indicek3>=0) {
-                      joueurCourant.pion.avancer(indicecase-indicek3);
-                }
-                else { //indice case est entre 31 et 39
-                  joueurCourant.pion.avancer(32+39-indicecase); //36 = départ jusqu'à k3 ; 39-indicecase = nb cases jusqu'à case départ
-                }*/
             }
             else if (id==5) {
                 joueurCourant.credits = joueurCourant.credits+100;
@@ -3341,19 +3330,8 @@ public class Monopoly_EPF extends JFrame {
                 zone_texte_infos.setText(joueurCourant.nom + " recevez 25 ECTS!");
             }
             else if (id==10) {
+                carte="chance10";
                 zone_texte_infos.setText(joueurCourant.nom + " avancez en amphi (vite c'est Mahou qui fait le CM, pas Jousset)!");
-                int indicecase = 0;
-                int indicek2 = 15;
-                for (int i=0; i<40; i++) {
-                      if (plateau.plateaudejeu[i] == joueurCourant.pion.caseassociee) indicecase = i;
-                }
-                if (indicecase-indicek2>=0) {
-                      joueurCourant.pion.avancer(indicecase-indicek2);
-                }
-                else { //indice case est entre 15 et 39
-                  joueurCourant.pion.avancer(15+39-indicecase); //15 = départ jusqu'à k2 ; 39-indicecase = nb cases jusqu'à case départ
-                  zone_texte_infos.setText(zone_texte_infos.getText() + "\n\nVous touchez 200 ECTS!");
-                }
             }
             else if (id==11) {
                 joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
@@ -3391,10 +3369,10 @@ public class Monopoly_EPF extends JFrame {
     public void payerloyer(Case caseassociee) {
         joueurCourant.credits = joueurCourant.credits-caseassociee.loyer;
         caseassociee.proprietaire.credits = caseassociee.proprietaire.credits+caseassociee.loyer;
-        credits1.setText("Crédits:" + tabJoueurs[0].credits + " ECTS"); //pour pas s'embêter on met tt à jour au moins c pas compliqué!
-        credits2.setText("Crédits:" + tabJoueurs[1].credits + " ECTS");
-        credits3.setText("Crédits:" + tabJoueurs[2].credits + " ECTS");
-        credits4.setText("Crédits:" + tabJoueurs[3].credits + " ECTS");
+        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS"); //pour pas s'embêter on met tt à jour au moins c pas compliqué!
+        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
         zone_texte_infos.setText(joueurCourant.nom + ", vous payez " + caseassociee.loyer + "ECTS  à " + caseassociee.proprietaire.nom + "!");
     }
     
@@ -5469,7 +5447,7 @@ public class Monopoly_EPF extends JFrame {
                         faireActionCase();
                     }
                     joueurCourant.pion.caseassociee.occupant=true;
-                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance3" && carte!="chance4"&& carte!="chance13") {
+                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance3" && carte!="chance4"&& carte!="chance10" && carte!="chance13") {
                         if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[0] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[2] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[4] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[7] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[10] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[17] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[20] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[22] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[33] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[36] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[38] && joueurCourant.pion.caseassociee.proprietaire==null) {
                             if(joueurCourant==tabJoueurs[0]) {
                                 Acheter1.setVisible(true);
@@ -5566,7 +5544,7 @@ public class Monopoly_EPF extends JFrame {
                     else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[30]) {
                         carte="Jousset";
                     }
-                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance2" && carte!="chance3"  && carte!="chance4" && carte!="chance13") {
+                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance2" && carte!="chance3"  && carte!="chance4" && carte!="chance10" && carte!="chance13") {
                         changerJoueur();
                         compteurDouble=0;
                         while(joueurCourant.droitdejouer==false) {
@@ -5761,6 +5739,21 @@ public class Monopoly_EPF extends JFrame {
                         }
                         else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[36]) {
                             déplacement=35;
+                        }
+                        deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
+                        carte="";
+                    }
+                    else if(carte=="chance10") {
+                        DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[15], "Téléportation");
+                        int déplacement=0;
+                        if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[7]) {
+                            déplacement=8;
+                        }
+                        else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[22]) {
+                            déplacement=33;
+                        }
+                        else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[36]) {
+                            déplacement=19;
                         }
                         deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
                         System.out.println(pionCourant.caseassociee.nom);
