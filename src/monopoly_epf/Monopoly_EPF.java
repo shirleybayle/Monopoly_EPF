@@ -1447,10 +1447,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+7)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,7%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+7)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,7%40,plateau.plateaudejeu[caseActuelle]);*/
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -2639,9 +2639,9 @@ public class Monopoly_EPF extends JFrame {
             else if(joueurCourant==tabJoueurs[3]) {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
+            zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!!\nVous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
             argentParcGratuit = 0;
             LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
-            zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!!\nVous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[30]) { //prison
@@ -3071,7 +3071,7 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
@@ -3081,7 +3081,7 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
                 return true;
             }
         }
@@ -3093,7 +3093,7 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenace du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenace du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
@@ -3103,30 +3103,30 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
         }
-        else if (caseDuJoueur == plateau.plateaudejeu[5] && caseDuJoueur.proprietaire != null) {
+        else if (caseDuJoueur == plateau.plateaudejeu[5] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
             zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
-        else if (caseDuJoueur == plateau.plateaudejeu[15] && caseDuJoueur.proprietaire != null) {
+        else if (caseDuJoueur == plateau.plateaudejeu[15] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
             zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
-        else if (caseDuJoueur == plateau.plateaudejeu[25] && caseDuJoueur.proprietaire != null) {
+        else if (caseDuJoueur == plateau.plateaudejeu[25] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
             zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
-        else if (caseDuJoueur == plateau.plateaudejeu[35] && caseDuJoueur.proprietaire != null) {
+        else if (caseDuJoueur == plateau.plateaudejeu[35] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
             zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire .nom+ "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         
-        else if (caseDuJoueur.proprietaire != null) { //autre cases déjà achetées
+        else if (caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) { //autre cases déjà achetées
             payerloyer(caseDuJoueur);
-            zone_texte_infos.setText(joueurCourant.nom + ", vous entrez dans la salle où " + caseDuJoueur.proprietaire.nom + " est en train de réviser!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous entrez en " + joueurCourant.pion.caseassociee.nom + ", la salle où " + caseDuJoueur.proprietaire.nom + " est en train de réviser!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour utiliser son matériel.");
             return true;
         }
         return false;
@@ -3356,7 +3356,7 @@ public class Monopoly_EPF extends JFrame {
             else if (id==14) {
                 joueurCourant.credits = joueurCourant.credits-75;
                 argentParcGratuit = argentParcGratuit+75;
-                zone_texte_infos.setText(joueurCourant.nom + " payez 75 ECTS (un brelan fait pas le poids fâce au full du Jouset national)!");
+                zone_texte_infos.setText(joueurCourant.nom + " payez 75 ECTS (un brelan fait pas le poids fâce au full du Jousset national)!");
             }
         }
         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
@@ -3394,10 +3394,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         marron1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         marron2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         marron3.setText("1");
                     }
                     else {
@@ -3424,10 +3424,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         marron1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         marron2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         marron3.setText("2");
                     }
                     else {
@@ -3441,10 +3441,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         bleuciel1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         bleuciel2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         bleuciel3.setText("1");
                     }
                     else {
@@ -3455,10 +3455,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         bleuciel1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         bleuciel2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         bleuciel3.setText("2");
                     }
                     else {
@@ -3501,10 +3501,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         bleuciel1.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         bleuciel2.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         bleuciel3.setText("3");
                     }
                     else {
@@ -3518,10 +3518,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         violet1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         violet2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         violet3.setText("1");
                     }
                     else {
@@ -3532,10 +3532,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         violet1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         violet2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         violet3.setText("2");
                     }
                     else {
@@ -3578,10 +3578,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         violet1.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         violet2.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         violet3.setText("3");
                     }
                     else {
@@ -3595,10 +3595,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         orange1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         orange2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         orange3.setText("1");
                     }
                     else {
@@ -3609,10 +3609,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         orange1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         orange2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         orange3.setText("2");
                     }
                     else {
@@ -3655,10 +3655,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         orange1.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         orange2.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         orange3.setText("3");
                     }
                     else {
@@ -3672,10 +3672,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         rouge1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         rouge2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         rouge3.setText("1");
                     }
                     else {
@@ -3686,10 +3686,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         rouge1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         rouge2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         rouge3.setText("2");
                     }
                     else {
@@ -3732,10 +3732,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         rouge1.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         rouge2.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         rouge3.setText("3");
                     }
                     else {
@@ -3749,10 +3749,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         jaune1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         jaune2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         jaune3.setText("1");
                     }
                     else {
@@ -3763,10 +3763,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         jaune1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         jaune2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         jaune3.setText("2");
                     }
                     else {
@@ -3809,10 +3809,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         jaune1.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         jaune2.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         jaune3.setText("3");
                     }
                     else {
@@ -3826,10 +3826,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         vert1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         vert2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         vert3.setText("1");
                     }
                     else {
@@ -3840,10 +3840,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         vert1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         vert2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         vert3.setText("2");
                     }
                     else {
@@ -3886,10 +3886,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         vert1.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         vert2.setText("3");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         vert3.setText("3");
                     }
                     else {
@@ -3903,10 +3903,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         bleufoncé1.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         bleufoncé2.setText("1");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         bleufoncé3.setText("1");
                     }
                     else {
@@ -3933,10 +3933,10 @@ public class Monopoly_EPF extends JFrame {
                     if(joueurCourant==tabJoueurs[0]) {
                         bleufoncé1.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[1]) {
+                    else if(joueurCourant==tabJoueurs[1]) {
                         bleufoncé2.setText("2");
                     }
-                    if(joueurCourant==tabJoueurs[2]) {
+                    else if(joueurCourant==tabJoueurs[2]) {
                         bleufoncé3.setText("2");
                     }
                     else {
