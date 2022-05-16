@@ -27,7 +27,7 @@ public class Case {
     public Case(int id) {
         switch(id) { //GERER LES LOYERS
             case(0) :
-                nom = "L104";
+                nom = "L102";
                 prixTerrain = 60;
                 couleur = "marron";
                 loyerIn = 2; //changer loyer
@@ -37,7 +37,7 @@ public class Case {
                 coordY = 639;
                 break;
             case(1) : 
-                nom = "L102";
+                nom = "L104";
                 prixTerrain = 60;
                 couleur = "marron";
                 loyerIn = 4;
