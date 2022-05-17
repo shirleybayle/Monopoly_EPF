@@ -265,7 +265,7 @@ public class Monopoly_EPF extends JFrame {
         zone_texte_infos.setEditable(false);
         zone_texte_infos.setWrapStyleWord(true);
         zone_texte_infos.setLineWrap(true);
-        zone_texte_infos.setText("Veuillez rentrer les quatre pseudos puis cliquer sur le bouton démarrer la partie !\nAttention, si vous ne rentrez rien, les joueurs\nn'auront pas de pseudo.");
+        zone_texte_infos.setText("Veuillez rentrer les quatre pseudos puis cliquer sur le bouton démarrer la partie ! Attention, si vous ne rentrez rien, les joueurs n'auront pas de pseudo.");
         this.repaint();
         
         JTextField nomJ1 = new JTextField();
@@ -425,7 +425,23 @@ public class Monopoly_EPF extends JFrame {
         Libération1.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //l'idée ça serait d'afficher la carte à jouer avec un bouton "utiliser" sauf que pour l'instant la fonction utiliser carte (joueur) elle tire n'importe quelle carte (chance ou caisse) donc faut voir
+                tabJoueurs[0].prison=false;
+                tabJoueurs[0].compteurTourPrison=0;
+                for(int i=0;i<tabJoueurs[0].tabCartes.length;i++) {
+                    if(tabJoueurs[0].tabCartes[i]!=null) {
+                        tabJoueurs[0].tabCartes[i]=null;
+                        break;
+                    }
+                }
+                tabJoueurs[0].nbCartes--;
+                nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
+                tabJoueurs[0].pion.coordX=61;
+                tabJoueurs[0].pion.coordY=2;
+                tabJoueurs[0].pion.taille=24;
+                plateauJeu.orientation1=plateauJeu.haut1;
+                Libération1.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[0].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -439,7 +455,23 @@ public class Monopoly_EPF extends JFrame {
         Libération2.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                tabJoueurs[1].prison=false;
+                tabJoueurs[1].compteurTourPrison=0;
+                for(int i=0;i<tabJoueurs[1].tabCartes.length;i++) {
+                    if(tabJoueurs[1].tabCartes[i]!=null) {
+                        tabJoueurs[1].tabCartes[i]=null;
+                        break;
+                    }
+                }
+                tabJoueurs[1].nbCartes--;
+                nbCartes2.setText("Cartes libération de rattrapages : " + tabJoueurs[1].nbCartes);
+                tabJoueurs[1].pion.coordX=18;
+                tabJoueurs[1].pion.coordY=2;
+                tabJoueurs[1].pion.taille=24;
+                plateauJeu.orientation2=plateauJeu.haut2;
+                Libération2.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[1].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -453,7 +485,23 @@ public class Monopoly_EPF extends JFrame {
         Libération3.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                tabJoueurs[2].prison=false;
+                tabJoueurs[2].compteurTourPrison=0;
+                for(int i=0;i<tabJoueurs[2].tabCartes.length;i++) {
+                    if(tabJoueurs[2].tabCartes[i]!=null) {
+                        tabJoueurs[2].tabCartes[i]=null;
+                        break;
+                    }
+                }
+                tabJoueurs[2].nbCartes--;
+                nbCartes3.setText("Cartes libération de rattrapages : " + tabJoueurs[2].nbCartes);
+                tabJoueurs[2].pion.coordX=2;
+                tabJoueurs[2].pion.coordY=20;
+                tabJoueurs[2].pion.taille=24;
+                plateauJeu.orientation3=plateauJeu.gauche3;
+                Libération3.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[2].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -467,7 +515,23 @@ public class Monopoly_EPF extends JFrame {
         Libération4.setFont(new Font("Carte libération de rattrapages", Font.BOLD, 10));
         Libération4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                tabJoueurs[3].prison=false;
+                tabJoueurs[3].compteurTourPrison=0;
+                for(int i=0;i<tabJoueurs[3].tabCartes.length;i++) {
+                    if(tabJoueurs[3].tabCartes[i]!=null) {
+                        tabJoueurs[3].tabCartes[i]=null;
+                        break;
+                    }
+                }
+                tabJoueurs[3].nbCartes--;
+                nbCartes4.setText("Cartes libération de rattrapages : " + tabJoueurs[3].nbCartes);
+                tabJoueurs[3].pion.coordX=2;
+                tabJoueurs[3].pion.coordY=63;
+                tabJoueurs[3].pion.taille=24;
+                plateauJeu.orientation4=plateauJeu.gauche4;
+                Libération4.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[3].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -481,7 +545,17 @@ public class Monopoly_EPF extends JFrame {
         PayerPrison1.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
         PayerPrison1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                tabJoueurs[0].prison=false;
+                tabJoueurs[0].compteurTourPrison=0;
+                tabJoueurs[0].credits-=50;
+                credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                tabJoueurs[0].pion.coordX=61;
+                tabJoueurs[0].pion.coordY=2;
+                tabJoueurs[0].pion.taille=24;
+                plateauJeu.orientation1=plateauJeu.haut1;
+                PayerPrison1.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[0].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -495,7 +569,17 @@ public class Monopoly_EPF extends JFrame {
         PayerPrison2.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
         PayerPrison2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                tabJoueurs[1].prison=false;
+                tabJoueurs[1].compteurTourPrison=0;
+                tabJoueurs[1].credits-=50;
+                credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                tabJoueurs[1].pion.coordX=18;
+                tabJoueurs[1].pion.coordY=2;
+                tabJoueurs[1].pion.taille=24;
+                plateauJeu.orientation2=plateauJeu.haut2;
+                PayerPrison2.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[1].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -509,7 +593,17 @@ public class Monopoly_EPF extends JFrame {
         PayerPrison3.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
         PayerPrison3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                tabJoueurs[2].prison=false;
+                tabJoueurs[2].compteurTourPrison=0;
+                tabJoueurs[2].credits-=50;
+                credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                tabJoueurs[2].pion.coordX=2;
+                tabJoueurs[2].pion.coordY=20;
+                tabJoueurs[2].pion.taille=24;
+                plateauJeu.orientation3=plateauJeu.gauche3;
+                PayerPrison3.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[2].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -523,7 +617,17 @@ public class Monopoly_EPF extends JFrame {
         PayerPrison4.setFont(new Font("Payer 50 ECTS", Font.BOLD, 10));
         PayerPrison4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                tabJoueurs[3].prison=false;
+                tabJoueurs[3].compteurTourPrison=0;
+                tabJoueurs[3].credits-=50;
+                credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                tabJoueurs[3].pion.coordX=2;
+                tabJoueurs[3].pion.coordY=63;
+                tabJoueurs[3].pion.taille=24;
+                plateauJeu.orientation4=plateauJeu.gauche4;
+                PayerPrison4.setVisible(false);
+                plateauJeu.repaint();
+                zone_texte_infos.setText(tabJoueurs[3].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
         });
         this.repaint();
@@ -618,7 +722,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 fin_de_tour1.setVisible(false);
                 Lancer_des.setEnabled(true);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -713,7 +817,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 fin_de_tour2.setVisible(false);
                 Lancer_des.setEnabled(true);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -808,7 +912,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 fin_de_tour3.setVisible(false);
                 Lancer_des.setEnabled(true);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -903,7 +1007,7 @@ public class Monopoly_EPF extends JFrame {
                 }
                 fin_de_tour4.setVisible(false);
                 Lancer_des.setEnabled(true);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -1051,7 +1155,7 @@ public class Monopoly_EPF extends JFrame {
                 Lancer_des.setEnabled(true);
                 fin_de_tour1.setVisible(false);
                 Acheter1.setVisible(false);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -1143,7 +1247,7 @@ public class Monopoly_EPF extends JFrame {
                 Lancer_des.setEnabled(true);
                 fin_de_tour2.setVisible(false);
                 Acheter2.setVisible(false);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -1235,7 +1339,7 @@ public class Monopoly_EPF extends JFrame {
                 Lancer_des.setEnabled(true);
                 fin_de_tour3.setVisible(false);
                 Acheter3.setVisible(false);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -1327,7 +1431,7 @@ public class Monopoly_EPF extends JFrame {
                 Lancer_des.setEnabled(true);
                 fin_de_tour4.setVisible(false);
                 Acheter4.setVisible(false);
-                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
             }
         });
         this.repaint();
@@ -1453,8 +1557,8 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.prison!=true) {
                             /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
                             deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+2)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,2%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -1462,7 +1566,7 @@ public class Monopoly_EPF extends JFrame {
                                 joueurCourant.compteurTourPrison=0;
                                 joueurCourant.prison=false;
                                 Lancer_des.setEnabled(true);
-                                zone_texte_infos.setText(joueurCourant.nom + " vous échappez miraculeusement aux rattrapages\n en réalisant un double!\nVous sortez donc des rattrapages et pouvez lancer les dés!");
+                                zone_texte_infos.setText(joueurCourant.nom + " vous échappez miraculeusement aux rattrapages en réalisant un double! Vous sortez donc des rattrapages et pouvez lancer les dés!");
                             }
                             else {
                                 changerJoueur();
@@ -1531,7 +1635,7 @@ public class Monopoly_EPF extends JFrame {
                                     PayerPrison4.setVisible(true);
                                 }
                                 Lancer_des.setEnabled(true);
-                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                             }
                         }
                         } catch (InterruptedException e) {
@@ -1575,7 +1679,7 @@ public class Monopoly_EPF extends JFrame {
                 
             }});
         this.repaint();
-        
+
         Payer_Jousset = new JButton();
         Payer_Jousset.setBounds(57,680,250,100);
         Payer_Jousset.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
@@ -1667,7 +1771,7 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         
         nbCartes4 = new JLabel("Cartes libération de rattrapages : ");
-        Dimension text_nbCartes14 = nbCartes4.getPreferredSize();
+        Dimension text_nbCartes4 = nbCartes4.getPreferredSize();
         nbCartes4.setFont(new Font("Cartes libération de rattrapages : ", Font.BOLD, 9));
         infos_joueurs4.add(nbCartes4, new org.netbeans.lib.awtextra.AbsoluteConstraints(187,120));
         this.repaint();
@@ -2521,7 +2625,7 @@ public class Monopoly_EPF extends JFrame {
                     choixcom=2;
                     carte="";
                     cartespéciale="";
-                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                     }
                 });
                 Cartechance.addActionListener(new java.awt.event.ActionListener() {
@@ -2696,7 +2800,7 @@ public class Monopoly_EPF extends JFrame {
                                 choixcom=2;
                                 carte="";
                                 cartespéciale="";
-                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                                 plateauJeu.repaint();
                             }
                         }
@@ -2809,7 +2913,7 @@ public class Monopoly_EPF extends JFrame {
             }
             argentParcGratuit = argentParcGratuit + 200;
             LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
-            zone_texte_infos.setText(joueurCourant.nom + ", vous avez triché!!! \nVous payez 200 ECTS et repassez le CC en tête à tête avec François Stephan!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous avez triché!!! Vous payez 200 ECTS et repassez le CC en tête à tête avec François Stephan!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[38]) { //deuxième taxe
@@ -2828,7 +2932,7 @@ public class Monopoly_EPF extends JFrame {
             }
             argentParcGratuit = argentParcGratuit + 100;
             LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
-            zone_texte_infos.setText(joueurCourant.nom + ", vous cumulez trop d'absences!\nPayez 100 ECTS et vennez en cours sans quoi une année de plus à suivre les CM's de Barandon vous attends!!!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous cumulez trop d'absences ! Payez 100 ECTS et vennez en cours sans quoi une année de plus à suivre les CM's de Barandon vous attends!!!");
             return true;
         }
         else if (caseDuJoueur == plateau.plateaudejeu[20]) { //parc gratuit
@@ -2845,7 +2949,7 @@ public class Monopoly_EPF extends JFrame {
             else if(joueurCourant==tabJoueurs[3]) {
                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
             }
-            zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!!\nVous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous majorez le partiel de maths abs à 55%!!! Vous recevez " + argentParcGratuit + " ECTS et les félicitations de la direction!");
             argentParcGratuit = 0;
             LabelParcGratuit.setText("<html>Credits : <br/>"+argentParcGratuit+" ECTS");
             return true;
@@ -2853,7 +2957,7 @@ public class Monopoly_EPF extends JFrame {
         else if (caseDuJoueur == plateau.plateaudejeu[30]) { //prison
             joueurCourant.prison = true;
             carte="Jousset";
-            zone_texte_infos.setText(joueurCourant.nom + ", vos notes sont trop faibles!\nAllez aux rattrapages et validez-les pour espérer passer l'année");
+            zone_texte_infos.setText(joueurCourant.nom + ", vos notes sont trop faibles!\nAllez aux rattrapages et validez-les pour espérer passer l'année!");
             if(joueurCourant==tabJoueurs[0]) {
                 Thread thread1 = new Thread(){
                     public void run(){
@@ -3277,7 +3381,7 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire.nom + " qui en est le respo! Vous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
@@ -3287,7 +3391,7 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance des micro-ondes à " + caseDuJoueur.proprietaire.nom + " qui en est le respo! Vous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
                 return true;
             }
         }
@@ -3299,7 +3403,7 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenace du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenace du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo! Vous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
                 return true;
             }
             else {
@@ -3309,30 +3413,30 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo! Vous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
                 return true;
             }
         }
         else if (caseDuJoueur == plateau.plateaudejeu[5] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
-            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "Vous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         else if (caseDuJoueur == plateau.plateaudejeu[15] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
-            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "Vous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         else if (caseDuJoueur == plateau.plateaudejeu[25] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
-            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire.nom + "Vous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         else if (caseDuJoueur == plateau.plateaudejeu[35] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) {
             payerloyer(caseDuJoueur);
-            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire .nom+ "!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous tombez dans un des lieux iconiques préférés de " + caseDuJoueur.proprietaire .nom+ "Vous lui versez " + caseDuJoueur.loyer + " ECTS pour vous excuser!");
         }
         
         else if (caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) { //autre cases déjà achetées
             payerloyer(caseDuJoueur);
-            zone_texte_infos.setText(joueurCourant.nom + ", vous entrez en " + joueurCourant.pion.caseassociee.nom + ", la salle où " + caseDuJoueur.proprietaire.nom + " est en train de réviser!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour utiliser son matériel.");
+            zone_texte_infos.setText(joueurCourant.nom + ", vous entrez en " + joueurCourant.pion.caseassociee.nom + ", la salle où " + caseDuJoueur.proprietaire.nom + " est en train de réviser! Vous lui versez " + caseDuJoueur.loyer + " ECTS pour utiliser son matériel.");
             return true;
         }
         else if (caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire==joueurCourant) { //autre cases déjà achetées
@@ -3376,6 +3480,9 @@ public class Monopoly_EPF extends JFrame {
         for (int i=0; i<16; i++) {
             if(paquet.tabstatuts[i] == true) {
                 paquet.tabstatuts[i] = false;
+                if(paquet.paquetVide()==true) {
+                    paquet.MAJtab();
+                }
                 return paquet.paquet[i];
             }
         }
@@ -3403,7 +3510,6 @@ public class Monopoly_EPF extends JFrame {
             }
             else if (id==3) {
                 joueurCourant.recuperercarte(carteTiree);
-                joueurCourant.nbCartes++;
                 if(joueurCourant==tabJoueurs[0]) {
                     nbCartes1.setText("Cartes libération de rattrapages : " + tabJoueurs[0].nbCartes);
                 }
@@ -4562,7 +4668,6 @@ public class Monopoly_EPF extends JFrame {
     }
     
     public void DeplacerPion(Pion pionCourant, Case caseouAller, String typeDeplacement) {
-        System.out.println(mini);
         negatif=false;
         if(carte=="com12" || carte=="chance1" || typeDeplacement=="Case départ") {
             negatif=true;
@@ -5358,7 +5463,7 @@ public class Monopoly_EPF extends JFrame {
                                         PayerPrison4.setVisible(true);
                                     }
                                     Lancer_des.setEnabled(true);
-                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                                     plateauJeu.repaint();
                                 }
                             };
@@ -5461,7 +5566,7 @@ public class Monopoly_EPF extends JFrame {
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
-                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                             plateauJeu.repaint();
                         }
                     };
@@ -5564,7 +5669,7 @@ public class Monopoly_EPF extends JFrame {
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
-                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                             plateauJeu.repaint();
                         }
                     };
@@ -5667,7 +5772,7 @@ public class Monopoly_EPF extends JFrame {
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
-                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                             plateauJeu.repaint();
                         }
                     };
@@ -5769,7 +5874,7 @@ public class Monopoly_EPF extends JFrame {
                                 PayerPrison4.setVisible(true);
                             }
                             Lancer_des.setEnabled(true);
-                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                         }
                     }
                     else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[30]) {
@@ -5842,7 +5947,7 @@ public class Monopoly_EPF extends JFrame {
                             PayerPrison4.setVisible(true);
                         }
                         Lancer_des.setEnabled(true);
-                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                         plateauJeu.repaint();
                     }
                     plateauJeu.repaint();
@@ -6037,7 +6142,6 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         deplacerPion(joueurCourant.pion,déplacement,joueurCourant.pion.caseassociee);
-                        System.out.println(pionCourant.caseassociee.nom);
                         carte="";
                     }
                     else if(cartespéciale=="com4" && choixcom==1 && carte!="chance13") {
@@ -6107,7 +6211,7 @@ public class Monopoly_EPF extends JFrame {
                             PayerPrison4.setVisible(true);
                         }
                         Lancer_des.setEnabled(true);
-                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières\nsi vous le pouvez, sinon tirez les dés!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
                         plateauJeu.repaint();
                         carte="";
                         cartespéciale="";
@@ -6130,7 +6234,6 @@ public class Monopoly_EPF extends JFrame {
                                 }
                                 DeplacerPion(tabJoueurs[0].pion, plateau.plateaudejeu[0], "Case départ");
                                 deplacerPion(tabJoueurs[0].pion,40-J1,plateau.plateaudejeu[J1]);
-                                System.out.println(tabJoueurs[0].pion.caseassociee.nom);
                                 tabJoueurs[0].credits = tabJoueurs[0].credits + 200;
                                 credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                                 zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + tabJoueurs[0].nom + " vous vous arrêtez au début d'année et touchez 200 ECTS car c'est la JPO!");
@@ -6147,7 +6250,6 @@ public class Monopoly_EPF extends JFrame {
                                 }
                                 DeplacerPion(tabJoueurs[1].pion, plateau.plateaudejeu[0], "Case départ");
                                 deplacerPion(tabJoueurs[1].pion,40-J2,plateau.plateaudejeu[J2]);
-                                System.out.println(tabJoueurs[0].pion.caseassociee.nom);
                                 tabJoueurs[1].credits = tabJoueurs[1].credits + 200;
                                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                                 zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + tabJoueurs[1].nom + " vous vous arrêtez au début d'année et touchez 200 ECTS car c'est la JPO!");
@@ -6164,7 +6266,6 @@ public class Monopoly_EPF extends JFrame {
                                 }
                                 DeplacerPion(tabJoueurs[2].pion, plateau.plateaudejeu[0], "Case départ");
                                 deplacerPion(tabJoueurs[2].pion,40-J3,plateau.plateaudejeu[J3]);
-                                System.out.println(tabJoueurs[0].pion.caseassociee.nom);
                                 tabJoueurs[2].credits = tabJoueurs[2].credits + 200;
                                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                                 zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + tabJoueurs[2].nom + " vous vous arrêtez au début d'année et touchez 200 ECTS car c'est la JPO!");
@@ -6181,7 +6282,6 @@ public class Monopoly_EPF extends JFrame {
                                 }
                                 DeplacerPion(tabJoueurs[3].pion, plateau.plateaudejeu[0], "Case départ");
                                 deplacerPion(tabJoueurs[3].pion,40-J4,plateau.plateaudejeu[J4]);
-                                System.out.println(tabJoueurs[0].pion.caseassociee.nom);
                                 tabJoueurs[3].credits = tabJoueurs[3].credits + 200;
                                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
                                 zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + tabJoueurs[3].nom + " vous vous arrêtez au début d'année et touchez 200 ECTS car c'est la JPO!");
