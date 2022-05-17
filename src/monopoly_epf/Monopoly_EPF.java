@@ -3129,6 +3129,10 @@ public class Monopoly_EPF extends JFrame {
             zone_texte_infos.setText(joueurCourant.nom + ", vous entrez en " + joueurCourant.pion.caseassociee.nom + ", la salle où " + caseDuJoueur.proprietaire.nom + " est en train de réviser!\nVous lui versez " + caseDuJoueur.loyer + " ECTS pour utiliser son matériel.");
             return true;
         }
+        else if (caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire==joueurCourant) { //autre cases déjà achetées
+            zone_texte_infos.setText(joueurCourant.nom + ", vous entrez dans votre salle " + joueurCourant.pion.caseassociee.nom + ", les partiels approchent, révisez bien.");
+            return true;
+        }
         return false;
     }
      
