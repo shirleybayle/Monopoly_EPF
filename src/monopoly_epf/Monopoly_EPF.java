@@ -1447,10 +1447,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+7)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,7%40,plateau.plateaudejeu[caseActuelle]);*/
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+7)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,7%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -3085,7 +3085,7 @@ public class Monopoly_EPF extends JFrame {
                 return true;
             }
         }
-        else if (caseDuJoueur == plateau.plateaudejeu[28] && caseDuJoueur.proprietaire != null) { //deuxième compagnie déjà achetée
+        else if (caseDuJoueur == plateau.plateaudejeu[28] && caseDuJoueur.proprietaire != null && caseDuJoueur.proprietaire!=joueurCourant) { //deuxième compagnie déjà achetée
             if (caseDuJoueur.proprietaire == plateau.plateaudejeu[12].proprietaire) {
                 joueurCourant.credits = joueurCourant.credits - (de1.valeur + de2.valeur)*10;
                 caseDuJoueur.proprietaire.credits = caseDuJoueur.proprietaire.credits + (de1.valeur + de2.valeur)*10;
@@ -3103,7 +3103,7 @@ public class Monopoly_EPF extends JFrame {
                 credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
                 credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
                 credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
-                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*10 + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + ", vous devez payer la maintenance du chauffage à " + caseDuJoueur.proprietaire.nom + " qui en est le respo!\nVous lui versez " + (de1.valeur + de2.valeur)*4 + " ECTS!");
                 return true;
             }
         }
