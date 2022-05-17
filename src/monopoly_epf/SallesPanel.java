@@ -21,11 +21,11 @@ public class SallesPanel extends JPanel{
         try {
             Image img = ImageIO.read(new File("src/image/Salles.png"));
             g.drawImage(img, 0, 0, 977, 723, this);
-            Image pionC = ImageIO.read(new File("PionCalculatrice3_gauche"));
-            Image pionD = ImageIO.read(new File("PionDiode3_gauche"));
-            Image pionE = ImageIO.read(new File("PionErlenmeyer3_gauche"));
-            Image pionO = ImageIO.read(new File("PionOlga3_gauche"));
-            g.drawImage(pionC, 0, 0, 45, 45, this); // ça fonctionne pas ?
+            Image pionC = ImageIO.read(new File("PionCalculatrice3_gauche.png"));
+            Image pionD = ImageIO.read(new File("PionDiode3_gauche.png"));
+            Image pionE = ImageIO.read(new File("PionErlenmeyer3_gauche.png"));
+            Image pionO = ImageIO.read(new File("PionOlga3_gauche.png"));
+            g.drawImage(pionC, 0, 0, 45, 45, this); 
         } catch(IOException e){
             e.printStackTrace();
         }
