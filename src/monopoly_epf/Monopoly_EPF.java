@@ -61,6 +61,7 @@ public class Monopoly_EPF extends JFrame {
     int compteur=0;
     int compteurlocal=0;
     boolean mini=false;
+    boolean tripledouble=false;
     
     public Monopoly_EPF(){
         super("Monopoly EPF");
@@ -440,6 +441,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[0].pion.taille=24;
                 plateauJeu.orientation1=plateauJeu.haut1;
                 Libération1.setVisible(false);
+                PayerPrison1.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[0].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -470,6 +472,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[1].pion.taille=24;
                 plateauJeu.orientation2=plateauJeu.haut2;
                 Libération2.setVisible(false);
+                PayerPrison2.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[1].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -500,6 +503,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[2].pion.taille=24;
                 plateauJeu.orientation3=plateauJeu.gauche3;
                 Libération3.setVisible(false);
+                PayerPrison3.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[2].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -530,6 +534,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[3].pion.taille=24;
                 plateauJeu.orientation4=plateauJeu.gauche4;
                 Libération4.setVisible(false);
+                PayerPrison4.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[3].nom + " vous utilisez une carte vous libérant des rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -554,6 +559,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[0].pion.taille=24;
                 plateauJeu.orientation1=plateauJeu.haut1;
                 PayerPrison1.setVisible(false);
+                Libération1.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[0].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -578,6 +584,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[1].pion.taille=24;
                 plateauJeu.orientation2=plateauJeu.haut2;
                 PayerPrison2.setVisible(false);
+                Libération2.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[1].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -602,6 +609,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[2].pion.taille=24;
                 plateauJeu.orientation3=plateauJeu.gauche3;
                 PayerPrison3.setVisible(false);
+                Libération3.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[2].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -626,6 +634,7 @@ public class Monopoly_EPF extends JFrame {
                 tabJoueurs[3].pion.taille=24;
                 plateauJeu.orientation4=plateauJeu.gauche4;
                 PayerPrison4.setVisible(false);
+                Libération4.setVisible(false);
                 plateauJeu.repaint();
                 zone_texte_infos.setText(tabJoueurs[3].nom + " vous payez pour éviter les rattrapages, lancez les dés et faites en sorte de valider vos matières la prochaine fois!");
             }
@@ -1472,6 +1481,7 @@ public class Monopoly_EPF extends JFrame {
                         carte="";
                         cartespéciale="";
                         choixcom=2;
+                        tripledouble=false;
                         try {
                             for (int i = 0; i < 6; i++) {
                                 dé1.setVisible(true);
@@ -1547,7 +1557,14 @@ public class Monopoly_EPF extends JFrame {
                         else {
                             dé6V2.setVisible(true);
                         }
+                        if(joueurCourant.prison==false) {
                         zone_texte_infos.setText(joueurCourant.nom + " vous avancez de " + (de1.valeur+de2.valeur) + " cases!");
+                        }
+                        else {
+                            if(de1.valeur!=de2.valeur) {
+                                zone_texte_infos.setText(joueurCourant.nom + " vos doubles ne vous permettent pas d'éviter les rattrapages cette fois-ci, rendez-vous à la prochaine kholle!");
+                            }
+                        }
                         int caseActuelle = 0;
                         for(int i=0;i<plateau.plateaudejeu.length;i++) {
                             if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[i]) {
@@ -1555,10 +1572,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);*/
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -5327,7 +5344,9 @@ public class Monopoly_EPF extends JFrame {
                         }
                     }
                     if(compteurDouble+1==3 && de1.valeur==de2.valeur) {
+                        tripledouble=true;
                         joueurCourant.prison=true;
+                        zone_texte_infos.setText(zone_texte_infos.getText() + " vous réalisez un troisième double d'affilée ce qui vous envoie aux rattrapges. Bonne chance pour les kholles!");
                         compteurDouble++;
                         int ouonest=0;
                         for(int i=0;i<plateau.plateaudejeu.length;i++){
@@ -5855,7 +5874,7 @@ public class Monopoly_EPF extends JFrame {
                     else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[30]) {
                         carte="Jousset";
                     }
-                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance2" && carte!="chance3"  && carte!="chance4" && carte!="chance10" && carte!="chance13" && cartespéciale!="com4") {
+                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance2" && carte!="chance3"  && carte!="chance4" && carte!="chance10" && carte!="chance13" && cartespéciale!="com4" && tripledouble==false) {
                         changerJoueur();
                         compteurDouble=0;
                         while(joueurCourant.droitdejouer==false) {
