@@ -247,7 +247,7 @@ public class Case {
                 coordY = 738;
                 break;
             case(22) : //Il manque les gares et les compagnies --> Gares et compagnie à la suite des autres
-                nom = "Cour de récréation";
+                nom = "Cour";
                 prixTerrain = 200;
                 couleur = "gare";
                 loyerIn = 25;

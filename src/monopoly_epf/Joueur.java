@@ -72,11 +72,12 @@ public class Joueur {
     }
     
     public void recuperercarte(Carte cartearecuperer) {
-        if (cartearecuperer.texte == ""){ //carte sortir de prison
+        if (cartearecuperer.texte == "Vous êtes libéré de rattrapages, cette carte peut être conservée jusqu’à ce qu’elle soit utilisée."){ //carte sortir de prison
             for (int i=0; i<2; i++) {
                 if (tabCartes[i] == null){
                     tabCartes[i] = cartearecuperer;
                     nbCartes++;
+                    break;
                 }
             }
         }
