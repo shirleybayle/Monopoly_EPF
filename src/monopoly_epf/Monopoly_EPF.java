@@ -152,7 +152,7 @@ public class Monopoly_EPF extends JFrame {
         this.repaint();
         Regles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JFrame FrameRegles = new JFrame();
+                JFrame FrameRegles = new JFrame("Règles du jeu");
                 FrameRegles.setBounds(325, 0, 900, 900);
                 FrameRegles.setVisible(true);
                 FrameRegles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1544,6 +1544,18 @@ public class Monopoly_EPF extends JFrame {
         });
         this.repaint();
         
+        
+        Panelsalle = new SallesPanel();
+        Panelsalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Panelsalle.setVisible(true);
+        Panelsalle.setBackground(Color.YELLOW);
+        Panelsalle.setPreferredSize(new Dimension(977,723));
+        
+        LabelSalles = new JLabel("A gauche de chaque salle se trouve le pion du joueur proprietaire de la salle.");
+        Dimension Labelsallesdim = LabelSalles.getPreferredSize();
+        LabelSalles.setFont(new Font("Monopoly", Font.BOLD, 20));
+        LabelSalles.setForeground(Color.red);
+        
         Salles = new JButton();
         Salles.setBounds(180, 70, 170, 60);
         Salles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -1551,6 +1563,17 @@ public class Monopoly_EPF extends JFrame {
         Salles.setBackground(Color.BLUE);
         Salles.setText("Salles");
         Salles.setFont(new Font("Salles", Font.BOLD, 16));
+        Salles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JFrame FrameSalle = new JFrame("Salles");
+                FrameSalle.setBounds(280, 30, 1100, 800);
+                FrameSalle.setVisible(true);
+                FrameSalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                FrameSalle.add(Panelsalle,new org.netbeans.lib.awtextra.AbsoluteConstraints(60,0,-1,-1));
+                FrameSalle.add(LabelSalles,new org.netbeans.lib.awtextra.AbsoluteConstraints(250,730,-1,-1));
+                FrameSalle.repaint();
+                
+            }});
         this.repaint();
         
         Payer_Jousset = new JButton();
@@ -2088,6 +2111,8 @@ public class Monopoly_EPF extends JFrame {
     private JScrollPane Regles_pane;
     private JLabel Regles_LabelTitre;
     private JLabel LabelParcGratuit;
+    SallesPanel Panelsalle;
+    private JLabel LabelSalles;
     
     
     public static void main(String[] args) {
@@ -4480,7 +4505,7 @@ public class Monopoly_EPF extends JFrame {
         SallesPossedees2.setVisible(false);
         SallesPossedees3.setVisible(false);
         SallesPossedees4.setVisible(false);
-        Salles.setEnabled(false);
+        Salles.setEnabled(true);
         credits1.setVisible(false);
         credits2.setVisible(false);
         credits3.setVisible(false);
