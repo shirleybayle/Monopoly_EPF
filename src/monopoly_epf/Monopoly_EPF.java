@@ -676,15 +676,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -771,15 +791,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -866,15 +906,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -961,15 +1021,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -1108,15 +1188,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -1200,15 +1300,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -1292,15 +1412,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -1384,15 +1524,35 @@ public class Monopoly_EPF extends JFrame {
                     joueurCourant.prison=false;
                     joueurCourant.credits=joueurCourant.credits-50;
                     if(joueurCourant==tabJoueurs[0]) {
+                        tabJoueurs[0].pion.coordX=61;
+                        tabJoueurs[0].pion.coordY=2;
+                        tabJoueurs[0].pion.taille=24;
+                        plateauJeu.orientation1=plateauJeu.haut1;
+                        plateauJeu.repaint();
                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[1]) {
+                        tabJoueurs[1].pion.coordX=18;
+                        tabJoueurs[1].pion.coordY=2;
+                        tabJoueurs[1].pion.taille=24;
+                        plateauJeu.orientation2=plateauJeu.haut2;
+                        plateauJeu.repaint();
                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[2]) {
+                        tabJoueurs[2].pion.coordX=2;
+                        tabJoueurs[2].pion.coordY=20;
+                        tabJoueurs[2].pion.taille=24;
+                        plateauJeu.orientation3=plateauJeu.gauche3;
+                        plateauJeu.repaint();
                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     else if(joueurCourant==tabJoueurs[3]) {
+                        tabJoueurs[3].pion.coordX=2;
+                        tabJoueurs[3].pion.coordY=63;
+                        tabJoueurs[3].pion.taille=24;
+                        plateauJeu.orientation4=plateauJeu.gauche4;
+                        plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -1572,16 +1732,47 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);*/
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);
                         }
                         else {
-                            joueurCourant.compteurTourPrison++;
                             if(de1.valeur==de2.valeur) {
                                 joueurCourant.compteurTourPrison=0;
                                 joueurCourant.prison=false;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
                                 Lancer_des.setEnabled(true);
                                 zone_texte_infos.setText(joueurCourant.nom + " vous échappez miraculeusement aux rattrapages en réalisant un double! Vous sortez donc des rattrapages et pouvez lancer les dés!");
                             }
@@ -1598,15 +1789,35 @@ public class Monopoly_EPF extends JFrame {
                                     joueurCourant.prison=false;
                                     joueurCourant.credits=joueurCourant.credits-50;
                                     if(joueurCourant==tabJoueurs[0]) {
+                                        tabJoueurs[0].pion.coordX=61;
+                                        tabJoueurs[0].pion.coordY=2;
+                                        tabJoueurs[0].pion.taille=24;
+                                        plateauJeu.orientation1=plateauJeu.haut1;
+                                        plateauJeu.repaint();
                                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     else if(joueurCourant==tabJoueurs[1]) {
+                                        tabJoueurs[1].pion.coordX=18;
+                                        tabJoueurs[1].pion.coordY=2;
+                                        tabJoueurs[1].pion.taille=24;
+                                        plateauJeu.orientation2=plateauJeu.haut2;
+                                        plateauJeu.repaint();
                                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     else if(joueurCourant==tabJoueurs[2]) {
+                                        tabJoueurs[2].pion.coordX=2;
+                                        tabJoueurs[2].pion.coordY=20;
+                                        tabJoueurs[2].pion.taille=24;
+                                        plateauJeu.orientation3=plateauJeu.gauche3;
+                                        plateauJeu.repaint();
                                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     else if(joueurCourant==tabJoueurs[3]) {
+                                        tabJoueurs[3].pion.coordX=2;
+                                        tabJoueurs[3].pion.coordY=63;
+                                        tabJoueurs[3].pion.taille=24;
+                                        plateauJeu.orientation4=plateauJeu.gauche4;
+                                        plateauJeu.repaint();
                                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -1652,7 +1863,12 @@ public class Monopoly_EPF extends JFrame {
                                     PayerPrison4.setVisible(true);
                                 }
                                 Lancer_des.setEnabled(true);
-                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                                if(joueurCourant.prison!=true) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                                }
+                                else {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages!");
+                                }
                             }
                         }
                         } catch (InterruptedException e) {
@@ -2584,15 +2800,35 @@ public class Monopoly_EPF extends JFrame {
                         joueurCourant.prison=false;
                         joueurCourant.credits=joueurCourant.credits-50;
                         if(joueurCourant==tabJoueurs[0]) {
+                            tabJoueurs[0].pion.coordX=61;
+                            tabJoueurs[0].pion.coordY=2;
+                            tabJoueurs[0].pion.taille=24;
+                            plateauJeu.orientation1=plateauJeu.haut1;
+                            plateauJeu.repaint();
                             credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
                         else if(joueurCourant==tabJoueurs[1]) {
+                            tabJoueurs[1].pion.coordX=18;
+                            tabJoueurs[1].pion.coordY=2;
+                            tabJoueurs[1].pion.taille=24;
+                            plateauJeu.orientation2=plateauJeu.haut2;
+                            plateauJeu.repaint();
                             credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
                         else if(joueurCourant==tabJoueurs[2]) {
+                            tabJoueurs[2].pion.coordX=2;
+                            tabJoueurs[2].pion.coordY=20;
+                            tabJoueurs[2].pion.taille=24;
+                            plateauJeu.orientation3=plateauJeu.gauche3;
+                            plateauJeu.repaint();
                             credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
                         else if(joueurCourant==tabJoueurs[3]) {
+                            tabJoueurs[3].pion.coordX=2;
+                            tabJoueurs[3].pion.coordY=63;
+                            tabJoueurs[3].pion.taille=24;
+                            plateauJeu.orientation4=plateauJeu.gauche4;
+                            plateauJeu.repaint();
                             credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
                         zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -2760,15 +2996,35 @@ public class Monopoly_EPF extends JFrame {
                                     joueurCourant.prison=false;
                                     joueurCourant.credits=joueurCourant.credits-50;
                                     if(joueurCourant==tabJoueurs[0]) {
+                                        tabJoueurs[0].pion.coordX=61;
+                                        tabJoueurs[0].pion.coordY=2;
+                                        tabJoueurs[0].pion.taille=24;
+                                        plateauJeu.orientation1=plateauJeu.haut1;
+                                        plateauJeu.repaint();
                                         credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     else if(joueurCourant==tabJoueurs[1]) {
+                                        tabJoueurs[1].pion.coordX=18;
+                                        tabJoueurs[1].pion.coordY=2;
+                                        tabJoueurs[1].pion.taille=24;
+                                        plateauJeu.orientation2=plateauJeu.haut2;
+                                        plateauJeu.repaint();
                                         credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     else if(joueurCourant==tabJoueurs[2]) {
+                                        tabJoueurs[2].pion.coordX=2;
+                                        tabJoueurs[2].pion.coordY=20;
+                                        tabJoueurs[2].pion.taille=24;
+                                        plateauJeu.orientation3=plateauJeu.gauche3;
+                                        plateauJeu.repaint();
                                         credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     else if(joueurCourant==tabJoueurs[3]) {
+                                        tabJoueurs[3].pion.coordX=2;
+                                        tabJoueurs[3].pion.coordY=63;
+                                        tabJoueurs[3].pion.taille=24;
+                                        plateauJeu.orientation4=plateauJeu.gauche4;
+                                        plateauJeu.repaint();
                                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
                                     zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -2974,7 +3230,7 @@ public class Monopoly_EPF extends JFrame {
         else if (caseDuJoueur == plateau.plateaudejeu[30]) { //prison
             joueurCourant.prison = true;
             carte="Jousset";
-            zone_texte_infos.setText(joueurCourant.nom + ", vos notes sont trop faibles!\nAllez aux rattrapages et validez-les pour espérer passer l'année!");
+            zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + ", vos notes sont trop faibles!\nAllez aux rattrapages et validez-les pour espérer passer l'année!");
             if(joueurCourant==tabJoueurs[0]) {
                 Thread thread1 = new Thread(){
                     public void run(){
@@ -3018,15 +3274,35 @@ public class Monopoly_EPF extends JFrame {
                             joueurCourant.prison=false;
                             joueurCourant.credits=joueurCourant.credits-50;
                             if(joueurCourant==tabJoueurs[0]) {
+                                tabJoueurs[0].pion.coordX=61;
+                                tabJoueurs[0].pion.coordY=2;
+                                tabJoueurs[0].pion.taille=24;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                                plateauJeu.repaint();
                                 credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[1]) {
+                                tabJoueurs[1].pion.coordX=18;
+                                tabJoueurs[1].pion.coordY=2;
+                                tabJoueurs[1].pion.taille=24;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                                plateauJeu.repaint();
                                 credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[2]) {
+                                tabJoueurs[2].pion.coordX=2;
+                                tabJoueurs[2].pion.coordY=20;
+                                tabJoueurs[2].pion.taille=24;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                                plateauJeu.repaint();
                                 credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[3]) {
+                                tabJoueurs[3].pion.coordX=2;
+                                tabJoueurs[3].pion.coordY=63;
+                                tabJoueurs[3].pion.taille=24;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                                plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -3121,15 +3397,35 @@ public class Monopoly_EPF extends JFrame {
                             joueurCourant.prison=false;
                             joueurCourant.credits=joueurCourant.credits-50;
                             if(joueurCourant==tabJoueurs[0]) {
+                                tabJoueurs[0].pion.coordX=61;
+                                tabJoueurs[0].pion.coordY=2;
+                                tabJoueurs[0].pion.taille=24;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                                plateauJeu.repaint();
                                 credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[1]) {
+                                tabJoueurs[1].pion.coordX=18;
+                                tabJoueurs[1].pion.coordY=2;
+                                tabJoueurs[1].pion.taille=24;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                                plateauJeu.repaint();
                                 credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[2]) {
+                                tabJoueurs[2].pion.coordX=2;
+                                tabJoueurs[2].pion.coordY=20;
+                                tabJoueurs[2].pion.taille=24;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                                plateauJeu.repaint();
                                 credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[3]) {
+                                tabJoueurs[3].pion.coordX=2;
+                                tabJoueurs[3].pion.coordY=63;
+                                tabJoueurs[3].pion.taille=24;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                                plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -3224,15 +3520,35 @@ public class Monopoly_EPF extends JFrame {
                             joueurCourant.prison=false;
                             joueurCourant.credits=joueurCourant.credits-50;
                             if(joueurCourant==tabJoueurs[0]) {
+                                tabJoueurs[0].pion.coordX=61;
+                                tabJoueurs[0].pion.coordY=2;
+                                tabJoueurs[0].pion.taille=24;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                                plateauJeu.repaint();
                                 credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[1]) {
+                                tabJoueurs[1].pion.coordX=18;
+                                tabJoueurs[1].pion.coordY=2;
+                                tabJoueurs[1].pion.taille=24;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                                plateauJeu.repaint();
                                 credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[2]) {
+                                tabJoueurs[2].pion.coordX=2;
+                                tabJoueurs[2].pion.coordY=20;
+                                tabJoueurs[2].pion.taille=24;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                                plateauJeu.repaint();
                                 credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[3]) {
+                                tabJoueurs[3].pion.coordX=2;
+                                tabJoueurs[3].pion.coordY=63;
+                                tabJoueurs[3].pion.taille=24;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                                plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -3327,15 +3643,35 @@ public class Monopoly_EPF extends JFrame {
                             joueurCourant.prison=false;
                             joueurCourant.credits=joueurCourant.credits-50;
                             if(joueurCourant==tabJoueurs[0]) {
+                                tabJoueurs[0].pion.coordX=61;
+                                tabJoueurs[0].pion.coordY=2;
+                                tabJoueurs[0].pion.taille=24;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                                plateauJeu.repaint();
                                 credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[1]) {
+                                tabJoueurs[1].pion.coordX=18;
+                                tabJoueurs[1].pion.coordY=2;
+                                tabJoueurs[1].pion.taille=24;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                                plateauJeu.repaint();
                                 credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[2]) {
+                                tabJoueurs[2].pion.coordX=2;
+                                tabJoueurs[2].pion.coordY=20;
+                                tabJoueurs[2].pion.taille=24;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                                plateauJeu.repaint();
                                 credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[3]) {
+                                tabJoueurs[3].pion.coordX=2;
+                                tabJoueurs[3].pion.coordY=63;
+                                tabJoueurs[3].pion.taille=24;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                                plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -5428,15 +5764,35 @@ public class Monopoly_EPF extends JFrame {
                                         joueurCourant.prison=false;
                                         joueurCourant.credits=joueurCourant.credits-50;
                                         if(joueurCourant==tabJoueurs[0]) {
+                                            tabJoueurs[0].pion.coordX=61;
+                                            tabJoueurs[0].pion.coordY=2;
+                                            tabJoueurs[0].pion.taille=24;
+                                            plateauJeu.orientation1=plateauJeu.haut1;
+                                            plateauJeu.repaint();
                                             credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                         }
                                         else if(joueurCourant==tabJoueurs[1]) {
+                                            tabJoueurs[1].pion.coordX=18;
+                                            tabJoueurs[1].pion.coordY=2;
+                                            tabJoueurs[1].pion.taille=24;
+                                            plateauJeu.orientation2=plateauJeu.haut2;
+                                            plateauJeu.repaint();
                                             credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                         }
                                         else if(joueurCourant==tabJoueurs[2]) {
+                                            tabJoueurs[2].pion.coordX=2;
+                                            tabJoueurs[2].pion.coordY=20;
+                                            tabJoueurs[2].pion.taille=24;
+                                            plateauJeu.orientation3=plateauJeu.gauche3;
+                                            plateauJeu.repaint();
                                             credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                         }
                                         else if(joueurCourant==tabJoueurs[3]) {
+                                            tabJoueurs[3].pion.coordX=2;
+                                            tabJoueurs[3].pion.coordY=63;
+                                            tabJoueurs[3].pion.taille=24;
+                                            plateauJeu.orientation4=plateauJeu.gauche4;
+                                            plateauJeu.repaint();
                                             credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                         }
                                         zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -5531,15 +5887,35 @@ public class Monopoly_EPF extends JFrame {
                                 joueurCourant.prison=false;
                                 joueurCourant.credits=joueurCourant.credits-50;
                                 if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
                                     credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
                                     credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
                                     credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -5634,15 +6010,35 @@ public class Monopoly_EPF extends JFrame {
                                 joueurCourant.prison=false;
                                 joueurCourant.credits=joueurCourant.credits-50;
                                 if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
                                     credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
                                     credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
                                     credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -5737,15 +6133,35 @@ public class Monopoly_EPF extends JFrame {
                                 joueurCourant.prison=false;
                                 joueurCourant.credits=joueurCourant.credits-50;
                                 if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
                                     credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
                                     credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
                                     credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -5839,15 +6255,35 @@ public class Monopoly_EPF extends JFrame {
                                 joueurCourant.prison=false;
                                 joueurCourant.credits=joueurCourant.credits-50;
                                 if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
                                     credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
                                     credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
                                     credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
                                 zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -5912,15 +6348,35 @@ public class Monopoly_EPF extends JFrame {
                             joueurCourant.prison=false;
                             joueurCourant.credits=joueurCourant.credits-50;
                             if(joueurCourant==tabJoueurs[0]) {
+                                tabJoueurs[0].pion.coordX=61;
+                                tabJoueurs[0].pion.coordY=2;
+                                tabJoueurs[0].pion.taille=24;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                                plateauJeu.repaint();
                                 credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[1]) {
+                                tabJoueurs[1].pion.coordX=18;
+                                tabJoueurs[1].pion.coordY=2;
+                                tabJoueurs[1].pion.taille=24;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                                plateauJeu.repaint();
                                 credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[2]) {
+                                tabJoueurs[2].pion.coordX=2;
+                                tabJoueurs[2].pion.coordY=20;
+                                tabJoueurs[2].pion.taille=24;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                                plateauJeu.repaint();
                                 credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[3]) {
+                                tabJoueurs[3].pion.coordX=2;
+                                tabJoueurs[3].pion.coordY=63;
+                                tabJoueurs[3].pion.taille=24;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                                plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
@@ -6176,15 +6632,35 @@ public class Monopoly_EPF extends JFrame {
                             joueurCourant.prison=false;
                             joueurCourant.credits=joueurCourant.credits-50;
                             if(joueurCourant==tabJoueurs[0]) {
+                                tabJoueurs[0].pion.coordX=61;
+                                tabJoueurs[0].pion.coordY=2;
+                                tabJoueurs[0].pion.taille=24;
+                                plateauJeu.orientation1=plateauJeu.haut1;
+                                plateauJeu.repaint();
                                 credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[1]) {
+                                tabJoueurs[1].pion.coordX=18;
+                                tabJoueurs[1].pion.coordY=2;
+                                tabJoueurs[1].pion.taille=24;
+                                plateauJeu.orientation2=plateauJeu.haut2;
+                                plateauJeu.repaint();
                                 credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[2]) {
+                                tabJoueurs[2].pion.coordX=2;
+                                tabJoueurs[2].pion.coordY=20;
+                                tabJoueurs[2].pion.taille=24;
+                                plateauJeu.orientation3=plateauJeu.gauche3;
+                                plateauJeu.repaint();
                                 credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             else if(joueurCourant==tabJoueurs[3]) {
+                                tabJoueurs[3].pion.coordX=2;
+                                tabJoueurs[3].pion.coordY=63;
+                                tabJoueurs[3].pion.taille=24;
+                                plateauJeu.orientation4=plateauJeu.gauche4;
+                                plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
                             zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
