@@ -2400,10 +2400,10 @@ public class Monopoly_EPF extends JFrame {
                 cartespéciale="com4";
                 JButton Cartechance = new JButton("Tirer une carte chance");
                 JButton credits10 = new JButton("Perdre 10 credits");
-                FrameCarte.add(Cartechance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20,550));
-                FrameCarte.add(credits10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220,550));
-                Cartechance.setFont(new Font("Monopoly", Font.PLAIN, 17));
-                credits10.setFont(new Font("Monopoly", Font.PLAIN, 17));
+                FrameCarte.add(Cartechance, new org.netbeans.lib.awtextra.AbsoluteConstraints(100,450));
+                FrameCarte.add(credits10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350,450));
+                Cartechance.setFont(new Font("Monopoly", Font.PLAIN, 20));
+                credits10.setFont(new Font("Monopoly", Font.PLAIN, 20));
                 Cartechance.setBackground(Color.YELLOW);
                 credits10.setBackground(Color.YELLOW);
                 credits10.addActionListener(new java.awt.event.ActionListener() {
