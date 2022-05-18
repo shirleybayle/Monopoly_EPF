@@ -5780,7 +5780,7 @@ public class Monopoly_EPF extends JFrame {
                     if(compteurDouble+1==3 && de1.valeur==de2.valeur) {
                         tripledouble=true;
                         joueurCourant.prison=true;
-                        zone_texte_infos.setText(zone_texte_infos.getText() + " vous réalisez un troisième double d'affilée ce qui vous envoie aux rattrapges. Bonne chance pour les kholles!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + " vous réalisez un troisième double d'affilée ce qui vous envoie aux rattrapages. Bonne chance pour les kholles!");
                         compteurDouble++;
                         int ouonest=0;
                         for(int i=0;i<plateau.plateaudejeu.length;i++){
