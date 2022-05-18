@@ -6532,9 +6532,9 @@ public class Monopoly_EPF extends JFrame {
         nbCartes2.setVisible(false);
         nbCartes3.setVisible(false);
         nbCartes4.setVisible(false);
-        tabJoueurs[0].credits = 0;
-        tabJoueurs[1].credits = 0;
-        tabJoueurs[2].credits = 0;
+        tabJoueurs[0].credits = 1500;
+        tabJoueurs[1].credits = 1500;
+        tabJoueurs[2].credits = 1500;
         tabJoueurs[3].credits = 1500;
         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
