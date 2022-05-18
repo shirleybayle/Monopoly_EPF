@@ -1644,7 +1644,7 @@ public class Monopoly_EPF extends JFrame {
             }
         });
         this.repaint();
-        //test 1647
+        
         Lancer_des = new JButton();
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -2029,6 +2029,26 @@ public class Monopoly_EPF extends JFrame {
         Dimension text_infos_partie = Infos_partie.getPreferredSize();
         Infos_partie.setFont(new Font("Infos partie;", Font.BOLD, 15));
         infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
+        this.repaint();
+        
+        pionC = new JLabel(new ImageIcon("PionCalculatrice3_gauche.png"));
+        Dimension pionc = pionC.getPreferredSize();
+        infos_joueurs1.add(pionC, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
+        this.repaint();
+        
+        pionD = new JLabel(new ImageIcon("PionDiode3_gauche.png"));
+        Dimension piond = pionD.getPreferredSize();
+        infos_joueurs2.add(pionD, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
+        this.repaint();
+        
+        pionE = new JLabel(new ImageIcon("PionErlenmeyer3_gauche.png"));
+        Dimension pione = pionE.getPreferredSize();
+        infos_joueurs3.add(pionE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
+        this.repaint();
+        
+        pionO = new JLabel(new ImageIcon("PionOlga3_gauche.png"));
+        Dimension piono = pionO.getPreferredSize();
+        infos_joueurs4.add(pionO, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
         this.repaint();
         
         credits1 = new JLabel("Crédits : " + "ECTS");
@@ -2520,6 +2540,10 @@ public class Monopoly_EPF extends JFrame {
     private JLabel LabelParcGratuit;
     SallesPanel Panelsalle;
     private JLabel LabelSalles;
+    private JLabel pionC;
+    private JLabel pionD;
+    private JLabel pionE;
+    private JLabel pionO;
     
     
     public static void main(String[] args) {
