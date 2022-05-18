@@ -100,7 +100,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs1 = new JPanel();
         infos_joueurs1.setSize(355,200);
-        infos_joueurs1.setBackground(Color.red);
+        infos_joueurs1.setBackground(new Color(255,105,97));
         infos_joueurs1.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,200,355,200));
         infos_joueurs1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,7 +108,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs2 = new JPanel();
         infos_joueurs2.setSize(355,200);
-        infos_joueurs2.setBackground(Color.red);
+        infos_joueurs2.setBackground(new Color(255,105,97));
         infos_joueurs2.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,460,355,200));
         infos_joueurs2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,7 +116,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs3 = new JPanel();
         infos_joueurs3.setSize(355,200);
-        infos_joueurs3.setBackground(Color.red);
+        infos_joueurs3.setBackground(new Color(255,105,97));
         infos_joueurs3.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,200,355,200));
         infos_joueurs3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,7 +124,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs4 = new JPanel();
         infos_joueurs4.setSize(355,200);
-        infos_joueurs4.setBackground(Color.red);
+        infos_joueurs4.setBackground(new Color(255,105,97));
         infos_joueurs4.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,460,355,200));
         infos_joueurs4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -150,7 +150,7 @@ public class Monopoly_EPF extends JFrame {
         Regles.setBounds(5, 5, 170, 60);
         Regles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 170, 60));
-        Regles.setBackground(Color.BLUE);
+        Regles.setBackground(new Color(226,252,251));
         Regles.setText("Règles");
         Regles.setFont(new Font("Règles", Font.BOLD, 16));
         this.repaint();
@@ -296,7 +296,7 @@ public class Monopoly_EPF extends JFrame {
         Démarrer.setBounds(5, 70, 170, 60);
         Démarrer.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 70, 170, 60));
-        Démarrer.setBackground(Color.BLUE);
+        Démarrer.setBackground(new Color(226,252,251));
         Démarrer.setText("Démarrer la partie");
         Démarrer.setFont(new Font("Démarrer la partie", Font.BOLD, 16));
         Démarrer.addActionListener(new java.awt.event.ActionListener() {
@@ -1204,6 +1204,108 @@ public class Monopoly_EPF extends JFrame {
         });
         this.repaint();
         
+        marronV = new JButton();
+        marronV.setBounds(0,0,40,40);
+        marronV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        marronV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JFrame MarronFrame = new JFrame("Validation dans une salle marron");
+                MarronFrame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                MarronFrame.setVisible(true);
+                MarronFrame.setBounds(420,100,465,400);
+                JPanel PanelMarron = new JPanel();
+                PanelMarron.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                PanelMarron.setBounds(0,0,465,400);
+                MarronFrame.add(PanelMarron, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                JLabel L102 = new JLabel(new ImageIcon("src/salles/L102.png"));
+                JLabel L104 = new JLabel(new ImageIcon("src/salles/L104.png"));
+                PanelMarron.add(L102, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,30,-1,-1));
+                PanelMarron.add(L104, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,30, -1,-1));
+                JButton Construire1 = new JButton("Valider");
+                Construire1.setBounds(50,300,154,30);
+                Construire1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+                Construire1.setBackground(new Color(148,74,37));
+                Construire1.setForeground(Color.white);
+                
+                Construire1.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        
+                    }
+                });
+                PanelMarron.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
+                
+                
+                PanelMarron.repaint();
+                MarronFrame.repaint();  
+            }
+        });
+        
+        bleucielV = new JButton();
+        bleucielV.setBounds(0,0,40,40);
+        bleucielV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        bleucielV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        
+        bleufoncéV = new JButton();
+        bleufoncéV.setBounds(0,0,40,40);
+        bleufoncéV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        bleufoncéV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        
+        jauneV = new JButton();
+        jauneV.setBounds(0,0,40,40);
+        jauneV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        jauneV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        
+        orangeV = new JButton();
+        orangeV.setBounds(0,0,40,40);
+        orangeV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        orangeV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        
+        rougeV = new JButton();
+        rougeV.setBounds(0,0,40,40);
+        rougeV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        rougeV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        
+        vertV = new JButton();
+        vertV.setBounds(0,0,40,40);
+        vertV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        vertV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        
+        violetV = new JButton();
+        violetV.setBounds(0,0,40,40);
+        violetV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+        violetV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+            }
+        });
+        
+        validerLabel = new JLabel("<html>Veuillez cliquer sur la couleur de la salle dans<br>laquelle vous voulez valider une matiere ou un module.</html>");
+        validerLabel.setFont(new Font("Monopoly", Font.PLAIN, 18));
+        
         ValiderMatiere1 = new JButton();
         ValiderMatiere1.setBounds(180, 60, 170, 50);
         ValiderMatiere1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
@@ -1213,7 +1315,87 @@ public class Monopoly_EPF extends JFrame {
         ValiderMatiere1.setFont(new Font("Valider", Font.BOLD, 20));
         ValiderMatiere1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                JFrame FrameValider = new JFrame("Valider une matière");
+                FrameValider.setBounds(420,300, 500,120);
+                FrameValider.setVisible(true);
+                FrameValider.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                int nbM = tabJoueurs[0].compterMemesSallesJoueurInt("marron");
+                int nbBC = tabJoueurs[0].compterMemesSallesJoueurInt("bleuciel");
+                int nbVi = tabJoueurs[0].compterMemesSallesJoueurInt("violet");
+                int nbO = tabJoueurs[0].compterMemesSallesJoueurInt("orange");
+                int nbR = tabJoueurs[0].compterMemesSallesJoueurInt("rouge");
+                int nbJ = tabJoueurs[0].compterMemesSallesJoueurInt("jaune");
+                int nbVe = tabJoueurs[0].compterMemesSallesJoueurInt("vert");
+                int nbBF = tabJoueurs[0].compterMemesSallesJoueurInt("bleufoncé");
+                if (nbM!=2) {
+                    marronV.setBackground(Color.LIGHT_GRAY);
+                    marronV.setEnabled(false);
+                }
+                else {
+                    marronV.setBackground(new Color(148,74,37));
+                }
+                if (nbBC!=3) {
+                    bleucielV.setBackground(Color.LIGHT_GRAY);
+                    bleucielV.setEnabled(false);
+                }
+                else {
+                    bleucielV.setBackground(new Color(189,227,246));
+                }
+                if (nbVi!=3) {
+                    violetV.setBackground(Color.LIGHT_GRAY);
+                    violetV.setEnabled(false);
+                }
+                else {
+                    violetV.setBackground(new Color(120,39,134));
+                }
+                if (nbO!=3) {
+                    orangeV.setBackground(Color.LIGHT_GRAY);
+                    orangeV.setEnabled(false);
+                }
+                else {
+                    orangeV.setBackground(new Color(242,148,0));
+                }
+                if (nbR!=3) {
+                    rougeV.setBackground(Color.LIGHT_GRAY);
+                    rougeV.setEnabled(false);
+                }
+                else {
+                    rougeV.setBackground(new Color(227,0,27));
+                }
+                if (nbJ!=3) {
+                    jauneV.setBackground(Color.LIGHT_GRAY);
+                    jauneV.setEnabled(false);
+                }
+                else {
+                    jauneV.setBackground(new Color(255,238,2));
+                }
+                if (nbVe!=3) {
+                    vertV.setBackground(Color.LIGHT_GRAY);
+                    vertV.setEnabled(false);
+                }
+                else {
+                    vertV.setBackground(new Color(38,163,69));
+                }
+                if (nbBF!=2) {
+                    bleufoncéV.setBackground(Color.LIGHT_GRAY);
+                    bleufoncéV.setEnabled(false);
+                }
+                else {
+                    bleufoncéV.setBackground(new Color(28,55,126));
+                }
+                FrameValider.add(marronV, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,15,30,30));
+                FrameValider.add(bleucielV, new org.netbeans.lib.awtextra.AbsoluteConstraints(120,15,30,30));
+                FrameValider.add(violetV, new org.netbeans.lib.awtextra.AbsoluteConstraints(160,15,30,30));
+                FrameValider.add(orangeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200,15,30,30));
+                FrameValider.add(rougeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(240,15,30,30));
+                FrameValider.add(jauneV, new org.netbeans.lib.awtextra.AbsoluteConstraints(280,15,30,30));
+                FrameValider.add(vertV, new org.netbeans.lib.awtextra.AbsoluteConstraints(320,15,30,30));
+                FrameValider.add(bleufoncéV, new org.netbeans.lib.awtextra.AbsoluteConstraints(360,15,30,30));
+                FrameValider.add(validerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,45,-1,-1));
+                validerJoueur = new JLabel("Joueur concerne : "+tabJoueurs[0].nom);
+                validerJoueur.setFont(new Font("Monopoly", Font.PLAIN, 10));
+                FrameValider.add(validerJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,5,-1,-1));
+                FrameValider.repaint();
             }
         });
         this.repaint();
@@ -1227,7 +1409,87 @@ public class Monopoly_EPF extends JFrame {
         ValiderMatiere2.setFont(new Font("Valider", Font.BOLD, 20));
         ValiderMatiere2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                JFrame FrameValider = new JFrame("Valider une matière");
+                FrameValider.setBounds(420,300, 500,120);
+                FrameValider.setVisible(true);
+                FrameValider.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                int nbM = tabJoueurs[1].compterMemesSallesJoueurInt("marron");
+                int nbBC = tabJoueurs[1].compterMemesSallesJoueurInt("bleuciel");
+                int nbVi = tabJoueurs[1].compterMemesSallesJoueurInt("violet");
+                int nbO = tabJoueurs[1].compterMemesSallesJoueurInt("orange");
+                int nbR = tabJoueurs[1].compterMemesSallesJoueurInt("rouge");
+                int nbJ = tabJoueurs[1].compterMemesSallesJoueurInt("jaune");
+                int nbVe = tabJoueurs[1].compterMemesSallesJoueurInt("vert");
+                int nbBF = tabJoueurs[1].compterMemesSallesJoueurInt("bleufoncé");
+                if (nbM!=2) {
+                    marronV.setBackground(Color.LIGHT_GRAY);
+                    marronV.setEnabled(false);
+                }
+                else {
+                    marronV.setBackground(new Color(148,74,37));
+                }
+                if (nbBC!=3) {
+                    bleucielV.setBackground(Color.LIGHT_GRAY);
+                    bleucielV.setEnabled(false);
+                }
+                else {
+                    bleucielV.setBackground(new Color(189,227,246));
+                }
+                if (nbVi!=3) {
+                    violetV.setBackground(Color.LIGHT_GRAY);
+                    violetV.setEnabled(false);
+                }
+                else {
+                    violetV.setBackground(new Color(120,39,134));
+                }
+                if (nbO!=3) {
+                    orangeV.setBackground(Color.LIGHT_GRAY);
+                    orangeV.setEnabled(false);
+                }
+                else {
+                    orangeV.setBackground(new Color(242,148,0));
+                }
+                if (nbR!=3) {
+                    rougeV.setBackground(Color.LIGHT_GRAY);
+                    rougeV.setEnabled(false);
+                }
+                else {
+                    rougeV.setBackground(new Color(227,0,27));
+                }
+                if (nbJ!=3) {
+                    jauneV.setBackground(Color.LIGHT_GRAY);
+                    jauneV.setEnabled(false);
+                }
+                else {
+                    jauneV.setBackground(new Color(255,238,2));
+                }
+                if (nbVe!=3) {
+                    vertV.setBackground(Color.LIGHT_GRAY);
+                    vertV.setEnabled(false);
+                }
+                else {
+                    vertV.setBackground(new Color(38,163,69));
+                }
+                if (nbBF!=2) {
+                    bleufoncéV.setBackground(Color.LIGHT_GRAY);
+                    bleufoncéV.setEnabled(false);
+                }
+                else {
+                    bleufoncéV.setBackground(new Color(28,55,126));
+                }
+                FrameValider.add(marronV, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,15,30,30));
+                FrameValider.add(bleucielV, new org.netbeans.lib.awtextra.AbsoluteConstraints(120,15,30,30));
+                FrameValider.add(violetV, new org.netbeans.lib.awtextra.AbsoluteConstraints(160,15,30,30));
+                FrameValider.add(orangeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200,15,30,30));
+                FrameValider.add(rougeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(240,15,30,30));
+                FrameValider.add(jauneV, new org.netbeans.lib.awtextra.AbsoluteConstraints(280,15,30,30));
+                FrameValider.add(vertV, new org.netbeans.lib.awtextra.AbsoluteConstraints(320,15,30,30));
+                FrameValider.add(bleufoncéV, new org.netbeans.lib.awtextra.AbsoluteConstraints(360,15,30,30));
+                FrameValider.add(validerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,45,-1,-1));
+                validerJoueur = new JLabel("Joueur concerne : "+tabJoueurs[1].nom);
+                validerJoueur.setFont(new Font("Monopoly", Font.PLAIN, 10));
+                FrameValider.add(validerJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,5,-1,-1));
+                FrameValider.repaint();
             }
         });
         this.repaint();
@@ -1241,7 +1503,87 @@ public class Monopoly_EPF extends JFrame {
         ValiderMatiere3.setFont(new Font("Valider", Font.BOLD, 20));
         ValiderMatiere3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                JFrame FrameValider = new JFrame("Valider une matière");
+                FrameValider.setBounds(420,300, 500,120);
+                FrameValider.setVisible(true);
+                FrameValider.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                int nbM = tabJoueurs[2].compterMemesSallesJoueurInt("marron");
+                int nbBC = tabJoueurs[2].compterMemesSallesJoueurInt("bleuciel");
+                int nbVi = tabJoueurs[2].compterMemesSallesJoueurInt("violet");
+                int nbO = tabJoueurs[2].compterMemesSallesJoueurInt("orange");
+                int nbR = tabJoueurs[2].compterMemesSallesJoueurInt("rouge");
+                int nbJ = tabJoueurs[2].compterMemesSallesJoueurInt("jaune");
+                int nbVe = tabJoueurs[2].compterMemesSallesJoueurInt("vert");
+                int nbBF = tabJoueurs[2].compterMemesSallesJoueurInt("bleufoncé");
+                if (nbM!=2) {
+                    marronV.setBackground(Color.LIGHT_GRAY);
+                    marronV.setEnabled(false);
+                }
+                else {
+                    marronV.setBackground(new Color(148,74,37));
+                }
+                if (nbBC!=3) {
+                    bleucielV.setBackground(Color.LIGHT_GRAY);
+                    bleucielV.setEnabled(false);
+                }
+                else {
+                    bleucielV.setBackground(new Color(189,227,246));
+                }
+                if (nbVi!=3) {
+                    violetV.setBackground(Color.LIGHT_GRAY);
+                    violetV.setEnabled(false);
+                }
+                else {
+                    violetV.setBackground(new Color(120,39,134));
+                }
+                if (nbO!=3) {
+                    orangeV.setBackground(Color.LIGHT_GRAY);
+                    orangeV.setEnabled(false);
+                }
+                else {
+                    orangeV.setBackground(new Color(242,148,0));
+                }
+                if (nbR!=3) {
+                    rougeV.setBackground(Color.LIGHT_GRAY);
+                    rougeV.setEnabled(false);
+                }
+                else {
+                    rougeV.setBackground(new Color(227,0,27));
+                }
+                if (nbJ!=3) {
+                    jauneV.setBackground(Color.LIGHT_GRAY);
+                    jauneV.setEnabled(false);
+                }
+                else {
+                    jauneV.setBackground(new Color(255,238,2));
+                }
+                if (nbVe!=3) {
+                    vertV.setBackground(Color.LIGHT_GRAY);
+                    vertV.setEnabled(false);
+                }
+                else {
+                    vertV.setBackground(new Color(38,163,69));
+                }
+                if (nbBF!=2) {
+                    bleufoncéV.setBackground(Color.LIGHT_GRAY);
+                    bleufoncéV.setEnabled(false);
+                }
+                else {
+                    bleufoncéV.setBackground(new Color(28,55,126));
+                }
+                FrameValider.add(marronV, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,15,30,30));
+                FrameValider.add(bleucielV, new org.netbeans.lib.awtextra.AbsoluteConstraints(120,15,30,30));
+                FrameValider.add(violetV, new org.netbeans.lib.awtextra.AbsoluteConstraints(160,15,30,30));
+                FrameValider.add(orangeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200,15,30,30));
+                FrameValider.add(rougeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(240,15,30,30));
+                FrameValider.add(jauneV, new org.netbeans.lib.awtextra.AbsoluteConstraints(280,15,30,30));
+                FrameValider.add(vertV, new org.netbeans.lib.awtextra.AbsoluteConstraints(320,15,30,30));
+                FrameValider.add(bleufoncéV, new org.netbeans.lib.awtextra.AbsoluteConstraints(360,15,30,30));
+                FrameValider.add(validerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,45,-1,-1));
+                validerJoueur = new JLabel("Joueur concerne : "+tabJoueurs[2].nom);
+                validerJoueur.setFont(new Font("Monopoly", Font.PLAIN, 10));
+                FrameValider.add(validerJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,5,-1,-1));
+                FrameValider.repaint();
             }
         });
         this.repaint();
@@ -1255,7 +1597,87 @@ public class Monopoly_EPF extends JFrame {
         ValiderMatiere4.setFont(new Font("Valider", Font.BOLD, 20));
         ValiderMatiere4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                JFrame FrameValider = new JFrame("Valider une matière");
+                FrameValider.setBounds(420,300, 500,120);
+                FrameValider.setVisible(true);
+                FrameValider.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                int nbM = tabJoueurs[3].compterMemesSallesJoueurInt("marron");
+                int nbBC = tabJoueurs[3].compterMemesSallesJoueurInt("bleuciel");
+                int nbVi = tabJoueurs[3].compterMemesSallesJoueurInt("violet");
+                int nbO = tabJoueurs[3].compterMemesSallesJoueurInt("orange");
+                int nbR = tabJoueurs[3].compterMemesSallesJoueurInt("rouge");
+                int nbJ = tabJoueurs[3].compterMemesSallesJoueurInt("jaune");
+                int nbVe = tabJoueurs[3].compterMemesSallesJoueurInt("vert");
+                int nbBF = tabJoueurs[3].compterMemesSallesJoueurInt("bleufoncé");
+                if (nbM!=2) {
+                    marronV.setBackground(Color.LIGHT_GRAY);
+                    marronV.setEnabled(false);
+                }
+                else {
+                    marronV.setBackground(new Color(148,74,37));
+                }
+                if (nbBC!=3) {
+                    bleucielV.setBackground(Color.LIGHT_GRAY);
+                    bleucielV.setEnabled(false);
+                }
+                else {
+                    bleucielV.setBackground(new Color(189,227,246));
+                }
+                if (nbVi!=3) {
+                    violetV.setBackground(Color.LIGHT_GRAY);
+                    violetV.setEnabled(false);
+                }
+                else {
+                    violetV.setBackground(new Color(120,39,134));
+                }
+                if (nbO!=3) {
+                    orangeV.setBackground(Color.LIGHT_GRAY);
+                    orangeV.setEnabled(false);
+                }
+                else {
+                    orangeV.setBackground(new Color(242,148,0));
+                }
+                if (nbR!=3) {
+                    rougeV.setBackground(Color.LIGHT_GRAY);
+                    rougeV.setEnabled(false);
+                }
+                else {
+                    rougeV.setBackground(new Color(227,0,27));
+                }
+                if (nbJ!=3) {
+                    jauneV.setBackground(Color.LIGHT_GRAY);
+                    jauneV.setEnabled(false);
+                }
+                else {
+                    jauneV.setBackground(new Color(255,238,2));
+                }
+                if (nbVe!=3) {
+                    vertV.setBackground(Color.LIGHT_GRAY);
+                    vertV.setEnabled(false);
+                }
+                else {
+                    vertV.setBackground(new Color(38,163,69));
+                }
+                if (nbBF!=2) {
+                    bleufoncéV.setBackground(Color.LIGHT_GRAY);
+                    bleufoncéV.setEnabled(false);
+                }
+                else {
+                    bleufoncéV.setBackground(new Color(28,55,126));
+                }
+                FrameValider.add(marronV, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,15,30,30));
+                FrameValider.add(bleucielV, new org.netbeans.lib.awtextra.AbsoluteConstraints(120,15,30,30));
+                FrameValider.add(violetV, new org.netbeans.lib.awtextra.AbsoluteConstraints(160,15,30,30));
+                FrameValider.add(orangeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200,15,30,30));
+                FrameValider.add(rougeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(240,15,30,30));
+                FrameValider.add(jauneV, new org.netbeans.lib.awtextra.AbsoluteConstraints(280,15,30,30));
+                FrameValider.add(vertV, new org.netbeans.lib.awtextra.AbsoluteConstraints(320,15,30,30));
+                FrameValider.add(bleufoncéV, new org.netbeans.lib.awtextra.AbsoluteConstraints(360,15,30,30));
+                FrameValider.add(validerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80,45,-1,-1));
+                validerJoueur = new JLabel("Joueur concerne : "+tabJoueurs[3].nom);
+                validerJoueur.setFont(new Font("Monopoly", Font.PLAIN, 10));
+                FrameValider.add(validerJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,5,-1,-1));
+                FrameValider.repaint();
             }
         });
         this.repaint();
@@ -1812,7 +2234,7 @@ public class Monopoly_EPF extends JFrame {
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 5, 170, 60));
-        Lancer_des.setBackground(Color.BLUE);
+        Lancer_des.setBackground(new Color(226,252,251));
         Lancer_des.setText("Lancer les dés");
         Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
         Lancer_des.addActionListener(new java.awt.event.ActionListener() {
@@ -2104,7 +2526,7 @@ public class Monopoly_EPF extends JFrame {
         Panelsalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Panelsalle.setVisible(true);
         Panelsalle.setBackground(Color.YELLOW);
-        Panelsalle.setPreferredSize(new Dimension(977,723));
+        Panelsalle.setPreferredSize(new Dimension(1030,734));
         
         LabelSalles = new JLabel("A gauche de chaque salle se trouve le pion du joueur proprietaire de la salle.");
         Dimension Labelsallesdim = LabelSalles.getPreferredSize();
@@ -2115,7 +2537,7 @@ public class Monopoly_EPF extends JFrame {
         Salles.setBounds(180, 70, 170, 60);
         Salles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 170, 60));
-        Salles.setBackground(Color.BLUE);
+        Salles.setBackground(new Color(226,252,251));
         Salles.setText("Salles");
         Salles.setFont(new Font("Salles", Font.BOLD, 16));
         Salles.addActionListener(new java.awt.event.ActionListener() {
@@ -2124,12 +2546,44 @@ public class Monopoly_EPF extends JFrame {
                 FrameSalle.setBounds(280, 30, 1100, 800);
                 FrameSalle.setVisible(true);
                 FrameSalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-                FrameSalle.add(Panelsalle,new org.netbeans.lib.awtextra.AbsoluteConstraints(60,0,-1,-1));
-                FrameSalle.add(LabelSalles,new org.netbeans.lib.awtextra.AbsoluteConstraints(250,730,-1,-1));
+                FrameSalle.add(Panelsalle,new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                FrameSalle.add(LabelSalles,new org.netbeans.lib.awtextra.AbsoluteConstraints(250,737,-1,-1));
                 FrameSalle.repaint();
+                
+                JLabel imagePion;
+                for (int i=0; i<4; i++){
+                    if(tabJoueurs[i].sallesPossedees != null) {
+                       for(int j=0; j<tabJoueurs[i].sallesPossedees.size(); j++){
+                           switch (i){
+                               case 0:
+                                   imagePion = new JLabel(new ImageIcon("PionCalculatrice3_gauche.png"));
+                                   break;
+                               case 1:
+                                   imagePion = new JLabel(new ImageIcon("PionDiode3_gauche.png"));
+                                   break;
+                               case 2:
+                                   imagePion = new JLabel(new ImageIcon("PionErlenmeyer3_gauche.png"));
+                                   break;
+                               case 3:
+                                   imagePion = new JLabel(new ImageIcon("PionOlga3_gauche.png"));
+                                   break;
+                               default:
+                                   imagePion = new JLabel("PAS DE JOUEUR");
+                                   break;
+                           }
+                           int idCoord = tabJoueurs[i].sallesPossedees.get(j).idCase;
+                           int CoordX = idCoord%7*148;
+                           int CoordY = idCoord/7*200;
+                           Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                           FrameSalle.repaint();
+                       }
+                    }
+                }
                 
             }});
         this.repaint();
+        
+        
 
         Payer_Jousset = new JButton();
         Payer_Jousset.setBounds(57,680,250,100);
@@ -2205,6 +2659,26 @@ public class Monopoly_EPF extends JFrame {
         Dimension text_infos_partie = Infos_partie.getPreferredSize();
         Infos_partie.setFont(new Font("Infos partie;", Font.BOLD, 15));
         infos_partie.add(Infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,5));
+        this.repaint();
+        
+        pionC = new JLabel(new ImageIcon("PionCalculatrice3_gauche.png"));
+        Dimension pionc = pionC.getPreferredSize();
+        infos_joueurs1.add(pionC, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
+        this.repaint();
+        
+        pionD = new JLabel(new ImageIcon("PionDiode3_gauche.png"));
+        Dimension piond = pionD.getPreferredSize();
+        infos_joueurs2.add(pionD, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
+        this.repaint();
+        
+        pionE = new JLabel(new ImageIcon("PionErlenmeyer3_gauche.png"));
+        Dimension pione = pionE.getPreferredSize();
+        infos_joueurs3.add(pionE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
+        this.repaint();
+        
+        pionO = new JLabel(new ImageIcon("PionOlga3_gauche.png"));
+        Dimension piono = pionO.getPreferredSize();
+        infos_joueurs4.add(pionO, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,15));
         this.repaint();
         
         credits1 = new JLabel("Crédits : " + "ECTS");
@@ -2700,6 +3174,20 @@ public class Monopoly_EPF extends JFrame {
     private JLabel LabelParcGratuit;
     SallesPanel Panelsalle;
     private JLabel LabelSalles;
+    private JLabel pionC;
+    private JLabel pionD;
+    private JLabel pionE;
+    private JLabel pionO;
+    private JButton marronV;
+    private JButton bleucielV;
+    private JButton violetV;
+    private JButton orangeV;
+    private JButton rougeV;
+    private JButton jauneV;
+    private JButton vertV;
+    private JButton bleufoncéV;
+    private JLabel validerLabel;
+    private JLabel validerJoueur;
     
     
     public static void main(String[] args) {
@@ -6778,7 +7266,7 @@ public class Monopoly_EPF extends JFrame {
                     if(compteurDouble+1==3 && de1.valeur==de2.valeur) {
                         tripledouble=true;
                         joueurCourant.prison=true;
-                        zone_texte_infos.setText(zone_texte_infos.getText() + " vous réalisez un troisième double d'affilée ce qui vous envoie aux rattrapges. Bonne chance pour les kholles!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + " vous réalisez un troisième double d'affilée ce qui vous envoie aux rattrapages. Bonne chance pour les kholles!");
                         compteurDouble++;
                         int ouonest=0;
                         for(int i=0;i<plateau.plateaudejeu.length;i++){
