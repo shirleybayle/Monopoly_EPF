@@ -377,7 +377,7 @@ public class Case {
                 coordY = 442;
                 break;
             case(35) :
-                nom = "Absent";
+                nom = "Absence";
                 prixTerrain = 100;
                 couleur = "Absence";
                 loyerIn = 0;
@@ -397,7 +397,7 @@ public class Case {
                 coordY = 724;
                 break;
             case(37) :
-                nom = "Prison";
+                nom = "Rattrapages";
                 prixTerrain = 0;
                 couleur = "Prison";
                 loyerIn = 0;
@@ -407,7 +407,7 @@ public class Case {
                 coordY = 29;
                 break;
             case(38) :
-                nom = "Parc gratuit";
+                nom = "Majoration";
                 prixTerrain = 0;
                 couleur = "Parc gratuit";
                 loyerIn = 0;
