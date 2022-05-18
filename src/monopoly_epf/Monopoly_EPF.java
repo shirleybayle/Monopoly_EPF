@@ -1699,11 +1699,8 @@ public class Monopoly_EPF extends JFrame {
                                    break;
                            }
                            int idCoord = tabJoueurs[i].sallesPossedees.get(j).idCase;
-                           System.out.println("ID CASE : "+idCoord);
                            int CoordX = idCoord%7*148;
-                           System.out.println("MODULO 7 : "+CoordX);
                            int CoordY = idCoord/7*200;
-                           System.out.println("DIVISE PAR 7 : "+CoordY);
                            Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                            FrameSalle.repaint();
                        }
