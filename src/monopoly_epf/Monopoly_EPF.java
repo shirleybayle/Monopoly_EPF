@@ -97,7 +97,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs1 = new JPanel();
         infos_joueurs1.setSize(355,200);
-        infos_joueurs1.setBackground(Color.red);
+        infos_joueurs1.setBackground(new Color(255,105,97));
         infos_joueurs1.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,200,355,200));
         infos_joueurs1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,7 +105,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs2 = new JPanel();
         infos_joueurs2.setSize(355,200);
-        infos_joueurs2.setBackground(Color.red);
+        infos_joueurs2.setBackground(new Color(255,105,97));
         infos_joueurs2.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5,460,355,200));
         infos_joueurs2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -113,7 +113,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs3 = new JPanel();
         infos_joueurs3.setSize(355,200);
-        infos_joueurs3.setBackground(Color.red);
+        infos_joueurs3.setBackground(new Color(255,105,97));
         infos_joueurs3.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,200,355,200));
         infos_joueurs3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,7 +121,7 @@ public class Monopoly_EPF extends JFrame {
         
         infos_joueurs4 = new JPanel();
         infos_joueurs4.setSize(355,200);
-        infos_joueurs4.setBackground(Color.red);
+        infos_joueurs4.setBackground(new Color(255,105,97));
         infos_joueurs4.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
         add(infos_joueurs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1174,460,355,200));
         infos_joueurs4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,7 +147,7 @@ public class Monopoly_EPF extends JFrame {
         Regles.setBounds(5, 5, 170, 60);
         Regles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 170, 60));
-        Regles.setBackground(Color.BLUE);
+        Regles.setBackground(new Color(226,252,251));
         Regles.setText("Règles");
         Regles.setFont(new Font("Règles", Font.BOLD, 16));
         this.repaint();
@@ -293,7 +293,7 @@ public class Monopoly_EPF extends JFrame {
         Démarrer.setBounds(5, 70, 170, 60);
         Démarrer.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Démarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 70, 170, 60));
-        Démarrer.setBackground(Color.BLUE);
+        Démarrer.setBackground(new Color(226,252,251));
         Démarrer.setText("Démarrer la partie");
         Démarrer.setFont(new Font("Démarrer la partie", Font.BOLD, 16));
         Démarrer.addActionListener(new java.awt.event.ActionListener() {
@@ -1649,7 +1649,7 @@ public class Monopoly_EPF extends JFrame {
         Lancer_des.setBounds(180, 5, 170, 60);
         Lancer_des.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Lancer_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 5, 170, 60));
-        Lancer_des.setBackground(Color.BLUE);
+        Lancer_des.setBackground(new Color(226,252,251));
         Lancer_des.setText("Lancer les dés");
         Lancer_des.setFont(new Font("Lancer les dés", Font.BOLD, 16));
         Lancer_des.addActionListener(new java.awt.event.ActionListener() {
@@ -1937,7 +1937,7 @@ public class Monopoly_EPF extends JFrame {
         Salles.setBounds(180, 70, 170, 60);
         Salles.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         panel_boutons.add(Salles, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 170, 60));
-        Salles.setBackground(Color.BLUE);
+        Salles.setBackground(new Color(226,252,251));
         Salles.setText("Salles");
         Salles.setFont(new Font("Salles", Font.BOLD, 16));
         Salles.addActionListener(new java.awt.event.ActionListener() {
