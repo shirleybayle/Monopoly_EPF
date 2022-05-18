@@ -1555,10 +1555,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+30)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,30%40,plateau.plateaudejeu[caseActuelle]);*/
                         }
                         else {
                             joueurCourant.compteurTourPrison++;
@@ -1653,7 +1653,7 @@ public class Monopoly_EPF extends JFrame {
         Panelsalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Panelsalle.setVisible(true);
         Panelsalle.setBackground(Color.YELLOW);
-        Panelsalle.setPreferredSize(new Dimension(977,723));
+        Panelsalle.setPreferredSize(new Dimension(1030,734));
         
         LabelSalles = new JLabel("A gauche de chaque salle se trouve le pion du joueur proprietaire de la salle.");
         Dimension Labelsallesdim = LabelSalles.getPreferredSize();
@@ -1673,9 +1673,42 @@ public class Monopoly_EPF extends JFrame {
                 FrameSalle.setBounds(280, 30, 1100, 800);
                 FrameSalle.setVisible(true);
                 FrameSalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-                FrameSalle.add(Panelsalle,new org.netbeans.lib.awtextra.AbsoluteConstraints(60,0,-1,-1));
-                FrameSalle.add(LabelSalles,new org.netbeans.lib.awtextra.AbsoluteConstraints(250,730,-1,-1));
+                FrameSalle.add(Panelsalle,new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                FrameSalle.add(LabelSalles,new org.netbeans.lib.awtextra.AbsoluteConstraints(250,737,-1,-1));
                 FrameSalle.repaint();
+                
+                JLabel imagePion;
+                for (int i=0; i<4; i++){
+                    if(tabJoueurs[i].sallesPossedees != null) {
+                       for(int j=0; j<tabJoueurs[i].sallesPossedees.size(); j++){
+                           switch (i){
+                               case 0:
+                                   imagePion = new JLabel(new ImageIcon("PionCalculatrice3_gauche.png"));
+                                   break;
+                               case 1:
+                                   imagePion = new JLabel(new ImageIcon("PionDiode3_gauche.png"));
+                                   break;
+                               case 2:
+                                   imagePion = new JLabel(new ImageIcon("PionErlenmeyer3_gauche.png"));
+                                   break;
+                               case 3:
+                                   imagePion = new JLabel(new ImageIcon("PionOlga3_gauche.png"));
+                                   break;
+                               default:
+                                   imagePion = new JLabel("PAS DE JOUEUR");
+                                   break;
+                           }
+                           int idCoord = tabJoueurs[i].sallesPossedees.get(j).idCase;
+                           System.out.println("ID CASE : "+idCoord);
+                           int CoordX = idCoord%7*148;
+                           System.out.println("MODULO 7 : "+CoordX);
+                           int CoordY = idCoord/7*200;
+                           System.out.println("DIVISE PAR 7 : "+CoordY);
+                           Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                           FrameSalle.repaint();
+                       }
+                    }
+                }
                 
             }});
         this.repaint();
