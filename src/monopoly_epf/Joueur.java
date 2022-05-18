@@ -59,6 +59,20 @@ public class Joueur {
         }
     }
     
+    public int compterMemesSallesJoueurInt(String couleur) {
+        int compteur=0;
+        if (couleur != null) {
+            for (int i=0; i<sallesPossedees.size(); i++) {
+                Case c = sallesPossedees.get(i);
+                if (c.couleur == couleur) {
+                    compteur += 1;
+                }
+            }
+            
+        }
+        return compteur;
+    }
+    
     public boolean jouerlacarte() {
         for (int i=1; i>0; i--) {
             if(tabCartes[i] != null) {
