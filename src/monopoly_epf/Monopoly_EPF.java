@@ -1126,7 +1126,34 @@ public class Monopoly_EPF extends JFrame {
         marronV.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
         marronV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JFrame MarronFrame = new JFrame("Validation dans une salle marron");
+                MarronFrame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                MarronFrame.setVisible(true);
+                MarronFrame.setBounds(420,100,465,400);
+                JPanel PanelMarron = new JPanel();
+                PanelMarron.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                PanelMarron.setBounds(0,0,465,400);
+                MarronFrame.add(PanelMarron, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+                JLabel L102 = new JLabel(new ImageIcon("src/salles/L102.png"));
+                JLabel L104 = new JLabel(new ImageIcon("src/salles/L104.png"));
+                PanelMarron.add(L102, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,30,-1,-1));
+                PanelMarron.add(L104, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,30, -1,-1));
+                JButton Construire1 = new JButton("Valider");
+                Construire1.setBounds(50,300,154,30);
+                Construire1.setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.BLACK));
+                Construire1.setBackground(new Color(148,74,37));
+                Construire1.setForeground(Color.white);
                 
+                Construire1.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        
+                    }
+                });
+                PanelMarron.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
+                
+                
+                PanelMarron.repaint();
+                MarronFrame.repaint();  
             }
         });
         
