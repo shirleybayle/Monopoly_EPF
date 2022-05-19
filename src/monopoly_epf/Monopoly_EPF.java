@@ -6935,7 +6935,7 @@ public class Monopoly_EPF extends JFrame {
                         credits10.setEnabled(false);
                         Cartechance.setEnabled(false);
                         Carte laCarte = faireActionCarteSimple(choixcom);
-                        if (laCarte != null && laCarte.idCarte != 15) {
+                        if (laCarte != null) {
                             JFrame FrameCarte2 = new JFrame();
                             FrameCarte2.setVisible(true);
                             FrameCarte2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -7011,7 +7011,114 @@ public class Monopoly_EPF extends JFrame {
                             FrameCarte2.add(carteLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0));
                             carteLabel2.setVisible(true);
                             FrameCarte2.repaint();
-                            faireActionCarte(laCarte);
+                            if (laCarte.idCarte != 15) {
+                                faireActionCarte(laCarte);
+                            }
+                            else {
+                                darties = true;
+                                    int nbM = joueurCourant.compterMemesSallesJoueurInt("marron");
+                                    int nbBC = joueurCourant.compterMemesSallesJoueurInt("bleu ciel");
+                                    int nbVi = joueurCourant.compterMemesSallesJoueurInt("violet");
+                                    int nbO = joueurCourant.compterMemesSallesJoueurInt("orange");
+                                    int nbR = joueurCourant.compterMemesSallesJoueurInt("rouge");
+                                    int nbJ = joueurCourant.compterMemesSallesJoueurInt("jaune");
+                                    int nbVe = joueurCourant.compterMemesSallesJoueurInt("vert");
+                                    int nbBF = joueurCourant.compterMemesSallesJoueurInt("bleu foncé");
+                                    if (nbM==0 && nbBC==0 && nbVi==0 && nbO==0 && nbR==0 && nbJ==0 && nbVe==0 && nbBF==0) {
+                                        darties = false;
+                                        JLabel message = new JLabel("Vous n'avez aucune salle dans laquelle valider une matiere ou un module.");
+                                        message.setFont(new Font("Monopoly", Font.PLAIN, 18));
+                                        FrameCarte.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,400));
+                                    }
+                                    else {
+                                        JLabel consignes = new JLabel("<html>Veuillez choisir la couleur de la salle dans laquelle vous voulez valider<br>une matiere ou un module.<html/>");
+                                        consignes.setFont(new Font("Monopoly", Font.PLAIN, 18));
+                                        JLabel consignes2 = new JLabel ("Attention, vous devez obligatoirement valider une matiere ou un module.");
+                                        consignes2.setFont(new Font("Monopoly", Font.BOLD, 18));
+                                        consignes2.setForeground(Color.red);
+                                        FrameCarte2.add(consignes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,400));
+                                        FrameCarte2.add(consignes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25,450));
+                                        
+                                        panel_boutons.repaint();
+                                    }
+                                    if (nbM==0) {
+                                        marronV.setBackground(Color.LIGHT_GRAY);
+                                        marronV.setEnabled(false);
+                                    }
+                                    else {
+                                        marronV.setBackground(new Color(148,74,37));
+                                        marronV.setEnabled(true);
+                                    }
+                                    if (nbBC==0) {
+                                        bleucielV.setBackground(Color.LIGHT_GRAY);
+                                        bleucielV.setEnabled(false);
+                                    }
+                                    else {
+                                        bleucielV.setBackground(new Color(189,227,246));
+                                        bleucielV.setEnabled(true);
+                                    }
+                                    if (nbVi==0) {
+                                        violetV.setBackground(Color.LIGHT_GRAY);
+                                        violetV.setEnabled(false);
+                                    }
+                                    else {
+                                        violetV.setBackground(new Color(120,39,134));
+                                        violetV.setEnabled(true);
+                                    }
+                                    if (nbO==0) {
+                                        orangeV.setBackground(Color.LIGHT_GRAY);
+                                        orangeV.setEnabled(false);
+                                    }
+                                    else {
+                                        orangeV.setBackground(new Color(242,148,0));
+                                        orangeV.setEnabled(true);
+                                    }
+                                    if (nbR==0) {
+                                        rougeV.setBackground(Color.LIGHT_GRAY);
+                                        rougeV.setEnabled(false);
+                                    }
+                                    else {
+                                        rougeV.setBackground(new Color(227,0,27));
+                                        rougeV.setEnabled(true);
+                                    }
+                                    if (nbJ==0) {
+                                        jauneV.setBackground(Color.LIGHT_GRAY);
+                                        jauneV.setEnabled(false);
+                                    }
+                                    else {
+                                        jauneV.setBackground(new Color(255,238,2));
+                                        jauneV.setEnabled(true);
+                                    }
+                                    if (nbVe==0) {
+                                        vertV.setBackground(Color.LIGHT_GRAY);
+                                        vertV.setEnabled(false);
+                                    }
+                                    else {
+                                        vertV.setBackground(new Color(38,163,69));
+                                        vertV.setEnabled(true);
+                                    }
+                                    if (nbBF==0) {
+                                        bleufoncéV.setBackground(Color.LIGHT_GRAY);
+                                        bleufoncéV.setEnabled(false);
+                                    }
+                                    else {
+                                        bleufoncéV.setBackground(new Color(28,55,126));
+                                        bleufoncéV.setEnabled(true);
+                                    }
+                                    FrameCarte2.add(marronV, new org.netbeans.lib.awtextra.AbsoluteConstraints(100,500,30,30));
+                                    FrameCarte2.add(bleucielV, new org.netbeans.lib.awtextra.AbsoluteConstraints(150,500,30,30));
+                                    FrameCarte2.add(violetV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200,500,30,30));
+                                    FrameCarte2.add(orangeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,500,30,30));
+                                    FrameCarte2.add(rougeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(300,500,30,30));
+                                    FrameCarte2.add(jauneV, new org.netbeans.lib.awtextra.AbsoluteConstraints(350,500,30,30));
+                                    FrameCarte2.add(vertV, new org.netbeans.lib.awtextra.AbsoluteConstraints(400,500,30,30));
+                                    FrameCarte2.add(bleufoncéV, new org.netbeans.lib.awtextra.AbsoluteConstraints(450,500,30,30));
+                                    validerJoueur = new JLabel("Joueur concerne : "+joueurCourant.nom);
+                                    validerJoueur.setFont(new Font("Monopoly", Font.PLAIN, 10));
+                                    
+                                    FrameCarte2.add(validerJoueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(10,600,-1,-1));
+                                    FrameCarte2.repaint();
+                            }
                             if(choixcom==1 && carte=="chance1" || carte=="chance2" || carte=="chance3" || carte=="chance4" || carte=="chance10" || carte=="chance13") {
                                 Case caseoualler = null;
                                 for(int i=0;i<plateau.plateaudejeu.length;i++) {
@@ -7144,9 +7251,6 @@ public class Monopoly_EPF extends JFrame {
                         }
                     }
                 });
-                /*else if (laCarte.idCarte == 15) {
-                    //faire action carte choix case
-                }*/ 
             }
             return true;
         }
