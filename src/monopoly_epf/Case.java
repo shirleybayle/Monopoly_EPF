@@ -22,6 +22,8 @@ public class Case {
     int nbSallesMemeCouleur;
     int coordX;
     int coordY;
+    int coordX_premiertick;
+    int coordY_premiertick;
     
     
     public Case(int id) {
@@ -35,6 +37,8 @@ public class Case {
                 idCase = 0;
                 coordX = 17;
                 coordY = 639;
+                coordX_premiertick=81;
+                coordY_premiertick=630;
                 break;
             case(1) : 
                 nom = "L104";
@@ -591,6 +595,7 @@ public class Case {
                 case(21) : loyer = 2000;
             }
         }
+        System.out.println(loyer);
     }
     
     public int lirePrixMaison(){
@@ -602,11 +607,11 @@ public class Case {
             return false;
         }
         else {
-            maison = maison++;
+            maison+=1;
             if(maison==5) {
                 proprietaire.nbHotelJoueur++;
             }
-            prixMaison = prixMaison + prixMaison; //pas capté à quoi ça servait ça
+            //prixMaison = prixMaison + prixMaison; //pas capté à quoi ça servait ça
             proprietaire.credits = proprietaire.credits-prixMaison; //vérifier que c'est pas déjà fait qq part ça aussi
             return true;
         }

@@ -1229,11 +1229,20 @@ public class Monopoly_EPF extends JFrame {
                 
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        plateau.plateaudejeu[1].construireMaison();
+                        plateau.plateaudejeu[1].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[1].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                         
                     }
                 });
                 PanelMarron.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
-                
                 
                 PanelMarron.repaint();
                 MarronFrame.repaint();  
@@ -2359,8 +2368,8 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.prison!=true) {
                             /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
                             deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+4)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,4%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);
                             zone_texte_infos.setText(zone_texte_infos.getText() + " et arrivez à '" + joueurCourant.pion.caseassociee.nom + "'!");
                         }
                         else {
@@ -6409,46 +6418,87 @@ public class Monopoly_EPF extends JFrame {
     
     public void InitialiserPartie() {
         plateau = new Plateau();
+        plateauJeu.plateauAssocie = plateau;
         plateau.plateaudejeu[0] = new Case(36);
+        plateauJeu.plateauAssocie.plateaudejeu[0] = plateau.plateaudejeu[0];
         plateau.plateaudejeu[1] = new Case(0);
+        plateauJeu.plateauAssocie.plateaudejeu[1] = plateau.plateaudejeu[1];
         plateau.plateaudejeu[2] = new Case(28);
+        plateauJeu.plateauAssocie.plateaudejeu[2] = plateau.plateaudejeu[2];
         plateau.plateaudejeu[3] = new Case(1);
+        plateauJeu.plateauAssocie.plateaudejeu[3] = plateau.plateaudejeu[3];
         plateau.plateaudejeu[4] = new Case(34);
+        plateauJeu.plateauAssocie.plateaudejeu[4] = plateau.plateaudejeu[4];
         plateau.plateaudejeu[5] = new Case(22);
+        plateauJeu.plateauAssocie.plateaudejeu[5] = plateau.plateaudejeu[5];
         plateau.plateaudejeu[6] = new Case(2);
+        plateauJeu.plateauAssocie.plateaudejeu[6] = plateau.plateaudejeu[6];
         plateau.plateaudejeu[7] = new Case(31);
+        plateauJeu.plateauAssocie.plateaudejeu[7] = plateau.plateaudejeu[7];
         plateau.plateaudejeu[8] = new Case(3);
+        plateauJeu.plateauAssocie.plateaudejeu[8] = plateau.plateaudejeu[8];
         plateau.plateaudejeu[9] = new Case(4);
+        plateauJeu.plateauAssocie.plateaudejeu[9] = plateau.plateaudejeu[9];
         plateau.plateaudejeu[10] = new Case(37);
+        plateauJeu.plateauAssocie.plateaudejeu[10] = plateau.plateaudejeu[10];
         plateau.plateaudejeu[11] = new Case(5);
+        plateauJeu.plateauAssocie.plateaudejeu[11] = plateau.plateaudejeu[11];
         plateau.plateaudejeu[12] = new Case(26);
+        plateauJeu.plateauAssocie.plateaudejeu[12] = plateau.plateaudejeu[12];
         plateau.plateaudejeu[13] = new Case(6);
+        plateauJeu.plateauAssocie.plateaudejeu[13] = plateau.plateaudejeu[13];
         plateau.plateaudejeu[14] = new Case(7);
+        plateauJeu.plateauAssocie.plateaudejeu[14] = plateau.plateaudejeu[14];
         plateau.plateaudejeu[15] = new Case(23);
+        plateauJeu.plateauAssocie.plateaudejeu[15] = plateau.plateaudejeu[15];
         plateau.plateaudejeu[16] = new Case(8);
+        plateauJeu.plateauAssocie.plateaudejeu[16] = plateau.plateaudejeu[16];
         plateau.plateaudejeu[17] = new Case(29);
+        plateauJeu.plateauAssocie.plateaudejeu[17] = plateau.plateaudejeu[17];
         plateau.plateaudejeu[18] = new Case(9);
+        plateauJeu.plateauAssocie.plateaudejeu[18] = plateau.plateaudejeu[18];
         plateau.plateaudejeu[19] = new Case(10);
+        plateauJeu.plateauAssocie.plateaudejeu[19] = plateau.plateaudejeu[19];
         plateau.plateaudejeu[20] = new Case(38);
+        plateauJeu.plateauAssocie.plateaudejeu[20] = plateau.plateaudejeu[20];
         plateau.plateaudejeu[21] = new Case(11);
+        plateauJeu.plateauAssocie.plateaudejeu[21] = plateau.plateaudejeu[21];
         plateau.plateaudejeu[22] = new Case(32);
+        plateauJeu.plateauAssocie.plateaudejeu[22] = plateau.plateaudejeu[22];
         plateau.plateaudejeu[23] = new Case(12);
+        plateauJeu.plateauAssocie.plateaudejeu[23] = plateau.plateaudejeu[23];
         plateau.plateaudejeu[24] = new Case(13);
+        plateauJeu.plateauAssocie.plateaudejeu[24] = plateau.plateaudejeu[24];
         plateau.plateaudejeu[25] = new Case(24);
+        plateauJeu.plateauAssocie.plateaudejeu[25] = plateau.plateaudejeu[25];
         plateau.plateaudejeu[26] = new Case(14);
+        plateauJeu.plateauAssocie.plateaudejeu[26] = plateau.plateaudejeu[26];
         plateau.plateaudejeu[27] = new Case(15);
+        plateauJeu.plateauAssocie.plateaudejeu[27] = plateau.plateaudejeu[27];
         plateau.plateaudejeu[28] = new Case(27);
+        plateauJeu.plateauAssocie.plateaudejeu[28] = plateau.plateaudejeu[28];
         plateau.plateaudejeu[29] = new Case(16);
+        plateauJeu.plateauAssocie.plateaudejeu[29] = plateau.plateaudejeu[29];
         plateau.plateaudejeu[30] = new Case(39);
+        plateauJeu.plateauAssocie.plateaudejeu[30] = plateau.plateaudejeu[30];
         plateau.plateaudejeu[31] = new Case(17);
+        plateauJeu.plateauAssocie.plateaudejeu[31] = plateau.plateaudejeu[31];
         plateau.plateaudejeu[32] = new Case(18);
+        plateauJeu.plateauAssocie.plateaudejeu[32] = plateau.plateaudejeu[32];
         plateau.plateaudejeu[33] = new Case(30);
+        plateauJeu.plateauAssocie.plateaudejeu[33] = plateau.plateaudejeu[33];
         plateau.plateaudejeu[34] = new Case(19);
+        plateauJeu.plateauAssocie.plateaudejeu[34] = plateau.plateaudejeu[34];
         plateau.plateaudejeu[35] = new Case(25);
+        plateauJeu.plateauAssocie.plateaudejeu[35] = plateau.plateaudejeu[35];
         plateau.plateaudejeu[36] = new Case(33);
+        plateauJeu.plateauAssocie.plateaudejeu[36] = plateau.plateaudejeu[36];
         plateau.plateaudejeu[37] = new Case(20);
+        plateauJeu.plateauAssocie.plateaudejeu[37] = plateau.plateaudejeu[37];
         plateau.plateaudejeu[38] = new Case(35);
+        plateauJeu.plateauAssocie.plateaudejeu[38] = plateau.plateaudejeu[38];
         plateau.plateaudejeu[39] = new Case(21);
+        plateauJeu.plateauAssocie.plateaudejeu[39] = plateau.plateaudejeu[39];
         tabJoueurs[0] = new Joueur();
         tabJoueurs[1] = new Joueur();
         tabJoueurs[2] = new Joueur();

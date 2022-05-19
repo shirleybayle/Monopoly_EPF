@@ -63,6 +63,31 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
                 g.drawImage(Erlenmeyer, P3.coordX, P3.coordY, P3.taille, P3.taille, this);
                 Image Olga = ImageIO.read(orientation4);
                 g.drawImage(Olga, P4.coordX, P4.coordY, P4.taille, P4.taille, this);
+                Image TickMatiereGauche = ImageIO.read(new File("TicMatière_gauche.png"));
+                Image TickMatiereHaut = ImageIO.read(new File("TicMatière_haut.png"));
+                Image TickMatiereDroite = ImageIO.read(new File("TicMatière_droite.png"));
+                Image TickMatiereBas = ImageIO.read(new File("TicMatière_bas.png"));
+                Image TickModuleGauche = ImageIO.read(new File("TicModule_gauche.png"));
+                Image TickModuleHaut = ImageIO.read(new File("TicModule_haut.png"));
+                Image TickModuleDroite = ImageIO.read(new File("TicModule_droite.png"));
+                Image TickModuleBas = ImageIO.read(new File("TicModule_bas.png"));
+                if(plateauAssocie.plateaudejeu[1].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[1].maison>=1 && plateauAssocie.plateaudejeu[1].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick, 22, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[1].maison>=2 && plateauAssocie.plateaudejeu[1].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+16, 22, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[1].maison>=3 && plateauAssocie.plateaudejeu[1].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+32, 22, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[1].maison>=4 && plateauAssocie.plateaudejeu[1].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+48, 22, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[1].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+24, 22, 16, this);
+                    }
+                }
             }
           
         } catch(IOException e){
