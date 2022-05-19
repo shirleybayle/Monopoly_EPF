@@ -18,12 +18,12 @@ public class Paquet {
     public Paquet(boolean com) {
         if (com == true) {
             for (int i=0; i<16; i++) {
-                paquet[i] = new Carte(4, true);
+                paquet[i] = new Carte(i, true);
             }            
         }
         else {
             for (int i=0; i<16; i++) {
-                paquet[i] = new Carte(15,false);
+                paquet[i] = new Carte(i,false);
             }
         }
     }

@@ -5639,10 +5639,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);*/
                             zone_texte_infos.setText(zone_texte_infos.getText() + " et arrivez à '" + joueurCourant.pion.caseassociee.nom + "'!");
                         }
                         else {
@@ -7138,7 +7138,7 @@ public class Monopoly_EPF extends JFrame {
                                 mini=true;
                                 DeplacerPion(joueurCourant.pion,caseoualler,"Téléportation");
                             }
-                            if(laCarte.idCarte!=1 && laCarte.idCarte!=2 && laCarte.idCarte!=3 && laCarte.idCarte!=4 && laCarte.idCarte!=10 && laCarte.idCarte!=13 && laCarte.idCarte!=15) {
+                            if(laCarte.idCarte!=1 && laCarte.idCarte!=2 && laCarte.idCarte!=3 && laCarte.idCarte!=4 && laCarte.idCarte!=10 && laCarte.idCarte!=13) {
                                 if(joueurCourant.credits<0) {
                                     eliminationJoueur();
                                 }
