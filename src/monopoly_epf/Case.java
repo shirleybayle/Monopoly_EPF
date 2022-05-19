@@ -109,7 +109,7 @@ public class Case {
                 idCase = 6;
                 coordX = 246;
                 coordY = 17;
-                coordX_premiertick=236;
+                coordX_premiertick=284;
                 coordY_premiertick=84;
                 break;
             case(7) : 
@@ -121,7 +121,7 @@ public class Case {
                 idCase = 7;
                 coordX = 312;
                 coordY = 17;
-                coordX_premiertick=302;
+                coordX_premiertick=350;
                 coordY_premiertick=84;
                 break;
             case(8) : 
@@ -133,7 +133,7 @@ public class Case {
                 idCase = 8;
                 coordX = 444;
                 coordY = 17;
-                coordX_premiertick=434;
+                coordX_premiertick=482;
                 coordY_premiertick=84;
                 break;
             case(9) :
@@ -145,7 +145,7 @@ public class Case {
                 idCase = 9;
                 coordX = 575;
                 coordY = 17;
-                coordX_premiertick=565;
+                coordX_premiertick=613;
                 coordY_premiertick=84;
                 break;
             case(10) :
@@ -157,7 +157,7 @@ public class Case {
                 idCase = 10;
                 coordX = 641;
                 coordY = 17;
-                coordX_premiertick=631;
+                coordX_premiertick=679;
                 coordY_premiertick=84;
                 break;
             case(11) :
@@ -761,6 +761,9 @@ public class Case {
             maison+=1;
             if(maison==5) {
                 proprietaire.nbHotelJoueur++;
+            }
+            else {
+                proprietaire.nbMaisonJoueur++;
             }
             //prixMaison = prixMaison + prixMaison; //pas capté à quoi ça servait ça
             proprietaire.credits = proprietaire.credits-prixMaison; //vérifier que c'est pas déjà fait qq part ça aussi
