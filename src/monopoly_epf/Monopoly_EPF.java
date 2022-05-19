@@ -716,7 +716,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                     ValiderMatiere1.setVisible(true);
@@ -856,7 +856,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                     ValiderMatiere1.setVisible(true);
@@ -996,7 +996,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                     ValiderMatiere1.setVisible(true);
@@ -1136,7 +1136,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                     ValiderMatiere1.setVisible(true);
@@ -1232,7 +1232,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                         }
                         plateauJeu.repaint();
-                        
                     }
                 });
                 PanelMarron.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1244,7 +1243,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[3].construireMaison();
+                        plateau.plateaudejeu[3].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[3].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelMarron.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1281,7 +1289,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire1.setForeground(Color.white);
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[6].construireMaison();
+                        plateau.plateaudejeu[6].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[6].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelBleuCiel.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1293,7 +1310,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[8].construireMaison();
+                        plateau.plateaudejeu[8].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[8].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelBleuCiel.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1305,7 +1331,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire3.setForeground(Color.white);
                 Construire3.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[9].construireMaison();
+                        plateau.plateaudejeu[9].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[9].maison==5) {
+                            Construire3.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelBleuCiel.add(Construire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450,300,154,30));
@@ -1341,7 +1376,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire1.setForeground(Color.white);
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[37].construireMaison();
+                        plateau.plateaudejeu[37].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[37].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelBleuFonce.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1353,7 +1397,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[39].construireMaison();
+                        plateau.plateaudejeu[39].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[39].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelBleuFonce.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1391,7 +1444,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire1.setForeground(Color.white);
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[26].construireMaison();
+                        plateau.plateaudejeu[26].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[26].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelJaune.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1403,7 +1465,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[27].construireMaison();
+                        plateau.plateaudejeu[27].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[27].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelJaune.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1415,7 +1486,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire3.setForeground(Color.white);
                 Construire3.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[29].construireMaison();
+                        plateau.plateaudejeu[29].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[29].maison==5) {
+                            Construire3.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelJaune.add(Construire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450,300,154,30));
@@ -1453,7 +1533,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire1.setForeground(Color.white);
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[16].construireMaison();
+                        plateau.plateaudejeu[16].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[16].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelOrange.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1465,7 +1554,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[18].construireMaison();
+                        plateau.plateaudejeu[18].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[18].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelOrange.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1477,7 +1575,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire3.setForeground(Color.white);
                 Construire3.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[19].construireMaison();
+                        plateau.plateaudejeu[19].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[19].maison==5) {
+                            Construire3.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelOrange.add(Construire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450,300,154,30));
@@ -1515,7 +1622,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire1.setForeground(Color.white);
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[21].construireMaison();
+                        plateau.plateaudejeu[21].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[21].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelRouge.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1527,7 +1643,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[23].construireMaison();
+                        plateau.plateaudejeu[23].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[19].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelRouge.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1539,7 +1664,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire3.setForeground(Color.white);
                 Construire3.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[24].construireMaison();
+                        plateau.plateaudejeu[24].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[24].maison==5) {
+                            Construire3.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelRouge.add(Construire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450,300,154,30));
@@ -1577,7 +1711,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire1.setForeground(Color.white);
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[31].construireMaison();
+                        plateau.plateaudejeu[31].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[31].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelVert.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1589,7 +1732,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[32].construireMaison();
+                        plateau.plateaudejeu[32].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[32].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelVert.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1601,7 +1753,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire3.setForeground(Color.white);
                 Construire3.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[34].construireMaison();
+                        plateau.plateaudejeu[34].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[34].maison==5) {
+                            Construire3.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelVert.add(Construire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450,300,154,30));
@@ -1639,7 +1800,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire1.setForeground(Color.white);
                 Construire1.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[11].construireMaison();
+                        plateau.plateaudejeu[11].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[11].maison==5) {
+                            Construire1.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelViolet.add(Construire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50,300,154,30));
@@ -1651,7 +1821,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire2.setForeground(Color.white);
                 Construire2.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[13].construireMaison();
+                        plateau.plateaudejeu[13].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[13].maison==5) {
+                            Construire2.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelViolet.add(Construire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250,300,154,30));
@@ -1663,7 +1842,16 @@ public class Monopoly_EPF extends JFrame {
                 Construire3.setForeground(Color.white);
                 Construire3.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        
+                        plateau.plateaudejeu[14].construireMaison();
+                        plateau.plateaudejeu[14].changerLoyer();
+                        credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
+                        credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
+                        credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
+                        credits4.setText("Crédits : " + tabJoueurs[3].credits + " ECTS");
+                        if(plateau.plateaudejeu[14].maison==5) {
+                            Construire3.setEnabled(false);
+                        }
+                        plateauJeu.repaint();
                     }
                 });
                 PanelViolet.add(Construire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450,300,154,30));
@@ -2161,7 +2349,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true) {
                     ValiderMatiere1.setVisible(true);
@@ -2298,7 +2486,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                     ValiderMatiere1.setVisible(true);
@@ -2435,7 +2623,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                     ValiderMatiere1.setVisible(true);
@@ -2572,7 +2760,7 @@ public class Monopoly_EPF extends JFrame {
                         plateauJeu.repaint();
                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                     }
-                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                     ValiderMatiere1.setVisible(true);
@@ -2761,10 +2949,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);*/
                             zone_texte_infos.setText(zone_texte_infos.getText() + " et arrivez à '" + joueurCourant.pion.caseassociee.nom + "'!");
                         }
                         else {
@@ -2857,7 +3045,7 @@ public class Monopoly_EPF extends JFrame {
                                         plateauJeu.repaint();
                                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
-                                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                                 }
                                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                     ValiderMatiere1.setVisible(true);
@@ -3989,7 +4177,7 @@ public class Monopoly_EPF extends JFrame {
                                 plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
-                            zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                             ValiderMatiere1.setVisible(true);
@@ -4202,7 +4390,7 @@ public class Monopoly_EPF extends JFrame {
                                         plateauJeu.repaint();
                                         credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                     }
-                                    zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                                 }
                                 if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                     ValiderMatiere1.setVisible(true);
@@ -4497,7 +4685,7 @@ public class Monopoly_EPF extends JFrame {
                                 plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
-                            zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                             ValiderMatiere1.setVisible(true);
@@ -4637,7 +4825,7 @@ public class Monopoly_EPF extends JFrame {
                                 plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
-                            zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                             ValiderMatiere1.setVisible(true);
@@ -4777,7 +4965,7 @@ public class Monopoly_EPF extends JFrame {
                                 plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
-                            zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                             ValiderMatiere1.setVisible(true);
@@ -4917,7 +5105,7 @@ public class Monopoly_EPF extends JFrame {
                                 plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
-                            zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                             ValiderMatiere1.setVisible(true);
@@ -5181,7 +5369,7 @@ public class Monopoly_EPF extends JFrame {
                             plateauJeu.repaint();
                             credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
-                        zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                     if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                         ValiderMatiere1.setVisible(true);
@@ -5345,7 +5533,7 @@ public class Monopoly_EPF extends JFrame {
                             plateauJeu.repaint();
                             credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
-                        zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                     if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                         ValiderMatiere1.setVisible(true);
@@ -5509,7 +5697,7 @@ public class Monopoly_EPF extends JFrame {
                             plateauJeu.repaint();
                             credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
-                        zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                     if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                         ValiderMatiere1.setVisible(true);
@@ -5673,7 +5861,7 @@ public class Monopoly_EPF extends JFrame {
                             plateauJeu.repaint();
                             credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                         }
-                        zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                     }
                     if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                         ValiderMatiere1.setVisible(true);
@@ -7804,7 +7992,7 @@ public class Monopoly_EPF extends JFrame {
                                             plateauJeu.repaint();
                                             credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                         }
-                                        zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                        zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                                     }
                                     if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                         ValiderMatiere1.setVisible(true);
@@ -7944,7 +8132,7 @@ public class Monopoly_EPF extends JFrame {
                                     plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
-                                zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                 ValiderMatiere1.setVisible(true);
@@ -8084,7 +8272,7 @@ public class Monopoly_EPF extends JFrame {
                                     plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
-                                zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                 ValiderMatiere1.setVisible(true);
@@ -8224,7 +8412,7 @@ public class Monopoly_EPF extends JFrame {
                                     plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
-                                zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                 ValiderMatiere1.setVisible(true);
@@ -8366,7 +8554,7 @@ public class Monopoly_EPF extends JFrame {
                                     plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
-                                zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                 ValiderMatiere1.setVisible(true);
@@ -8476,7 +8664,7 @@ public class Monopoly_EPF extends JFrame {
                                 plateauJeu.repaint();
                                 credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                             }
-                            zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                         }
                         if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                             ValiderMatiere1.setVisible(true);
@@ -8777,7 +8965,7 @@ public class Monopoly_EPF extends JFrame {
                                     plateauJeu.repaint();
                                     credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
                                 }
-                                zone_texte_infos.setText(joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
                             }
                             if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
                                 ValiderMatiere1.setVisible(true);

@@ -73,19 +73,382 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
                 Image TickModuleBas = ImageIO.read(new File("TicModule_bas.png"));
                 if(plateauAssocie.plateaudejeu[1].maison!=0) {
                     if(plateauAssocie.plateaudejeu[1].maison>=1 && plateauAssocie.plateaudejeu[1].maison<5) {
-                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick, 22, 16, this);
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick, 16, 16, this);
                     }
                     if(plateauAssocie.plateaudejeu[1].maison>=2 && plateauAssocie.plateaudejeu[1].maison<5) {
-                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+16, 22, 16, this);
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+16, 16, 16, this);
                     }
                     if(plateauAssocie.plateaudejeu[1].maison>=3 && plateauAssocie.plateaudejeu[1].maison<5) {
-                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+32, 22, 16, this);
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+32, 16, 16, this);
                     }
                     if(plateauAssocie.plateaudejeu[1].maison>=4 && plateauAssocie.plateaudejeu[1].maison<5) {
-                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+48, 22, 16, this);
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+48, 16, 16, this);
                     }
                     else if(plateauAssocie.plateaudejeu[1].maison==5) {
-                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+24, 22, 16, this);
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[1].coordX_premiertick, plateauAssocie.plateaudejeu[1].coordY_premiertick+24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[3].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[3].maison>=1 && plateauAssocie.plateaudejeu[3].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[3].coordX_premiertick, plateauAssocie.plateaudejeu[3].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[3].maison>=2 && plateauAssocie.plateaudejeu[3].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[3].coordX_premiertick, plateauAssocie.plateaudejeu[3].coordY_premiertick+16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[3].maison>=3 && plateauAssocie.plateaudejeu[3].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[3].coordX_premiertick, plateauAssocie.plateaudejeu[3].coordY_premiertick+32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[3].maison>=4 && plateauAssocie.plateaudejeu[3].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[3].coordX_premiertick, plateauAssocie.plateaudejeu[3].coordY_premiertick+48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[3].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[3].coordX_premiertick, plateauAssocie.plateaudejeu[3].coordY_premiertick+24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[6].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[6].maison>=1 && plateauAssocie.plateaudejeu[6].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[6].coordX_premiertick, plateauAssocie.plateaudejeu[6].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[6].maison>=2 && plateauAssocie.plateaudejeu[6].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[6].coordX_premiertick, plateauAssocie.plateaudejeu[6].coordY_premiertick+16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[6].maison>=3 && plateauAssocie.plateaudejeu[6].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[6].coordX_premiertick, plateauAssocie.plateaudejeu[6].coordY_premiertick+32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[6].maison>=4 && plateauAssocie.plateaudejeu[6].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[6].coordX_premiertick, plateauAssocie.plateaudejeu[6].coordY_premiertick+48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[6].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[6].coordX_premiertick, plateauAssocie.plateaudejeu[6].coordY_premiertick+24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[8].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[8].maison>=1 && plateauAssocie.plateaudejeu[8].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[8].coordX_premiertick, plateauAssocie.plateaudejeu[8].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[8].maison>=2 && plateauAssocie.plateaudejeu[8].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[8].coordX_premiertick, plateauAssocie.plateaudejeu[8].coordY_premiertick+16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[8].maison>=3 && plateauAssocie.plateaudejeu[8].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[8].coordX_premiertick, plateauAssocie.plateaudejeu[8].coordY_premiertick+32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[8].maison>=4 && plateauAssocie.plateaudejeu[8].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[8].coordX_premiertick, plateauAssocie.plateaudejeu[8].coordY_premiertick+48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[8].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[8].coordX_premiertick, plateauAssocie.plateaudejeu[8].coordY_premiertick+24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[9].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[9].maison>=1 && plateauAssocie.plateaudejeu[9].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[9].coordX_premiertick, plateauAssocie.plateaudejeu[9].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[9].maison>=2 && plateauAssocie.plateaudejeu[9].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[9].coordX_premiertick, plateauAssocie.plateaudejeu[9].coordY_premiertick+16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[9].maison>=3 && plateauAssocie.plateaudejeu[9].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[9].coordX_premiertick, plateauAssocie.plateaudejeu[9].coordY_premiertick+32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[9].maison>=4 && plateauAssocie.plateaudejeu[9].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[9].coordX_premiertick, plateauAssocie.plateaudejeu[9].coordY_premiertick+48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[9].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[9].coordX_premiertick, plateauAssocie.plateaudejeu[9].coordY_premiertick+24, 16, 16, this);
+                    }
+                }
+                
+                
+                if(plateauAssocie.plateaudejeu[11].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[11].maison>=1 && plateauAssocie.plateaudejeu[11].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[11].coordX_premiertick, plateauAssocie.plateaudejeu[11].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[11].maison>=2 && plateauAssocie.plateaudejeu[11].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[11].coordX_premiertick-16, plateauAssocie.plateaudejeu[11].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[11].maison>=3 && plateauAssocie.plateaudejeu[11].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[11].coordX_premiertick-32, plateauAssocie.plateaudejeu[11].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[11].maison>=4 && plateauAssocie.plateaudejeu[11].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[11].coordX_premiertick-48, plateauAssocie.plateaudejeu[11].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[11].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[11].coordX_premiertick-24, plateauAssocie.plateaudejeu[11].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[13].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[13].maison>=1 && plateauAssocie.plateaudejeu[13].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[13].coordX_premiertick, plateauAssocie.plateaudejeu[13].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[13].maison>=2 && plateauAssocie.plateaudejeu[13].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[13].coordX_premiertick-16, plateauAssocie.plateaudejeu[13].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[13].maison>=3 && plateauAssocie.plateaudejeu[13].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[13].coordX_premiertick-32, plateauAssocie.plateaudejeu[13].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[13].maison>=4 && plateauAssocie.plateaudejeu[13].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[13].coordX_premiertick-48, plateauAssocie.plateaudejeu[13].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[13].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[13].coordX_premiertick-24, plateauAssocie.plateaudejeu[13].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[14].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[14].maison>=1 && plateauAssocie.plateaudejeu[14].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[14].coordX_premiertick, plateauAssocie.plateaudejeu[14].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[14].maison>=2 && plateauAssocie.plateaudejeu[14].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[14].coordX_premiertick-16, plateauAssocie.plateaudejeu[14].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[14].maison>=3 && plateauAssocie.plateaudejeu[14].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[14].coordX_premiertick-32, plateauAssocie.plateaudejeu[14].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[14].maison>=4 && plateauAssocie.plateaudejeu[14].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[14].coordX_premiertick-48, plateauAssocie.plateaudejeu[14].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[14].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[14].coordX_premiertick-24, plateauAssocie.plateaudejeu[14].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[16].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[16].maison>=1 && plateauAssocie.plateaudejeu[16].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[16].coordX_premiertick, plateauAssocie.plateaudejeu[16].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[16].maison>=2 && plateauAssocie.plateaudejeu[16].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[16].coordX_premiertick-16, plateauAssocie.plateaudejeu[16].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[16].maison>=3 && plateauAssocie.plateaudejeu[16].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[16].coordX_premiertick-32, plateauAssocie.plateaudejeu[16].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[16].maison>=4 && plateauAssocie.plateaudejeu[16].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[16].coordX_premiertick-48, plateauAssocie.plateaudejeu[16].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[16].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[16].coordX_premiertick-24, plateauAssocie.plateaudejeu[16].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[18].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[18].maison>=1 && plateauAssocie.plateaudejeu[18].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[18].coordX_premiertick, plateauAssocie.plateaudejeu[18].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[18].maison>=2 && plateauAssocie.plateaudejeu[18].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[18].coordX_premiertick-16, plateauAssocie.plateaudejeu[18].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[18].maison>=3 && plateauAssocie.plateaudejeu[18].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[18].coordX_premiertick-32, plateauAssocie.plateaudejeu[18].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[18].maison>=4 && plateauAssocie.plateaudejeu[18].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[18].coordX_premiertick-48, plateauAssocie.plateaudejeu[18].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[18].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[18].coordX_premiertick-24, plateauAssocie.plateaudejeu[18].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[19].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[19].maison>=1 && plateauAssocie.plateaudejeu[19].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[19].coordX_premiertick, plateauAssocie.plateaudejeu[19].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[19].maison>=2 && plateauAssocie.plateaudejeu[19].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[19].coordX_premiertick-16, plateauAssocie.plateaudejeu[19].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[19].maison>=3 && plateauAssocie.plateaudejeu[19].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[19].coordX_premiertick-32, plateauAssocie.plateaudejeu[19].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[19].maison>=4 && plateauAssocie.plateaudejeu[19].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[19].coordX_premiertick-48, plateauAssocie.plateaudejeu[19].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[19].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[19].coordX_premiertick-24, plateauAssocie.plateaudejeu[19].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                
+                
+                if(plateauAssocie.plateaudejeu[21].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[21].maison>=1 && plateauAssocie.plateaudejeu[21].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[21].coordX_premiertick, plateauAssocie.plateaudejeu[21].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[21].maison>=2 && plateauAssocie.plateaudejeu[21].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[21].coordX_premiertick, plateauAssocie.plateaudejeu[21].coordY_premiertick-16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[21].maison>=3 && plateauAssocie.plateaudejeu[21].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[21].coordX_premiertick, plateauAssocie.plateaudejeu[21].coordY_premiertick-32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[21].maison>=4 && plateauAssocie.plateaudejeu[21].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[21].coordX_premiertick, plateauAssocie.plateaudejeu[21].coordY_premiertick-48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[21].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[21].coordX_premiertick, plateauAssocie.plateaudejeu[21].coordY_premiertick-24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[23].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[23].maison>=1 && plateauAssocie.plateaudejeu[23].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[23].coordX_premiertick, plateauAssocie.plateaudejeu[23].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[23].maison>=2 && plateauAssocie.plateaudejeu[23].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[23].coordX_premiertick, plateauAssocie.plateaudejeu[23].coordY_premiertick-16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[23].maison>=3 && plateauAssocie.plateaudejeu[23].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[23].coordX_premiertick, plateauAssocie.plateaudejeu[23].coordY_premiertick-32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[23].maison>=4 && plateauAssocie.plateaudejeu[23].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[23].coordX_premiertick, plateauAssocie.plateaudejeu[23].coordY_premiertick-48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[23].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[23].coordX_premiertick, plateauAssocie.plateaudejeu[23].coordY_premiertick-24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[24].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[24].maison>=1 && plateauAssocie.plateaudejeu[24].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[24].coordX_premiertick, plateauAssocie.plateaudejeu[24].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[24].maison>=2 && plateauAssocie.plateaudejeu[24].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[24].coordX_premiertick, plateauAssocie.plateaudejeu[24].coordY_premiertick-16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[24].maison>=3 && plateauAssocie.plateaudejeu[24].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[24].coordX_premiertick, plateauAssocie.plateaudejeu[24].coordY_premiertick-32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[24].maison>=4 && plateauAssocie.plateaudejeu[24].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[24].coordX_premiertick, plateauAssocie.plateaudejeu[24].coordY_premiertick-48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[24].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[24].coordX_premiertick, plateauAssocie.plateaudejeu[24].coordY_premiertick-24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[26].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[26].maison>=1 && plateauAssocie.plateaudejeu[26].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[26].coordX_premiertick, plateauAssocie.plateaudejeu[26].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[26].maison>=2 && plateauAssocie.plateaudejeu[26].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[26].coordX_premiertick, plateauAssocie.plateaudejeu[26].coordY_premiertick-16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[26].maison>=3 && plateauAssocie.plateaudejeu[26].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[26].coordX_premiertick, plateauAssocie.plateaudejeu[26].coordY_premiertick-32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[26].maison>=4 && plateauAssocie.plateaudejeu[26].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[26].coordX_premiertick, plateauAssocie.plateaudejeu[26].coordY_premiertick-48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[26].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[26].coordX_premiertick, plateauAssocie.plateaudejeu[26].coordY_premiertick-24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[27].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[27].maison>=1 && plateauAssocie.plateaudejeu[27].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[27].coordX_premiertick, plateauAssocie.plateaudejeu[27].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[27].maison>=2 && plateauAssocie.plateaudejeu[27].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[27].coordX_premiertick, plateauAssocie.plateaudejeu[27].coordY_premiertick-16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[27].maison>=3 && plateauAssocie.plateaudejeu[27].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[27].coordX_premiertick, plateauAssocie.plateaudejeu[27].coordY_premiertick-32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[27].maison>=4 && plateauAssocie.plateaudejeu[27].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[27].coordX_premiertick, plateauAssocie.plateaudejeu[27].coordY_premiertick-48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[27].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[27].coordX_premiertick, plateauAssocie.plateaudejeu[27].coordY_premiertick-24, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[29].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[29].maison>=1 && plateauAssocie.plateaudejeu[29].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[29].coordX_premiertick, plateauAssocie.plateaudejeu[29].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[29].maison>=2 && plateauAssocie.plateaudejeu[29].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[29].coordX_premiertick, plateauAssocie.plateaudejeu[29].coordY_premiertick-16, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[29].maison>=3 && plateauAssocie.plateaudejeu[29].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[29].coordX_premiertick, plateauAssocie.plateaudejeu[29].coordY_premiertick-32, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[29].maison>=4 && plateauAssocie.plateaudejeu[29].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[29].coordX_premiertick, plateauAssocie.plateaudejeu[29].coordY_premiertick-48, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[29].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[29].coordX_premiertick, plateauAssocie.plateaudejeu[29].coordY_premiertick-24, 16, 16, this);
+                    }
+                }
+                
+                
+                if(plateauAssocie.plateaudejeu[31].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[31].maison>=1 && plateauAssocie.plateaudejeu[31].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[31].coordX_premiertick, plateauAssocie.plateaudejeu[31].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[31].maison>=2 && plateauAssocie.plateaudejeu[31].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[31].coordX_premiertick+16, plateauAssocie.plateaudejeu[31].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[31].maison>=3 && plateauAssocie.plateaudejeu[31].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[31].coordX_premiertick+32, plateauAssocie.plateaudejeu[31].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[31].maison>=4 && plateauAssocie.plateaudejeu[31].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[31].coordX_premiertick+48, plateauAssocie.plateaudejeu[31].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[31].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[31].coordX_premiertick+24, plateauAssocie.plateaudejeu[31].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[32].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[32].maison>=1 && plateauAssocie.plateaudejeu[32].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[32].coordX_premiertick, plateauAssocie.plateaudejeu[32].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[32].maison>=2 && plateauAssocie.plateaudejeu[32].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[32].coordX_premiertick+16, plateauAssocie.plateaudejeu[32].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[32].maison>=3 && plateauAssocie.plateaudejeu[32].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[32].coordX_premiertick+32, plateauAssocie.plateaudejeu[32].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[32].maison>=4 && plateauAssocie.plateaudejeu[32].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[32].coordX_premiertick+48, plateauAssocie.plateaudejeu[32].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[32].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[32].coordX_premiertick+24, plateauAssocie.plateaudejeu[32].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[34].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[34].maison>=1 && plateauAssocie.plateaudejeu[34].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[34].coordX_premiertick, plateauAssocie.plateaudejeu[34].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[34].maison>=2 && plateauAssocie.plateaudejeu[34].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[34].coordX_premiertick+16, plateauAssocie.plateaudejeu[34].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[34].maison>=3 && plateauAssocie.plateaudejeu[34].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[34].coordX_premiertick+32, plateauAssocie.plateaudejeu[34].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[34].maison>=4 && plateauAssocie.plateaudejeu[34].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[34].coordX_premiertick+48, plateauAssocie.plateaudejeu[34].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[34].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[34].coordX_premiertick+24, plateauAssocie.plateaudejeu[34].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[37].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[37].maison>=1 && plateauAssocie.plateaudejeu[37].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[37].coordX_premiertick, plateauAssocie.plateaudejeu[37].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[37].maison>=2 && plateauAssocie.plateaudejeu[37].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[37].coordX_premiertick+16, plateauAssocie.plateaudejeu[37].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[37].maison>=3 && plateauAssocie.plateaudejeu[37].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[37].coordX_premiertick+32, plateauAssocie.plateaudejeu[37].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[37].maison>=4 && plateauAssocie.plateaudejeu[37].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[37].coordX_premiertick+48, plateauAssocie.plateaudejeu[37].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[37].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[37].coordX_premiertick+24, plateauAssocie.plateaudejeu[37].coordY_premiertick, 16, 16, this);
+                    }
+                }
+                if(plateauAssocie.plateaudejeu[39].maison!=0) {
+                    if(plateauAssocie.plateaudejeu[39].maison>=1 && plateauAssocie.plateaudejeu[39].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[39].coordX_premiertick, plateauAssocie.plateaudejeu[39].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[39].maison>=2 && plateauAssocie.plateaudejeu[39].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[39].coordX_premiertick+16, plateauAssocie.plateaudejeu[39].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[39].maison>=3 && plateauAssocie.plateaudejeu[39].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[39].coordX_premiertick+32, plateauAssocie.plateaudejeu[39].coordY_premiertick, 16, 16, this);
+                    }
+                    if(plateauAssocie.plateaudejeu[39].maison>=4 && plateauAssocie.plateaudejeu[39].maison<5) {
+                        g.drawImage(TickMatiereGauche, plateauAssocie.plateaudejeu[39].coordX_premiertick+48, plateauAssocie.plateaudejeu[39].coordY_premiertick, 16, 16, this);
+                    }
+                    else if(plateauAssocie.plateaudejeu[39].maison==5) {
+                        g.drawImage(TickModuleGauche, plateauAssocie.plateaudejeu[39].coordX_premiertick+24, plateauAssocie.plateaudejeu[39].coordY_premiertick, 16, 16, this);
                     }
                 }
             }

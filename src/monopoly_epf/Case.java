@@ -37,7 +37,7 @@ public class Case {
                 idCase = 0;
                 coordX = 17;
                 coordY = 639;
-                coordX_premiertick=81;
+                coordX_premiertick=84;
                 coordY_premiertick=630;
                 break;
             case(1) : 
@@ -49,6 +49,8 @@ public class Case {
                 idCase = 1;
                 coordX = 17;
                 coordY = 508;
+                coordX_premiertick=84;
+                coordY_premiertick=499;
                 break;
             case(2) :
                 nom = "M01";
@@ -59,6 +61,8 @@ public class Case {
                 idCase = 2;
                 coordX = 17;
                 coordY = 310;
+                coordX_premiertick=84;
+                coordY_premiertick=300;
                 break;
             case(3) : 
                 nom = "M02";
@@ -69,6 +73,8 @@ public class Case {
                 idCase = 3;
                 coordX = 17;
                 coordY = 179;
+                coordX_premiertick=84;
+                coordY_premiertick=169;
                 break;
             case(4) :
                 nom = "M03";
@@ -79,6 +85,8 @@ public class Case {
                 idCase = 4;
                 coordX = 17;
                 coordY = 113;
+                coordX_premiertick=84;
+                coordY_premiertick=105;
                 break;
             case (5) :
                 nom = "JLAB04";
@@ -89,6 +97,8 @@ public class Case {
                 idCase = 5;
                 coordX = 114;
                 coordY = 17;
+                coordX_premiertick=153;
+                coordY_premiertick=84;
                 break;
             case(6) :
                 nom = "JLAB05";
@@ -99,6 +109,8 @@ public class Case {
                 idCase = 6;
                 coordX = 246;
                 coordY = 17;
+                coordX_premiertick=236;
+                coordY_premiertick=84;
                 break;
             case(7) : 
                 nom = "JLAB06";
@@ -109,6 +121,8 @@ public class Case {
                 idCase = 7;
                 coordX = 312;
                 coordY = 17;
+                coordX_premiertick=302;
+                coordY_premiertick=84;
                 break;
             case(8) : 
                 nom = "M101";
@@ -119,6 +133,8 @@ public class Case {
                 idCase = 8;
                 coordX = 444;
                 coordY = 17;
+                coordX_premiertick=434;
+                coordY_premiertick=84;
                 break;
             case(9) :
                 nom = "M102";
@@ -129,6 +145,8 @@ public class Case {
                 idCase = 9;
                 coordX = 575;
                 coordY = 17;
+                coordX_premiertick=565;
+                coordY_premiertick=84;
                 break;
             case(10) :
                 nom = "M103";
@@ -139,6 +157,8 @@ public class Case {
                 idCase = 10;
                 coordX = 641;
                 coordY = 17;
+                coordX_premiertick=631;
+                coordY_premiertick=84;
                 break;
             case(11) :
                 nom = "bulle1";
@@ -149,6 +169,8 @@ public class Case {
                 idCase = 11;
                 coordX = 738;
                 coordY = 113;
+                coordX_premiertick=700;
+                coordY_premiertick=153;
                 break;
             case(12) :
                 nom = "bulle2";
@@ -159,6 +181,8 @@ public class Case {
                 idCase = 12;
                 coordX = 738;
                 coordY = 244;
+                coordX_premiertick=700;
+                coordY_premiertick=284;
                 break;
             case(13) :
                 nom = "bulle3";
@@ -169,6 +193,8 @@ public class Case {
                 idCase = 13;
                 coordX = 738;
                 coordY = 310;
+                coordX_premiertick=700;
+                coordY_premiertick=350;
                 break;
             case(14) :
                 nom = "H03";
@@ -179,6 +205,8 @@ public class Case {
                 idCase = 14;
                 coordX = 738;
                 coordY = 442;
+                coordX_premiertick=700;
+                coordY_premiertick=482;
                 break;
             case(15) :
                 nom = "H05";
@@ -189,6 +217,8 @@ public class Case {
                 idCase = 15;
                 coordX = 738;
                 coordY = 508;
+                coordX_premiertick=700;
+                coordY_premiertick=548;
                 break;
             case(16) :
                 nom = "H08";
@@ -199,6 +229,8 @@ public class Case {
                 idCase = 16;
                 coordX = 738;
                 coordY = 640;
+                coordX_premiertick=700;
+                coordY_premiertick=679;
                 break;
             case(17) : 
                 nom = "K03";
@@ -209,6 +241,8 @@ public class Case {
                 idCase = 17;
                 coordX = 641;
                 coordY = 738;
+                coordX_premiertick=631;
+                coordY_premiertick=698;
                 break;
             case(18) :
                 nom = "K04";
@@ -219,6 +253,8 @@ public class Case {
                 idCase = 18;
                 coordX = 575;
                 coordY = 738;
+                coordX_premiertick=565;
+                coordY_premiertick=698;
                 break;
             case(19) :
                 nom = "K05";
@@ -229,6 +265,8 @@ public class Case {
                 idCase = 19;
                 coordX = 444;
                 coordY = 738;
+                coordX_premiertick=434;
+                coordY_premiertick=698;
                 break;
             case(20) :
                 nom = "I01";
@@ -239,6 +277,8 @@ public class Case {
                 idCase = 20;
                 coordX = 246;
                 coordY = 738;
+                coordX_premiertick=237;
+                coordY_premiertick=698;
                 break;
             case(21) :
                 nom = "energy lab";
@@ -249,6 +289,8 @@ public class Case {
                 idCase = 21;
                 coordX = 114;
                 coordY = 738;
+                coordX_premiertick=105;
+                coordY_premiertick=698;
                 break;
             case(22) : //Il manque les gares et les compagnies --> Gares et compagnie à la suite des autres
                 nom = "Cour";
@@ -464,138 +506,247 @@ public class Case {
         else if (maison == 1) {
             switch (idCase) {
                 case(0) : loyer = 10;
+                break;
                 case(1) : loyer = 20;
+                break;
                 case(2) : loyer = 30;
+                break;
                 case(3) : loyer = 30;
+                break;
                 case(4) : loyer = 40;
+                break;
                 case(5) : loyer = 50;
+                break;
                 case(6) : loyer = 50;
+                break;
                 case(7) : loyer = 60;
+                break;
                 case(8) : loyer = 70;
+                break;
                 case(9) : loyer = 70;
+                break;
                 case(10) : loyer = 80;
+                break;
                 case(11) : loyer = 90;
+                break;
                 case(12) : loyer = 90;
+                break;
                 case(13) : loyer = 100;
+                break;
                 case(14) : loyer = 110;
+                break;
                 case(15) : loyer = 110;
+                break;
                 case(16) : loyer = 120;
+                break;
                 case(17) : loyer = 130;
+                break;
                 case(18) : loyer = 130;
+                break;
                 case(19) : loyer = 150;
+                break;
                 case(20) : loyer = 175;
+                break;
                 case(21) : loyer = 200;
+                break;
             }
         }
         
         else if (maison == 2) {
             switch (idCase) {
                 case(0) : loyer = 30;
+                break;
                 case(1) : loyer = 60;
+                break;
                 case(2) : loyer = 80;
+                break;
                 case(3) : loyer = 80;
+                break;
                 case(4) : loyer = 100;
+                break;
                 case(5) : loyer = 150;
+                break;
                 case(6) : loyer = 150;
+                break;
                 case(7) : loyer = 180;
+                break;
                 case(8) : loyer = 200;
+                break;
                 case(9) : loyer = 200;
+                break;
                 case(10) : loyer = 220;
+                break;
                 case(11) : loyer = 250;
+                break;
                 case(12) : loyer = 250;
+                break;
                 case(13) : loyer = 300;
+                break;
                 case(14) : loyer = 330;
+                break;
                 case(15) : loyer = 330;
+                break;
                 case(16) : loyer = 360;
+                break;
                 case(17) : loyer = 390;
+                break;
                 case(18) : loyer = 390;
+                break;
                 case(19) : loyer = 450;
+                break;
                 case(20) : loyer = 500;
+                break;
                 case(21) : loyer = 600;
+                break;
             }
         }
         
         else if (maison == 3) {
             switch (idCase) {
                 case(0) : loyer = 90;
+                break;
                 case(1) : loyer = 180;
+                break;
                 case(2) : loyer = 270;
+                break;
                 case(3) : loyer = 270;
+                break;
                 case(4) : loyer = 300;
+                break;
                 case(5) : loyer = 450;
+                break;
                 case(6) : loyer = 450;
+                break;
                 case(7) : loyer = 500;
+                break;
                 case(8) : loyer = 550;
+                break;
                 case(9) : loyer = 550;
+                break;
                 case(10) : loyer = 600;
+                break;
                 case(11) : loyer = 700;
+                break;
                 case(12) : loyer = 700;
+                break;
                 case(13) : loyer = 750;
+                break;
                 case(14) : loyer = 800;
+                break;
                 case(15) : loyer = 800;
+                break;
                 case(16) : loyer = 850;
+                break;
                 case(17) : loyer = 900;
+                break;
                 case(18) : loyer = 900;
+                break;
                 case(19) : loyer = 1000;
+                break;
                 case(20) : loyer = 1100;
+                break;
                 case(21) : loyer = 1400;
+                break;
             }
         }
         
         else if (maison == 4) {
             switch (idCase) {
                 case(0) : loyer = 160;
+                break;
                 case(1) : loyer = 320;
+                break;
                 case(2) : loyer = 400;
+                break;
                 case(3) : loyer = 400;
+                break;
                 case(4) : loyer = 450;
+                break;
                 case(5) : loyer = 625;
+                break;
                 case(6) : loyer = 625;
+                break;
                 case(7) : loyer = 700;
+                break;
                 case(8) : loyer = 750;
+                break;
                 case(9) : loyer = 750;
+                break;
                 case(10) : loyer = 800;
+                break;
                 case(11) : loyer = 875;
+                break;
                 case(12) : loyer = 875;
+                break;
                 case(13) : loyer = 925;
+                break;
                 case(14) : loyer = 975;
+                break;
                 case(15) : loyer = 975;
+                break;
                 case(16) : loyer = 1025;
+                break;
                 case(17) : loyer = 1100;
+                break;
                 case(18) : loyer = 1100;
+                break;
                 case(19) : loyer = 1200;
+                break;
                 case(20) : loyer = 1300;
+                break;
                 case(21) : loyer = 1700;
+                break;
             }
         }
         
         else if (maison == 5) {
             switch (idCase) {
                 case(0) : loyer = 250;
+                break;
                 case(1) : loyer = 450;
+                break;
                 case(2) : loyer = 550;
+                break;
                 case(3) : loyer = 550;
+                break;
                 case(4) : loyer = 600;
+                break;
                 case(5) : loyer = 750;
+                break;
                 case(6) : loyer = 750;
+                break;
                 case(7) : loyer = 900;
+                break;
                 case(8) : loyer = 950;
+                break;
                 case(9) : loyer = 950;
+                break;
                 case(10) : loyer = 1000;
+                break;
                 case(11) : loyer = 1050;
+                break;
                 case(12) : loyer = 1050;
+                break;
                 case(13) : loyer = 1100;
+                break;
                 case(14) : loyer = 1150;
+                break;
                 case(15) : loyer = 1150;
+                break;
                 case(16) : loyer = 1200;
+                break;
                 case(17) : loyer = 1275;
+                break;
                 case(18) : loyer = 1275;
+                break;
                 case(19) : loyer = 1400;
+                break;
                 case(20) : loyer = 1500;
+                break;
                 case(21) : loyer = 2000;
+                break;
             }
         }
-        System.out.println(loyer);
     }
     
     public int lirePrixMaison(){
