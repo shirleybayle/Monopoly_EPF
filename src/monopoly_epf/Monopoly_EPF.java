@@ -312,7 +312,7 @@ public class Monopoly_EPF extends JFrame {
                 nomJ4.setVisible(false);
                 Joueur4.setText(tabJoueurs[3].nom);
                 pseudo4.setVisible(false);
-                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + " et votre pion est la Calculatrice!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + " et votre pion est la Diode!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + " et votre pion est l'Erlenmeyer!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + " et votre pion est Olga!\n" + tabJoueurs[0].nom + " vous commencez!");
+                
                 credits1.setVisible(true);
                 credits2.setVisible(true);
                 credits3.setVisible(true);
@@ -360,7 +360,11 @@ public class Monopoly_EPF extends JFrame {
                 plateauJeu.afficherPions=true;
                 plateauJeu.repaint();
                 Lancer_des.setEnabled(true);
-                joueurCourant = tabJoueurs[0];
+                //joueurCourant = tabJoueurs[0];
+                Random generateur = new Random(); //génère un nombre
+                int nbaleat = generateur.nextInt(4); //entre 0 et 3 compris
+                joueurCourant = tabJoueurs[nbaleat];
+                zone_texte_infos.setText("Joueur 1, votre pseudo est " + tabJoueurs[0].nom + " et votre pion est la Calculatrice!" + "\nJoueur 2, votre pseudo est " + tabJoueurs[1].nom + " et votre pion est la Diode!" + "\nJoueur 3, votre pseudo est " + tabJoueurs[2].nom + " et votre pion est l'Erlenmeyer!" + "\nJoueur 4, votre pseudo est " + tabJoueurs[3].nom + " et votre pion est Olga!\n" + joueurCourant.nom + " vous commencez!");
             }
         });
         this.repaint();
@@ -3012,10 +3016,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+11)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,11%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+11)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,11%40,plateau.plateaudejeu[caseActuelle]);*/
                             zone_texte_infos.setText(zone_texte_infos.getText() + " et arrivez à '" + joueurCourant.pion.caseassociee.nom + "'!");
                         }
                         else {
