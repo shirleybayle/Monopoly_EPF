@@ -23,7 +23,7 @@ public class Paquet {
         }
         else {
             for (int i=0; i<16; i++) {
-                paquet[i] = new Carte(i,false);
+                paquet[i] = new Carte(15,false);
             }
         }
     }
