@@ -178,60 +178,53 @@ public class Monopoly_EPF extends JFrame {
         Regles_Text.setWrapStyleWord(true);
         Regles_Text.setLineWrap(true);
         Regles_Text.setText(
-"Nombre de joueurs : 4 Duree : 1h a 2h30\n\n" +
-"- Ce jeu consiste a ACHETER, a LOUER ou a VENDRE diverses salles de facon si profitable que l’on puisse devenir le plus riche des joueurs et eventuellement, le GAGNANT. Des qu’un joueur n’a plus de credit il est elimine du jeu et ses proprietes sont de nouveau disponible. Le gagnant est le dernier encore debout.\n" +
-"\n" +
-"- Debut d’annee est le point de depart, et l’on fait avancer les pions sur le plateau de jeu d’apres le chiffre indique en lancant les des.\n" +
-"\n" +
-"- Si le pion d’un joueur se place sur une case qui n’appartient encore a personne, le joueur pourra l’acheter.\n" +
-"\n" +
-"- Devenir proprietaire a pour OBJECTIF la perception de loyers des adversaires loges sur la case qui represente la propriete. Ces loyers sont fortement augmentes par l’obtention de matieres et de modules (voir emplacements pour les montants)\n" +
-"\n\n" +
-"Debut de partie :\n\n" +
-"\n" +
-"- Chaque joueur recoit 1500 credits\n" +
-"\n" +
-"- Les joueurs jouent un par un dans le sens des aiguilles d’une montre en commencant par lancer le de\n" +
-"\n" +
-"- Le pion du joueur avance, dans le sens horaire, d’autant de cases que l’aura indique le nombre total des des.\n" +
-"\n" +
-"- Les PIONS restent sur les cases qu’ils occupent et repartent au tour suivant.\n" +
-"\n" +
-"- Il peut y avoir, en meme temps, plus d’un pion sur la meme case.\n" +
-"\n" +
-"- Si une case est atteinte par son pion, un joueur peut avoir le droit d’acheter la salle ou etre force de payer un loyer (si la propriete appartient à un autre), de payer des taxes, de prendre une carte des paquets Chance ou Caisse de Communaute d’aller aux rattrapages, etc.\n" +
-"\n" +
-"- Si un joueur obtient un doublet, il avance son pion, comme d’habitude, du total represente par les deux des, et beneficie de tous les privileges ou doit subir toutes les penalites relatives à la case ainsi atteinte. Il beneficie d’un second lance, avance son pion comme precedemment et la case ainsi atteinte le soumet de nouveau à tous ses effets.\n" +
-"\n" +
-"- Si, cependant, il obtient un doublet trois fois de suite, il devra immediatement ALLER AUX RATTRAPAGES.\n" +
-"\n" +
-"- Les joueurs, durant la partie, feront plusieurs fois le tour du plateau de jeu. Chaque fois que le pion s’arrete sur la case Debut D’annee il recoit 400 credits s’il la depasse il recevra 200 credits.\n" +
-"\n" +
-"- Il est avantageux de detenir des titres de propriete sur la TOTALITE d’un groupe complet de meme couleur car le loyer s’en voit augmente\n" +
-"\n" +
-"- Si le joueur tombe sur les cartes chances ou communautes, il applique ce qui est ecrit sur la carte. Si c’est une carte liberee de Rattrapages, il garde la carte et pourra l’utiliser ou non s’il est envoye en prison.\n" +
-"\n" +
-"- QUAND LE PION ATTEINT UNE CASE Taxe, il faut payer le montant indique\n" +
-"\n\n" +
-"- RATTRAPAGES : Un Joueur y est envoye :\n" +
-"\n" +
-"1) Si son pion atteint la case ALLEZ AUX RATTRAPAGES (Il ne touche pas la bourse de la case debut d’annee)\n" +
-"\n" +
-"2) S’il tire une carte marquee ALLEZ AUX RATTRAPAGES\n" +
-"\n" +
-"3) S’il obtient trois doublets de suite.\n" +
-"\n\n" +
-"Il reste bloque 3 tours aux rattrapages. Il a 1 chance par tour de faire un double et de sortir et au 3eme tour il est oblige de payer 50 credits et de jouer\n" +
-"\n" +
-"- S’il tombe sur la carte Majoration il recupere les credits des taxes accumules\n" +
-"\n" +
-"- Les Matieres ne peuvent etre obtenues et validees que sur des terrains d’un GROUPE COMPLET DE MEME COULEUR appartenant au joueur.\n" +
-"\n" +
-"- Les Modules ne peuvent etre valides que si TOUTES LES MATIERES d’un emplacement ont ete validees\n" +
-"\n" +
-"- Pour plus de details sur les cartes, allez voir la rubrique emplacements ou decouvrez-les en partie.\n" +
-"\n" +
-"- Si une regle du jeu vous semble floue ou si vous ne comprenez pas certains elements, n’hesitez pas a demander de l’aide a des joueurs plus experimentes.");
+"Nombre de joueurs : 4\n\n"+
+
+"Duree : 1h a 2h30\n\n"+
+
+"- Ce jeu consiste a ACHETER et a DISPENSER des cours dans diverses salles de facon si profitable que l’on puisse devenir le joueur possedant le plus de credits et eventuellement, le GAGNANT. Des que le nombre de credit d’un joueur est negatif il est elimine du jeu et ses proprietes sont de nouveau disponibles. Le gagnant est le dernier encore debout.\n"+
+
+"- Debut d’annee est le point de depart, et l’on fait avancer les pions sur le plateau de jeu d’apres le chiffre indique en lancant les des.\n"+
+
+"- Si le pion d’un joueur se place sur une case qui n’appartient encore a personne, le joueur pourra l’acheter.\n"+
+
+"- Devenir proprietaire a pour OBJECTIF la perception de credits des adversaires que le proprietaire aide en dispensant des cours sur la case qui represente la propriete. Les prix des cours sont fortement augmentes par l’obtention de matieres et de modules (voir emplacements pour les montants)\n\n"+
+
+"Debut de partie :\n\n"+
+
+"- Chaque joueur recoit 1500 credits.\n"+
+
+"- Les joueurs jouent un par un dans le sens des aiguilles d’une montre en commencant par lancer le de.\n"+
+
+"- Le pion du joueur avance, dans le sens horaire, d’autant de cases que l’aura indique le nombre total des des.\n"+
+
+"- Les PIONS restent sur les cases qu’ils occupent et repartent au tour suivant.\n"+
+
+"- Il peut y avoir, en meme temps, plus d’un pion sur la meme case.\n"+
+
+"- Si une case est atteinte par son pion, un joueur peut avoir le droit d’acheter la salle ou etre force de payer un cours (si la propriéte appartient a un autre), de payer des taxes, de prendre une carte des paquets Chance ou Caisse de Communauté d’aller aux rattrapages, etc.\n"+
+
+"- Si un joueur obtient un doublet, il avance son pion, comme d’habitude, du total represente par les deux des, et beneficie de tous les privileges ou doit subir toutes les penalites relatives a la case ainsi atteinte. Il beneficie d’un second lance, avance son pion comme precedemment et la case ainsi atteinte le soumet de nouveau a tous ses effets.\n"+
+
+"- Si, cependant, il obtient un doublet trois fois de suite, il devra immediatement ALLER AUX RATTRAPAGES.\n"+
+
+"- Les joueurs, durant la partie, feront plusieurs fois le tour du plateau de jeu. Chaque fois que le pion s’arrete sur la case Debut D’annee il recoit, pour sa bourse, 400 credits s’il la depasse il recevra 200 credits.\n"+
+
+"- Il est avantageux de detenir des titres de propriete sur la TOTALITE d’un groupe complet de meme couleur car le prix du cours dispense s’en voit augmente.\n"+
+
+"- Si le joueur tombe sur les cartes chances ou communautes, il applique ce qui est ecrit sur la carte. Si c’est une carte Libere de Rattrapages, il garde la carte et pourra l’utiliser ou non s’il est envoye aux rattrapages.\n"+
+
+"- QUAND LE PION ATTEINT UNE CASE Taxe, il faut payer le montant indique.\n\n"+
+
+"- RATTRAPAGES : Un Joueur y est envoye :\n\n"+
+
+"1) Si son pion atteint la case ALLEZ AUX RATTRAPAGES (il ne touche pas la bourse de la case debut d’annee)\n"+
+
+"2) S’il tire une carte ALLEZ AUX RATTRAPAGES\n"+
+
+"3) S’il obtient trois doublets de suite\n"+
+
+"Il reste bloque 3 tours aux rattrapages. Il a 1 chance par tour de faire un double et de sortir et au 3eme tour il est oblige de payer 50 credits et de jouer.");
         
         Regles_Text.setEditable(false);
         Regles_Text.setFont(new Font("Monopoly", Font.PLAIN, 17));
