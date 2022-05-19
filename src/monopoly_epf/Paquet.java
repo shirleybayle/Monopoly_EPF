@@ -18,7 +18,7 @@ public class Paquet {
     public Paquet(boolean com) {
         if (com == true) {
             for (int i=0; i<16; i++) {
-                paquet[i] = new Carte(i, true);
+                paquet[i] = new Carte(4, true);
             }            
         }
         else {

@@ -1260,7 +1260,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                          plateau.plateaudejeu[3].construireMaison();
                         plateau.plateaudejeu[3].changerLoyer();
@@ -1281,7 +1385,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                          plateau.plateaudejeu[1].construireMaison();
                         plateau.plateaudejeu[1].changerLoyer();
@@ -1380,7 +1588,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[6].construireMaison();
                         plateau.plateaudejeu[6].changerLoyer();
@@ -1402,7 +1714,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[8].construireMaison();
                         plateau.plateaudejeu[8].changerLoyer();
@@ -1424,7 +1840,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[9].construireMaison();
                         plateau.plateaudejeu[9].changerLoyer();
@@ -1501,7 +2021,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[39].construireMaison();
                         plateau.plateaudejeu[39].changerLoyer();
@@ -1529,7 +2153,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[37].construireMaison();
                         plateau.plateaudejeu[37].changerLoyer();
@@ -1610,7 +2338,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[29].construireMaison();
                         plateau.plateaudejeu[29].changerLoyer();
@@ -1632,7 +2464,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[26].construireMaison();
                         plateau.plateaudejeu[26].changerLoyer();
@@ -1654,7 +2590,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[27].construireMaison();
                         plateau.plateaudejeu[27].changerLoyer();
@@ -1769,7 +2809,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[19].construireMaison();
                         plateau.plateaudejeu[19].changerLoyer();
@@ -1791,7 +2935,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[16].construireMaison();
                         plateau.plateaudejeu[16].changerLoyer();
@@ -1814,7 +3062,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[18].construireMaison();
                         plateau.plateaudejeu[18].changerLoyer();
@@ -1911,7 +3263,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[24].construireMaison();
                         plateau.plateaudejeu[24].changerLoyer();
@@ -1933,7 +3389,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[21].construireMaison();
                         plateau.plateaudejeu[21].changerLoyer();
@@ -1955,7 +3515,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[23].construireMaison();
                         plateau.plateaudejeu[23].changerLoyer();
@@ -2054,7 +3718,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[34].construireMaison();
                         plateau.plateaudejeu[34].changerLoyer();
@@ -2076,7 +3844,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                     plateau.plateaudejeu[31].construireMaison();
                         plateau.plateaudejeu[31].changerLoyer();
@@ -2098,7 +3970,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[32].construireMaison();
                         plateau.plateaudejeu[32].changerLoyer();
@@ -2196,7 +4172,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[14].construireMaison();
                         plateau.plateaudejeu[14].changerLoyer();
@@ -2218,7 +4298,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[11].construireMaison();
                         plateau.plateaudejeu[11].changerLoyer();
@@ -2241,7 +4425,111 @@ public class Monopoly_EPF extends JFrame {
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
                             darties = false;
-                            Lancer_des.setEnabled(true);
+                            if(joueurCourant.credits<0) {
+                                eliminationJoueur();
+                            }
+                            else {
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            while(joueurCourant.droitdejouer==false) {
+                                joueurCourant.droitdejouer=true;
+                                changerJoueur();
+                                compteurDouble=0;
+                            }
+                            if(joueurCourant.compteurTourPrison==3) {
+                                joueurCourant.compteurTourPrison=0;
+                                joueurCourant.prison=false;
+                                joueurCourant.credits=joueurCourant.credits-50;
+                                if(joueurCourant==tabJoueurs[0]) {
+                                    tabJoueurs[0].pion.coordX=61;
+                                    tabJoueurs[0].pion.coordY=2;
+                                    tabJoueurs[0].pion.taille=24;
+                                    plateauJeu.orientation1=plateauJeu.haut1;
+                                    plateauJeu.repaint();
+                                    credits1.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[1]) {
+                                    tabJoueurs[1].pion.coordX=18;
+                                    tabJoueurs[1].pion.coordY=2;
+                                    tabJoueurs[1].pion.taille=24;
+                                    plateauJeu.orientation2=plateauJeu.haut2;
+                                    plateauJeu.repaint();
+                                    credits2.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[2]) {
+                                    tabJoueurs[2].pion.coordX=2;
+                                    tabJoueurs[2].pion.coordY=20;
+                                    tabJoueurs[2].pion.taille=24;
+                                    plateauJeu.orientation3=plateauJeu.gauche3;
+                                    plateauJeu.repaint();
+                                    credits3.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                else if(joueurCourant==tabJoueurs[3]) {
+                                    tabJoueurs[3].pion.coordX=2;
+                                    tabJoueurs[3].pion.coordY=63;
+                                    tabJoueurs[3].pion.taille=24;
+                                    plateauJeu.orientation4=plateauJeu.gauche4;
+                                    plateauJeu.repaint();
+                                    credits4.setText("Crédits : " + joueurCourant.credits + " ECTS");
+                                }
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n" + joueurCourant.nom + " vous venez de rater vos 3 essais aux rattrapages, vous payez donc 50 crédits et réintégrez le parcours scolaire!");
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.PeutConstruire==true && compteurDouble==0) {
+                                ValiderMatiere4.setVisible(true);
+                            }
+                            if(joueurCourant==tabJoueurs[0] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération1.setVisible(true);
+                                }
+                                PayerPrison1.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[1] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération2.setVisible(true);
+                                }
+                                PayerPrison2.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[2] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération3.setVisible(true);
+                                }
+                                PayerPrison3.setVisible(true);
+                            }
+                            else if(joueurCourant==tabJoueurs[3] && joueurCourant.prison==true) {
+                                joueurCourant.compteurTourPrison++;
+                                if(joueurCourant.nbCartes!=0) {
+                                    Libération4.setVisible(true);
+                                }
+                                PayerPrison4.setVisible(true);
+                            }
+                            if(elim!=true) {
+                                Lancer_des.setEnabled(true);
+                            }
+                            if(joueurCourant.prison!=true && joueurCourant.nom!=null && compteurDouble==0) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon tirez les dés!");
+                            }
+                            else if(joueurCourant.prison!=true && joueurCourant.nom!=null) {
+                                zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, vous pouvez tirez les dés!");
+                            }
+                            else {
+                                if(joueurCourant.nom!=null) {
+                                    zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
+                                }
+                            }
+                            plateauJeu.repaint();
                         }
                         plateau.plateaudejeu[13].construireMaison();
                         plateau.plateaudejeu[13].changerLoyer();
@@ -3353,8 +5641,8 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.prison!=true) {
                             /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
                             deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+11)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,11%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);
                             zone_texte_infos.setText(zone_texte_infos.getText() + " et arrivez à '" + joueurCourant.pion.caseassociee.nom + "'!");
                         }
                         else {
@@ -8983,7 +11271,7 @@ public class Monopoly_EPF extends JFrame {
                         faireActionCase();
                     }
                     joueurCourant.pion.caseassociee.occupant=true;
-                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance3" && carte!="chance4"&& carte!="chance10" && carte!="chance13" && cartespéciale!="com4") {
+                    if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.prison!=true && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance3" && carte!="chance4"&& carte!="chance10" && carte!="chance13" && darties!=true && cartespéciale!="com4") {
                         if(joueurCourant.pion.caseassociee!=plateau.plateaudejeu[0] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[2] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[4] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[7] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[10] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[17] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[20] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[22] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[30] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[33] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[36] && joueurCourant.pion.caseassociee!=plateau.plateaudejeu[38] && joueurCourant.pion.caseassociee.proprietaire==null) {
                             if(joueurCourant==tabJoueurs[0]) {
                                 Acheter1.setVisible(true);
@@ -9120,7 +11408,7 @@ public class Monopoly_EPF extends JFrame {
                     else if(joueurCourant.pion.caseassociee==plateau.plateaudejeu[30]) {
                         carte="Jousset";
                     }
-                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance2" && carte!="chance3"  && carte!="chance4" && carte!="chance10" && carte!="chance13" && cartespéciale!="com4" && tripledouble==false) {
+                    else if(joueurCourant.prison==true && carte!="com2" && carte!="Jousset" && carte!="com8" && carte!="com12" && carte!="com13" && carte!="chance1" && carte!="chance2" && carte!="chance3"  && carte!="chance4" && carte!="chance10" && carte!="chance13" && darties!=true && cartespéciale!="com4" && tripledouble==false) {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
