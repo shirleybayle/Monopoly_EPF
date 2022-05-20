@@ -753,7 +753,7 @@ public class Case {
         return prixMaison;
     }
     
-    public boolean construireMaison() {
+    public boolean construireMaison(boolean Darties) {
         if (maison == 5){
             return false;
         }
@@ -766,7 +766,9 @@ public class Case {
                 proprietaire.nbMaisonJoueur++;
             }
             //prixMaison = prixMaison + prixMaison; //pas capté à quoi ça servait ça
-            proprietaire.credits = proprietaire.credits-prixMaison; //vérifier que c'est pas déjà fait qq part ça aussi
+            if(Darties!=true) {
+                proprietaire.credits = proprietaire.credits-prixMaison; //vérifier que c'est pas déjà fait qq part ça aussi
+            }
             return true;
         }
     }

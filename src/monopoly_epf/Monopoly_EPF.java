@@ -1260,7 +1260,6 @@ public class Monopoly_EPF extends JFrame {
                         if (darties) {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -1367,7 +1366,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                         plateau.plateaudejeu[3].construireMaison();
+                        plateau.plateaudejeu[3].construireMaison(darties);
                         plateau.plateaudejeu[3].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -1379,6 +1378,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -1388,7 +1388,6 @@ public class Monopoly_EPF extends JFrame {
                         if (darties) {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -1495,7 +1494,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[1].construireMaison();
+                        plateau.plateaudejeu[1].construireMaison(darties);
                         plateau.plateaudejeu[1].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -1507,6 +1506,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -1594,7 +1594,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -1701,7 +1700,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[6].construireMaison();
+                        plateau.plateaudejeu[6].construireMaison(darties);
                         plateau.plateaudejeu[6].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -1713,6 +1712,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -1723,7 +1723,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -1830,7 +1829,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[8].construireMaison();
+                        plateau.plateaudejeu[8].construireMaison(darties);
                         plateau.plateaudejeu[8].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -1842,6 +1841,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -1852,7 +1852,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -1959,7 +1958,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[9].construireMaison();
+                        plateau.plateaudejeu[9].construireMaison(darties);
                         plateau.plateaudejeu[9].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -1971,6 +1970,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -2036,7 +2036,6 @@ public class Monopoly_EPF extends JFrame {
                         if (darties) {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -2143,7 +2142,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[37].construireMaison();
+                        plateau.plateaudejeu[37].construireMaison(darties);
                         plateau.plateaudejeu[37].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -2155,6 +2154,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -2171,7 +2171,6 @@ public class Monopoly_EPF extends JFrame {
                         if (darties) {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -2278,7 +2277,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[39].construireMaison();
+                        plateau.plateaudejeu[39].construireMaison(darties);
                         plateau.plateaudejeu[39].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -2290,6 +2289,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -2359,7 +2359,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -2466,7 +2465,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[29].construireMaison();
+                        plateau.plateaudejeu[29].construireMaison(darties);
                         plateau.plateaudejeu[29].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -2478,6 +2477,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -2488,7 +2488,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -2595,7 +2594,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[26].construireMaison();
+                        plateau.plateaudejeu[26].construireMaison(darties);
                         plateau.plateaudejeu[26].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -2607,6 +2606,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -2617,7 +2617,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -2724,7 +2723,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[27].construireMaison();
+                        plateau.plateaudejeu[27].construireMaison(darties);
                         plateau.plateaudejeu[27].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -2736,6 +2735,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -2839,7 +2839,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -2946,7 +2945,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[19].construireMaison();
+                        plateau.plateaudejeu[19].construireMaison(darties);
                         plateau.plateaudejeu[19].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -2958,6 +2957,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -2968,7 +2968,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -3075,7 +3074,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[16].construireMaison();
+                        plateau.plateaudejeu[16].construireMaison(darties);
                         plateau.plateaudejeu[16].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -3087,6 +3086,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     
                     }
@@ -3098,7 +3098,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -3205,7 +3204,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[18].construireMaison();
+                        plateau.plateaudejeu[18].construireMaison(darties);
                         plateau.plateaudejeu[18].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -3217,6 +3216,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -3302,7 +3302,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -3409,7 +3408,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[24].construireMaison();
+                        plateau.plateaudejeu[24].construireMaison(darties);
                         plateau.plateaudejeu[24].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -3421,6 +3420,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -3431,7 +3431,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -3538,7 +3537,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[21].construireMaison();
+                        plateau.plateaudejeu[21].construireMaison(darties);
                         plateau.plateaudejeu[21].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -3550,6 +3549,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -3560,7 +3560,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -3667,7 +3666,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[23].construireMaison();
+                        plateau.plateaudejeu[23].construireMaison(darties);
                         plateau.plateaudejeu[23].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -3679,6 +3678,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -3766,7 +3766,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -3873,7 +3872,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[34].construireMaison();
+                        plateau.plateaudejeu[34].construireMaison(darties);
                         plateau.plateaudejeu[34].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -3885,6 +3884,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -3895,7 +3895,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -4002,7 +4001,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                    plateau.plateaudejeu[31].construireMaison();
+                    plateau.plateaudejeu[31].construireMaison(darties);
                         plateau.plateaudejeu[31].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -4014,6 +4013,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -4024,7 +4024,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -4129,9 +4128,10 @@ public class Monopoly_EPF extends JFrame {
                                     zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
                                 }
                             }
+                            darties = false;
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[32].construireMaison();
+                        plateau.plateaudejeu[32].construireMaison(darties);
                         plateau.plateaudejeu[32].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -4229,7 +4229,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -4336,7 +4335,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[14].construireMaison();
+                        plateau.plateaudejeu[14].construireMaison(darties);
                         plateau.plateaudejeu[14].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -4348,6 +4347,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     }
                 });
@@ -4358,7 +4358,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -4465,7 +4464,7 @@ public class Monopoly_EPF extends JFrame {
                             }
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[11].construireMaison();
+                        plateau.plateaudejeu[11].construireMaison(darties);
                         plateau.plateaudejeu[11].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
@@ -4477,6 +4476,7 @@ public class Monopoly_EPF extends JFrame {
                         if(joueurCourant.credits<0) {
                             eliminationJoueur();
                         }
+                        darties = false;
                         plateauJeu.repaint();
                     
                     }
@@ -4488,7 +4488,6 @@ public class Monopoly_EPF extends JFrame {
                             Construire1.setEnabled(false);
                             Construire2.setEnabled(false);
                             Construire3.setEnabled(false);
-                            darties = false;
                             if(joueurCourant.credits<0) {
                                 eliminationJoueur();
                             }
@@ -4593,9 +4592,10 @@ public class Monopoly_EPF extends JFrame {
                                     zone_texte_infos.setText(zone_texte_infos.getText() + "\n\n" + joueurCourant.nom + " à vous de jouer, validez des matières si vous le pouvez, sinon essayer de quitter les rattrapages (vous pouvez payer 50 crédits, jouer une carte libération de rattrapages si vous en possédez une ou sinon tenter de faire un double)!");
                                 }
                             }
+                            darties = false;
                             plateauJeu.repaint();
                         }
-                        plateau.plateaudejeu[13].construireMaison();
+                        plateau.plateaudejeu[13].construireMaison(darties);
                         plateau.plateaudejeu[13].changerLoyer();
                         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
                         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
