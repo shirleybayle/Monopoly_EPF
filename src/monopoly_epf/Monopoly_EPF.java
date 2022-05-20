@@ -5898,8 +5898,9 @@ public class Monopoly_EPF extends JFrame {
                 FrameSalle.add(Panelsalle,new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
                 FrameSalle.add(LabelSalles,new org.netbeans.lib.awtextra.AbsoluteConstraints(250,737,-1,-1));
                 FrameSalle.repaint();
-                
-                JLabel imagePion;
+                int CoordX=0;
+                int CoordY=0;
+                JLabel imagePion = new JLabel("");
                 for (int i=0; i<4; i++){
                     if(tabJoueurs[i].sallesPossedees != null) {
                        for(int j=0; j<tabJoueurs[i].sallesPossedees.size(); j++){
@@ -5921,13 +5922,20 @@ public class Monopoly_EPF extends JFrame {
                                    break;
                            }
                            int idCoord = tabJoueurs[i].sallesPossedees.get(j).idCase;
-                           int CoordX = idCoord%7*148;
-                           int CoordY = idCoord/7*200;
-                           Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                           CoordX = idCoord%7*148;
+                           CoordY = idCoord/7*200;
+                           //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                           imagePion.setVisible(true);
                            FrameSalle.repaint();
                        }
                     }
+                    else {
+                        imagePion = new JLabel("");
+                        imagePion.setVisible(false);
+                        FrameSalle.repaint();
+                    }
                 }
+                Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                 
             }});
         this.repaint();
@@ -8210,9 +8218,11 @@ public class Monopoly_EPF extends JFrame {
         public void eliminationJoueur() { //réinitialiser toutes ses cases
         elim=true;
         for (int i=0; i<joueurCourant.sallesPossedees.size(); i++) {
-            Case c = joueurCourant.sallesPossedees.get(i);
+            Case c = joueurCourant.sallesPossedees.get(0);
             c.maison = 0;
             c.proprietaire = null;
+            joueurCourant.sallesPossedees.remove(0);
+            
         }
         String nom = joueurCourant.nom;
         joueurCourant.sallesPossedees=null;
@@ -10203,10 +10213,10 @@ public class Monopoly_EPF extends JFrame {
         nbCartes2.setVisible(false);
         nbCartes3.setVisible(false);
         nbCartes4.setVisible(false);
-        tabJoueurs[0].credits = 1500;
-        tabJoueurs[1].credits = 1500;
-        tabJoueurs[2].credits = 1500;
-        tabJoueurs[3].credits = 1500;
+        tabJoueurs[0].credits = 500;
+        tabJoueurs[1].credits = 500;
+        tabJoueurs[2].credits = 500;
+        tabJoueurs[3].credits = 500;
         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
         credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
