@@ -5901,8 +5901,9 @@ public class Monopoly_EPF extends JFrame {
                 int CoordX=0;
                 int CoordY=0;
                 JLabel imagePion = new JLabel("");
+                imagePion.setVisible(false);
                 for (int i=0; i<4; i++){
-                    if(tabJoueurs[i].sallesPossedees != null) {
+                    if(tabJoueurs[i].sallesPossedees != null && tabJoueurs[i].nom != null) {
                        for(int j=0; j<tabJoueurs[i].sallesPossedees.size(); j++){
                            switch (i){
                                case 0:
@@ -5927,15 +5928,18 @@ public class Monopoly_EPF extends JFrame {
                            //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                            imagePion.setVisible(true);
                            FrameSalle.repaint();
+                           Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                        }
                     }
                     else {
                         imagePion = new JLabel("");
                         imagePion.setVisible(false);
                         FrameSalle.repaint();
+                        //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                     }
+                    //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                 }
-                Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                 
             }});
         this.repaint();
@@ -8218,10 +8222,11 @@ public class Monopoly_EPF extends JFrame {
         public void eliminationJoueur() { //réinitialiser toutes ses cases
         elim=true;
         for (int i=0; i<joueurCourant.sallesPossedees.size(); i++) {
-            Case c = joueurCourant.sallesPossedees.get(0);
+            //Case c = joueurCourant.sallesPossedees.get(0);
+            Case c = joueurCourant.sallesPossedees.get(i);
             c.maison = 0;
             c.proprietaire = null;
-            joueurCourant.sallesPossedees.remove(0);
+            //joueurCourant.sallesPossedees.remove(0);
             
         }
         String nom = joueurCourant.nom;
@@ -10213,10 +10218,10 @@ public class Monopoly_EPF extends JFrame {
         nbCartes2.setVisible(false);
         nbCartes3.setVisible(false);
         nbCartes4.setVisible(false);
-        tabJoueurs[0].credits = 500;
-        tabJoueurs[1].credits = 500;
-        tabJoueurs[2].credits = 500;
-        tabJoueurs[3].credits = 500;
+        tabJoueurs[0].credits = 1500;
+        tabJoueurs[1].credits = 1500;
+        tabJoueurs[2].credits = 1500;
+        tabJoueurs[3].credits = 1500;
         credits1.setText("Crédits : " + tabJoueurs[0].credits + " ECTS");
         credits2.setText("Crédits : " + tabJoueurs[1].credits + " ECTS");
         credits3.setText("Crédits : " + tabJoueurs[2].credits + " ECTS");
