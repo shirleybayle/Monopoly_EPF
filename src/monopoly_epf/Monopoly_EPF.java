@@ -5902,6 +5902,7 @@ public class Monopoly_EPF extends JFrame {
                 int CoordY=0;
                 JLabel imagePion = new JLabel("");
                 imagePion.setVisible(false);
+                Panelsalle.removeAll();
                 for (int i=0; i<4; i++){
                     if(tabJoueurs[i].sallesPossedees != null && tabJoueurs[i].nom != null) {
                        for(int j=0; j<tabJoueurs[i].sallesPossedees.size(); j++){
@@ -5922,22 +5923,27 @@ public class Monopoly_EPF extends JFrame {
                                    imagePion = new JLabel("PAS DE JOUEUR");
                                    break;
                            }
-                           int idCoord = tabJoueurs[i].sallesPossedees.get(j).idCase;
-                           CoordX = idCoord%7*148;
-                           CoordY = idCoord/7*200;
-                           //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
-                           imagePion.setVisible(true);
-                           FrameSalle.repaint();
-                           Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                           if(tabJoueurs[i].sallesPossedees!=null) {
+                                int idCoord = tabJoueurs[i].sallesPossedees.get(j).idCase;
+                                CoordX = idCoord%7*148;
+                                CoordY = idCoord/7*200;
+                                //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                                imagePion.setVisible(true);
+                                FrameSalle.repaint();
+                                Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                           }
                        }
                     }
-                    else {
+                    /*else {
                         imagePion = new JLabel("");
-                        imagePion.setVisible(false);
+                        CoordX = idCoord%7*148;
+                        CoordY = idCoord/7*200;
+                        Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                         FrameSalle.repaint();
-                        //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
-                    }
+                                //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                    }*/
                     //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
+                FrameSalle.repaint();
                 }
                 //Panelsalle.add(imagePion,new org.netbeans.lib.awtextra.AbsoluteConstraints(CoordX,CoordY,-1,-1));
                 
