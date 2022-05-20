@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
 import java.util.Random;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -5705,10 +5706,10 @@ public class Monopoly_EPF extends JFrame {
                             }
                         }
                         if(joueurCourant.prison!=true) {
-                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
-                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);*/
-                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
-                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);
+                            DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+(de1.valeur+de2.valeur))%40], "Normal");
+                            deplacerPion(joueurCourant.pion,(de1.valeur+de2.valeur)%40,plateau.plateaudejeu[caseActuelle]);
+                            /*DeplacerPion(joueurCourant.pion, plateau.plateaudejeu[(caseActuelle+1)%40], "Téléportation");
+                            deplacerPion(joueurCourant.pion,1%40,plateau.plateaudejeu[caseActuelle]);*/
                             zone_texte_infos.setText(zone_texte_infos.getText() + " et arrivez à '" + joueurCourant.pion.caseassociee.nom + "'!");
                         }
                         else {
@@ -8965,6 +8966,60 @@ public class Monopoly_EPF extends JFrame {
                 paquet.tabstatuts[i] = false;
                 if(paquet.paquetVide()==true) {
                     paquet.MAJtab();
+                    if(paquet.communaute==true) {
+                        Thread threadcom = new Thread(){
+                            public void run(){    
+                                try {
+                                    plateauJeu.afficherCartes=true;
+                                    for(int i=0;i<2;i++) {
+                                        Thread.sleep(100);
+                                        plateauJeu.orientationcom=plateauJeu.com2;
+                                        plateauJeu.repaint();
+                                        Thread.sleep(250);
+                                        plateauJeu.orientationcom=plateauJeu.com3;
+                                        plateauJeu.repaint();
+                                        Thread.sleep(250);
+                                        plateauJeu.orientationcom=plateauJeu.com4;
+                                        plateauJeu.repaint();
+                                        Thread.sleep(250);
+                                        plateauJeu.orientationcom=plateauJeu.com1;
+                                        plateauJeu.repaint();
+                                    }
+                                } catch (InterruptedException ex) {
+                                    Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+
+                            }
+                        };
+                        threadcom.start();
+                    }
+                    else if(paquet.chance==true) {
+                        Thread threadchance = new Thread(){
+                            public void run(){    
+                                try {
+                                    plateauJeu.afficherCartes=true;
+                                    for(int i=0;i<2;i++) {
+                                        Thread.sleep(100);
+                                        plateauJeu.orientationchance=plateauJeu.chance2;
+                                        plateauJeu.repaint();
+                                        Thread.sleep(250);
+                                        plateauJeu.orientationchance=plateauJeu.chance3;
+                                        plateauJeu.repaint();
+                                        Thread.sleep(250);
+                                        plateauJeu.orientationchance=plateauJeu.chance4;
+                                        plateauJeu.repaint();
+                                        Thread.sleep(250);
+                                        plateauJeu.orientationchance=plateauJeu.chance1;
+                                        plateauJeu.repaint();
+                                    }
+                                } catch (InterruptedException ex) {
+                                    Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+
+                            }
+                        };
+                        threadchance.start();
+                    }
                 }
                 return paquet.paquet[i];
             }
@@ -9013,7 +9068,7 @@ public class Monopoly_EPF extends JFrame {
             }
             else if (id==6) {
                 joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
-                zone_texte_infos.setText(joueurCourant.nom + " vous payez " + 25*joueurCourant.nbMaisonJoueur+100*joueurCourant.nbHotelJoueur + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + " vous payez " + 25*joueurCourant.nbMaisonJoueur + " ECTS pour vos matières et "+100*joueurCourant.nbHotelJoueur + " ECTS pour vos modules!");
             }
             else if (id==7) { // a verifier
                 int nbJoueursRestants=0;
@@ -9134,7 +9189,7 @@ public class Monopoly_EPF extends JFrame {
             }
             else if (id==11) {
                 joueurCourant.credits = joueurCourant.credits-25*joueurCourant.nbMaisonJoueur-100*joueurCourant.nbHotelJoueur;
-                zone_texte_infos.setText(joueurCourant.nom + " payez " + 25*joueurCourant.nbMaisonJoueur+100*joueurCourant.nbHotelJoueur + " ECTS!");
+                zone_texte_infos.setText(joueurCourant.nom + " payez " + 25*joueurCourant.nbMaisonJoueur + " ECTS pour vos matières et " + 100*joueurCourant.nbHotelJoueur + " ECTS pour vos modules!");
             }
             else if (id==12) {
                 joueurCourant.credits = joueurCourant.credits-40;
@@ -10191,7 +10246,57 @@ public class Monopoly_EPF extends JFrame {
         paquetCommunaute = new Paquet(true);
         paquetChance = new Paquet(false);
         paquetCommunaute.MAJtab();
+        Thread threadcom = new Thread(){
+            public void run(){    
+                try {
+                    plateauJeu.afficherCartes=true;
+                    for(int i=0;i<2;i++) {
+                        Thread.sleep(100);
+                        plateauJeu.orientationcom=plateauJeu.com2;
+                        plateauJeu.repaint();
+                        Thread.sleep(250);
+                        plateauJeu.orientationcom=plateauJeu.com3;
+                        plateauJeu.repaint();
+                        Thread.sleep(250);
+                        plateauJeu.orientationcom=plateauJeu.com4;
+                        plateauJeu.repaint();
+                        Thread.sleep(250);
+                        plateauJeu.orientationcom=plateauJeu.com1;
+                        plateauJeu.repaint();
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+        };
+        threadcom.start();
         paquetChance.MAJtab();
+        Thread threadchance = new Thread(){
+            public void run(){    
+                try {
+                    plateauJeu.afficherCartes=true;
+                    for(int i=0;i<2;i++) {
+                        Thread.sleep(100);
+                        plateauJeu.orientationchance=plateauJeu.chance2;
+                        plateauJeu.repaint();
+                        Thread.sleep(250);
+                        plateauJeu.orientationchance=plateauJeu.chance3;
+                        plateauJeu.repaint();
+                        Thread.sleep(250);
+                        plateauJeu.orientationchance=plateauJeu.chance4;
+                        plateauJeu.repaint();
+                        Thread.sleep(250);
+                        plateauJeu.orientationchance=plateauJeu.chance1;
+                        plateauJeu.repaint();
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Monopoly_EPF.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+        };
+        threadchance.start();
         plateau.plateaudejeu[0].occupant=true;
     }
     

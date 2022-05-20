@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 public class PlateauPanel extends JPanel { //trouver l'info des pions associés et associer des pions aux coordonnees + trouver l'info des maisons
     Plateau plateauAssocie;
     boolean afficherPions=false;
+    boolean afficherCartes=false;
     Pion P1;
     Pion P2;
     Pion P3;
@@ -46,6 +47,19 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
     File droite4 = new File("PionOlga3_droite.png");
     File bas4 = new File("PionOlga3_bas.png");
     File orientation4 = new File("PionOlga3_gauche.png");
+    
+    Carte com;
+    Carte chance;
+    File com1 = new File("comu1.png");
+    File com2 = new File("comu1.png");
+    File com3 = new File("comu3.png");
+    File com4 = new File("comu4.png");
+    File orientationcom = new File("comu1.png");
+    File chance1 = new File("chance1.png");
+    File chance2 = new File("chance2.png");
+    File chance3 = new File("chance3.png");
+    File chance4 = new File("chance4.png");
+    File orientationchance = new File("chance1.png");
        
     @Override 
     public void paintComponent(Graphics g) {
@@ -54,6 +68,12 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
              //g.drawOval(1,1, 800, 600);
             Image img = ImageIO.read(new File("plateaujeu.png"));
             g.drawImage(img, 0,0,800, 798, this);
+            if(afficherCartes==true) {
+                Image Com = ImageIO.read(orientationcom);
+                g.drawImage(Com, 497, 130, 170, 173, this);
+                Image Chance = ImageIO.read(orientationchance);
+                g.drawImage(Chance, 133, 495, 174, 174, this);
+            }
             if(afficherPions==true) {
                 Image Calculette = ImageIO.read(orientation1);
                 g.drawImage(Calculette, P1.coordX, P1.coordY, P1.taille, P1.taille, this);
@@ -63,6 +83,8 @@ public class PlateauPanel extends JPanel { //trouver l'info des pions associés 
                 g.drawImage(Erlenmeyer, P3.coordX, P3.coordY, P3.taille, P3.taille, this);
                 Image Olga = ImageIO.read(orientation4);
                 g.drawImage(Olga, P4.coordX, P4.coordY, P4.taille, P4.taille, this);
+                
+                
                 Image TickMatiereGauche = ImageIO.read(new File("TicMatière_gauche.png"));
                 Image TickMatiereHaut = ImageIO.read(new File("TicMatière_haut.png"));
                 Image TickMatiereDroite = ImageIO.read(new File("TicMatière_droite.png"));
